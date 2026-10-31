@@ -1,9 +1,9 @@
 {
-  "updated_at_utc": "2026-10-31T16:58:15+00:00",
-  "fred_updated_at_utc": "2026-10-31T16:58:15+00:00",
+  "updated_at_utc": "2026-10-31T21:31:42+00:00",
+  "fred_updated_at_utc": "2026-10-31T21:31:42+00:00",
   "ecos_updated_at_utc": "2026-10-31T16:58:15+00:00",
   "fred_status": "OK",
-  "ecos_status": "OK",
+  "ecos_status": "REFRESH FAILED; retained previous data — 한국은행 기준금리: <urlopen error timed out>; 원/달러 환율 매매기준율: <urlopen error timed out>; 국고채 3년물 수익률: <urlopen error timed out>",
   "fred": [
     {
       "name": "US 10Y Treasury",
