@@ -1,7 +1,7 @@
 {
-  "updated_at_utc": null,
-  "fred_status": "Awaiting GitHub Actions run and FRED_API_KEY",
-  "ecos_status": "Optional; configure ECOS_API_KEY and ECOS_SERIES_JSON",
+  "updated_at_utc": "2026-10-31",
+  "fred_status": "DGS10: HTTP Error 400: Bad Request; DGS2: HTTP Error 400: Bad Request; FEDFUNDS: HTTP Error 400: Bad Request; CPIAUCSL: HTTP Error 400: Bad Request; UNRATE: HTTP Error 400: Bad Request; GDP: HTTP Error 400: Bad Request",
+  "ecos_status": "Invalid ECOS_SERIES_JSON: Expecting value: line 1 column 1 (char 0)",
   "fred": [],
   "ecos": []
 }
