@@ -64,16 +64,16 @@
     {
       "name": "원/달러 환율 매매기준율",
       "series": "731Y003",
-      "date": "20240327",
-      "value": 1348.7,
+      "date": "20261030",
+      "value": 1334.3,
       "unit": "KRW per USD",
       "source": "ECOS"
     },
     {
       "name": "국고채 3년물 수익률",
       "series": "817Y002",
-      "date": "20240326",
-      "value": 3.301,
+      "date": "20261030",
+      "value": 3.715,
       "unit": "%",
       "source": "ECOS"
     }
