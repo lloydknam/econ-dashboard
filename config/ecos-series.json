@@ -1,0 +1,23 @@
+[
+  {
+    "name": "한국은행 기준금리",
+    "stat_code": "722Y001",
+    "cycle": "M",
+    "item_code1": "0101000",
+    "unit": "%"
+  },
+  {
+    "name": "원/달러 환율 매매기준율",
+    "stat_code": "731Y003",
+    "cycle": "D",
+    "item_code1": "0000003",
+    "unit": "KRW per USD"
+  },
+  {
+    "name": "국고채 3년물 수익률",
+    "stat_code": "817Y002",
+    "cycle": "D",
+    "item_code1": "010200000",
+    "unit": "%"
+  }
+]
