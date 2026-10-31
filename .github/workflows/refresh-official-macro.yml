@@ -41,5 +41,17 @@ jobs:
           git add data/official-macro.json
           if ! git diff --cached --quiet; then
             git commit -m "Refresh official macroeconomic data"
-            git push
+            # Rebase onto the latest main if a concurrent repository update landed
+            # while the collector was running. Prefer this run's freshly collected
+            # observation file if the same generated file changed concurrently.
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase -X theirs origin/main
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              sleep 2
+            done
+            echo "Unable to push refreshed data after three attempts" >&2
+            exit 1
           fi
