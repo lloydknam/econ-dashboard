@@ -1,0 +1,44 @@
+name: Validate dashboard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate Python collector
+        run: python -m py_compile scripts/collect_official_macro.py
+      - name: Validate JSON data and ECOS configuration
+        run: |
+          python -m json.tool data/official-macro.json > /dev/null
+          python -m json.tool config/ecos-series.json > /dev/null
+      - name: Validate dashboard HTML and inline JavaScript
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import re
+          html = Path("index.html").read_text(encoding="utf-8")
+          class CheckHTML(HTMLParser):
+              pass
+          CheckHTML().feed(html)
+          scripts = re.findall(r"<script\\b([^>]*)>(.*?)</script>", html, re.I | re.S)
+          inline = [body for attrs, body in scripts if not re.search(r"\\bsrc\\s*=", attrs, re.I) and body.strip()]
+          Path("/tmp/dashboard-inline.js").write_text("\\n".join(inline), encoding="utf-8")
+          print(f"HTML parsed; {len(inline)} inline script block(s) found.")
+          PY
+          node --check /tmp/dashboard-inline.js
