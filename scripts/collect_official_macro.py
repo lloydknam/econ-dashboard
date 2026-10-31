@@ -10,6 +10,7 @@ Repository variable:
 """
 import json
 import os
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import date, timedelta
@@ -21,8 +22,14 @@ OUT = ROOT / "data" / "official-macro.json"
 
 def get_json(url: str):
     req = urllib.request.Request(url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
-    with urllib.request.urlopen(req, timeout=25) as response:
-        return json.loads(response.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=25) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        # Preserve the API's diagnostic message (e.g. invalid API key/parameter)
+        # while never logging the request URL, which contains the API key.
+        detail = exc.read().decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"HTTP {exc.code}: {detail or exc.reason}") from None
 
 
 def collect_fred():
@@ -58,15 +65,19 @@ def collect_fred():
 
 def collect_ecos():
     key = os.environ.get("ECOS_API_KEY", "").strip()
-    raw = os.environ.get("ECOS_SERIES_JSON", "[]").strip()
+    raw = os.environ.get("ECOS_SERIES_JSON", "").strip()
     if not key:
         return [], "ECOS_API_KEY not configured"
+    if not raw:
+        return [], "ECOS_SERIES_JSON not configured; no ECOS series selected"
     try:
         specs = json.loads(raw)
         if not isinstance(specs, list):
             raise ValueError("ECOS_SERIES_JSON must be a JSON array")
     except Exception as exc:
         return [], "Invalid ECOS_SERIES_JSON: " + str(exc)
+    if not specs:
+        return [], "ECOS_SERIES_JSON is empty; no ECOS series selected"
 
     rows, errors = [], []
     today = date.today()
