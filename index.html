@@ -28,8 +28,8 @@ body{background:var(--bg);color:var(--text);font-size:13px;letter-spacing:-.01em
 .name{font-size:17px;letter-spacing:-.035em;color:#101713}.subname{font:9px var(--mono);letter-spacing:.1em;color:#78847b}
 .market-state{color:#008f62;font-weight:600}.pulse{background:#00b67a;box-shadow:0 0 0 4px #00b67a20}
 .nav{gap:7px;padding:12px 0;border-bottom:1px solid var(--line)}
-.nav span{font:500 11px var(--sans);letter-spacing:0;color:#606c64;padding:8px 13px;border-radius:999px;border:1px solid transparent}
-.nav .active{background:#e7f6ef;border-color:#d0eddf;color:#006b49;font-weight:700}
+.nav a{font:500 11px var(--sans);letter-spacing:0;color:#606c64;padding:8px 13px;border-radius:999px;border:1px solid transparent;white-space:nowrap;text-decoration:none}.nav a:hover{background:#f1f7f3;color:#006b49}
+.nav a.active{background:#e7f6ef;border-color:#d0eddf;color:#006b49;font-weight:700}
 .ticker{height:42px;gap:26px;border-bottom:1px solid var(--line);font-size:10px;color:#3b473f}
 .ticker b{color:#829087}
 .section-head{margin:28px 0 12px;align-items:center}
@@ -70,7 +70,7 @@ td:first-child{font-family:var(--sans);font-weight:600;color:#334139}
 a{color:#008b5e}a:hover{color:#005d3d}
 @media(max-width:760px){
  .app{padding:0 13px 28px}.topbar{height:62px}.name{font-size:14px}
- .nav{padding:10px 0;gap:5px}.nav span{padding:7px 10px;font-size:10px}
+ .nav{padding:10px 0;gap:5px}.nav a{padding:7px 10px;font-size:10px}
  .ticker{height:36px;gap:18px}.section-head{margin-top:22px}
  .kpi{padding:13px;min-height:100px}.kpi-value{font-size:21px}
  .panel{padding:13px;border-radius:12px}.country{padding:13px}
@@ -79,14 +79,14 @@ a{color:#008b5e}a:hover{color:#005d3d}
 
 /* Kalshi-style market interface refinement */
 :root{--bg:#f7f9f7;--surface:#fff;--surface2:#f3f7f4;--line:#e7ece8;--text:#101713;--muted:#69756e;--dim:#98a29b;--green:#00a875}
-body{background:#f7f9f7;color:#111915;font-family:var(--sans)}
+html{scroll-behavior:smooth;scroll-padding-top:18px}body{background:#f7f9f7;color:#111915;font-family:var(--sans)}
 .app{max-width:1600px;padding:0 30px 48px}
 .topbar{height:72px;background:#fff;border-bottom:1px solid #e9eeea}
 .identity .logo{background:#00a875}
 .name{font-size:18px;letter-spacing:-.04em}
 .subname{letter-spacing:.07em}
 .nav{padding:12px 0 13px;gap:8px}
-.nav span{font:600 12px var(--sans);letter-spacing:0;border-radius:9px;padding:9px 14px}
+.nav a{font:600 12px var(--sans);letter-spacing:0;border-radius:9px;padding:9px 14px}
 .nav .active{background:#e7f7ef;border-color:#d6f0e2;color:#00764f}
 .market-hero{min-height:245px;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:24px;padding:32px 8px 26px;overflow:hidden}
 .hero-copy{position:relative;z-index:1}
@@ -124,8 +124,8 @@ body{background:#f7f9f7;color:#111915;font-family:var(--sans)}
 </head>
 <body><div class="app">
 <header class="topbar"><div class="identity"><img class="clerk-photo" src="https://raw.githubusercontent.com/lloydknam/eodigallae/main/icons/clerk.jpg" alt="클사무관 프로필"><div><div class="name">클사무관의 경제 터미널</div><div class="subname">CLERK’S ECON TERMINAL · GLOBAL MACRO INTELLIGENCE</div></div></div><div class="topmeta"><span class="market-state"><i class="pulse"></i> MARKET MONITOR</span><span id="clock">--:--:-- KST</span></div></header>
-<nav class="nav"><span class="active">01 / OVERVIEW</span><span>02 / GLOBAL MARKETS</span><span>03 / MACRO ECONOMY</span><span>04 / COUNTRY COMPARISON</span><span>05 / DATA & SOURCES</span></nav>
-<section class="market-hero">
+<nav class="nav" aria-label="Dashboard sections"><a class="active" href="#overview">01 / OVERVIEW</a><a href="#global-markets">02 / GLOBAL MARKETS</a><a href="#macro-economy">03 / MACRO ECONOMY</a><a href="#country-comparison">04 / COUNTRY COMPARISON</a><a href="#data-sources">05 / DATA & SOURCES</a></nav>
+<section class="market-hero" id="overview">
   <div class="hero-copy"><div class="hero-eyebrow"><span class="hero-dot"></span> GLOBAL MACRO · LIVE MONITOR</div>
     <h1>경제의 흐름을<br><em>한눈에 읽다.</em></h1>
     <p>글로벌 금융시장과 주요 거시경제 지표를 실시간으로 살펴보세요.</p>
@@ -146,12 +146,12 @@ body{background:#f7f9f7;color:#111915;font-family:var(--sans)}
 <div class="card kpi"><div class="kpi-label">GOLD</div><div class="quote-widget"><div class="tradingview-widget-container" style="width:100%;height:100%"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"TVC:GOLD","width":"100%","colorTheme":"light","isTransparent":true,"locale":"en"}</script></div></div><div class="kpi-foot">PRECIOUS METAL · TRADINGVIEW</div></div>
 <div class="card kpi"><div class="kpi-label">WTI CRUDE</div><div class="quote-widget"><div class="tradingview-widget-container" style="width:100%;height:100%"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"TVC:USOIL","width":"100%","colorTheme":"light","isTransparent":true,"locale":"en"}</script></div></div><div class="kpi-foot">ENERGY · TRADINGVIEW</div></div>
 </div>
-<div class="section-head"><div><div class="section-title">EXPLORE GLOBAL MARKETS</div><div class="section-sub">주가지수 · 외환 · 국채금리 · 원자재 시장</div></div><div class="badge">TRADINGVIEW</div></div>
+<div class="section-head" id="global-markets"><div><div class="section-title">EXPLORE GLOBAL MARKETS</div><div class="section-sub">주가지수 · 외환 · 국채금리 · 원자재 시장</div></div><div class="badge">TRADINGVIEW</div></div>
 <div class="grid layout-main">
 <section class="card panel"><div class="panel-head"><div class="panel-title">MARKET OVERVIEW / MULTI-ASSET</div><div class="panel-meta">12M PERFORMANCE</div></div><div class="tv-area"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>{"colorTheme":"light","dateRange":"12M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":false,"tabs":[{"title":"Equity Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"NASDAQ:NDX","d":"NASDAQ 100"},{"s":"TVC:NI225","d":"Nikkei 225"},{"s":"SSE:000001","d":"Shanghai Composite"},{"s":"KRX:KOSPI","d":"KOSPI"},{"s":"XETR:DAX","d":"DAX"}]},{"title":"FX & Rates","symbols":[{"s":"FX_IDC:USDKRW","d":"USD/KRW"},{"s":"FX:EURUSD","d":"EUR/USD"},{"s":"TVC:US10Y","d":"US 10Y"},{"s":"TVC:DE10Y","d":"Germany 10Y"},{"s":"TVC:JP10Y","d":"Japan 10Y"}]},{"title":"Commodities","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:USOIL","d":"WTI Crude"},{"s":"TVC:SILVER","d":"Silver"},{"s":"TVC:NATURALGAS","d":"Natural Gas"}]}]}</script></div></div></section>
 <section class="card panel"><div class="panel-head"><div class="panel-title">ECONOMIC CALENDAR</div><div class="panel-meta">GLOBAL RELEASES</div></div><div class="tv-area compact"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>{"colorTheme":"light","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"0,1","currencyFilter":"USD,EUR,GBP,JPY,CNY,KRW"}</script></div></div><div class="statusline">CALENDAR CONTENT PROVIDED BY TRADINGVIEW</div></section>
 </div>
-<div class="section-head"><div><div class="section-title">MACROECONOMIC FUNDAMENTALS</div><div class="section-sub">주요국 성장률 · 물가 · 실업률 / World Bank 공식 통계 API</div></div><div class="asof" id="macroAsOf">FETCHING LATEST AVAILABLE DATA</div></div>
+<div class="section-head" id="macro-economy"><div><div class="section-title">MACROECONOMIC FUNDAMENTALS</div><div class="section-sub">주요국 성장률 · 물가 · 실업률 / World Bank 공식 통계 API</div></div><div class="asof" id="macroAsOf">FETCHING LATEST AVAILABLE DATA</div></div>
 <div class="grid country-grid" id="countryCards"><div class="card country loading">World Bank 데이터 불러오는 중…</div></div>
 <div class="section-head"><div><div class="section-title">OFFICIAL ECONOMIC INDICATORS</div><div class="section-sub">미국 FRED · 한국은행 ECOS 공식 통계 · GitHub Actions 자동 수집</div></div><div class="asof" id="officialAsOf">AWAITING OFFICIAL DATA</div></div>
 <div class="grid official-grid" id="officialCards"><div class="card official-card"><div class="official-label">OFFICIAL DATA PIPELINE</div><div class="official-value">연결 준비 중</div><div class="official-foot">FRED / ECOS</div></div></div>
@@ -162,9 +162,9 @@ body{background:#f7f9f7;color:#111915;font-family:var(--sans)}
 </div>
 <div class="grid layout-equal" style="margin-top:9px">
 <section class="card panel"><div class="panel-head"><div class="panel-title">GDP GROWTH VS INFLATION</div><div class="panel-meta">LATEST AVAILABLE / %</div></div><div class="chart-area"><canvas id="macroChart"></canvas></div><div class="statusline">SOURCE: WORLD BANK / WDI · ANNUAL FREQUENCY</div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">COUNTRY COMPARISON</div><div class="panel-meta">LATEST AVAILABLE OBSERVATION</div></div><div class="table-wrap"><table><thead><tr><th>ECONOMY</th><th>GDP GROWTH</th><th>INFLATION</th><th>UNEMPLOYMENT</th><th>YEAR</th></tr></thead><tbody id="macroTable"><tr><td colspan="5" class="loading">데이터 수집 중…</td></tr></tbody></table></div><div class="statusline">VALUES ARE NOT NECESSARILY FROM THE SAME REFERENCE YEAR</div></section>
+<section class="card panel" id="country-comparison"><div class="panel-head"><div class="panel-title">COUNTRY COMPARISON</div><div class="panel-meta">LATEST AVAILABLE OBSERVATION</div></div><div class="table-wrap"><table><thead><tr><th>ECONOMY</th><th>GDP GROWTH</th><th>INFLATION</th><th>UNEMPLOYMENT</th><th>YEAR</th></tr></thead><tbody id="macroTable"><tr><td colspan="5" class="loading">데이터 수집 중…</td></tr></tbody></table></div><div class="statusline">VALUES ARE NOT NECESSARILY FROM THE SAME REFERENCE YEAR</div></section>
 </div>
-<div class="section-head"><div><div class="section-title">04 — DATA QUALITY & SOURCES</div><div class="section-sub">시장 데이터와 거시통계의 기준시점·발표주기를 명확히 구분</div></div></div>
+<div class="section-head" id="data-sources"><div><div class="section-title">04 — DATA QUALITY & SOURCES</div><div class="section-sub">시장 데이터와 거시통계의 기준시점·발표주기를 명확히 구분</div></div></div>
 <section class="card panel"><div class="grid layout-equal"><div><div class="panel-title">MARKET DATA</div><div class="section-sub">TradingView embedded widgets · instrument-specific market hours and possible delays</div></div><div><div class="panel-title">MACROECONOMIC DATA</div><div class="section-sub">World Bank World Development Indicators API · latest non-null annual observation</div></div></div><div class="statusline" id="dataStatus">INITIALIZING DATA PIPELINE…</div></section>
 <footer class="footer"><div class="studio-brand"><img src="https://raw.githubusercontent.com/lloydknam/korea-gdpnow/main/web/brand-lockup-light.svg" alt="Lloyd’s Balcony Lab"></div><strong>클사무관의 경제 터미널</strong> · Independent macroeconomic monitoring interface. Not affiliated with Bloomberg or any data vendor.<br>시장 위젯의 시세는 거래소·제공업체 정책에 따라 지연될 수 있습니다. 거시경제 통계는 발표 시차가 있으며, 국가별 최신 관측연도가 다를 수 있습니다.<br>본 화면은 정보 제공 및 시각화 목적이며 투자·정책 판단에 단독으로 사용하기 위한 공식 통계 공표 시스템이 아닙니다. <a href="https://github.com/lloydknam/econ-dashboard">SOURCE REPOSITORY</a></footer>
 </div>
