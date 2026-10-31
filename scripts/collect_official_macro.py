@@ -15,7 +15,7 @@ import os
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -165,7 +165,7 @@ def main():
     fred, fred_status = collect_fred()
     ecos, ecos_status = collect_ecos()
     payload = {
-        "updated_at_utc": date.today().isoformat(),
+        "updated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "fred_status": fred_status,
         "ecos_status": ecos_status,
         "fred": fred,
