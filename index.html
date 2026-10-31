@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f7fb">
+<title>클사무관의 경제 터미널 | Global Macro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+:root{color-scheme:light;--bg:#f3f6fa;--surface:#ffffff;--surface2:#f7f9fc;--surface3:#edf2f7;--line:#dce3ec;--text:#172b45;--muted:#66768a;--dim:#8996a6;--orange:#c47b27;--cyan:#287c9d;--green:#16835f;--red:#c84d55;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans','Noto Sans KR',sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:13px var(--sans);font-variant-numeric:tabular-nums}a{color:var(--cyan);text-decoration:none}a:hover{color:#174d78}.app{max-width:1800px;margin:auto;padding:0 22px 36px}.topbar{height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:20px}.identity{display:flex;align-items:center;gap:12px}.clerk-photo{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #dce5ef;box-shadow:0 1px 5px #172b4518}.logo{width:34px;height:34px;display:grid;place-items:center;background:#173b63;color:#fff;font-weight:700;font-size:18px;clip-path:polygon(0 0,100% 0,100% 75%,75% 100%,0 100%)}.name{font-size:17px;font-weight:700;letter-spacing:.09em}.subname{font:9px var(--mono);letter-spacing:.16em;color:var(--muted);margin-top:3px}.topmeta{display:flex;align-items:center;gap:18px;color:var(--muted);font:10px var(--mono)}.market-state{display:flex;align-items:center;gap:7px;color:var(--green)}.pulse{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}.nav{display:flex;gap:5px;padding:13px 0;border-bottom:1px solid var(--line);overflow:auto}.nav span{font:10px var(--mono);letter-spacing:.08em;color:var(--muted);padding:7px 11px;border:1px solid transparent;white-space:nowrap}.nav .active{color:#174d78;border-color:#c8d9e8;background:#edf4fa}.ticker{height:38px;display:flex;align-items:center;gap:24px;border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;font:10px var(--mono)}.ticker b{color:var(--muted);font-weight:500;margin-right:6px}.ticker .up{color:var(--green)}.ticker .down{color:var(--red)}.section-head{display:flex;align-items:end;justify-content:space-between;margin:23px 0 10px}.section-title{font:600 11px var(--mono);letter-spacing:.13em;color:#30465f}.section-sub{font-size:10px;color:var(--muted);margin-top:4px}.asof{font:9px var(--mono);color:var(--dim)}.grid{display:grid;gap:9px}.kpis{grid-template-columns:repeat(6,minmax(0,1fr))}.official-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.official-card{padding:12px 14px;min-height:88px}.official-label{font:9px var(--mono);letter-spacing:.06em;color:var(--muted)}.official-value{font:600 19px var(--mono);margin:10px 0 4px;color:var(--text)}.official-foot{font-size:9px;color:var(--dim)}.card{background:var(--surface);border:1px solid var(--line);min-width:0}.kpi{padding:12px 14px;min-height:94px;position:relative}.kpi:before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#d2dce7}.kpi-label{font:9px var(--mono);letter-spacing:.08em;color:var(--muted)}.kpi-value{font:600 22px var(--mono);margin:9px 0 4px;letter-spacing:-.04em}.kpi-foot{font-size:9px;color:var(--dim)}.layout-main{grid-template-columns:minmax(0,1.65fr) minmax(300px,.9fr)}.layout-equal{grid-template-columns:1fr 1fr}.panel{padding:13px 14px}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.panel-title{font:600 10px var(--mono);letter-spacing:.1em;color:#30465f}.panel-meta{font:9px var(--mono);color:var(--dim)}.chart-area{height:260px}.tv-area{height:355px}.tv-area.compact{height:285px}.tv-area>div,.tv-area iframe{height:100%!important;width:100%!important}.country-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.country{padding:12px}.country-name{font-size:10px;color:var(--muted)}.country-year{font:9px var(--mono);color:var(--dim);float:right}.country-gdp{font:600 19px var(--mono);margin:10px 0 4px}.country-detail{font-size:9px;color:var(--muted);line-height:1.7}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font:10px var(--mono)}th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{color:var(--dim);font-weight:500;font-size:9px}th:first-child,td:first-child{text-align:left}td:first-child{font-family:var(--sans);font-weight:500}.badge{font:9px var(--mono);color:#a96519;border:1px solid #ead8bd;background:#fbf7f0;padding:4px 7px}.statusline{font:9px var(--mono);color:var(--dim);margin-top:12px}.studio-brand{display:flex;justify-content:center;align-items:center;margin:4px 0 14px}.studio-brand img{display:block;width:min(230px,65vw);height:auto;max-height:52px;object-fit:contain}.footer{margin-top:25px;padding:13px 0;border-top:1px solid var(--line);font-size:9px;line-height:1.8;color:var(--dim)}.footer strong{color:var(--muted)}.loading{color:var(--muted);font-size:11px;padding:15px}.error{color:var(--red)}.legend-note{color:var(--dim);font-size:9px}
+@media(max-width:1150px){.kpis{grid-template-columns:repeat(3,1fr)}.country-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.clerk-photo{width:36px;height:36px}.name{letter-spacing:0}.app{padding:0 12px 24px}.topbar{height:58px}.topmeta{gap:8px;font-size:9px}.subname{display:none}.name{font-size:14px}.layout-main,.layout-equal{grid-template-columns:1fr}.official-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.kpis{grid-template-columns:repeat(2,1fr)}.tv-area{height:330px}.tv-area.compact{height:280px}.section-head{margin-top:19px}}
+
+/* Kalshi-inspired research terminal skin: warm white, restrained green, rounded market cards */
+:root{
+ color-scheme:light;
+ --bg:#f5f7f4;--surface:#fff;--surface2:#f5f7f4;--surface3:#edf1ed;
+ --line:#e4e9e4;--text:#151c18;--muted:#68736c;--dim:#929b94;
+ --orange:#00b67a;--cyan:#176c50;--green:#00a875;--red:#d45c62;
+ --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans','Noto Sans KR',sans-serif
+}
+body{background:var(--bg);color:var(--text);font-size:13px;letter-spacing:-.01em}
+.app{max-width:1680px;padding:0 28px 42px}
+.topbar{height:70px;border-bottom:1px solid var(--line);position:relative;background:rgba(255,255,255,.9)}
+.identity{gap:13px}.clerk-photo{width:40px;height:40px;border:1px solid #e5eae5;box-shadow:none}
+.name{font-size:17px;letter-spacing:-.035em;color:#101713}.subname{font:9px var(--mono);letter-spacing:.1em;color:#78847b}
+.market-state{color:#008f62;font-weight:600}.pulse{background:#00b67a;box-shadow:0 0 0 4px #00b67a20}
+.nav{gap:7px;padding:12px 0;border-bottom:1px solid var(--line)}
+.nav span{font:500 11px var(--sans);letter-spacing:0;color:#606c64;padding:8px 13px;border-radius:999px;border:1px solid transparent}
+.nav .active{background:#e7f6ef;border-color:#d0eddf;color:#006b49;font-weight:700}
+.ticker{height:42px;gap:26px;border-bottom:1px solid var(--line);font-size:10px;color:#3b473f}
+.ticker b{color:#829087}
+.section-head{margin:28px 0 12px;align-items:center}
+.section-title{font:700 11px var(--mono);letter-spacing:.07em;color:#26332b}
+.section-sub{font-size:11px;color:#78847c;margin-top:5px}
+.asof{font-size:9px;color:#8c968e}
+.grid{gap:12px}
+.card{background:var(--surface);border:1px solid #e5eae5;border-radius:13px;box-shadow:0 1px 2px #14251a08}
+.kpi{padding:16px 17px;min-height:112px;border-radius:13px;transition:transform .18s ease,border-color .18s ease}
+.kpi:hover,.official-card:hover,.country:hover{transform:translateY(-2px);border-color:#b8dfcb}
+.kpi:before{display:none}
+.kpi-label{font:600 9px var(--mono);letter-spacing:.06em;color:#738078}
+.kpi-value{font:600 24px var(--mono);letter-spacing:-.05em;margin:13px 0 5px;color:#17231b}
+.kpi-foot{font-size:10px;color:#8a958d}
+.official-card{padding:15px 16px;min-height:104px;border-radius:12px;transition:transform .18s ease,border-color .18s ease}
+.official-label{font:600 9px var(--mono);color:#718078;letter-spacing:.04em}
+.official-value{font:600 21px var(--mono);color:#111b15;margin:13px 0 5px}
+.official-foot{font-size:9px;color:#89948c}
+.panel{padding:17px 18px;border-radius:14px}
+.panel-head{margin-bottom:14px}
+.panel-title{font:700 10px var(--mono);letter-spacing:.06em;color:#26332b}
+.panel-meta{font:9px var(--mono);color:#8b968e}
+.tv-area{border-radius:9px;overflow:hidden}
+.country{padding:15px;border-radius:12px;transition:transform .18s ease,border-color .18s ease}
+.country-name{font-size:10px;font-weight:600;color:#536158}
+.country-year{font-size:9px;color:#98a199}
+.country-gdp{font:600 22px var(--mono);color:#17231b;margin:13px 0 6px}
+.country-detail{font-size:10px;line-height:1.8;color:#78847b}
+.badge{font:600 9px var(--mono);color:#00784f;border:1px solid #cdebdc;background:#eaf7f0;border-radius:999px;padding:5px 9px}
+table{font:10px var(--mono)}
+th,td{padding:12px 10px;border-bottom:1px solid #edf0ed}
+th{color:#87928a}
+td:first-child{font-family:var(--sans);font-weight:600;color:#334139}
+.statusline{font:9px var(--mono);color:#89948c}
+.chart-area{height:275px}
+.footer{border-top:1px solid var(--line);color:#89948c}
+.footer strong{color:#536158}
+a{color:#008b5e}a:hover{color:#005d3d}
+@media(max-width:760px){
+ .app{padding:0 13px 28px}.topbar{height:62px}.name{font-size:14px}
+ .nav{padding:10px 0;gap:5px}.nav span{padding:7px 10px;font-size:10px}
+ .ticker{height:36px;gap:18px}.section-head{margin-top:22px}
+ .kpi{padding:13px;min-height:100px}.kpi-value{font-size:21px}
+ .panel{padding:13px;border-radius:12px}.country{padding:13px}
+}
+
+</style>
+</head>
+<body><div class="app">
+<header class="topbar"><div class="identity"><img class="clerk-photo" src="https://raw.githubusercontent.com/lloydknam/eodigallae/main/icons/clerk.jpg" alt="클사무관 프로필"><div><div class="name">클사무관의 경제 터미널</div><div class="subname">CLERK’S ECON TERMINAL · GLOBAL MACRO INTELLIGENCE</div></div></div><div class="topmeta"><span class="market-state"><i class="pulse"></i> MARKET MONITOR</span><span id="clock">--:--:-- KST</span></div></header>
+<nav class="nav"><span class="active">01 / OVERVIEW</span><span>02 / GLOBAL MARKETS</span><span>03 / MACRO ECONOMY</span><span>04 / COUNTRY COMPARISON</span><span>05 / DATA & SOURCES</span></nav>
+<div class="ticker" aria-label="Market watch"><span><b>GLOBAL WATCH</b></span><span>US EQUITIES <b>TradingView</b></span><span>FX & RATES <b>TradingView</b></span><span>COMMODITIES <b>TradingView</b></span><span>MACRO DATA <b>WORLD BANK</b></span></div>
+<div class="section-head"><div><div class="section-title">01 — GLOBAL MARKET SNAPSHOT</div><div class="section-sub">글로벌 금융시장 주요 자산군 · 시장별 거래시간 및 데이터 제공 지연 적용</div></div><div class="asof">LIVE WIDGETS / MARKET HOURS</div></div>
+<div class="grid kpis">
+<div class="card kpi"><div class="kpi-label">S&P 500</div><div class="kpi-value">SPX</div><div class="kpi-foot">US LARGE CAP</div></div>
+<div class="card kpi"><div class="kpi-label">NASDAQ 100</div><div class="kpi-value">NDX</div><div class="kpi-foot">US TECHNOLOGY</div></div>
+<div class="card kpi"><div class="kpi-label">KOSPI</div><div class="kpi-value">KOSPI</div><div class="kpi-foot">SOUTH KOREA</div></div>
+<div class="card kpi"><div class="kpi-label">USD / KRW</div><div class="kpi-value">FX</div><div class="kpi-foot">FOREIGN EXCHANGE</div></div>
+<div class="card kpi"><div class="kpi-label">US 10Y YIELD</div><div class="kpi-value">US10Y</div><div class="kpi-foot">TREASURY BENCHMARK</div></div>
+<div class="card kpi"><div class="kpi-label">GOLD / WTI</div><div class="kpi-value">COMDTY</div><div class="kpi-foot">SAFE HAVEN / ENERGY</div></div>
+</div>
+<div class="section-head"><div><div class="section-title">02 — GLOBAL MARKETS</div><div class="section-sub">주가지수 · 외환 · 국채금리 · 원자재 시장 모니터링</div></div><div class="badge">TRADINGVIEW</div></div>
+<div class="grid layout-main">
+<section class="card panel"><div class="panel-head"><div class="panel-title">MARKET OVERVIEW / MULTI-ASSET</div><div class="panel-meta">12M PERFORMANCE</div></div><div class="tv-area"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>{"colorTheme":"light","dateRange":"12M","showChart":true,"locale":"en","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":false,"tabs":[{"title":"Equity Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"NASDAQ:NDX","d":"NASDAQ 100"},{"s":"TVC:NI225","d":"Nikkei 225"},{"s":"SSE:000001","d":"Shanghai Composite"},{"s":"KRX:KOSPI","d":"KOSPI"},{"s":"XETR:DAX","d":"DAX"}]},{"title":"FX & Rates","symbols":[{"s":"FX_IDC:USDKRW","d":"USD/KRW"},{"s":"FX:EURUSD","d":"EUR/USD"},{"s":"TVC:US10Y","d":"US 10Y"},{"s":"TVC:DE10Y","d":"Germany 10Y"},{"s":"TVC:JP10Y","d":"Japan 10Y"}]},{"title":"Commodities","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:USOIL","d":"WTI Crude"},{"s":"TVC:SILVER","d":"Silver"},{"s":"TVC:NATURALGAS","d":"Natural Gas"}]}]}</script></div></div></section>
+<section class="card panel"><div class="panel-head"><div class="panel-title">ECONOMIC CALENDAR</div><div class="panel-meta">GLOBAL RELEASES</div></div><div class="tv-area compact"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>{"colorTheme":"light","isTransparent":true,"width":"100%","height":"100%","locale":"en","importanceFilter":"0,1","currencyFilter":"USD,EUR,GBP,JPY,CNY,KRW"}</script></div></div><div class="statusline">CALENDAR CONTENT PROVIDED BY TRADINGVIEW</div></section>
+</div>
+<div class="section-head"><div><div class="section-title">03 — MACROECONOMIC FUNDAMENTALS</div><div class="section-sub">주요국 성장률 · 물가 · 실업률 / World Bank 공식 통계 API</div></div><div class="asof" id="macroAsOf">FETCHING LATEST AVAILABLE DATA</div></div>
+<div class="grid country-grid" id="countryCards"><div class="card country loading">World Bank 데이터 불러오는 중…</div></div>
+<div class="section-head"><div><div class="section-title">04 — OFFICIAL POLICY & FINANCIAL INDICATORS</div><div class="section-sub">미국 FRED · 한국은행 ECOS 공식 통계 · GitHub Actions 자동 수집</div></div><div class="asof" id="officialAsOf">AWAITING OFFICIAL DATA</div></div>
+<div class="grid official-grid" id="officialCards"><div class="card official-card"><div class="official-label">OFFICIAL DATA PIPELINE</div><div class="official-value">연결 준비 중</div><div class="official-foot">FRED / ECOS</div></div></div>
+<div class="statusline" id="officialStatus">FRED와 ECOS 인증키를 GitHub Secrets에 등록하면 공식 통계가 자동 갱신됩니다.</div>
+<div class="grid layout-equal" style="margin-top:9px">
+<section class="card panel"><div class="panel-head"><div class="panel-title">GDP GROWTH VS INFLATION</div><div class="panel-meta">LATEST AVAILABLE / %</div></div><div class="chart-area"><canvas id="macroChart"></canvas></div><div class="statusline">SOURCE: WORLD BANK / WDI · ANNUAL FREQUENCY</div></section>
+<section class="card panel"><div class="panel-head"><div class="panel-title">COUNTRY COMPARISON</div><div class="panel-meta">LATEST AVAILABLE OBSERVATION</div></div><div class="table-wrap"><table><thead><tr><th>ECONOMY</th><th>GDP GROWTH</th><th>INFLATION</th><th>UNEMPLOYMENT</th><th>YEAR</th></tr></thead><tbody id="macroTable"><tr><td colspan="5" class="loading">데이터 수집 중…</td></tr></tbody></table></div><div class="statusline">VALUES ARE NOT NECESSARILY FROM THE SAME REFERENCE YEAR</div></section>
+</div>
+<div class="section-head"><div><div class="section-title">04 — DATA QUALITY & SOURCES</div><div class="section-sub">시장 데이터와 거시통계의 기준시점·발표주기를 명확히 구분</div></div></div>
+<section class="card panel"><div class="grid layout-equal"><div><div class="panel-title">MARKET DATA</div><div class="section-sub">TradingView embedded widgets · instrument-specific market hours and possible delays</div></div><div><div class="panel-title">MACROECONOMIC DATA</div><div class="section-sub">World Bank World Development Indicators API · latest non-null annual observation</div></div></div><div class="statusline" id="dataStatus">INITIALIZING DATA PIPELINE…</div></section>
+<footer class="footer"><div class="studio-brand"><img src="https://raw.githubusercontent.com/lloydknam/korea-gdpnow/main/web/brand-lockup-light.svg" alt="Lloyd’s Balcony Lab"></div><strong>클사무관의 경제 터미널</strong> · Independent macroeconomic monitoring interface. Not affiliated with Bloomberg or any data vendor.<br>시장 위젯의 시세는 거래소·제공업체 정책에 따라 지연될 수 있습니다. 거시경제 통계는 발표 시차가 있으며, 국가별 최신 관측연도가 다를 수 있습니다.<br>본 화면은 정보 제공 및 시각화 목적이며 투자·정책 판단에 단독으로 사용하기 위한 공식 통계 공표 시스템이 아닙니다. <a href="https://github.com/lloydknam/econ-dashboard">SOURCE REPOSITORY</a></footer>
+</div>
+<script>
+const economies=[{id:'USA',name:'UNITED STATES'},{id:'KOR',name:'SOUTH KOREA'},{id:'CHN',name:'CHINA'},{id:'JPN',name:'JAPAN'},{id:'DEU',name:'GERMANY'},{id:'GBR',name:'UNITED KINGDOM'},{id:'IND',name:'INDIA'},{id:'WLD',name:'WORLD'}];
+const indicators={gdp:'NY.GDP.MKTP.KD.ZG',inflation:'FP.CPI.TOTL.ZG',unemployment:'SL.UEM.TOTL.ZS'};
+const pct=v=>v===null||v===undefined?'—':Number(v).toFixed(1)+'%';
+async function latest(code,indicator){const url='https://api.worldbank.org/v2/country/'+code+'/indicator/'+indicator+'?format=json&per_page=20';const res=await fetch(url);if(!res.ok)throw Error('HTTP '+res.status);const json=await res.json();return (json[1]||[]).find(d=>d.value!==null)||null}
+async function loadMacro(){const status=document.getElementById('dataStatus');try{const rows=await Promise.all(economies.map(async e=>{const [g,i,u]=await Promise.all([latest(e.id,indicators.gdp),latest(e.id,indicators.inflation),latest(e.id,indicators.unemployment)]);return {...e,gdp:g?.value??null,gdpYear:g?.date??'—',inflation:i?.value??null,inflationYear:i?.date??'—',unemployment:u?.value??null,unemploymentYear:u?.date??'—'};}));render(rows);const now=new Date();document.getElementById('macroAsOf').textContent='RETRIEVED '+now.toISOString().slice(0,16).replace('T',' ')+' UTC';status.textContent='WORLD BANK API: SUCCESS · '+now.toLocaleString('ko-KR')+' · 8 ECONOMIES / 3 INDICATORS';}catch(err){status.innerHTML='<span class="error">WORLD BANK API ERROR: '+err.message+'</span>';document.getElementById('countryCards').innerHTML='<div class="card country error">데이터를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.</div>';document.getElementById('macroTable').innerHTML='<tr><td colspan="5" class="error">API 연결 실패</td></tr>';}}
+function render(rows){document.getElementById('countryCards').innerHTML=rows.filter(x=>['USA','KOR','CHN','WLD'].includes(x.id)).map(x=>'<div class="card country"><div class="country-name">'+x.name+' <span class="country-year">GDP '+x.gdpYear+'</span></div><div class="country-gdp">'+pct(x.gdp)+'</div><div class="country-detail">GDP GROWTH<br>INFLATION '+pct(x.inflation)+' · '+x.inflationYear+'<br>UNEMPLOYMENT '+pct(x.unemployment)+' · '+x.unemploymentYear+'</div></div>').join('');document.getElementById('macroTable').innerHTML=rows.map(x=>'<tr><td>'+x.name+'</td><td>'+pct(x.gdp)+'</td><td>'+pct(x.inflation)+'</td><td>'+pct(x.unemployment)+'</td><td>'+x.gdpYear+'</td></tr>').join('');const selected=rows.filter(x=>x.id!=='WLD');if(window.macroChart)window.macroChart.destroy();window.macroChart=new Chart(document.getElementById('macroChart'),{type:'bar',data:{labels:selected.map(x=>x.name),datasets:[{label:'GDP GROWTH',data:selected.map(x=>x.gdp),backgroundColor:'#287c9d'},{label:'INFLATION',data:selected.map(x=>x.inflation),backgroundColor:'#d18a36'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#9aa9ba',boxWidth:9,boxHeight:9,font:{family:'IBM Plex Mono',size:9}}}},scales:{x:{ticks:{color:'#8b9aab',font:{size:9}},grid:{display:false}},y:{ticks:{color:'#8b9aab',font:{family:'IBM Plex Mono',size:9}},grid:{color:'#e1e7ef'}}}}});}
+async function loadOfficial(){const status=document.getElementById('officialStatus');try{const res=await fetch('./data/official-macro.json?ts='+Date.now());if(!res.ok)throw Error('HTTP '+res.status);const data=await res.json();const rows=[...(data.fred||[]),...(data.ecos||[])];const host=document.getElementById('officialCards');if(rows.length){host.innerHTML=rows.map(x=>{const val=Number(x.value);const formatted=Number.isFinite(val)?val.toLocaleString('en-US',{maximumFractionDigits:2}):'—';return '<div class="card official-card"><div class="official-label">'+x.name+'</div><div class="official-value">'+formatted+'</div><div class="official-foot">'+(x.unit||'')+' · '+x.date+' · '+x.source+'</div></div>';}).join('');}else{host.innerHTML='<div class="card official-card"><div class="official-label">OFFICIAL DATA</div><div class="official-value">API 키 설정 대기</div><div class="official-foot">FRED_API_KEY / ECOS_API_KEY</div></div>';}document.getElementById('officialAsOf').textContent=data.updated_at_utc?'UPDATED '+data.updated_at_utc+' UTC':'NOT YET UPDATED';status.textContent='FRED: '+(data.fred_status||'—')+' · ECOS: '+(data.ecos_status||'—');}catch(err){status.textContent='공식 통계 파일 대기 중 · '+err.message;}}
+function clock(){document.getElementById('clock').textContent=new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date())+' KST';}clock();setInterval(clock,1000);loadMacro();loadOfficial();setInterval(loadMacro,6*60*60*1000);setInterval(loadOfficial,6*60*60*1000);
+</script></body></html>
