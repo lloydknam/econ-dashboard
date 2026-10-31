@@ -1,0 +1,7 @@
+{
+  "updated_at_utc": null,
+  "fred_status": "Awaiting GitHub Actions run and FRED_API_KEY",
+  "ecos_status": "Optional; configure ECOS_API_KEY and ECOS_SERIES_JSON",
+  "fred": [],
+  "ecos": []
+}
