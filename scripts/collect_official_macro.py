@@ -25,7 +25,7 @@ OUT = ROOT / "data" / "official-macro.json"
 def get_json(url: str):
     req = urllib.request.Request(url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
     try:
-        with urllib.request.urlopen(req, timeout=25) as response:
+        with urllib.request.urlopen(req, timeout=8) as response:
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         # Preserve the API's diagnostic message (e.g. invalid API key/parameter)
