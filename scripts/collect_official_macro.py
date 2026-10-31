@@ -158,5 +158,6 @@ def main():
     print(f"Wrote {OUT}: FRED={len(fred)}, ECOS={len(ecos)}")
 
 
+# Trigger a fresh data collection after repository secret updates.
 if __name__ == "__main__":
     main()
