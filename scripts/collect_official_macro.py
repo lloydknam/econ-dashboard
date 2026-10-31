@@ -78,7 +78,7 @@ def collect_fred():
             if not obs:
                 raise RuntimeError("public CSV returned no usable observations")
             rows.append({"name": label, "series": series_id, "date": obs["observation_date"],
-                         "value": float(obs[series_id]), "unit": unit, "source": "FRED"))
+                         "value": float(obs[series_id]), "unit": unit, "source": "FRED"})
         except Exception as csv_exc:
             errors.append(series_id + ": " + api_error + " | CSV " + str(csv_exc))
     return rows, ("; ".join(errors) if errors else "OK")
