@@ -109,7 +109,11 @@ def collect_ecos():
         try:
             stat = str(spec["stat_code"])
             cycle = str(spec.get("cycle", "M")).upper()
-            three_years_ago = today - timedelta(days=365 * 3)
+            # Keep daily requests below ECOS's 100-row page limit so the
+            # returned observations reach the latest date rather than stopping
+            # at the first 100 historical records.
+            lookback_days = {"D": 90, "M": 365 * 3, "Q": 365 * 5, "A": 365 * 15}.get(cycle, 365 * 3)
+            window_start = today - timedelta(days=lookback_days)
             def period(d):
                 if cycle == "D":
                     return d.strftime("%Y%m%d")
@@ -120,7 +124,7 @@ def collect_ecos():
                 if cycle == "A":
                     return d.strftime("%Y")
                 return d.strftime("%Y%m")
-            start = str(spec.get("start_dt") or period(three_years_ago))
+            start = str(spec.get("start_dt") or period(window_start))
             end = str(spec.get("end_dt") or period(today))
             item_codes = [str(spec.get("item_code" + str(i), "")) for i in range(1, 5)]
             last_item = max((i for i, value in enumerate(item_codes) if value), default=-1)
