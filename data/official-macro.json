@@ -1,8 +1,57 @@
 {
   "updated_at_utc": "2026-10-31",
-  "fred_status": "DGS10: FRED_API_KEY missing or invalid format | CSV The read operation timed out; DGS2: FRED_API_KEY missing or invalid format | CSV The read operation timed out; FEDFUNDS: FRED_API_KEY missing or invalid format | CSV The read operation timed out; CPIAUCSL: FRED_API_KEY missing or invalid format | CSV The read operation timed out; UNRATE: FRED_API_KEY missing or invalid format | CSV The read operation timed out; GDP: FRED_API_KEY missing or invalid format | CSV The read operation timed out",
+  "fred_status": "OK",
   "ecos_status": "OK",
-  "fred": [],
+  "fred": [
+    {
+      "name": "US 10Y Treasury",
+      "series": "DGS10",
+      "date": "2026-10-29",
+      "value": 4.98,
+      "unit": "%",
+      "source": "FRED"
+    },
+    {
+      "name": "US 2Y Treasury",
+      "series": "DGS2",
+      "date": "2026-10-29",
+      "value": 4.61,
+      "unit": "%",
+      "source": "FRED"
+    },
+    {
+      "name": "Federal Funds Rate",
+      "series": "FEDFUNDS",
+      "date": "2026-09-01",
+      "value": 3.75,
+      "unit": "%",
+      "source": "FRED"
+    },
+    {
+      "name": "US CPI",
+      "series": "CPIAUCSL",
+      "date": "2026-09-01",
+      "value": 336.298,
+      "unit": "index",
+      "source": "FRED"
+    },
+    {
+      "name": "US Unemployment",
+      "series": "UNRATE",
+      "date": "2026-09-01",
+      "value": 4.2,
+      "unit": "%",
+      "source": "FRED"
+    },
+    {
+      "name": "US GDP",
+      "series": "GDP",
+      "date": "2026-07-01",
+      "value": 33010.036,
+      "unit": "USD bn, SAAR",
+      "source": "FRED"
+    }
+  ],
   "ecos": [
     {
       "name": "한국은행 기준금리",
