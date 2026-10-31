@@ -36,9 +36,8 @@ def get_json(url: str):
 
 def collect_fred():
     key = os.environ.get("FRED_API_KEY", "").strip()
-    if not key:
-        return [], "FRED_API_KEY not configured"
     # Daily/weekly/monthly indicators. Latest non-missing observation is retained.
+    # The public FRED CSV fallback remains available even without an API key.
     series = [
         ("US 10Y Treasury", "DGS10", "%"),
         ("US 2Y Treasury", "DGS2", "%"),
