@@ -8,6 +8,8 @@ Secrets:
 Repository variable:
   ECOS_SERIES_JSON (optional JSON array; see README comments below)
 """
+import csv
+import io
 import json
 import os
 import urllib.error
@@ -58,18 +60,38 @@ def collect_fred():
             if obs:
                 rows.append({"name": label, "series": series_id, "date": obs["date"],
                              "value": float(obs["value"]), "unit": unit, "source": "FRED"})
-        except Exception as exc:
-            errors.append(series_id + ": " + str(exc))
+                continue
+            raise RuntimeError("FRED API returned no usable observations")
+        except Exception as api_exc:
+            # FRED's public graph CSV endpoint does not require an API key.
+            # This fallback keeps the dashboard operational when a Secret is missing/malformed.
+            try:
+                csv_url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode({"id": series_id})
+                req = urllib.request.Request(csv_url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
+                with urllib.request.urlopen(req, timeout=25) as response:
+                    text = response.read().decode("utf-8-sig")
+                records = list(csv.DictReader(io.StringIO(text)))
+                obs = next((x for x in reversed(records) if x.get(series_id) not in (None, ".", "")), None)
+                if not obs:
+                    raise RuntimeError("public CSV returned no usable observations")
+                rows.append({"name": label, "series": series_id, "date": obs["observation_date"],
+                             "value": float(obs[series_id]), "unit": unit, "source": "FRED"})
+            except Exception as csv_exc:
+                errors.append(series_id + ": API " + str(api_exc) + " | CSV " + str(csv_exc))
     return rows, ("; ".join(errors) if errors else "OK")
 
 
 def collect_ecos():
     key = os.environ.get("ECOS_API_KEY", "").strip()
     raw = os.environ.get("ECOS_SERIES_JSON", "").strip()
+    if not raw:
+        config_path = ROOT / "config" / "ecos-series.json"
+        if config_path.exists():
+            raw = config_path.read_text(encoding="utf-8").strip()
     if not key:
         return [], "ECOS_API_KEY not configured"
     if not raw:
-        return [], "ECOS_SERIES_JSON not configured; no ECOS series selected"
+        return [], "No ECOS series configured in config/ecos-series.json or ECOS_SERIES_JSON"
     try:
         specs = json.loads(raw)
         if not isinstance(specs, list):
