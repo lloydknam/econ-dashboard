@@ -2,6 +2,11 @@ name: Refresh official macro data
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/collect_official_macro.py"
+      - ".github/workflows/refresh-official-macro.yml"
   schedule:
     - cron: "17 */6 * * *"
 
