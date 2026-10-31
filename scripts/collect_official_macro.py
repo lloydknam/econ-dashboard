@@ -50,34 +50,37 @@ def collect_fred():
     rows = []
     errors = []
     for label, series_id, unit in series:
-        params = urllib.parse.urlencode({
-            "series_id": series_id, "api_key": key, "file_type": "json",
-            "sort_order": "desc", "limit": 12,
-        })
-        try:
-            payload = get_json("https://api.stlouisfed.org/fred/series/observations?" + params)
-            obs = next((x for x in payload.get("observations", []) if x.get("value") not in (None, ".", "")), None)
-            if obs:
-                rows.append({"name": label, "series": series_id, "date": obs["date"],
-                             "value": float(obs["value"]), "unit": unit, "source": "FRED"})
-                continue
-            raise RuntimeError("FRED API returned no usable observations")
-        except Exception as api_exc:
-            # FRED's public graph CSV endpoint does not require an API key.
-            # This fallback keeps the dashboard operational when a Secret is missing/malformed.
+        api_error = "FRED_API_KEY missing or invalid format"
+        if len(key) == 32 and key.isalnum() and key.islower():
+            params = urllib.parse.urlencode({
+                "series_id": series_id, "api_key": key, "file_type": "json",
+                "sort_order": "desc", "limit": 12,
+            })
             try:
-                csv_url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode({"id": series_id})
-                req = urllib.request.Request(csv_url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
-                with urllib.request.urlopen(req, timeout=25) as response:
-                    text = response.read().decode("utf-8-sig")
-                records = list(csv.DictReader(io.StringIO(text)))
-                obs = next((x for x in reversed(records) if x.get(series_id) not in (None, ".", "")), None)
-                if not obs:
-                    raise RuntimeError("public CSV returned no usable observations")
-                rows.append({"name": label, "series": series_id, "date": obs["observation_date"],
-                             "value": float(obs[series_id]), "unit": unit, "source": "FRED"})
-            except Exception as csv_exc:
-                errors.append(series_id + ": API " + str(api_exc) + " | CSV " + str(csv_exc))
+                payload = get_json("https://api.stlouisfed.org/fred/series/observations?" + params)
+                obs = next((x for x in payload.get("observations", []) if x.get("value") not in (None, ".", "")), None)
+                if obs:
+                    rows.append({"name": label, "series": series_id, "date": obs["date"],
+                                 "value": float(obs["value"]), "unit": unit, "source": "FRED"})
+                    continue
+                api_error = "FRED API returned no usable observations"
+            except Exception as exc:
+                api_error = str(exc)
+        # FRED's public graph CSV endpoint does not require an API key.
+        # This fallback keeps the dashboard operational when a Secret is missing/malformed.
+        try:
+            csv_url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode({"id": series_id})
+            req = urllib.request.Request(csv_url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
+            with urllib.request.urlopen(req, timeout=12) as response:
+                text = response.read().decode("utf-8-sig")
+            records = list(csv.DictReader(io.StringIO(text)))
+            obs = next((x for x in reversed(records) if x.get(series_id) not in (None, ".", "")), None)
+            if not obs:
+                raise RuntimeError("public CSV returned no usable observations")
+            rows.append({"name": label, "series": series_id, "date": obs["observation_date"],
+                         "value": float(obs[series_id]), "unit": unit, "source": "FRED"))
+        except Exception as csv_exc:
+            errors.append(series_id + ": " + api_error + " | CSV " + str(csv_exc))
     return rows, ("; ".join(errors) if errors else "OK")
 
 
