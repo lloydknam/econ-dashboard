@@ -25,7 +25,7 @@ OUT = ROOT / "data" / "official-macro.json"
 def get_json(url: str):
     req = urllib.request.Request(url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
     try:
-        with urllib.request.urlopen(req, timeout=8) as response:
+        with urllib.request.urlopen(req, timeout=20) as response:
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         # Preserve the API's diagnostic message (e.g. invalid API key/parameter)
@@ -162,10 +162,36 @@ def collect_ecos():
 
 def main():
     OUT.parent.mkdir(parents=True, exist_ok=True)
+    previous = {}
+    if OUT.exists():
+        try:
+            previous = json.loads(OUT.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            previous = {}
+
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     fred, fred_status = collect_fred()
     ecos, ecos_status = collect_ecos()
+
+    # A temporary provider timeout must never erase the last usable observations.
+    if fred:
+        fred_updated_at = now
+    else:
+        fred = previous.get("fred", [])
+        fred_updated_at = previous.get("fred_updated_at_utc", "")
+        fred_status = "REFRESH FAILED; retained previous data — " + fred_status
+
+    if ecos:
+        ecos_updated_at = now
+    else:
+        ecos = previous.get("ecos", [])
+        ecos_updated_at = previous.get("ecos_updated_at_utc", "")
+        ecos_status = "REFRESH FAILED; retained previous data — " + ecos_status
+
     payload = {
-        "updated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "updated_at_utc": now,
+        "fred_updated_at_utc": fred_updated_at,
+        "ecos_updated_at_utc": ecos_updated_at,
         "fred_status": fred_status,
         "ecos_status": ecos_status,
         "fred": fred,
