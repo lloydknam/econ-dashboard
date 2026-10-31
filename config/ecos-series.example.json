@@ -1,0 +1,3 @@
+{
+  "note": "Configure optional ECOS series in the GitHub repository variable ECOS_SERIES_JSON. Example: [{\"name\":\"Korea base rate\",\"stat_code\":\"STAT_CODE\",\"cycle\":\"M\",\"item_code1\":\"ITEM_CODE\",\"unit\":\"%\"}]. Replace placeholders with the exact codes selected in the ECOS Open API catalogue."
+}
