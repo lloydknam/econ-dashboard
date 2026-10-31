@@ -1,7 +1,32 @@
 {
   "updated_at_utc": "2026-10-31",
-  "fred_status": "DGS10: HTTP 400: {\"error_code\":400,\"error_message\":\"Bad Request.  The value for variable api_key is not a 32 character alpha-numeric lower-case string.  Read https:\\/\\/fred.stlouisfed.org\\/docs\\/api\\/api_key.html for more information.\"}; DGS2: HTTP 400: {\"error_code\":400,\"error_message\":\"Bad Request.  The value for variable api_key is not a 32 character alpha-numeric lower-case string.  Read https:\\/\\/fred.stlouisfed.org\\/docs\\/api\\/api_key.html for more information.\"}; FEDFUNDS: HTTP 400: {\"error_code\":400,\"error_message\":\"Bad Request.  The value for variable api_key is not a 32 character alpha-numeric lower-case string.  Read https:\\/\\/fred.stlouisfed.org\\/docs\\/api\\/api_key.html for more information.\"}; CPIAUCSL: HTTP 400: {\"error_code\":400,\"error_message\":\"Bad Request.  The value for variable api_key is not a 32 character alpha-numeric lower-case string.  Read https:\\/\\/fred.stlouisfed.org\\/docs\\/api\\/api_key.html for more information.\"}; UNRATE: HTTP 400: {\"error_code\":400,\"error_message\":\"Bad Request.  The value for variable api_key is not a 32 character alpha-numeric lower-case string.  Read https:\\/\\/fred.stlouisfed.org\\/docs\\/api\\/api_key.html for more information.\"}; GDP: HTTP 400: {\"error_code\":400,\"error_message\":\"Bad Request.  The value for variable api_key is not a 32 character alpha-numeric lower-case string.  Read https:\\/\\/fred.stlouisfed.org\\/docs\\/api\\/api_key.html for more information.\"}",
-  "ecos_status": "ECOS_SERIES_JSON not configured; no ECOS series selected",
+  "fred_status": "DGS10: FRED_API_KEY missing or invalid format | CSV The read operation timed out; DGS2: FRED_API_KEY missing or invalid format | CSV The read operation timed out; FEDFUNDS: FRED_API_KEY missing or invalid format | CSV The read operation timed out; CPIAUCSL: FRED_API_KEY missing or invalid format | CSV The read operation timed out; UNRATE: FRED_API_KEY missing or invalid format | CSV The read operation timed out; GDP: FRED_API_KEY missing or invalid format | CSV The read operation timed out",
+  "ecos_status": "OK",
   "fred": [],
-  "ecos": []
+  "ecos": [
+    {
+      "name": "한국은행 기준금리",
+      "series": "722Y001",
+      "date": "202609",
+      "value": 3.0,
+      "unit": "%",
+      "source": "ECOS"
+    },
+    {
+      "name": "원/달러 환율 매매기준율",
+      "series": "731Y003",
+      "date": "20240327",
+      "value": 1348.7,
+      "unit": "KRW per USD",
+      "source": "ECOS"
+    },
+    {
+      "name": "국고채 3년물 수익률",
+      "series": "817Y002",
+      "date": "20240326",
+      "value": 3.301,
+      "unit": "%",
+      "source": "ECOS"
+    }
+  ]
 }
