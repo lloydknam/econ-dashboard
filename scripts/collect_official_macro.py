@@ -36,7 +36,8 @@ def get_json(url: str):
 
 def collect_fred():
     key = os.environ.get("FRED_API_KEY", "").strip()
-    # Daily/weekly/monthly indicators. Latest non-missing observation is retained.
+    # Retain a compact history as well as the latest observation for trend charts.
+    # Daily yields use 90 points; lower-frequency series use up to 24 observations.
     # The public FRED CSV fallback remains available even without an API key.
     series = [
         ("US 10Y Treasury", "DGS10", "%"),
@@ -53,14 +54,17 @@ def collect_fred():
         if len(key) == 32 and key.isalnum() and key.islower():
             params = urllib.parse.urlencode({
                 "series_id": series_id, "api_key": key, "file_type": "json",
-                "sort_order": "desc", "limit": 12,
+                "sort_order": "desc", "limit": 90 if series_id in ("DGS10", "DGS2") else 24,
             })
             try:
                 payload = get_json("https://api.stlouisfed.org/fred/series/observations?" + params)
-                obs = next((x for x in payload.get("observations", []) if x.get("value") not in (None, ".", "")), None)
+                valid = [x for x in payload.get("observations", []) if x.get("value") not in (None, ".", "")]
+                obs = valid[0] if valid else None
                 if obs:
+                    history = [{"date": x["date"], "value": float(x["value"])} for x in reversed(valid)]
                     rows.append({"name": label, "series": series_id, "date": obs["date"],
-                                 "value": float(obs["value"]), "unit": unit, "source": "FRED"})
+                                 "value": float(obs["value"]), "unit": unit, "source": "FRED",
+                                 "history": history})
                     continue
                 api_error = "FRED API returned no usable observations"
             except Exception as exc:
@@ -73,11 +77,15 @@ def collect_fred():
             with urllib.request.urlopen(req, timeout=12) as response:
                 text = response.read().decode("utf-8-sig")
             records = list(csv.DictReader(io.StringIO(text)))
-            obs = next((x for x in reversed(records) if x.get(series_id) not in (None, ".", "")), None)
+            valid = [x for x in records if x.get(series_id) not in (None, ".", "")]
+            obs = valid[-1] if valid else None
             if not obs:
                 raise RuntimeError("public CSV returned no usable observations")
+            count = 90 if series_id in ("DGS10", "DGS2") else 24
+            history = [{"date": x["observation_date"], "value": float(x[series_id])} for x in valid[-count:]]
             rows.append({"name": label, "series": series_id, "date": obs["observation_date"],
-                         "value": float(obs[series_id]), "unit": unit, "source": "FRED"})
+                         "value": float(obs[series_id]), "unit": unit, "source": "FRED",
+                         "history": history})
         except Exception as csv_exc:
             errors.append(series_id + ": " + api_error + " | CSV " + str(csv_exc))
     return rows, ("; ".join(errors) if errors else "OK")
@@ -135,12 +143,17 @@ def collect_ecos():
             if isinstance(block, list):
                 block = block[0] if block else {}
             records = block.get("row", []) if isinstance(block, dict) else []
-            obs = next((x for x in reversed(records) if x.get("DATA_VALUE") not in (None, "")), None)
+            valid = [x for x in records if x.get("DATA_VALUE") not in (None, "")]
+            obs = valid[-1] if valid else None
             if obs:
+                history = [{"date": x.get("TIME", ""),
+                            "value": float(str(x["DATA_VALUE"]).replace(",", ""))}
+                           for x in valid[-90:]]
                 rows.append({
                     "name": str(spec.get("name", stat)), "series": stat,
                     "date": obs.get("TIME", ""), "value": float(str(obs["DATA_VALUE"]).replace(",", "")),
                     "unit": str(spec.get("unit", "")), "source": "ECOS",
+                    "history": history,
                 })
         except Exception as exc:
             errors.append(str(spec.get("name", spec.get("stat_code", "ECOS"))) + ": " + str(exc))
