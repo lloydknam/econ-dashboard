@@ -1,5 +1,5 @@
 {
- "at": "2026-11-01T08:57:30+00:00",
+ "at": "2026-11-01T08:59:51+00:00",
  "keys_present": {
   "KOSIS_API_KEY": true,
   "OPENFISCAL_API_KEY": true,
@@ -36,6 +36,939 @@
    "status": 200,
    "body": "[{\"ORG_ID\":\"301\",\"ORG_NM\":\"한국은행\",\"TBL_ID\":\"DT_200Y152\",\"TBL_NM\":\"일반정부의 부문별 기능별 총지출 (명목, 연간)\",\"STAT_ID\":\"1976017\",\"STAT_NM\":\"국민계정\",\"VW_CD\":\"MT_ZTITLE\",\"MT_ATITLE\":\"국민계정 > 국민계정 > 국민계정(2020년기준) > 일반정부 및 공공부문계정\",\"FULL_PATH_ID\":\"Q > Q_301009 > Q_301009_002 > Q_301009_002_008\",\"CONTENTS\":\"계정항목별 금액구분코드별 경제업무 보건 교육 일반공공행정 환경보호 사회보호 공공질서 및 안전 국방 주택 및 지역개발 오락 문화 및 종교 합계 일반정부-피용자보수 중앙정부-재고증감 및 귀중품 순취득 지방정부-보조금 지방정부-재산소득 사회보장기금-기타생산세 ... 지방정부-중간소비 지방정부-사회보장현물수혜 지방정부-총지출 사회보장기금-재고증감 및 귀중품 순취득 중앙정부-기타생산세 중앙정부-재산소득 중앙정부-사회수혜금 사회보장기금-재산소득 일반정부-사회보장현물수혜 일반정부-자본이전 일반정부-총지출 중앙정부-사회보장현물수혜 ...\",\"STRT_PRD_DE\":\"1970\",\"END_PRD_DE\":\"2024\",\"ITEM03\":\"(1) 연간확정 : 해당 연도 종료 후 18개월 이내 (2) 재산소득, 기타경상이전, 자본이전, 총지출의 경우 정부 간 내부거래 포함에 따라 부문의 합과 총합이 불일치 (3) 사회보장현물수혜의 경우 사회부조현물수혜 포함 (4) 총고정자본형성의 경우 정부의 자가자본형성을 위한 고정자본소모 차감\",\"REC_TBL_SE\":\"N\",\"TBL_VIEW_URL\":\"https://kosis.kr/statisticsList/statisticsListIndex.do?menuId=M_01_01&vwcd=MT_ZTITLE&parmTabId=M_01_01&parentId=Q.1;Q_301009.2;Q_301009_002.3;Q_301009_002_008.4;\",\"LINK_URL\":\"http://kosis.kr/statHtml/statHtml.do?orgId=301&tblId=DT_200Y152\",\"STAT_DB_CNT\":\"2471\",\"QUERY\":\"일반정부\"},{\"ORG_ID\":\"301\",\"ORG_NM\":\"한국은행\",\"TBL_ID\":\"DT_200Y151\",\"TBL_NM\":\"일반정부의 부문별 기능별 최종소비지출(명목, 연간)\",\"STAT_ID\":\"1976017\",\"STAT_NM\":\"국민계정\",\"VW_CD\":\"MT_ZTITLE\",\"MT_ATITLE\":\"국민계정 > 국민계정 > 국민계정(2020년기준) > 일반정부 및 공공부문계정\",\"FULL_PATH_ID\":\"Q > Q_301009 > Q_301009_002 > Q_301009_002_008\",\"CONTENTS\":\"계정항목별 금액구분코드별 환경보호 사회보호 오락 문화 및 종교 합계 일반공공행정 보건 공공질서 및 안전 주택 및 지역개발 교육 국방 경제업무 일반정부-피용자보수(1) 중앙정부-고정자본소모(3) 지방정부-(공제)상품 및 비상품판매(7) 사...모(3) 일반정부-중간소비(5) 일반정부-사회보장현물수혜(8) 중앙정부-집합소비지출 지방정부-사회보장현물수혜(8) 지방정부-순영업잉여(2) 사회보장기금-총산출(6)=(1)+(2)+(3)+(4)+(5) 일반정부-개별소비지출 중앙정부-기타생산세(4) ...\",\"STRT_PRD_DE\":\"1970\",\"END_PRD_DE\":\"2024\",\"ITEM03\":\"(1) 연간확정 : 해당 연도 종료 후 18개월 이내 (2) 산출액의 경우 정부의 자가자본형성을 위한 산출액 차감 (3) 사회보장현물수혜의 경우 사회부조현물수혜 포함\",\"REC_TBL_SE\":\"N\",\"TBL_VIEW_URL\":\"https://kosis.kr/statisticsList/statisticsListIndex.do?menuId=M_01_01&vwcd=MT_ZTITLE&parmTabId=M_01_01&parentId=Q.1;Q_301009.2;Q_301009_002.3;Q_301009_002_008.4;\",\"LINK_URL\":\"http://kosis.kr/statHtml/statHtml.do?orgId=301&tblId=DT_200Y151\",\"STAT_DB_CNT\":\"2471\",\"QUERY\":\"일반정부\"},{\"ORG_ID\":\"101\",\"ORG_NM\":\"국가데이터처\",\"TBL_ID\":\"DT_2OENA08\",\"TBL_NM\":\"6. 정부\",\"STAT_ID\":\"A10120100427103019\",\"STAT_NM\":\"OECD\",\"VW_CD\":\"MT_RTITLE\",\"MT_ATITLE\":\"국제기구별 통계 > OECD (Organization for Economic Cooperation and Development) > 국민계정(National Accounts)\",\"FULL_PATH_ID\":\"R_SUB_OTITLE > R_SUB_OTITLE_OTIT_OECDTIT > R_SUB_OTITLE_OTIT_OECDTIT_AB\",\"CONTENTS\":\"... 일반정부 사회부담금 일반정부 지출(GDP 대비 %) 지방정부 사회부담금 사회적 현물 이전 이외의 사회적 지불 피용자보수 중앙정부 사회부담금 총고정자본형성 사회보장기금 사회부담금 사회적 지불 및 현물 이전(일반 정부 지출 대비 %) 일반정부의 순저축률(GDP ... 지자체 사회부담금 사회적 현물 이전 일반정부 수입(GDP 대비 %) 사회적 현물 이전 이외의 사회적 지불 사회적 현물 이전 일반정부의 순금융자산(GDP 대비 %) 일반정부의 조정부채 (GDP 대비 %) 생산 및 수입세 소득세를 포함한 경상세 일반정부의 ...\",\"STRT_PRD_DE\":\"1970\",\"END_PRD_DE\":\"2025\",\"ITEM03\":\"\",\"REC_TBL_SE\":\"N\",\"TBL_VIEW_URL\":\"https://kosis.kr/statisticsList/statisticsListIndex.do?menuId=M_02_01&vwcd=MT_RTITLE&parmTabId=M_01_01&parentId=R_SUB_OTITLE.1;R_SUB_OTITLE_OTIT_OECDTIT.2;R_SUB_OTITLE_OTIT_OECDTIT_AB.3;\",\"LINK_URL\":\"http://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_2OENA08\",\"STAT_DB_CNT\":\"2471\",\"QUERY\":\"일반정부\"},{\"ORG_ID\":\"101\",\"ORG_NM\":\"국가데이터처\",\"TBL_ID\":\"DT_2IFS069\",\"TBL_NM\":\"분기 정부재정통계(비금융자산 잔액)\",\"STAT_ID\":\"A10120100413104843\",\"STAT_NM\":\"IMF\",\"VW_CD\":\"MT_RTITLE\",\"MT_ATITLE\":\"국제기구별 통계 > IMF (International Monetary Fund) > 국제금융통계(International Financial Statistics, IFS) > 분기 정부재정통계\",\"FULL_PATH_ID\":\"R_SUB_OTITLE > R_SUB_OTITLE_OTIT_IMFTIT > OTIT_PTIT_IFS2026 > OTIT_PTIT_IFS2026_IFS12\",\"CONTENTS\":\"... 나이지리아 남아프리카공화국 잠비아 오세아니아 미국령사모아 가이아나 아이티 괌 아프가니스탄 아르메니아 조지아 오만 파키스탄 타지키스탄 태국 투르크메니스탄 우즈베키스탄 안길라 아루바 니카라과 볼리비아 쿠바 도미니카연방 파나마 세인트빈센트그레나딘 크로아티아 교황청 아일랜드 포르투갈 스페인 스웨덴 앙골라 베냉 차드 기니 기니비사우 소말리아 나우루 팔라우 나미비아 세이셸 시에라리온 수단 짐바브웨 오스트레일리아 파푸아뉴기니 사회 보장 제도를 포함한 중앙 정부 예산 중앙 정부 일반 정부\",\"STRT_PRD_DE\":\"1990\",\"END_PRD_DE\":\"2025\",\"ITEM03\":\"정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨. 정부재정통계(GFS)는 정부 수입과 지출, 정부 순대출/순차입(흑자/적자), 재원조달(금융) 거래, 그리고 정부 자산·부채에 대한 대차대조표(재무상태표) 자료를 포함함. 통계는 예산중앙정부, 중앙정부, 일반정부 등 서로 다른 정부 수준별로 제공됨.\",\"REC_TBL_SE\":\"N\",\"TBL_VIEW_URL\":\"https://kosis.kr/statisticsList/statisticsListIndex.do?menuId=M_02_01&vwcd=MT_RTITLE&parmTabId=M_01_01&parentId=R_SUB_OTITLE.1;R_SUB_OTITLE_OTIT_IMFTIT.2;OTIT_PTIT_IFS2026.3;OTIT_PTIT_IFS2026_IFS12.4;\",\"LINK_URL\":\"http://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_2IFS069\",\""
   },
+  "kosis_DT_102006_001_Y": {
+   "rows": 30,
+   "distinct": [
+    {
+     "C1_NM": "국가채무",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": "조원",
+     "ITM_ID": "T001",
+     "C1": "A01",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "1126.8"
+    },
+    {
+     "C1_NM": "국가채무 GDP 대비",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": "%",
+     "ITM_ID": "T001",
+     "C1": "A02",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "46.8"
+    },
+    {
+     "C1_NM": "중앙정부 채무",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": "조원",
+     "ITM_ID": "T001",
+     "C1": "A03",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "1092.5"
+    },
+    {
+     "C1_NM": "국채",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": null,
+     "ITM_ID": "T001",
+     "C1": "A04",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "1091.1"
+    },
+    {
+     "C1_NM": "국고채권",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": null,
+     "ITM_ID": "T001",
+     "C1": "A05",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "998"
+    },
+    {
+     "C1_NM": "국민주택채권",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": null,
+     "ITM_ID": "T001",
+     "C1": "A06",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "81.6"
+    },
+    {
+     "C1_NM": "외평채권",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": null,
+     "ITM_ID": "T001",
+     "C1": "A07",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "11.5"
+    },
+    {
+     "C1_NM": "차입금",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": null,
+     "ITM_ID": "T001",
+     "C1": "A08",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "1.2"
+    },
+    {
+     "C1_NM": "국고채무부담행위",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": null,
+     "ITM_ID": "T001",
+     "C1": "A09",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "0.2"
+    },
+    {
+     "C1_NM": "지방정부 순채무",
+     "C2_NM": null,
+     "ITM_NM": "국가채무(D1)",
+     "UNIT": "조원",
+     "ITM_ID": "T001",
+     "C1": "A10",
+     "C2": null,
+     "PRD": "2023",
+     "DT": "34.3"
+    }
+   ]
+  },
+  "kosis_DT_102N_A001_Y": {
+   "rows": 14,
+   "distinct": [
+    {
+     "C1_NM": "국가채무",
+     "C2_NM": null,
+     "ITM_NM": "국가채무",
+     "UNIT": "조원",
+     "ITM_ID": "T01",
+     "C1": "01",
+     "C2": null,
+     "PRD": "2024",
+     "DT": "1175"
+    },
+    {
+     "C1_NM": "국가채무 GDP 대비",
+     "C2_NM": null,
+     "ITM_NM": "국가채무",
+     "UNIT": "%",
+     "ITM_ID": "T01",
+     "C1": "02",
+     "C2": null,
+     "PRD": "2024",
+     "DT": "45.8"
+    },
+    {
+     "C1_NM": "일반회계 적자보전",
+     "C2_NM": null,
+     "ITM_NM": "국가채무",
+     "UNIT": "조원",
+     "ITM_ID": "T01",
+     "C1": "03",
+     "C2": null,
+     "PRD": "2024",
+     "DT": "756.7"
+    },
+    {
+     "C1_NM": "서민 주거안정 지원",
+     "C2_NM": null,
+     "ITM_NM": "국가채무",
+     "UNIT": "조원",
+     "ITM_ID": "T01",
+     "C1": "05",
+     "C2": null,
+     "PRD": "2024",
+     "DT": "79.1"
+    },
+    {
+     "C1_NM": "외환시장 안정",
+     "C2_NM": null,
+     "ITM_NM": "국가채무",
+     "UNIT": "조원",
+     "ITM_ID": "T01",
+     "C1": "06",
+     "C2": null,
+     "PRD": "2024",
+     "DT": "210.3"
+    },
+    {
+     "C1_NM": "지방정부 순채무",
+     "C2_NM": null,
+     "ITM_NM": "국가채무",
+     "UNIT": "조원",
+     "ITM_ID": "T01",
+     "C1": "08",
+     "C2": null,
+     "PRD": "2024",
+     "DT": "33.9"
+    },
+    {
+     "C1_NM": "기타(공적자금 국채전환 등)",
+     "C2_NM": null,
+     "ITM_NM": "국가채무",
+     "UNIT": "조원",
+     "ITM_ID": "T01",
+     "C1": "09",
+     "C2": null,
+     "PRD": "2024",
+     "DT": "95"
+    }
+   ]
+  },
+  "kosis_DT_102N_AD01_M": {
+   "rows": 66,
+   "distinct": [
+    {
+     "C1_NM": "총수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD110",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "437404"
+    },
+    {
+     "C1_NM": "경상수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD111",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "435273"
+    },
+    {
+     "C1_NM": "국세수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1111",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "274026"
+    },
+    {
+     "C1_NM": "소득세 및 이익세",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11111",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "141168"
+    },
+    {
+     "C1_NM": "재산세",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11112",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "21131"
+    },
+    {
+     "C1_NM": "재화 및 용역",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11113",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "84456"
+    },
+    {
+     "C1_NM": "관세",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11114",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "4656"
+    },
+    {
+     "C1_NM": "기타",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11115",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "22617"
+    },
+    {
+     "C1_NM": "사회보장기여금",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1112",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "59445"
+    },
+    {
+     "C1_NM": "세외수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1113",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "101801"
+    },
+    {
+     "C1_NM": "자본수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD112",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "2131"
+    },
+    {
+     "C1_NM": "총지출 및 순융자",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD120",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "457481"
+    },
+    {
+     "C1_NM": "총지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD121",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "444251"
+    },
+    {
+     "C1_NM": "경상지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD122",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "417026"
+    },
+    {
+     "C1_NM": "재화 및 용역",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1221",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "59351"
+    },
+    {
+     "C1_NM": "이자지급",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1222",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "16037"
+    },
+    {
+     "C1_NM": "국내",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12221",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "16037"
+    },
+    {
+     "C1_NM": "국외",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12222",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "0"
+    },
+    {
+     "C1_NM": "보조금 및 경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1223",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "338140"
+    },
+    {
+     "C1_NM": "보조금",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12231",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "859"
+    },
+    {
+     "C1_NM": "지방정부경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12232",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "169067"
+    },
+    {
+     "C1_NM": "비영리기구경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12233",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "74306"
+    },
+    {
+     "C1_NM": "가계경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12234",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "92322"
+    },
+    {
+     "C1_NM": "해외경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12235",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "1586"
+    },
+    {
+     "C1_NM": "기업특별회계경상지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1224",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "3498"
+    },
+    {
+     "C1_NM": "자본지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD123",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "27225"
+    },
+    {
+     "C1_NM": "고정자산취득",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1231",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "6654"
+    },
+    {
+     "C1_NM": "재고자산매입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1232",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "0"
+    },
+    {
+     "C1_NM": "토지 및 무형자산매입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1233",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "1436"
+    },
+    {
+     "C1_NM": "기업특별회계자본지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1234",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "184"
+    },
+    {
+     "C1_NM": "자본이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1235",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "18952"
+    },
+    {
+     "C1_NM": "순융자",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD124",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "13229"
+    },
+    {
+     "C1_NM": "통합재정수지",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD130",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "-20076"
+    }
+   ]
+  },
+  "kosis_DT_102N_AD01_Y": {
+   "rows": 66,
+   "distinct": [
+    {
+     "C1_NM": "총수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD110",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "437404"
+    },
+    {
+     "C1_NM": "경상수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD111",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "435273"
+    },
+    {
+     "C1_NM": "국세수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1111",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "274026"
+    },
+    {
+     "C1_NM": "소득세 및 이익세",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11111",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "141168"
+    },
+    {
+     "C1_NM": "재산세",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11112",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "21131"
+    },
+    {
+     "C1_NM": "재화 및 용역",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11113",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "84456"
+    },
+    {
+     "C1_NM": "관세",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11114",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "4656"
+    },
+    {
+     "C1_NM": "기타",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD11115",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "22617"
+    },
+    {
+     "C1_NM": "사회보장기여금",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1112",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "59445"
+    },
+    {
+     "C1_NM": "세외수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1113",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "101801"
+    },
+    {
+     "C1_NM": "자본수입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD112",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "2131"
+    },
+    {
+     "C1_NM": "총지출 및 순융자",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD120",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "457481"
+    },
+    {
+     "C1_NM": "총지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD121",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "444251"
+    },
+    {
+     "C1_NM": "경상지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD122",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "417026"
+    },
+    {
+     "C1_NM": "재화 및 용역",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1221",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "59351"
+    },
+    {
+     "C1_NM": "이자지급",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1222",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "16037"
+    },
+    {
+     "C1_NM": "국내",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12221",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "16037"
+    },
+    {
+     "C1_NM": "국외",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12222",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "0"
+    },
+    {
+     "C1_NM": "보조금 및 경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1223",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "338140"
+    },
+    {
+     "C1_NM": "보조금",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12231",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "859"
+    },
+    {
+     "C1_NM": "지방정부경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12232",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "169067"
+    },
+    {
+     "C1_NM": "비영리기구경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12233",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "74306"
+    },
+    {
+     "C1_NM": "가계경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12234",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "92322"
+    },
+    {
+     "C1_NM": "해외경상이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD12235",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "1586"
+    },
+    {
+     "C1_NM": "기업특별회계경상지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1224",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "3498"
+    },
+    {
+     "C1_NM": "자본지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD123",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "27225"
+    },
+    {
+     "C1_NM": "고정자산취득",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1231",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "6654"
+    },
+    {
+     "C1_NM": "재고자산매입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1232",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "0"
+    },
+    {
+     "C1_NM": "토지 및 무형자산매입",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1233",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "1436"
+    },
+    {
+     "C1_NM": "기업특별회계자본지출",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1234",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "184"
+    },
+    {
+     "C1_NM": "자본이전",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD1235",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "18952"
+    },
+    {
+     "C1_NM": "순융자",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD124",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "13229"
+    },
+    {
+     "C1_NM": "통합재정수지",
+     "C2_NM": null,
+     "ITM_NM": "재정수지",
+     "UNIT": "십억원",
+     "ITM_ID": "16102AD1",
+     "C1": "15102AD130",
+     "C2": null,
+     "PRD": "202607",
+     "DT": "-20076"
+    }
+   ]
+  },
   "openfiscal_root": {
    "url": "https://openapi.openfiscaldata.go.kr/",
    "status": 200,
@@ -50,81 +983,6 @@
    "url": "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3&FSCL_YY=2025",
    "status": 201,
    "body": "\"{\\\"ExpenditureBudgetInit5\\\":[{\\\"head\\\":[{\\\"list_total_count\\\":8890},{\\\"RESULT\\\":{\\\"CODE\\\":\\\"INFO-000\\\",\\\"MESSAGE\\\":\\\"정상 처리되었습니다.\\\"}}]},{\\\"row\\\":[{\\\"FSCL_YY\\\":\\\"2025\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"기관운영\\\",\\\"ACTV_NM\\\":\\\"인건비\\\",\\\"SACTV_NM\\\":\\\"인건비\\\",\\\"BZ_CLS_NM\\\":\\\"인건비(기금인건비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":43328000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":43328000},{\\\"FSCL_YY\\\":\\\"2025\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"기관운영\\\",\\\"ACTV_NM\\\":\\\"기본경비\\\",\\\"SACTV_NM\\\":\\\"기본경비\\\",\\\"BZ_CLS_NM\\\":\\\"기본경비(경상운영비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":21840000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":21740000},{\\\"FSCL_YY\\\":\\\"2025\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"국정지원\\\",\\\"ACTV_NM\\\":\\\"국정운영 지원\\\",\\\"SACTV_NM\\\":\\\"업무지원비\\\",\\\"BZ_CLS_NM\\\":\\\"주요사업비(기금사업비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":17428000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":9177000}]}]}\""
-  },
-  "openfiscal_ExpenditureBudgetInit5": {
-   "url": "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-300\\\",\\\"MESSAGE\\\":\\\"필수 값이 누락되어 있습니다.\\\\\\\\n요청인자를 참고 하십시오.\\\"}}\""
-  },
-  "openfiscal_ExpenditureBudgetAdd5": {
-   "url": "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetAdd5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-300\\\",\\\"MESSAGE\\\":\\\"필수 값이 누락되어 있습니다.\\\\\\\\n요청인자를 참고 하십시오.\\\"}}\""
-  },
-  "openfiscal_NationalDebt": {
-   "url": "https://openapi.openfiscaldata.go.kr/NationalDebt?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_FiscalBalance": {
-   "url": "https://openapi.openfiscaldata.go.kr/FiscalBalance?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_TotalRevenueExpenditure": {
-   "url": "https://openapi.openfiscaldata.go.kr/TotalRevenueExpenditure?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_IncomeStatus": {
-   "url": "https://openapi.openfiscaldata.go.kr/IncomeStatus?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_NationalAssets": {
-   "url": "https://openapi.openfiscaldata.go.kr/NationalAssets?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_GovernmentLiabilities": {
-   "url": "https://openapi.openfiscaldata.go.kr/GovernmentLiabilities?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_CommonFiscalData": {
-   "url": "https://openapi.openfiscaldata.go.kr/CommonFiscalData?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_ExpenditureSettlementInit5": {
-   "url": "https://openapi.openfiscaldata.go.kr/ExpenditureSettlementInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_RevenueBudgetInit5": {
-   "url": "https://openapi.openfiscaldata.go.kr/RevenueBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_IncomeBudgetInit5": {
-   "url": "https://openapi.openfiscaldata.go.kr/IncomeBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_FiscalStatus": {
-   "url": "https://openapi.openfiscaldata.go.kr/FiscalStatus?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_NationalDebtStatus": {
-   "url": "https://openapi.openfiscaldata.go.kr/NationalDebtStatus?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
-  },
-  "openfiscal_DebtStatus": {
-   "url": "https://openapi.openfiscaldata.go.kr/DebtStatus?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
-   "status": 201,
-   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
   }
  }
 }
