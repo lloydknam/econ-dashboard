@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - "scripts/collect_official_macro.py"
+      - "config/ecos-series.json"
       - ".github/workflows/refresh-official-macro.yml"
   schedule:
     - cron: "17 */6 * * *"
