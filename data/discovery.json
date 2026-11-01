@@ -1,5 +1,5 @@
 {
- "at": "2026-11-01T08:55:49+00:00",
+ "at": "2026-11-01T08:56:42+00:00",
  "keys_present": {
   "KOSIS_API_KEY": false,
   "OPENFISCAL_API_KEY": true,
@@ -10,6 +10,16 @@
    "url": "https://openapi.openfiscaldata.go.kr/",
    "status": 200,
    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<RESULT>\n  <CODE>ERROR-310</CODE>\n  <MESSAGE>해당하는 서비스를 찾을 수 없습니다.\\n요청인자 중 SERVICE를 확인하십시오.</MESSAGE>\n</RESULT>\n"
+  },
+  "openfiscal_ExpenditureBudgetInit5_2026": {
+   "url": "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3&FSCL_YY=2026",
+   "status": 201,
+   "body": "\"{\\\"ExpenditureBudgetInit5\\\":[{\\\"head\\\":[{\\\"list_total_count\\\":9436},{\\\"RESULT\\\":{\\\"CODE\\\":\\\"INFO-000\\\",\\\"MESSAGE\\\":\\\"정상 처리되었습니다.\\\"}}]},{\\\"row\\\":[{\\\"FSCL_YY\\\":\\\"2026\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"기관운영\\\",\\\"ACTV_NM\\\":\\\"인건비\\\",\\\"SACTV_NM\\\":\\\"인건비\\\",\\\"BZ_CLS_NM\\\":\\\"인건비(기금인건비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":44844000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":44844000},{\\\"FSCL_YY\\\":\\\"2026\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"기관운영\\\",\\\"ACTV_NM\\\":\\\"기본경비\\\",\\\"SACTV_NM\\\":\\\"기본경비\\\",\\\"BZ_CLS_NM\\\":\\\"기본경비(경상운영비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":22301000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":22423000},{\\\"FSCL_YY\\\":\\\"2026\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"국정지원\\\",\\\"ACTV_NM\\\":\\\"국정운영 지원\\\",\\\"SACTV_NM\\\":\\\"업무지원비\\\",\\\"BZ_CLS_NM\\\":\\\"주요사업비(기금사업비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":16560000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":16560000}]}]}\""
+  },
+  "openfiscal_ExpenditureBudgetInit5_2025": {
+   "url": "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3&FSCL_YY=2025",
+   "status": 201,
+   "body": "\"{\\\"ExpenditureBudgetInit5\\\":[{\\\"head\\\":[{\\\"list_total_count\\\":8890},{\\\"RESULT\\\":{\\\"CODE\\\":\\\"INFO-000\\\",\\\"MESSAGE\\\":\\\"정상 처리되었습니다.\\\"}}]},{\\\"row\\\":[{\\\"FSCL_YY\\\":\\\"2025\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"기관운영\\\",\\\"ACTV_NM\\\":\\\"인건비\\\",\\\"SACTV_NM\\\":\\\"인건비\\\",\\\"BZ_CLS_NM\\\":\\\"인건비(기금인건비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":43328000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":43328000},{\\\"FSCL_YY\\\":\\\"2025\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"기관운영\\\",\\\"ACTV_NM\\\":\\\"기본경비\\\",\\\"SACTV_NM\\\":\\\"기본경비\\\",\\\"BZ_CLS_NM\\\":\\\"기본경비(경상운영비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":21840000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":21740000},{\\\"FSCL_YY\\\":\\\"2025\\\",\\\"OFFC_NM\\\":\\\"대통령비서실 및 국가안보실\\\",\\\"FSCL_NM\\\":\\\"일반회계\\\",\\\"ACCT_NM\\\":null,\\\"FLD_NM\\\":\\\"일반·지방행정\\\",\\\"SECT_NM\\\":\\\"일반행정\\\",\\\"PGM_NM\\\":\\\"국정지원\\\",\\\"ACTV_NM\\\":\\\"국정운영 지원\\\",\\\"SACTV_NM\\\":\\\"업무지원비\\\",\\\"BZ_CLS_NM\\\":\\\"주요사업비(기금사업비)\\\",\\\"FIN_DE_EP_NM\\\":\\\"일반지출\\\",\\\"Y_YY_MEDI_KCUR_AMT\\\":17428000,\\\"Y_YY_DFN_MEDI_KCUR_AMT\\\":9177000}]}]}\""
   },
   "openfiscal_ExpenditureBudgetInit5": {
    "url": "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
@@ -53,6 +63,36 @@
   },
   "openfiscal_CommonFiscalData": {
    "url": "https://openapi.openfiscaldata.go.kr/CommonFiscalData?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_ExpenditureSettlementInit5": {
+   "url": "https://openapi.openfiscaldata.go.kr/ExpenditureSettlementInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_RevenueBudgetInit5": {
+   "url": "https://openapi.openfiscaldata.go.kr/RevenueBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_IncomeBudgetInit5": {
+   "url": "https://openapi.openfiscaldata.go.kr/IncomeBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_FiscalStatus": {
+   "url": "https://openapi.openfiscaldata.go.kr/FiscalStatus?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_NationalDebtStatus": {
+   "url": "https://openapi.openfiscaldata.go.kr/NationalDebtStatus?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_DebtStatus": {
+   "url": "https://openapi.openfiscaldata.go.kr/DebtStatus?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
    "status": 201,
    "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
   }
