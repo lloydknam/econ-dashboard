@@ -1,0 +1,34 @@
+name: Discover API keys
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/discover_keys.py"
+      - ".github/workflows/discover-keys.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe keys
+        env:
+          KOSIS_API_KEY: ${{ secrets.KOSIS_API_KEY }}
+          OPENFISCAL_API_KEY: ${{ secrets.OPENFISCAL_API_KEY }}
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+        run: python scripts/discover_keys.py
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/discovery.json
+          git diff --cached --quiet || (git commit -m "Update key discovery results" && git pull --rebase -q && git push)
