@@ -424,6 +424,8 @@ def fetch_openfiscal_year(key, year):
             raise RuntimeError(code)
         rows = block[1].get("row", [])
         for r in rows:
+            if (r.get("FIN_DE_EP_NM") or "") != "일반지출":
+                continue  # exclude 내부거래·보전지출 (double counting)
             amt = r.get("Y_YY_DFN_MEDI_KCUR_AMT")
             if amt is None:
                 amt = r.get("Y_YY_MEDI_KCUR_AMT")
@@ -431,8 +433,6 @@ def fetch_openfiscal_year(key, year):
                 continue
             v = float(amt) / 1e9
             total += v
-            ep_key = f'{r.get("FIN_DE_EP_NM") or "-"}:{r.get("FSCL_NM") or "-"}'
-            by_ep[ep_key] = by_ep.get(ep_key, 0.0) + v
             by_fld[r.get("FLD_NM") or "기타"] = by_fld.get(r.get("FLD_NM") or "기타", 0.0) + v
             by_off[r.get("OFFC_NM") or "기타"] = by_off.get(r.get("OFFC_NM") or "기타", 0.0) + v
         got += len(rows)
@@ -452,7 +452,9 @@ def collect_fiscal(previous_rows):
     for r in previous_rows:
         names[r["series"]] = r.get("name", r["series"])
         table[r["series"]] = {h["date"]: h["value"] for h in r.get("history", [])}
-    cached = set.intersection(*[set(h) for sid, h in table.items() if sid.startswith("OF:EP:")]) if any(sid.startswith("OF:EP:") for sid in table) else set()
+    if "OF:META:v2" not in table:  # older, unfiltered aggregates are discarded
+        table, names = {}, {}
+    cached = set(table.get("OF:META:v2", {}))
     errors = []
     for year in range(this_year - 6, this_year + 1):
         if str(year) in cached and year < this_year - 1:
@@ -467,9 +469,8 @@ def collect_fiscal(previous_rows):
         for nm, v in fld.items():
             table.setdefault("OF:FLD:" + nm, {})[str(year)] = v
             names["OF:FLD:" + nm] = nm
-        for nm, v in ep.items():
-            table.setdefault("OF:EP:" + nm, {})[str(year)] = v
-            names["OF:EP:" + nm] = nm
+        table.setdefault("OF:META:v2", {})[str(year)] = 1.0
+        names["OF:META:v2"] = "meta"
         for nm, v in off.items():
             table.setdefault("OF:OFFC:" + nm, {})[str(year)] = v
             names["OF:OFFC:" + nm] = nm
@@ -507,6 +508,7 @@ def main():
             previous = json.loads(OUT.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             previous = {}
+    previous["fiscal"] = [r for r in previous.get("fiscal", []) if not str(r.get("series", "")).startswith("OF:EP:")]
 
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     fred, fred_status = collect_fred()
