@@ -469,7 +469,7 @@ function buildSheet(){
   Object.keys(NAMES).forEach(box=>{
     const h=document.createElement('h3');h.innerHTML=NAMES[box]+' <a data-all="'+box+'">전체</a><a data-none="'+box+'">해제</a>';body.appendChild(h);
     const wrap=document.createElement('div');wrap.className='chips';
-    CARDS.filter(c=>c.box===box).forEach(c=>{
+    CARDS.filter(c=>c.box===box).sort((x,y)=>(y.freq==='D')-(x.freq==='D')).forEach(c=>{
       const has=lastData&&c.series.some(s=>getSeries(lastData,s.id,c).length);
       const l=document.createElement('label');l.className=(has?'':'nodata ')+(c.freq==='D'?'dly':'');
       l.innerHTML='<input type="checkbox" data-id="'+c.id+'"'+(sel.has(c.id)?' checked':'')+'>'+c.title;
