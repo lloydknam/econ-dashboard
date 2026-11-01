@@ -247,6 +247,49 @@ def finish_market(spec, hist, source):
             "value": last["value"], "unit": "", "source": source, "history": history}
 
 
+def _num(v):
+    return float(str(v).replace(",", ""))
+
+
+def fetch_naver_world(spec):
+    """Naver world indices / FX / commodities (JSON). Tries two known endpoint families."""
+    kind, code = spec["naver"]
+    end = date.today()
+    start = end - timedelta(days=400)
+    hist, errs = {}, []
+    if kind == "index":
+        try:
+            url = (f"https://api.stock.naver.com/chart/foreign/index/{urllib.parse.quote(code, safe='')}/day?"
+                   f"startDateTime={start:%Y%m%d}0000&endDateTime={end:%Y%m%d}0000")
+            for r in json.loads(get_text(url)):
+                hist[f"{r['localDate'][:4]}-{r['localDate'][4:6]}-{r['localDate'][6:8]}"] = _num(r["closePrice"])
+        except Exception as exc:
+            errs.append(f"chart-api {exc}")
+    if not hist:
+        try:
+            for page in range(1, 5):
+                url = ("https://m.stock.naver.com/front-api/marketIndex/prices?" + urllib.parse.urlencode({
+                    "category": kind, "reutersCode": code, "page": page, "pageSize": 100}))
+                payload = json.loads(get_text(url))
+                rows = payload.get("result") or []
+                if isinstance(rows, dict):
+                    rows = rows.get("prices") or rows.get("list") or []
+                if not rows:
+                    break
+                for r in rows:
+                    d = str(r.get("localTradedAt") or r.get("localDate") or "")[:10].replace("/", "-")
+                    if len(d) == 8:
+                        d = f"{d[:4]}-{d[4:6]}-{d[6:]}"
+                    hist[d] = _num(r["closePrice"])
+                if min(hist) <= start.isoformat():
+                    break
+        except Exception as exc:
+            errs.append(f"front-api {exc}")
+    if not hist:
+        raise RuntimeError("naver-world: " + "; ".join(errs) if errs else "naver-world: empty")
+    return finish_market(spec, hist, "Naver")
+
+
 def fetch_stooq(spec):
     end = date.today()
     start = end - timedelta(days=400)
@@ -271,6 +314,11 @@ def fetch_market(spec):
     if spec.get("src") == "naver":
         return fetch_naver(spec)
     errors = []
+    if spec.get("naver"):
+        try:
+            return fetch_naver_world(spec)
+        except Exception as exc:
+            errors.append(str(exc)[:120])
     if _yahoo_fail["n"] < 3:  # after 3 straight failures Yahoo is treated as blocked
         try:
             row = fetch_yahoo(spec)
