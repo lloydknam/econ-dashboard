@@ -77,9 +77,10 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 .pn label:has(input:checked){background:#e7f6ef;border-color:#9fd8bf;color:#006b49;font-weight:700}
 .pn label.nodata{opacity:.45}
 .pm{display:flex;flex-direction:column;gap:3px;margin:3px 0 4px}
-.pm .r{display:grid;grid-template-columns:66px 1fr 40px;align-items:center;gap:5px;font-size:11.5px}
+.pm .r{display:grid;grid-template-columns:62px 1fr 50px;align-items:center;gap:5px;font-size:11.5px}
 .pm .r b{font-weight:800;text-align:right;font-size:12px}
-.pm .t{height:8px;border-radius:4px;background:#edf1ed;overflow:hidden}.pm .t i{display:block;height:100%;background:#00a875;border-radius:4px}
+.pm .t{height:8px;border-radius:4px;background:#edf1ed;overflow:hidden}.pm .t i{display:block;height:100%;border-radius:4px}
+.pm .r u{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;vertical-align:1px}.pmc{height:90px;margin-top:2px}
 .pm .r span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pm .d{font-size:9.5px;font-weight:600;margin-left:2px;font-style:normal}.pm .d.u{color:#d45c62}.pm .d.n{color:#3b73c9}
 .pm-f{font-size:10px;color:var(--muted);margin:0 0 3px}
 .pn label.dly{border-color:#f0b35a;background:#fff8ec}
@@ -511,6 +512,7 @@ document.getElementById('selBody').addEventListener('click',e=>{
   const box=a.dataset.all||a.dataset.none;
   CARDS.filter(c=>c.box===box).forEach(c=>a.dataset.all?sel.add(c.id):sel.delete(c.id));
   saveSel();buildSheet();});
+const PMC=['#00a875','#3b73c9','#e08a00','#8a5bd0','#d45c62','#14a3b8','#7a8a2b','#a0522d'];
 const pmRows=(data,g)=>((data&&data.kalshi)||[]).filter(r=>r.group===g).sort((a,b)=>b.value-a.value);
 const hasData=c=>c.pm?pmRows(lastData,c.pm).length>0:c.series.some(s=>getSeries(lastData,s.id,c).length);
 function drawPM(spec,data){
@@ -522,10 +524,27 @@ function drawPM(spec,data){
   const key=r=>r.series.split('-').pop();
   const ord=spec.order?rows.slice().sort((a,b)=>spec.order.indexOf(key(a))-spec.order.indexOf(key(b))):rows;
   const mx=Math.max(...rows.map(r=>r.value),1);
+  const days=Math.max(...ord.map(r=>(r.history||[]).length));
+  if(charts[spec.id]){charts[spec.id].destroy();delete charts[spec.id];}
   const ct=(ord[0].close_time||'').slice(0,10);
   el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+(ct?whenLabel(ct,'D')+' 마감':'')+'</div></div><div class="pm">'+ord.map(r=>{
     const h=r.history||[],p=h.length>1?h[h.length-2].value:null,dv=p==null?null:Math.round((r.value-p)*10)/10;
-    return '<div class="r"><span>'+r.name+'</span><div class="t"><i style="width:'+Math.max(2,r.value/mx*100)+'%"></i></div><b>'+Math.round(r.value)+'%'+(dv?'<em class="d '+(dv>0?'u':'n')+'">'+(dv>0?'▲':'▼')+Math.abs(dv)+'</em>':'')+'</b></div>';}).join('')+'</div><div class="pm-f">Kalshi · 거래 얇음</div>';
+    const col=PMC[ord.indexOf(r)%PMC.length];
+    return '<div class="r"><span><u style="background:'+col+'"></u>'+r.name+'</span><div class="t"><i style="width:'+Math.max(2,r.value/mx*100)+'%;background:'+col+'"></i></div><b>'+Math.round(r.value)+'%'+(dv?'<em class="d '+(dv>0?'u':'n')+'">'+(dv>0?'▲':'▼')+Math.abs(dv)+'</em>':'')+'</b></div>';}).join('')+'</div>'+(days>1?'<div class="chart pmc"><canvas></canvas></div>':'')+'<div class="pm-f">Kalshi 확률(%) · '+(days>1?'일별 추이 '+days+'일':'오늘부터 매일 기록 · 그래프는 2일째부터')+'</div>';
+  if(days>1){
+    const make=()=>{
+      const labels=[...new Set(ord.flatMap(r=>(r.history||[]).map(h=>norm(h.date))))].sort();
+      const ds=ord.map((r,i)=>{const m=new Map((r.history||[]).map(h=>[norm(h.date),Number(h.value)]));
+        return {label:r.name,data:labels.map(t=>m.has(t)?m.get(t):null),borderColor:PMC[i%PMC.length],backgroundColor:PMC[i%PMC.length],borderWidth:2,pointRadius:labels.length<8?3:0,pointHitRadius:12,pointHoverRadius:4,tension:.25,spanGaps:true};});
+      const tick={color:'#5f6b64',font:{size:FS,family:FONT}};
+      charts[spec.id]=new Chart(el.querySelector('canvas'),{type:'line',data:{labels,datasets:ds},options:{responsive:true,maintainAspectRatio:false,animation:false,
+        interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false},tooltip:{enabled:true,bodyFont:{size:FS},titleFont:{size:FS},padding:6,callbacks:{title:i=>whenLabel(i[0].label,'D'),label:c=>' '+c.dataset.label+' '+c.parsed.y+'%'}}},
+        scales:{x:{ticks:{...tick,maxTicksLimit:4,maxRotation:0,callback(v){return shortLabel(this.getLabelForValue(v),'D');}},grid:{display:false},border:{display:false}},
+                y:{min:0,ticks:{...tick,maxTicksLimit:3,callback:v=>v+'%'},grid:{color:'#edf1ed'},border:{display:false},position:'right'}}}});
+    };
+    if(io){lazy.set(el,make);io.observe(el);}else make();
+  }
 }
 function drawCard(spec,data){
   if(spec.pm)return drawPM(spec,data);
