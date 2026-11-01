@@ -257,9 +257,9 @@ def fetch_naver_world(spec):
     end = date.today()
     start = end - timedelta(days=400)
     hist, errs = {}, []
-    if kind == "index":
+    if kind in ("index", "stock"):
         try:
-            url = (f"https://api.stock.naver.com/chart/foreign/index/{urllib.parse.quote(code, safe='')}/day?"
+            url = (f"https://api.stock.naver.com/chart/foreign/{kind}/{urllib.parse.quote(code, safe='')}/day?"
                    f"startDateTime={start:%Y%m%d}0000&endDateTime={end:%Y%m%d}0000")
             for r in json.loads(get_text(url)):
                 hist[f"{r['localDate'][:4]}-{r['localDate'][4:6]}-{r['localDate'][6:8]}"] = _num(r["closePrice"])
@@ -267,11 +267,25 @@ def fetch_naver_world(spec):
             errs.append(f"chart-api {exc}")
     if not hist:
         try:
-            for page in range(1, 5):
-                url = ("https://m.stock.naver.com/front-api/marketIndex/prices?" + urllib.parse.urlencode({
-                    "category": kind, "reutersCode": code, "page": page, "pageSize": 100}))
-                payload = json.loads(get_text(url))
-                rows = payload.get("result") or []
+            size = None
+            for page in range(1, 40):
+                payload = None
+                for sz in ((size,) if size else (60, 30, 20, 10)):
+                    for base in ("https://m.stock.naver.com/front-api/marketIndex/prices?" + urllib.parse.urlencode({
+                            "category": kind, "reutersCode": code, "page": page, "pageSize": sz}),
+                            f"https://api.stock.naver.com/marketindex/{kind}/{urllib.parse.quote(code, safe='')}/prices?"
+                            + urllib.parse.urlencode({"page": page, "pageSize": sz})):
+                        try:
+                            payload = json.loads(get_text(base))
+                            size = sz
+                            break
+                        except Exception as exc:
+                            errs.append(f"{exc}")
+                    if payload is not None:
+                        break
+                if payload is None:
+                    break
+                rows = payload if isinstance(payload, list) else (payload.get("result") or [])
                 if isinstance(rows, dict):
                     rows = rows.get("prices") or rows.get("list") or []
                 if not rows:
@@ -286,7 +300,7 @@ def fetch_naver_world(spec):
         except Exception as exc:
             errs.append(f"front-api {exc}")
     if not hist:
-        raise RuntimeError("naver-world: " + "; ".join(errs) if errs else "naver-world: empty")
+        raise RuntimeError("naver-world: " + ("; ".join(sorted(set(errs)))[:80] if errs else "empty"))
     return finish_market(spec, hist, "Naver")
 
 
