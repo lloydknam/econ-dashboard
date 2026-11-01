@@ -1,184 +1,204 @@
 #!/usr/bin/env python3
 """Collect official macroeconomic observations for the Econ Dashboard.
 
-Secrets:
-  FRED_API_KEY (required for FRED)
-  ECOS_API_KEY (optional for ECOS)
+Sources
+  ECOS (Bank of Korea)  — config/ecos-series.json, needs ECOS_API_KEY
+  FRED (St. Louis Fed)  — config/fred-series.json, FRED_API_KEY optional
+                          (public CSV endpoint is used as a fallback)
 
-Repository variable:
-  ECOS_SERIES_JSON (optional JSON array; see README comments below)
+A temporary failure of a provider or a single series never erases the last
+usable observations: previous rows are retained and merged.
 """
 import csv
 import io
 import json
 import os
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
-import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "official-macro.json"
+UA = {"User-Agent": "ClerkEconTerminal/2.0"}
+# How many observations to keep per frequency (enough for 1y charts and YoY maths).
+CAP = {"D": 270, "W": 60, "M": 40, "Q": 24, "A": 15}
+WORKERS = 6
 
 
 def get_json(url: str):
-    req = urllib.request.Request(url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
-    # ECOS occasionally stalls. Retry transient network failures once, but do
-    # not retry HTTP errors such as an invalid key or an invalid item code.
+    req = urllib.request.Request(url, headers=UA)
     for attempt in range(2):
         try:
             with urllib.request.urlopen(req, timeout=30) as response:
                 return json.loads(response.read().decode("utf-8"))
         except urllib.error.HTTPError as exc:
             detail = exc.read().decode("utf-8", errors="replace").strip()
-            raise RuntimeError(f"HTTP {exc.code}: {detail or exc.reason}") from None
+            raise RuntimeError(f"HTTP {exc.code}: {detail[:200] or exc.reason}") from None
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             if attempt == 0:
                 time.sleep(2)
                 continue
-            raise RuntimeError(f"연결 재시도 실패: {exc}") from None
+            raise RuntimeError(f"connection failed: {exc}") from None
+
+
+def get_text(url: str, timeout: int = 20) -> str:
+    req = urllib.request.Request(url, headers=UA)
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                return response.read().decode("utf-8-sig")
+        except urllib.error.HTTPError as exc:
+            raise RuntimeError(f"HTTP {exc.code}") from None
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            if attempt == 0:
+                time.sleep(2)
+                continue
+            raise RuntimeError(f"connection failed: {exc}") from None
+
+
+# ----------------------------------------------------------------- FRED ----
+def fetch_fred(spec, key):
+    series_id = spec["id"]
+    cap = CAP.get(spec.get("freq", "M"), 40)
+    label, unit = spec.get("name", series_id), spec.get("unit", "")
+    api_error = "FRED_API_KEY missing or invalid format"
+    if len(key) == 32 and key.isalnum() and key.islower():
+        params = urllib.parse.urlencode({
+            "series_id": series_id, "api_key": key, "file_type": "json",
+            "sort_order": "desc", "limit": cap + 10,
+        })
+        try:
+            payload = get_json("https://api.stlouisfed.org/fred/series/observations?" + params)
+            valid = [x for x in payload.get("observations", []) if x.get("value") not in (None, ".", "")]
+            if valid:
+                history = [{"date": x["date"], "value": float(x["value"])} for x in reversed(valid)][-cap:]
+                last = history[-1]
+                return {"name": label, "series": series_id, "date": last["date"], "value": last["value"],
+                        "unit": unit, "source": "FRED", "history": history}
+            api_error = "API returned no usable observations"
+        except Exception as exc:  # fall back to the public CSV endpoint
+            api_error = str(exc)
+    csv_url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode({"id": series_id})
+    text = get_text(csv_url)
+    records = list(csv.DictReader(io.StringIO(text)))
+    valid = [x for x in records if x.get(series_id) not in (None, ".", "")]
+    if not valid:
+        raise RuntimeError(f"{api_error} | CSV returned no usable observations")
+    date_key = "observation_date" if "observation_date" in valid[0] else "DATE"
+    history = [{"date": x[date_key], "value": float(x[series_id])} for x in valid[-cap:]]
+    last = history[-1]
+    return {"name": label, "series": series_id, "date": last["date"], "value": last["value"],
+            "unit": unit, "source": "FRED", "history": history}
 
 
 def collect_fred():
+    cfg = ROOT / "config" / "fred-series.json"
+    specs = json.loads(cfg.read_text(encoding="utf-8")) if cfg.exists() else []
     key = os.environ.get("FRED_API_KEY", "").strip()
-    # Retain at least one year of observations for all trend charts.
-    # Daily series use 400 points; monthly 36; quarterly 12 observations.
-    # The public FRED CSV fallback remains available even without an API key.
-    series = [
-        ("US 10Y Treasury", "DGS10", "%"),
-        ("US 2Y Treasury", "DGS2", "%"),
-        ("Federal Funds Rate", "FEDFUNDS", "%"),
-        ("US CPI", "CPIAUCSL", "index"),
-        ("US Unemployment", "UNRATE", "%"),
-        ("US GDP", "GDP", "USD bn, SAAR"),
-    ]
-    rows = []
-    errors = []
-    for label, series_id, unit in series:
-        api_error = "FRED_API_KEY missing or invalid format"
-        if len(key) == 32 and key.isalnum() and key.islower():
-            params = urllib.parse.urlencode({
-                "series_id": series_id, "api_key": key, "file_type": "json",
-                "sort_order": "desc", "limit": 400 if series_id in ("DGS10", "DGS2") else (12 if series_id == "GDP" else 36),
-            })
-            try:
-                payload = get_json("https://api.stlouisfed.org/fred/series/observations?" + params)
-                valid = [x for x in payload.get("observations", []) if x.get("value") not in (None, ".", "")]
-                obs = valid[0] if valid else None
-                if obs:
-                    history = [{"date": x["date"], "value": float(x["value"])} for x in reversed(valid)]
-                    rows.append({"name": label, "series": series_id, "date": obs["date"],
-                                 "value": float(obs["value"]), "unit": unit, "source": "FRED",
-                                 "history": history})
-                    continue
-                api_error = "FRED API returned no usable observations"
-            except Exception as exc:
-                api_error = str(exc)
-        # FRED's public graph CSV endpoint does not require an API key.
-        # This fallback keeps the dashboard operational when a Secret is missing/malformed.
+
+    def work(spec):
         try:
-            csv_url = "https://fred.stlouisfed.org/graph/fredgraph.csv?" + urllib.parse.urlencode({"id": series_id})
-            req = urllib.request.Request(csv_url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
-            with urllib.request.urlopen(req, timeout=12) as response:
-                text = response.read().decode("utf-8-sig")
-            records = list(csv.DictReader(io.StringIO(text)))
-            valid = [x for x in records if x.get(series_id) not in (None, ".", "")]
-            obs = valid[-1] if valid else None
-            if not obs:
-                raise RuntimeError("public CSV returned no usable observations")
-            count = 400 if series_id in ("DGS10", "DGS2") else (12 if series_id == "GDP" else 36)
-            history = [{"date": x["observation_date"], "value": float(x[series_id])} for x in valid[-count:]]
-            rows.append({"name": label, "series": series_id, "date": obs["observation_date"],
-                         "value": float(obs[series_id]), "unit": unit, "source": "FRED",
-                         "history": history})
-        except Exception as csv_exc:
-            errors.append(series_id + ": " + api_error + " | CSV " + str(csv_exc))
+            return fetch_fred(spec, key), None
+        except Exception as exc:
+            return None, f'{spec.get("id")}: {exc}'
+
+    with ThreadPoolExecutor(WORKERS) as pool:
+        results = list(pool.map(work, specs))
+    rows = [r for r, _ in results if r]
+    errors = [e for _, e in results if e]
     return rows, ("; ".join(errors) if errors else "OK")
+
+
+# ----------------------------------------------------------------- ECOS ----
+def period(cycle, d):
+    if cycle == "D":
+        return d.strftime("%Y%m%d")
+    if cycle == "Q":
+        return f"{d.year}Q{((d.month - 1) // 3) + 1}"
+    if cycle == "A":
+        return d.strftime("%Y")
+    return d.strftime("%Y%m")
+
+
+def fetch_ecos(spec, key):
+    stat = str(spec["stat_code"])
+    cycle = str(spec.get("cycle", "M")).upper()
+    today = date.today()
+    lookback = {"D": 365, "M": 365 * 3, "Q": 365 * 6, "A": 365 * 16}.get(cycle, 365 * 3)
+    window_start = today - timedelta(days=lookback)
+    item_codes = [str(spec.get("item_code" + str(i), "")) for i in range(1, 5)]
+    last_item = max((i for i, v in enumerate(item_codes) if v), default=-1)
+    if cycle == "D":
+        # ECOS returns at most 100 rows per request: split into 90-day windows.
+        segments, cursor = [], window_start
+        while cursor <= today:
+            seg_end = min(cursor + timedelta(days=89), today)
+            segments.append((period(cycle, cursor), period(cycle, seg_end)))
+            cursor = seg_end + timedelta(days=1)
+    else:
+        segments = [(str(spec.get("start_dt") or period(cycle, window_start)),
+                     str(spec.get("end_dt") or period(cycle, today)))]
+    valid = []
+    for seg_start, seg_end in segments:
+        parts = ["StatisticSearch", key, "json", "kr", "1", "100", stat, cycle, seg_start, seg_end] + item_codes[:last_item + 1]
+        url = "https://ecos.bok.or.kr/api/" + "/".join(urllib.parse.quote(p, safe="") for p in parts)
+        payload = get_json(url)
+        block = payload.get("StatisticSearch", {})
+        if isinstance(block, list):
+            block = block[0] if block else {}
+        records = block.get("row", []) if isinstance(block, dict) else []
+        valid.extend(x for x in records if x.get("DATA_VALUE") not in (None, ""))
+    valid.sort(key=lambda x: x.get("TIME", ""))
+    if not valid:
+        raise RuntimeError("no observations returned")
+    cap = CAP.get(cycle, 40)
+    history = [{"date": x.get("TIME", ""), "value": float(str(x["DATA_VALUE"]).replace(",", ""))} for x in valid[-cap:]]
+    last = history[-1]
+    return {"name": str(spec.get("name", stat)), "series": str(spec.get("series_id", stat)),
+            "date": last["date"], "value": last["value"], "unit": str(spec.get("unit", "")),
+            "source": "ECOS", "history": history}
 
 
 def collect_ecos():
     key = os.environ.get("ECOS_API_KEY", "").strip()
     raw = os.environ.get("ECOS_SERIES_JSON", "").strip()
     if not raw:
-        config_path = ROOT / "config" / "ecos-series.json"
-        if config_path.exists():
-            raw = config_path.read_text(encoding="utf-8").strip()
+        cfg = ROOT / "config" / "ecos-series.json"
+        if cfg.exists():
+            raw = cfg.read_text(encoding="utf-8").strip()
     if not key:
         return [], "ECOS_API_KEY not configured"
-    if not raw:
-        return [], "No ECOS series configured in config/ecos-series.json or ECOS_SERIES_JSON"
     try:
-        specs = json.loads(raw)
+        specs = json.loads(raw) if raw else []
         if not isinstance(specs, list):
-            raise ValueError("ECOS_SERIES_JSON must be a JSON array")
+            raise ValueError("series config must be a JSON array")
     except Exception as exc:
-        return [], "Invalid ECOS_SERIES_JSON: " + str(exc)
+        return [], "Invalid ECOS series config: " + str(exc)
     if not specs:
-        return [], "ECOS_SERIES_JSON is empty; no ECOS series selected"
+        return [], "No ECOS series configured"
 
-    rows, errors = [], []
-    today = date.today()
-    for spec in specs:
+    def work(spec):
         try:
-            stat = str(spec["stat_code"])
-            cycle = str(spec.get("cycle", "M")).upper()
-            # Keep daily requests below ECOS's 100-row page limit so the
-            # returned observations reach the latest date rather than stopping
-            # at the first 100 historical records.
-            lookback_days = {"D": 365, "M": 365 * 3, "Q": 365 * 5, "A": 365 * 15}.get(cycle, 365 * 3)
-            window_start = today - timedelta(days=lookback_days)
-            def period(d):
-                if cycle == "D":
-                    return d.strftime("%Y%m%d")
-                if cycle == "M":
-                    return d.strftime("%Y%m")
-                if cycle == "Q":
-                    return f"{d.year}Q{((d.month - 1) // 3) + 1}"
-                if cycle == "A":
-                    return d.strftime("%Y")
-                return d.strftime("%Y%m")
-            start = str(spec.get("start_dt") or period(window_start))
-            end = str(spec.get("end_dt") or period(today))
-            item_codes = [str(spec.get("item_code" + str(i), "")) for i in range(1, 5)]
-            last_item = max((i for i, value in enumerate(item_codes) if value), default=-1)
-            # ECOS returns at most 100 rows per request. Split daily series into
-            # 90-day windows so the one-year chart does not silently truncate.
-            if cycle == "D":
-                segments = []
-                cursor = window_start
-                while cursor <= today:
-                    segment_end = min(cursor + timedelta(days=89), today)
-                    segments.append((period(cursor), period(segment_end)))
-                    cursor = segment_end + timedelta(days=1)
-            else:
-                segments = [(start, end)]
-            valid = []
-            for segment_start, segment_end in segments:
-                parts = ["StatisticSearch", key, "json", "kr", "1", "100", stat, cycle, segment_start, segment_end] + item_codes[:last_item + 1]
-                url = "https://ecos.bok.or.kr/api/" + "/".join(urllib.parse.quote(p, safe="") for p in parts)
-                payload = get_json(url)
-                block = payload.get("StatisticSearch", {})
-                if isinstance(block, list):
-                    block = block[0] if block else {}
-                records = block.get("row", []) if isinstance(block, dict) else []
-                valid.extend(x for x in records if x.get("DATA_VALUE") not in (None, ""))
-            valid.sort(key=lambda x: x.get("TIME", ""))
-            obs = valid[-1] if valid else None
-            if obs:
-                history = [{"date": x.get("TIME", ""),
-                            "value": float(str(x["DATA_VALUE"]).replace(",", ""))}
-                           for x in valid[-400:]]
-                rows.append({
-                    "name": str(spec.get("name", stat)), "series": str(spec.get("series_id", stat)),
-                    "date": obs.get("TIME", ""), "value": float(str(obs["DATA_VALUE"]).replace(",", "")),
-                    "unit": str(spec.get("unit", "")), "source": "ECOS",
-                    "history": history,
-                })
+            return fetch_ecos(spec, key), None
         except Exception as exc:
-            errors.append(str(spec.get("name", spec.get("stat_code", "ECOS"))) + ": " + str(exc))
+            return None, f'{spec.get("series_id", spec.get("stat_code"))}: {exc}'
+
+    with ThreadPoolExecutor(WORKERS) as pool:
+        results = list(pool.map(work, specs))
+    rows = [r for r, _ in results if r]
+    errors = [e for _, e in results if e]
     return rows, ("; ".join(errors) if errors else "OK")
+
+
+# ----------------------------------------------------------------- main ----
+def merge(previous_rows, fresh_rows):
+    merged = {str(r.get("series")): r for r in previous_rows}
+    merged.update({str(r.get("series")): r for r in fresh_rows})
+    return list(merged.values())
 
 
 def main():
@@ -194,43 +214,36 @@ def main():
     fred, fred_status = collect_fred()
     ecos, ecos_status = collect_ecos()
 
-    # A temporary provider timeout must never erase the last usable observations.
+    # A temporary provider failure must never erase the last usable observations.
     if fred:
-        fred_updated_at = now
+        fred_rows, fred_at = merge(previous.get("fred", []), fred), now
+        if fred_status != "OK":
+            fred_status = "PARTIAL REFRESH; missing series retained — " + fred_status
     else:
-        fred = previous.get("fred", [])
-        fred_updated_at = previous.get("fred_updated_at_utc", "")
+        fred_rows, fred_at = previous.get("fred", []), previous.get("fred_updated_at_utc", "")
         fred_status = "REFRESH FAILED; retained previous data — " + fred_status
 
-    previous_ecos = previous.get("ecos", [])
     if ecos:
-        # Merge by statistic code so one successful series (e.g. CPI) is not
-        # discarded merely because another ECOS endpoint timed out.
-        fresh_by_series = {str(row.get("series", row.get("stat_code"))): row for row in ecos}
-        merged = {str(row.get("series", row.get("stat_code"))): row for row in previous_ecos}
-        merged.update(fresh_by_series)
-        ecos = list(merged.values())
-        ecos_updated_at = now
+        ecos_rows, ecos_at = merge(previous.get("ecos", []), ecos), now
         if ecos_status != "OK":
-            ecos_status = "PARTIAL REFRESH; missing series retained from previous data — " + ecos_status
+            ecos_status = "PARTIAL REFRESH; missing series retained — " + ecos_status
     else:
-        ecos = previous_ecos
-        ecos_updated_at = previous.get("ecos_updated_at_utc", "")
+        ecos_rows, ecos_at = previous.get("ecos", []), previous.get("ecos_updated_at_utc", "")
         ecos_status = "REFRESH FAILED; retained previous data — " + ecos_status
 
     payload = {
         "updated_at_utc": now,
-        "fred_updated_at_utc": fred_updated_at,
-        "ecos_updated_at_utc": ecos_updated_at,
+        "fred_updated_at_utc": fred_at,
+        "ecos_updated_at_utc": ecos_at,
         "fred_status": fred_status,
         "ecos_status": ecos_status,
-        "fred": fred,
-        "ecos": ecos,
+        "fred": fred_rows,
+        "ecos": ecos_rows,
     }
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {OUT}: FRED={len(fred)}, ECOS={len(ecos)}")
+    # Compact JSON keeps the file small for mobile downloads.
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    print(f"Wrote {OUT}: FRED={len(fred_rows)} (fresh {len(fred)}), ECOS={len(ecos_rows)} (fresh {len(ecos)})")
 
 
-# Trigger a fresh data collection after repository secret updates.
 if __name__ == "__main__":
     main()

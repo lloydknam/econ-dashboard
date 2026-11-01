@@ -1,88 +1,693 @@
 [
-  {
-    "name": "실질 국내총생산 성장률(전기대비)",
-    "stat_code": "200Y102",
-    "cycle": "Q",
-    "item_code1": "10111",
-    "unit": "%"
-  },
-  {
-    "name": "한국은행 기준금리",
-    "stat_code": "722Y001",
-    "cycle": "M",
-    "item_code1": "0101000",
-    "unit": "%"
-  },
-  {
-    "name": "원/달러 환율 매매기준율",
-    "stat_code": "731Y003",
-    "cycle": "D",
-    "item_code1": "0000003",
-    "unit": "KRW per USD"
-  },
-  {
-    "name": "국고채 3년물 수익률",
-    "stat_code": "817Y002",
-    "cycle": "D",
-    "item_code1": "010200000",
-    "unit": "%"
-  },
-  {
-    "name": "소비자물가지수(총지수)",
-    "stat_code": "901Y009",
-    "cycle": "M",
-    "item_code1": "0",
-    "unit": "2020=100"
-  },
-  {
-    "name": "고용률",
-    "stat_code": "901Y027",
-    "cycle": "M",
-    "item_code1": "I61E",
-    "unit": "%",
-    "series_id": "901Y027:employment"
-  },
-  {
-    "name": "실업률(한국)",
-    "stat_code": "901Y027",
-    "cycle": "M",
-    "item_code1": "I61BC",
-    "unit": "%",
-    "series_id": "901Y027:unemployment"
-  },
-  {
-    "name": "경상수지",
-    "stat_code": "301Y013",
-    "cycle": "M",
-    "item_code1": "000000",
-    "unit": "백만 달러"
-  },
-  {
-    "name": "가계신용",
-    "stat_code": "151Y001",
-    "cycle": "Q",
-    "item_code1": "1000000",
-    "unit": "십억원"
-  },
-  {
-    "name": "광의통화(M2)",
-    "stat_code": "161Y006",
-    "cycle": "M",
-    "item_code1": "BBHA00",
-    "unit": "십억원"
-  },
-  {
-    "name": "수출금액지수",
-    "stat_code": "403Y001",
-    "cycle": "M",
-    "item_code1": "*AA",
-    "unit": "2020=100"
-  },
-  {
-    "name": "수입금액지수",
-    "stat_code": "403Y003",
-    "cycle": "M",
-    "item_code1": "*AA",
-    "unit": "2020=100"
-  }
+ {
+  "name": "실질 GDP 성장률(전기비)",
+  "stat_code": "200Y102",
+  "cycle": "Q",
+  "unit": "%",
+  "item_code1": "10111",
+  "series_id": "200Y102"
+ },
+ {
+  "name": "한국은행 기준금리",
+  "stat_code": "722Y001",
+  "cycle": "M",
+  "unit": "%",
+  "item_code1": "0101000",
+  "series_id": "722Y001"
+ },
+ {
+  "name": "원/달러 환율",
+  "stat_code": "731Y003",
+  "cycle": "D",
+  "unit": "원",
+  "item_code1": "0000003",
+  "series_id": "731Y003"
+ },
+ {
+  "name": "국고채 3년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010200000",
+  "series_id": "817Y002"
+ },
+ {
+  "name": "소비자물가지수",
+  "stat_code": "901Y009",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "0",
+  "series_id": "901Y009"
+ },
+ {
+  "name": "고용률",
+  "stat_code": "901Y027",
+  "cycle": "M",
+  "unit": "%",
+  "item_code1": "I61E",
+  "series_id": "901Y027:employment"
+ },
+ {
+  "name": "실업률",
+  "stat_code": "901Y027",
+  "cycle": "M",
+  "unit": "%",
+  "item_code1": "I61BC",
+  "series_id": "901Y027:unemployment"
+ },
+ {
+  "name": "경상수지",
+  "stat_code": "301Y013",
+  "cycle": "M",
+  "unit": "백만달러",
+  "item_code1": "000000",
+  "series_id": "301Y013"
+ },
+ {
+  "name": "가계신용",
+  "stat_code": "151Y001",
+  "cycle": "Q",
+  "unit": "십억원",
+  "item_code1": "1000000",
+  "series_id": "151Y001"
+ },
+ {
+  "name": "M2 광의통화",
+  "stat_code": "161Y006",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "BBHA00",
+  "series_id": "161Y006"
+ },
+ {
+  "name": "수출금액지수",
+  "stat_code": "403Y001",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "*AA",
+  "series_id": "403Y001"
+ },
+ {
+  "name": "수입금액지수",
+  "stat_code": "403Y003",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "*AA",
+  "series_id": "403Y003"
+ },
+ {
+  "name": "코스피",
+  "stat_code": "802Y001",
+  "cycle": "D",
+  "unit": "지수",
+  "item_code1": "0001000",
+  "series_id": "802Y001:0001000"
+ },
+ {
+  "name": "코스닥",
+  "stat_code": "802Y001",
+  "cycle": "D",
+  "unit": "지수",
+  "item_code1": "0089000",
+  "series_id": "802Y001:0089000"
+ },
+ {
+  "name": "코스피 외국인 순매수",
+  "stat_code": "802Y001",
+  "cycle": "D",
+  "unit": "억원",
+  "item_code1": "0030000",
+  "series_id": "802Y001:0030000"
+ },
+ {
+  "name": "코스피 거래대금",
+  "stat_code": "802Y001",
+  "cycle": "D",
+  "unit": "억원",
+  "item_code1": "0088000",
+  "series_id": "802Y001:0088000"
+ },
+ {
+  "name": "코스피 거래량",
+  "stat_code": "802Y001",
+  "cycle": "D",
+  "unit": "만주",
+  "item_code1": "0087000",
+  "series_id": "802Y001:0087000"
+ },
+ {
+  "name": "코스피 시가총액",
+  "stat_code": "802Y001",
+  "cycle": "D",
+  "unit": "억원",
+  "item_code1": "0183000",
+  "series_id": "802Y001:0183000"
+ },
+ {
+  "name": "원/100엔",
+  "stat_code": "731Y001",
+  "cycle": "D",
+  "unit": "원",
+  "item_code1": "0000002",
+  "series_id": "731Y001:0000002"
+ },
+ {
+  "name": "원/유로",
+  "stat_code": "731Y001",
+  "cycle": "D",
+  "unit": "원",
+  "item_code1": "0000003",
+  "series_id": "731Y001:0000003"
+ },
+ {
+  "name": "원/위안",
+  "stat_code": "731Y001",
+  "cycle": "D",
+  "unit": "원",
+  "item_code1": "0000053",
+  "series_id": "731Y001:0000053"
+ },
+ {
+  "name": "국고채 1년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010190000",
+  "series_id": "817Y002:010190000"
+ },
+ {
+  "name": "국고채 2년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010195000",
+  "series_id": "817Y002:010195000"
+ },
+ {
+  "name": "국고채 5년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010200001",
+  "series_id": "817Y002:010200001"
+ },
+ {
+  "name": "국고채 10년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010210000",
+  "series_id": "817Y002:010210000"
+ },
+ {
+  "name": "국고채 20년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010220000",
+  "series_id": "817Y002:010220000"
+ },
+ {
+  "name": "국고채 30년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010230000",
+  "series_id": "817Y002:010230000"
+ },
+ {
+  "name": "회사채 AA-",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010300000",
+  "series_id": "817Y002:010300000"
+ },
+ {
+  "name": "회사채 BBB-",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010320000",
+  "series_id": "817Y002:010320000"
+ },
+ {
+  "name": "CD 91일",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010502000",
+  "series_id": "817Y002:010502000"
+ },
+ {
+  "name": "CP 91일",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010503000",
+  "series_id": "817Y002:010503000"
+ },
+ {
+  "name": "콜금리",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010101000",
+  "series_id": "817Y002:010101000"
+ },
+ {
+  "name": "KORIBOR 3개월",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010150000",
+  "series_id": "817Y002:010150000"
+ },
+ {
+  "name": "산금채 1년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010260000",
+  "series_id": "817Y002:010260000"
+ },
+ {
+  "name": "통안증권 2년",
+  "stat_code": "817Y002",
+  "cycle": "D",
+  "unit": "%",
+  "item_code1": "010400002",
+  "series_id": "817Y002:010400002"
+ },
+ {
+  "name": "총수입",
+  "stat_code": "901Y013",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "A",
+  "series_id": "901Y013:A"
+ },
+ {
+  "name": "국세수입",
+  "stat_code": "901Y013",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "A0101",
+  "series_id": "901Y013:A0101"
+ },
+ {
+  "name": "사회보장기여금",
+  "stat_code": "901Y013",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "A0102",
+  "series_id": "901Y013:A0102"
+ },
+ {
+  "name": "총지출",
+  "stat_code": "901Y013",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "B01",
+  "series_id": "901Y013:B01"
+ },
+ {
+  "name": "이자지급",
+  "stat_code": "901Y013",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "B010102",
+  "series_id": "901Y013:B010102"
+ },
+ {
+  "name": "보조금",
+  "stat_code": "901Y013",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "B0101031",
+  "series_id": "901Y013:B0101031"
+ },
+ {
+  "name": "자본지출",
+  "stat_code": "901Y013",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "B0102",
+  "series_id": "901Y013:B0102"
+ },
+ {
+  "name": "통합재정수지",
+  "stat_code": "901Y013",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "C",
+  "series_id": "901Y013:C"
+ },
+ {
+  "name": "국고채권 잔액",
+  "stat_code": "191Y001",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "0200000",
+  "item_code2": "4",
+  "series_id": "191Y001:0200000:4"
+ },
+ {
+  "name": "국고채권 발행액",
+  "stat_code": "191Y001",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "0200000",
+  "item_code2": "3",
+  "series_id": "191Y001:0200000:3"
+ },
+ {
+  "name": "통화안정증권 잔액",
+  "stat_code": "191Y001",
+  "cycle": "M",
+  "unit": "십억원",
+  "item_code1": "0800000",
+  "item_code2": "4",
+  "series_id": "191Y001:0800000:4"
+ },
+ {
+  "name": "조세총액",
+  "stat_code": "901Y081",
+  "cycle": "A",
+  "unit": "억원",
+  "item_code1": "G2A",
+  "series_id": "901Y081:G2A"
+ },
+ {
+  "name": "국세총액",
+  "stat_code": "901Y081",
+  "cycle": "A",
+  "unit": "억원",
+  "item_code1": "G2AA",
+  "series_id": "901Y081:G2AA"
+ },
+ {
+  "name": "소득세",
+  "stat_code": "901Y081",
+  "cycle": "A",
+  "unit": "억원",
+  "item_code1": "G2AAAAA",
+  "series_id": "901Y081:G2AAAAA"
+ },
+ {
+  "name": "법인세",
+  "stat_code": "901Y081",
+  "cycle": "A",
+  "unit": "억원",
+  "item_code1": "G2AAAAB",
+  "series_id": "901Y081:G2AAAAB"
+ },
+ {
+  "name": "부가가치세",
+  "stat_code": "901Y081",
+  "cycle": "A",
+  "unit": "억원",
+  "item_code1": "G2AAABA",
+  "series_id": "901Y081:G2AAABA"
+ },
+ {
+  "name": "제조업 성장률(전기비)",
+  "stat_code": "200Y102",
+  "cycle": "Q",
+  "unit": "%",
+  "item_code1": "10114",
+  "series_id": "200Y102:10114"
+ },
+ {
+  "name": "건설업 성장률(전기비)",
+  "stat_code": "200Y102",
+  "cycle": "Q",
+  "unit": "%",
+  "item_code1": "10115",
+  "series_id": "200Y102:10115"
+ },
+ {
+  "name": "서비스업 성장률(전기비)",
+  "stat_code": "200Y102",
+  "cycle": "Q",
+  "unit": "%",
+  "item_code1": "10116",
+  "series_id": "200Y102:10116"
+ },
+ {
+  "name": "ICT산업 성장률(전기비)",
+  "stat_code": "200Y102",
+  "cycle": "Q",
+  "unit": "%",
+  "item_code1": "10117",
+  "series_id": "200Y102:10117"
+ },
+ {
+  "name": "민간소비 성장률(전기비)",
+  "stat_code": "200Y102",
+  "cycle": "Q",
+  "unit": "%",
+  "item_code1": "10122",
+  "series_id": "200Y102:10122"
+ },
+ {
+  "name": "식료품·비주류음료 물가지수",
+  "stat_code": "901Y009",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "A",
+  "series_id": "901Y009:A"
+ },
+ {
+  "name": "생산자물가지수",
+  "stat_code": "404Y014",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "*AA",
+  "series_id": "404Y014:*AA"
+ },
+ {
+  "name": "취업자",
+  "stat_code": "901Y027",
+  "cycle": "M",
+  "unit": "천명",
+  "item_code1": "I61BA",
+  "series_id": "901Y027:I61BA"
+ },
+ {
+  "name": "경제활동인구",
+  "stat_code": "901Y027",
+  "cycle": "M",
+  "unit": "천명",
+  "item_code1": "I61B",
+  "series_id": "901Y027:I61B"
+ },
+ {
+  "name": "전산업생산지수",
+  "stat_code": "901Y033",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "A00",
+  "series_id": "901Y033:A00"
+ },
+ {
+  "name": "광공업생산지수",
+  "stat_code": "901Y033",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "AB00",
+  "series_id": "901Y033:AB00"
+ },
+ {
+  "name": "서비스업생산지수",
+  "stat_code": "901Y033",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "AC00",
+  "series_id": "901Y033:AC00"
+ },
+ {
+  "name": "건설업생산지수",
+  "stat_code": "901Y033",
+  "cycle": "M",
+  "unit": "2020=100",
+  "item_code1": "AD00",
+  "series_id": "901Y033:AD00"
+ },
+ {
+  "name": "현재생활형편CSI",
+  "stat_code": "511Y002",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "FMAA",
+  "series_id": "511Y002:FMAA"
+ },
+ {
+  "name": "현재경기판단CSI",
+  "stat_code": "511Y002",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "FMAB",
+  "series_id": "511Y002:FMAB"
+ },
+ {
+  "name": "생활형편전망CSI",
+  "stat_code": "511Y002",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "FMBA",
+  "series_id": "511Y002:FMBA"
+ },
+ {
+  "name": "향후경기전망CSI",
+  "stat_code": "511Y002",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "FMBB",
+  "series_id": "511Y002:FMBB"
+ },
+ {
+  "name": "취업기회전망CSI",
+  "stat_code": "511Y002",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "FMBE",
+  "series_id": "511Y002:FMBE"
+ },
+ {
+  "name": "금리수준전망CSI",
+  "stat_code": "511Y002",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "FMBG",
+  "series_id": "511Y002:FMBG"
+ },
+ {
+  "name": "가계수입전망CSI",
+  "stat_code": "511Y002",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "FMCA",
+  "series_id": "511Y002:FMCA"
+ },
+ {
+  "name": "소비지출전망CSI",
+  "stat_code": "511Y002",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "FMCB",
+  "series_id": "511Y002:FMCB"
+ },
+ {
+  "name": "경제심리지수(원계열)",
+  "stat_code": "513Y001",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "E1000",
+  "series_id": "513Y001:E1000"
+ },
+ {
+  "name": "경제심리지수(순환변동치)",
+  "stat_code": "513Y001",
+  "cycle": "M",
+  "unit": "",
+  "item_code1": "E2000",
+  "series_id": "513Y001:E2000"
+ },
+ {
+  "name": "가계대출",
+  "stat_code": "151Y001",
+  "cycle": "Q",
+  "unit": "십억원",
+  "item_code1": "1100000",
+  "series_id": "151Y001:1100000"
+ },
+ {
+  "name": "예금은행 대출금리(평균)",
+  "stat_code": "121Y006",
+  "cycle": "M",
+  "unit": "%",
+  "item_code1": "BECBLA01",
+  "series_id": "121Y006:BECBLA01"
+ },
+ {
+  "name": "예금은행 기업대출금리",
+  "stat_code": "121Y006",
+  "cycle": "M",
+  "unit": "%",
+  "item_code1": "BECBLA02",
+  "series_id": "121Y006:BECBLA02"
+ },
+ {
+  "name": "예금은행 저축성수신금리",
+  "stat_code": "121Y002",
+  "cycle": "M",
+  "unit": "%",
+  "item_code1": "BEABAA2",
+  "series_id": "121Y002:BEABAA2"
+ },
+ {
+  "name": "예금은행 정기예금금리",
+  "stat_code": "121Y002",
+  "cycle": "M",
+  "unit": "%",
+  "item_code1": "BEABAA211",
+  "series_id": "121Y002:BEABAA211"
+ },
+ {
+  "name": "외환보유액",
+  "stat_code": "732Y001",
+  "cycle": "M",
+  "unit": "천달러",
+  "item_code1": "99",
+  "series_id": "732Y001:99"
+ },
+ {
+  "name": "아파트 매매 실거래가격지수 전국",
+  "stat_code": "901Y089",
+  "cycle": "M",
+  "unit": "2026.06=100",
+  "item_code1": "100",
+  "series_id": "901Y089:100"
+ },
+ {
+  "name": "아파트 매매 실거래가격지수 서울",
+  "stat_code": "901Y089",
+  "cycle": "M",
+  "unit": "2026.06=100",
+  "item_code1": "200",
+  "series_id": "901Y089:200"
+ },
+ {
+  "name": "아파트 매매 실거래가격지수 수도권",
+  "stat_code": "901Y089",
+  "cycle": "M",
+  "unit": "2026.06=100",
+  "item_code1": "300",
+  "series_id": "901Y089:300"
+ },
+ {
+  "name": "아파트 매매 실거래가격지수 지방",
+  "stat_code": "901Y089",
+  "cycle": "M",
+  "unit": "2026.06=100",
+  "item_code1": "400",
+  "series_id": "901Y089:400"
+ },
+ {
+  "name": "미분양주택 전국",
+  "stat_code": "901Y074",
+  "cycle": "M",
+  "unit": "호",
+  "item_code1": "I410A",
+  "series_id": "901Y074:I410A"
+ },
+ {
+  "name": "미분양주택 서울",
+  "stat_code": "901Y074",
+  "cycle": "M",
+  "unit": "호",
+  "item_code1": "I410B",
+  "series_id": "901Y074:I410B"
+ }
 ]
