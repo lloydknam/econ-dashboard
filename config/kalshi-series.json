@@ -1,5 +1,79 @@
 [
- {"series":"KXCBDECISIONKOREA","top":6,"labels":{"C25P":"인하>25bp","C25":"인하≤25bp","HOLD":"동결","H25":"인상≤25bp","H25P":"인상>25bp"}},
- {"series":"KXKOSPI","top":6,"labels":{}},
- {"series":"KXKOREAPRES","top":8,"labels":{"OSEH":"오세훈","LJUN":"이준석","LJIN":"이진숙","KMIN":"김민석","KHOO":"강훈식","KBOO":"김부겸","JDON":"장동혁","HDON":"한동훈","CKUK":"조국","ACHE":"안철수"}}
+ {
+  "series": "KXCBDECISIONKOREA",
+  "top": 6,
+  "labels": {
+   "C25P": "인하>25bp",
+   "C25": "인하≤25bp",
+   "HOLD": "동결",
+   "H25": "인상≤25bp",
+   "H25P": "인상>25bp"
+  }
+ },
+ {
+  "series": "KXKOSPI",
+  "top": 6,
+  "labels": {}
+ },
+ {
+  "series": "KXKOREAPRES",
+  "top": 8,
+  "labels": {
+   "OSEH": "오세훈",
+   "LJUN": "이준석",
+   "LJIN": "이진숙",
+   "KMIN": "김민석",
+   "KHOO": "강훈식",
+   "KBOO": "김부겸",
+   "JDON": "장동혁",
+   "HDON": "한동훈",
+   "CKUK": "조국",
+   "ACHE": "안철수",
+   "JCHU": "정청래",
+   "CMIA": "추미애"
+  }
+ },
+ {
+  "series": "KXFEDDECISION",
+  "earliest_event": true,
+  "names": {
+   "Cut >25bps": "인하>25bp",
+   "Cut 25bps": "인하 25bp",
+   "Fed maintains rate": "동결",
+   "Hike 25bps": "인상 25bp",
+   "Hike >25bps": "인상>25bp"
+  }
+ },
+ {
+  "series": "KXRECSSNBER",
+  "names": {
+   "Yes": "침체 여부",
+   "Starts": "침체 시작"
+  }
+ },
+ {
+  "series": "KXCPICORE",
+  "earliest_event": true,
+  "near50": 5
+ },
+ {
+  "series": "KXCPIYOY",
+  "earliest_event": true,
+  "near50": 5
+ },
+ {
+  "series": "KXPAYROLLS",
+  "earliest_event": true,
+  "near50": 5
+ },
+ {
+  "series": "KXU3",
+  "earliest_event": true,
+  "near50": 5
+ },
+ {
+  "series": "KXGDP",
+  "earliest_event": true,
+  "near50": 5
+ }
 ]
