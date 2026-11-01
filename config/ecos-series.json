@@ -33,5 +33,54 @@
     "cycle": "M",
     "item_code1": "0",
     "unit": "2020=100"
+  },
+  {
+    "name": "고용률",
+    "stat_code": "901Y027",
+    "cycle": "M",
+    "item_code1": "I61E",
+    "unit": "%"
+  },
+  {
+    "name": "실업률(한국)",
+    "stat_code": "901Y027",
+    "cycle": "M",
+    "item_code1": "I61BC",
+    "unit": "%"
+  },
+  {
+    "name": "경상수지",
+    "stat_code": "301Y013",
+    "cycle": "M",
+    "item_code1": "000000",
+    "unit": "백만 달러"
+  },
+  {
+    "name": "가계신용",
+    "stat_code": "151Y001",
+    "cycle": "Q",
+    "item_code1": "1000000",
+    "unit": "십억원"
+  },
+  {
+    "name": "광의통화(M2)",
+    "stat_code": "161Y006",
+    "cycle": "M",
+    "item_code1": "BBHA00",
+    "unit": "십억원"
+  },
+  {
+    "name": "수출금액지수",
+    "stat_code": "403Y001",
+    "cycle": "M",
+    "item_code1": "*AA",
+    "unit": "2020=100"
+  },
+  {
+    "name": "수입금액지수",
+    "stat_code": "403Y003",
+    "cycle": "M",
+    "item_code1": "*AA",
+    "unit": "2020=100"
   }
 ]
