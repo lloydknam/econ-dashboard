@@ -43,8 +43,8 @@ def get_json(url: str):
 
 def collect_fred():
     key = os.environ.get("FRED_API_KEY", "").strip()
-    # Retain a compact history as well as the latest observation for trend charts.
-    # Daily yields use 90 points; lower-frequency series use up to 24 observations.
+    # Retain at least one year of observations for all trend charts.
+    # Daily series use 400 points; monthly 36; quarterly 12 observations.
     # The public FRED CSV fallback remains available even without an API key.
     series = [
         ("US 10Y Treasury", "DGS10", "%"),
@@ -61,7 +61,7 @@ def collect_fred():
         if len(key) == 32 and key.isalnum() and key.islower():
             params = urllib.parse.urlencode({
                 "series_id": series_id, "api_key": key, "file_type": "json",
-                "sort_order": "desc", "limit": 90 if series_id in ("DGS10", "DGS2") else 24,
+                "sort_order": "desc", "limit": 400 if series_id in ("DGS10", "DGS2") else (12 if series_id == "GDP" else 36),
             })
             try:
                 payload = get_json("https://api.stlouisfed.org/fred/series/observations?" + params)
@@ -88,7 +88,7 @@ def collect_fred():
             obs = valid[-1] if valid else None
             if not obs:
                 raise RuntimeError("public CSV returned no usable observations")
-            count = 90 if series_id in ("DGS10", "DGS2") else 24
+            count = 400 if series_id in ("DGS10", "DGS2") else (12 if series_id == "GDP" else 36)
             history = [{"date": x["observation_date"], "value": float(x[series_id])} for x in valid[-count:]]
             rows.append({"name": label, "series": series_id, "date": obs["observation_date"],
                          "value": float(obs[series_id]), "unit": unit, "source": "FRED",
@@ -127,7 +127,7 @@ def collect_ecos():
             # Keep daily requests below ECOS's 100-row page limit so the
             # returned observations reach the latest date rather than stopping
             # at the first 100 historical records.
-            lookback_days = {"D": 90, "M": 365 * 3, "Q": 365 * 5, "A": 365 * 15}.get(cycle, 365 * 3)
+            lookback_days = {"D": 365, "M": 365 * 3, "Q": 365 * 5, "A": 365 * 15}.get(cycle, 365 * 3)
             window_start = today - timedelta(days=lookback_days)
             def period(d):
                 if cycle == "D":
@@ -143,19 +143,33 @@ def collect_ecos():
             end = str(spec.get("end_dt") or period(today))
             item_codes = [str(spec.get("item_code" + str(i), "")) for i in range(1, 5)]
             last_item = max((i for i, value in enumerate(item_codes) if value), default=-1)
-            parts = ["StatisticSearch", key, "json", "kr", "1", "100", stat, cycle, start, end] + item_codes[:last_item + 1]
-            url = "https://ecos.bok.or.kr/api/" + "/".join(urllib.parse.quote(p, safe="") for p in parts)
-            payload = get_json(url)
-            block = payload.get("StatisticSearch", {})
-            if isinstance(block, list):
-                block = block[0] if block else {}
-            records = block.get("row", []) if isinstance(block, dict) else []
-            valid = [x for x in records if x.get("DATA_VALUE") not in (None, "")]
+            # ECOS returns at most 100 rows per request. Split daily series into
+            # 90-day windows so the one-year chart does not silently truncate.
+            if cycle == "D":
+                segments = []
+                cursor = window_start
+                while cursor <= today:
+                    segment_end = min(cursor + timedelta(days=89), today)
+                    segments.append((period(cursor), period(segment_end)))
+                    cursor = segment_end + timedelta(days=1)
+            else:
+                segments = [(start, end)]
+            valid = []
+            for segment_start, segment_end in segments:
+                parts = ["StatisticSearch", key, "json", "kr", "1", "100", stat, cycle, segment_start, segment_end] + item_codes[:last_item + 1]
+                url = "https://ecos.bok.or.kr/api/" + "/".join(urllib.parse.quote(p, safe="") for p in parts)
+                payload = get_json(url)
+                block = payload.get("StatisticSearch", {})
+                if isinstance(block, list):
+                    block = block[0] if block else {}
+                records = block.get("row", []) if isinstance(block, dict) else []
+                valid.extend(x for x in records if x.get("DATA_VALUE") not in (None, ""))
+            valid.sort(key=lambda x: x.get("TIME", ""))
             obs = valid[-1] if valid else None
             if obs:
                 history = [{"date": x.get("TIME", ""),
                             "value": float(str(x["DATA_VALUE"]).replace(",", ""))}
-                           for x in valid[-90:]]
+                           for x in valid[-400:]]
                 rows.append({
                     "name": str(spec.get("name", stat)), "series": stat,
                     "date": obs.get("TIME", ""), "value": float(str(obs["DATA_VALUE"]).replace(",", "")),
