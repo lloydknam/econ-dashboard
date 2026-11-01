@@ -1,0 +1,60 @@
+{
+ "at": "2026-11-01T08:55:49+00:00",
+ "keys_present": {
+  "KOSIS_API_KEY": false,
+  "OPENFISCAL_API_KEY": true,
+  "DATA_GO_KR_KEY": false
+ },
+ "probes": {
+  "openfiscal_root": {
+   "url": "https://openapi.openfiscaldata.go.kr/",
+   "status": 200,
+   "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<RESULT>\n  <CODE>ERROR-310</CODE>\n  <MESSAGE>해당하는 서비스를 찾을 수 없습니다.\\n요청인자 중 SERVICE를 확인하십시오.</MESSAGE>\n</RESULT>\n"
+  },
+  "openfiscal_ExpenditureBudgetInit5": {
+   "url": "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-300\\\",\\\"MESSAGE\\\":\\\"필수 값이 누락되어 있습니다.\\\\\\\\n요청인자를 참고 하십시오.\\\"}}\""
+  },
+  "openfiscal_ExpenditureBudgetAdd5": {
+   "url": "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetAdd5?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-300\\\",\\\"MESSAGE\\\":\\\"필수 값이 누락되어 있습니다.\\\\\\\\n요청인자를 참고 하십시오.\\\"}}\""
+  },
+  "openfiscal_NationalDebt": {
+   "url": "https://openapi.openfiscaldata.go.kr/NationalDebt?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_FiscalBalance": {
+   "url": "https://openapi.openfiscaldata.go.kr/FiscalBalance?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_TotalRevenueExpenditure": {
+   "url": "https://openapi.openfiscaldata.go.kr/TotalRevenueExpenditure?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_IncomeStatus": {
+   "url": "https://openapi.openfiscaldata.go.kr/IncomeStatus?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_NationalAssets": {
+   "url": "https://openapi.openfiscaldata.go.kr/NationalAssets?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_GovernmentLiabilities": {
+   "url": "https://openapi.openfiscaldata.go.kr/GovernmentLiabilities?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  },
+  "openfiscal_CommonFiscalData": {
+   "url": "https://openapi.openfiscaldata.go.kr/CommonFiscalData?Key=<OPENFISCAL_API_KEY>&Type=json&pIndex=1&pSize=3",
+   "status": 201,
+   "body": "\"{\\\"RESULT\\\":{\\\"CODE\\\":\\\"ERROR-310\\\",\\\"MESSAGE\\\":\\\"해당하는 서비스를 찾을 수 없습니다.\\\\\\\\n요청인자 중 SERVICE를 확인하십시오.\\\"}}\""
+  }
+ }
+}
