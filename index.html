@@ -23,21 +23,21 @@ body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.4 var(--san
 .notice{display:none;margin:12px 0 0;padding:11px 13px;border-radius:12px;background:#fff4e0;color:#8a5a00;font-size:14px}
 .notice.on{display:block}
 h2{margin:26px 2px 10px;font-size:15px;font-weight:700;color:var(--muted);letter-spacing:.02em}
-.grid{display:grid;gap:12px;grid-template-columns:1fr}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 12px;min-width:0}
-.head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.title{font-size:17px;font-weight:700;letter-spacing:-.03em}
-.when{font-size:13px;color:var(--muted);white-space:nowrap}
-.vals{display:flex;flex-wrap:wrap;gap:4px 18px;margin:8px 0 2px;align-items:baseline}
-.big{font-size:34px;font-weight:900;letter-spacing:-.05em;line-height:1.1}
-.big small{font-size:17px;font-weight:700;margin-left:2px;letter-spacing:-.02em}
-.delta{font-size:15px;font-weight:500;color:var(--muted)}
-.lg{font-size:15px;font-weight:500;color:var(--muted);display:inline-flex;align-items:baseline;gap:6px}
+.grid{display:grid;gap:10px;grid-template-columns:1fr 1fr}.grid>.card:last-child:nth-child(odd){grid-column:1/-1}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:13px 12px 8px;min-width:0}
+.head{display:flex;flex-direction:column;gap:1px}
+.title{font-size:15px;font-weight:700;letter-spacing:-.03em}
+.when{font-size:12px;color:var(--muted)}
+.vals{display:flex;flex-direction:column;gap:0;margin:6px 0 0}
+.big{font-size:28px;font-weight:900;letter-spacing:-.05em;line-height:1.1}
+.big small{font-size:14px;font-weight:700;margin-left:2px;letter-spacing:-.02em}
+.delta{font-size:13px;font-weight:500;color:var(--muted)}
+.lg{font-size:13px;font-weight:500;color:var(--muted);display:inline-flex;align-items:baseline;gap:6px}
 .lg i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none;transform:translateY(0)}
-.lg b{font-size:26px;font-weight:900;color:var(--text);letter-spacing:-.04em}
-.lg b small{font-size:15px;font-weight:700;margin-left:1px}
-.chart{height:190px;margin-top:8px;position:relative}
-.tv{height:230px;margin-top:2px}
+.lg b{font-size:20px;font-weight:900;color:var(--text);letter-spacing:-.04em}
+.lg b small{font-size:12px;font-weight:700;margin-left:1px}
+.chart canvas{touch-action:pan-y!important;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}.card.scrub{border-color:#b8dfcb}.chart{height:140px;margin-top:6px;position:relative}
+.tv{height:190px;margin-top:2px}
 .tv .tradingview-widget-container,.tv .tradingview-widget-container__widget{height:100%;width:100%}
 .empty{padding:36px 0;text-align:center;color:var(--muted);font-size:15px}
 .foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px;line-height:1.7}
@@ -57,19 +57,19 @@ h2{margin:26px 2px 10px;font-size:15px;font-weight:700;color:var(--muted);letter
 
 <h2>시장</h2>
 <div class="grid">
-  <div class="card"><div class="head"><div class="title">코스피</div><div class="when">실시간·지연 가능</div></div>
+  <div class="card"><div class="head"><div class="title">코스피</div><div class="when">실시간</div></div>
     <div class="tv"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol":"KRX:KOSPI","width":"100%","height":"100%","locale":"kr","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":true,"largeChartUrl":"","chartOnly":false,"noTimeScale":false}</script></div></div></div>
-  <div class="card"><div class="head"><div class="title">S&amp;P 500</div><div class="when">실시간·지연 가능</div></div>
+  <div class="card"><div class="head"><div class="title">S&amp;P 500</div><div class="when">실시간</div></div>
     <div class="tv"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol":"FOREXCOM:SPXUSD","width":"100%","height":"100%","locale":"kr","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":true,"largeChartUrl":"","chartOnly":false,"noTimeScale":false}</script></div></div></div>
 </div>
 
-<h2>환율·금리</h2>
+<h2>환율·금리·통화</h2>
 <div class="grid" id="g-rates"></div>
 
 <h2>성장·물가·고용</h2>
 <div class="grid" id="g-real"></div>
 
-<h2>대외·통화·가계</h2>
+<h2>대외·가계·미국</h2>
 <div class="grid" id="g-money"></div>
 
 <footer class="foot">
@@ -86,28 +86,30 @@ const fmt=(d,u)=>v=>Number(v).toLocaleString('ko-KR',{maximumFractionDigits:d,mi
 const CARDS=[
  {box:'g-rates',id:'fx',title:'원/달러 환율',freq:'D',win:'1y',type:'line',
   series:[{id:'731Y003',label:'원/달러',color:C.g}],val:fmt(1),unit:'원',delta:{mode:'diff',d:1,u:'원'}},
- {box:'g-rates',id:'rates',title:'국채금리 한국 vs 미국',freq:'D',win:'1y',type:'line',
+ {box:'g-rates',id:'rates',title:'국채금리 한·미',freq:'D',win:'1y',type:'line',
   series:[{id:'817Y002',label:'국고채 3년',color:C.g},{id:'DGS10',label:'미국 10년',color:C.b}],val:fmt(2),unit:'%'},
- {box:'g-rates',id:'policy',title:'기준금리 한국 vs 미국',freq:'M',win:'1y',type:'line',step:true,
+ {box:'g-rates',id:'policy',title:'기준금리 한·미',freq:'M',win:'1y',type:'line',step:true,
   series:[{id:'722Y001',label:'한국',color:C.g},{id:'FEDFUNDS',label:'미국',color:C.b}],val:fmt(2),unit:'%'},
 
- {box:'g-real',id:'gdp',title:'실질 GDP 성장률 (전기비)',freq:'Q',win:'8q',type:'bar',
+ {box:'g-real',id:'gdp',title:'실질GDP 성장률',freq:'Q',win:'8q',type:'bar',
   series:[{id:'200Y102',label:'성장률',color:C.g}],val:fmt(1),unit:'%',labels:fmt(1)},
- {box:'g-real',id:'cpi',title:'소비자물가 상승률 (전년동월비)',freq:'M',win:'12m',type:'line',yoy:true,
+ {box:'g-real',id:'cpi',title:'물가상승률(전년비)',freq:'M',win:'12m',type:'line',yoy:true,
   series:[{id:'901Y009',label:'한국',color:C.g},{id:'CPIAUCSL',label:'미국',color:C.b}],val:fmt(1),unit:'%'},
- {box:'g-real',id:'unemp',title:'실업률 한국 vs 미국',freq:'M',win:'1y',type:'line',
+ {box:'g-real',id:'unemp',title:'실업률 한·미',freq:'M',win:'1y',type:'line',
   series:[{id:'901Y027:unemployment',label:'한국',color:C.g},{id:'UNRATE',label:'미국',color:C.b}],val:fmt(1),unit:'%'},
  {box:'g-real',id:'emp',title:'한국 고용률',freq:'M',win:'1y',type:'line',
   series:[{id:'901Y027:employment',label:'고용률',color:C.g}],val:fmt(1),unit:'%',delta:{mode:'diff',d:1,u:'%p'}},
 
  {box:'g-money',id:'ca',title:'경상수지',freq:'M',win:'12m',type:'bar',
   series:[{id:'301Y013',label:'경상수지',color:C.g}],scale:1/100,val:fmt(0),unit:'억$',labels:fmt(0),delta:{mode:'diff',d:0,u:'억$'}},
- {box:'g-money',id:'trade',title:'수출·수입 금액지수 (2020=100)',freq:'M',win:'1y',type:'line',
+ {box:'g-money',id:'trade',title:'수출·수입지수',freq:'M',win:'1y',type:'line',
   series:[{id:'403Y001',label:'수출',color:C.g},{id:'403Y003',label:'수입',color:C.a}],val:fmt(0),unit:''},
- {box:'g-money',id:'hh',title:'가계신용 잔액',freq:'Q',win:'8q',type:'bar',
+ {box:'g-money',id:'hh',title:'가계신용',freq:'Q',win:'8q',type:'bar',
   series:[{id:'151Y001',label:'가계신용',color:C.a}],scale:1/1000,val:fmt(0),unit:'조원',labels:fmt(0),delta:{mode:'pct',d:1}},
- {box:'g-money',id:'m2',title:'광의통화(M2)',freq:'M',win:'1y',type:'line',
-  series:[{id:'161Y006',label:'M2',color:C.b}],scale:1/1000,val:fmt(0),unit:'조원',delta:{mode:'pct',d:1}}
+ {box:'g-rates',id:'m2',title:'M2 광의통화',freq:'M',win:'1y',type:'line',
+  series:[{id:'161Y006',label:'M2',color:C.b}],scale:1/1000,val:fmt(0),unit:'조원',delta:{mode:'pct',d:1}},
+ {box:'g-money',id:'usgdp',title:'미국 GDP',freq:'Q',win:'8q',type:'bar',
+  series:[{id:'GDP',label:'미국 GDP',color:C.b}],scale:1/1000,val:fmt(1),unit:'조$',labels:fmt(1),delta:{mode:'pct',d:1}}
 ];
 
 /* ---------- 날짜 처리 ---------- */
@@ -144,54 +146,70 @@ function getSeries(data,id,spec){
 }
 
 /* ---------- 렌더 ---------- */
-const charts={};
+const charts={};const FS=window.innerWidth<600?11:13;
 const barLabels={id:'barLabels',afterDatasetsDraw(chart,_a,opts){
-  if(!opts||!opts.fmt)return;const {ctx}=chart;ctx.save();ctx.font='700 12px '+getComputedStyle(document.body).fontFamily;ctx.fillStyle='#3d4a42';ctx.textAlign='center';
-  chart.getDatasetMeta(0).data.forEach((bar,i)=>{const v=chart.data.datasets[0].data[i];if(v==null)return;const up=v>=0;ctx.textBaseline=up?'bottom':'top';ctx.fillText(opts.fmt(v),bar.x,up?bar.y-3:bar.y+3);});ctx.restore();}};
+  if(!opts||!opts.fmt)return;const {ctx}=chart;ctx.save();ctx.font='700 10px '+getComputedStyle(document.body).fontFamily;ctx.fillStyle='#3d4a42';ctx.textAlign='center';
+  chart.getDatasetMeta(0).data.forEach((bar,i)=>{const v=chart.data.datasets[0].data[i];if(v==null)return;const n=chart.data.datasets[0].data.length,txt=opts.fmt(v);if(window.innerWidth<600&&i!==n-1&&!(n<=8&&txt.length<=4))return;const up=v>=0;ctx.textBaseline=up?'bottom':'top';ctx.fillText(opts.fmt(v),bar.x,up?bar.y-3:bar.y+3);});ctx.restore();}};
 
-function cardHtml(spec,sets){
-  const first=sets[0];const last=first.pts[first.pts.length-1];
-  let vals='';
+const dk=h=>'#'+[1,3,5].map(i=>Math.round(parseInt(h.substr(i,2),16)*.78).toString(16).padStart(2,'0')).join('');
+const cross={id:'cross',afterDatasetsDraw(chart){
+  const a=chart.getActiveElements();if(!a.length||chart.config.type==='bar')return;
+  const x=a[0].element.x,{top,bottom}=chart.chartArea,c=chart.ctx;
+  c.save();c.strokeStyle='#8d9a92';c.lineWidth=1;c.setLineDash([3,3]);c.beginPath();c.moveTo(x,top);c.lineTo(x,bottom);c.stroke();c.restore();}};
+const prevIdx=(arr,i)=>{for(let k=Math.min(i,arr.length-1);k>=0;k--)if(arr[k]!=null)return k;return -1;};
+function valsInner(spec,sets,arrs,idx,exact){
+  const cell=i=>{const arr=arrs[i];const k=exact?(arr[idx]!=null?idx:-1):prevIdx(arr,idx);if(k<0)return null;const kp=prevIdx(arr,k-1);return {v:arr[k],prev:kp>=0?arr[kp]:null};};
+  const u=spec.unit?'<small>'+spec.unit+'</small>':'';
   if(sets.length===1){
-    const s=sets[0];const cur=s.pts[s.pts.length-1],prev=s.pts[s.pts.length-2];
+    const c=cell(0);if(!c)return '<span class="big">—</span>';
     let delta='';
-    if(spec.delta&&prev){
-      const dv=spec.delta.mode==='pct'?(cur.v/prev.v-1)*100:cur.v-prev.v;
+    if(spec.delta&&c.prev!=null){
+      const dv=spec.delta.mode==='pct'?(c.v/c.prev-1)*100:c.v-c.prev;
       const arrow=dv>0?'▲':dv<0?'▼':'–';
       const d=Math.abs(dv).toLocaleString('ko-KR',{maximumFractionDigits:spec.delta.d??1,minimumFractionDigits:spec.delta.d??1});
       delta='<span class="delta">'+arrow+' '+d+(spec.delta.mode==='pct'?'%':spec.delta.u||'')+'</span>';
     }
-    vals='<div class="vals"><span class="big">'+spec.val(cur.v)+(spec.unit?'<small>'+spec.unit+'</small>':'')+'</span>'+delta+'</div>';
-  }else{
-    vals='<div class="vals">'+sets.map(s=>{const cur=s.pts[s.pts.length-1];return '<span class="lg"><i style="background:'+s.color+'"></i>'+s.label+' <b>'+spec.val(cur.v)+(spec.unit?'<small>'+spec.unit+'</small>':'')+'</b></span>';}).join('')+'</div>';
+    return '<span class="big">'+spec.val(c.v)+u+'</span>'+delta;
   }
-  return '<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+whenLabel(last.t,spec.freq)+'</div></div>'+vals+'<div class="chart"><canvas></canvas></div>';
+  return sets.map((s,i)=>{const c=cell(i);return '<span class="lg"><i style="background:'+s.color+'"></i>'+s.label+' <b>'+(c?spec.val(c.v)+u:'—')+'</b></span>';}).join('');
 }
 
+const resets={};
 function drawCard(spec,data){
   const host=document.getElementById(spec.box);
   let el=document.getElementById('c-'+spec.id);
   if(!el){el=document.createElement('div');el.className='card';el.id='c-'+spec.id;host.appendChild(el);}
   if(charts[spec.id]){charts[spec.id].destroy();delete charts[spec.id];}
+  delete resets[spec.id];
   const sets=spec.series.map(s=>({...s,pts:getSeries(data,s.id,spec)})).filter(s=>s.pts.length);
   if(!sets.length){el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div></div><div class="empty">데이터 수집 대기</div>';return;}
-  el.innerHTML=cardHtml(spec,sets);
   const labels=[...new Set(sets.flatMap(s=>s.pts.map(p=>p.t)))].sort();
   const single=sets.length===1,isBar=spec.type==='bar';
-  const datasets=sets.map(s=>{const m=new Map(s.pts.map(p=>[p.t,p.v]));const arr=labels.map(t=>m.has(t)?m.get(t):null);
-    if(isBar)return {data:arr,backgroundColor:arr.map(v=>v!=null&&v<0?C.r:s.color),borderRadius:6,maxBarThickness:34};
-    return {label:s.label,data:arr,borderColor:s.color,backgroundColor:s.color+'22',borderWidth:3,pointRadius:0,pointHitRadius:14,tension:spec.step?0:.25,stepped:spec.step?'before':false,spanGaps:true,fill:single};});
+  const arrs=sets.map(s=>{const m=new Map(s.pts.map(p=>[p.t,p.v]));return labels.map(t=>m.has(t)?m.get(t):null);});
+  const lastLabel=sets[0].pts[sets[0].pts.length-1].t;
+  el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when"></div></div><div class="vals"></div><div class="chart"><canvas></canvas></div>';
+  const whenEl=el.querySelector('.when'),valsEl=el.querySelector('.vals');
+  const reset=()=>{whenEl.textContent=whenLabel(lastLabel,spec.freq);valsEl.innerHTML=valsInner(spec,sets,arrs,labels.length-1,false);el.classList.remove('scrub');const ch=charts[spec.id];if(ch&&ch.getActiveElements().length){ch.setActiveElements([]);ch.update('none');}};
+  const show=idx=>{whenEl.textContent=whenLabel(labels[idx],spec.freq);valsEl.innerHTML=valsInner(spec,sets,arrs,idx,true);el.classList.add('scrub');};
+  reset();resets[spec.id]=reset;
+  const datasets=sets.map((s,i)=>{const arr=arrs[i];
+    if(isBar)return {data:arr,backgroundColor:arr.map(v=>v!=null&&v<0?C.r:s.color),hoverBackgroundColor:arr.map(v=>dk(v!=null&&v<0?C.r:s.color)),borderRadius:6,maxBarThickness:34};
+    return {label:s.label,data:arr,borderColor:s.color,backgroundColor:s.color+'22',borderWidth:3,pointRadius:0,pointHitRadius:14,pointHoverRadius:6,pointHoverBackgroundColor:s.color,pointHoverBorderColor:'#fff',pointHoverBorderWidth:2,tension:spec.step?0:.25,stepped:spec.step?'before':false,spanGaps:true,fill:single};});
   const canvas=el.querySelector('canvas');
-  const tick={color:'#5f6b64',font:{size:13,family:getComputedStyle(document.body).fontFamily}};
+  const tick={color:'#5f6b64',font:{size:FS,family:getComputedStyle(document.body).fontFamily}};
   charts[spec.id]=new Chart(canvas,{type:isBar?'bar':'line',data:{labels,datasets},
-    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:isBar?18:4}},interaction:{mode:'index',intersect:false},
-      plugins:{legend:{display:false},barLabels:{fmt:isBar?spec.labels:null},
-        tooltip:{titleFont:{size:14},bodyFont:{size:15,weight:'700'},padding:10,displayColors:!single,
-          callbacks:{title:items=>whenLabel(items[0].label,spec.freq),label:c=>(single?'':c.dataset.label+' ')+spec.val(c.parsed.y)+(spec.unit?' '+spec.unit:'')}}},
-      scales:{x:{ticks:{...tick,maxTicksLimit:isBar?8:5,maxRotation:0,autoSkip:true,callback(v){return shortLabel(this.getLabelForValue(v),spec.freq);}},grid:{display:false},border:{display:false}},
-              y:{ticks:{...tick,maxTicksLimit:5,callback:v=>Number(v).toLocaleString('ko-KR',{maximumFractionDigits:1})},grid:{color:'#edf1ed'},border:{display:false},position:'right'}}},
-    plugins:[barLabels]});
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:isBar?18:4}},
+      events:['mousemove','mouseout','click','touchstart','touchmove'],
+      interaction:{mode:'index',intersect:false,axis:'x'},
+      onHover:(evt,els)=>{if(els&&els.length)show(els[0].index);else reset();},
+      plugins:{legend:{display:false},tooltip:{enabled:false},barLabels:{fmt:isBar?spec.labels:null}},
+      scales:{x:{ticks:{...tick,maxTicksLimit:4,maxRotation:0,autoSkip:true,callback(v){return shortLabel(this.getLabelForValue(v),spec.freq);}},grid:{display:false},border:{display:false}},
+              y:{ticks:{...tick,maxTicksLimit:4,callback:v=>Number(v).toLocaleString('ko-KR',{maximumFractionDigits:1})},grid:{color:'#edf1ed'},border:{display:false},position:'right'}}},
+    plugins:[barLabels,cross]});
+  canvas.addEventListener('mouseleave',reset);
 }
+/* 다른 곳을 터치하면 선택 해제 */
+document.addEventListener('touchstart',e=>{Object.keys(resets).forEach(id=>{const c=document.getElementById('c-'+id);if(c&&!c.contains(e.target))resets[id]();});},{passive:true,capture:true});
 
 /* ---------- 상태 표시 ---------- */
 function showStatus(data){
