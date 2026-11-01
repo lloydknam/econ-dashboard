@@ -18,7 +18,8 @@ body{margin:0;background:var(--bg);color:var(--text);font:400 14px/1.35 var(--sa
 .topbar{display:flex;align-items:center;gap:6px;padding:5px 0 3px}
 .topbar img{width:26px;height:26px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none}
 .topbar .titles{flex:1;min-width:0}
-.topbar h1{margin:0;font-size:15px;font-weight:900;letter-spacing:-.04em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar h1{margin:0;font-size:19px;font-weight:900;letter-spacing:-.04em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar h1 .gr{color:#00a875}
 .stamp{font-size:11px;color:var(--muted);line-height:1.2;white-space:nowrap}
 .stamp i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:4px;vertical-align:1px}
 .stamp.old i{background:var(--amber)}
@@ -52,7 +53,7 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 .foot img{display:block;margin:12px auto 4px;width:min(300px,86vw);height:auto}
 .foot a{color:#008b5e;text-decoration:none;font-weight:500}
 
-.gear{flex:none;border:0;background:#00a875;border-radius:999px;padding:9px 16px;min-height:40px;font:900 14px var(--sans);letter-spacing:-.02em;color:#fff;cursor:pointer;box-shadow:0 1px 3px rgba(0,60,40,.25)}
+.gear{flex:none;border:0;background:#00a875;border-radius:999px;padding:4px 13px;min-height:0;line-height:1.25;font:900 13px var(--sans);letter-spacing:-.02em;color:#fff;cursor:pointer;box-shadow:0 1px 3px rgba(0,60,40,.25)}
 .gear:active{background:#008b5e}
 .sheet{position:fixed;inset:0;z-index:20;display:none}
 .sheet.on{display:block}
@@ -87,7 +88,7 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 <header class="top">
   <div class="topbar">
     <img src="https://raw.githubusercontent.com/lloydknam/eodigallae/main/icons/clerk.jpg" alt="">
-    <div class="titles"><h1>클사무관의 경제 터미널</h1><div class="stamp" id="stamp"><i></i><span id="stampText">불러오는 중</span></div></div>
+    <div class="titles"><h1>클사무관의 <span class="gr">경제 터미널</span></h1><div class="stamp" id="stamp"><i></i><span id="stampText">불러오는 중</span></div></div>
     <button class="gear" id="gear" type="button">⚙ 지표 편집</button>
   </div>
   <nav class="menu" id="menu" aria-label="카테고리">
