@@ -514,27 +514,45 @@ def _kdollar(v):
 def fetch_kalshi_group(spec, previous_rows, today):
     import re as _re
     data = get_json(f"{KALSHI_BASE}/markets?series_ticker={spec['series']}&status=open&limit=200")
+    mk = data.get("markets", [])
+    if spec.get("earliest_event") and mk:
+        first = min(mk, key=lambda m: m.get("close_time") or "9")
+        mk = [m for m in mk if m.get("event_ticker") == first.get("event_ticker")]
     prev = {str(r.get("series")): r for r in previous_rows}
-    rows = []
-    for m in data.get("markets", []):
-        ticker = m.get("ticker", "")
+    cand = []
+    for m in mk:
         last = _kdollar(m.get("last_price_dollars"))
         bid, ask = _kdollar(m.get("yes_bid_dollars")), _kdollar(m.get("yes_ask_dollars"))
         mid = (bid + ask) / 2 if bid is not None and ask is not None and ask > 0 else None
         prob = last if last else mid
         if prob is None:
             continue
+        cand.append((m, prob, bid, ask))
+    if spec.get("near50"):
+        cand = [c for c in cand if 0 < c[1] < 100]
+        cand = sorted(cand, key=lambda c: abs(c[1] - 50))[: int(spec["near50"])]
+    elif spec.get("top"):
+        cand = sorted(cand, key=lambda c: -c[1])[: int(spec["top"])]
+    names = spec.get("names", {})
+    rows = []
+    for m, prob, bid, ask in cand:
+        ticker = m.get("ticker", "")
+        sub = m.get("yes_sub_title") or ""
         suffix = ticker.rsplit("-", 1)[-1]
-        label = spec.get("labels", {}).get(suffix) or m.get("yes_sub_title") or suffix
-        mm = _re.search(r"At least [^\d]*([\d,\.]+)", label)
-        if mm:
-            label = mm.group(1) + " 이상"
+        label = spec.get("labels", {}).get(suffix) or names.get(sub) or sub or suffix
+        rank = list(names).index(sub) if sub in names else None
+        mm = _re.search(r"(?:At least|Above)\s*[^\d-]*(-?[\d,\.]+\s*[%a-zA-Z]*)", label)
+        if mm and label not in names.values():
+            label = mm.group(1).strip() + (" 이상" if label.startswith("At least") else " 초과")
+        if rank is None:
+            nm = _re.search(r"-?[\d,]*\.?\d+", sub.replace(",", ""))
+            rank = float(nm.group(0)) if nm else None
         sid = "KX:" + ticker
         hist = [h for h in (prev.get(sid, {}).get("history") or []) if h.get("date") != today]
         hist.append({"date": today, "value": round(prob, 1)})
         rows.append({
             "name": label, "series": sid, "group": spec["series"], "date": today, "value": round(prob, 1),
-            "unit": "%", "bid": bid, "ask": ask, "volume": _num(m.get("volume_fp")),
+            "unit": "%", "bid": bid, "ask": ask, "volume": _num(m.get("volume_fp")), "rank": rank,
             "close_time": m.get("close_time", ""), "source": "Kalshi", "history": hist[-400:],
         })
     return rows
