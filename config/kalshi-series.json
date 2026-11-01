@@ -1,0 +1,5 @@
+[
+ {"series":"KXCBDECISIONKOREA","top":6,"labels":{"C25P":"인하>25bp","C25":"인하≤25bp","HOLD":"동결","H25":"인상≤25bp","H25P":"인상>25bp"}},
+ {"series":"KXKOSPI","top":6,"labels":{}},
+ {"series":"KXKOREAPRES","top":8,"labels":{"OSEH":"오세훈","LJUN":"이준석","LJIN":"이진숙","KMIN":"김민석","KHOO":"강훈식","KBOO":"김부겸","JDON":"장동혁","HDON":"한동훈","CKUK":"조국","ACHE":"안철수"}}
+]

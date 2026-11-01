@@ -76,6 +76,12 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 .pn label input{display:none}
 .pn label:has(input:checked){background:#e7f6ef;border-color:#9fd8bf;color:#006b49;font-weight:700}
 .pn label.nodata{opacity:.45}
+.pm{display:flex;flex-direction:column;gap:3px;margin:3px 0 4px}
+.pm .r{display:grid;grid-template-columns:66px 1fr 40px;align-items:center;gap:5px;font-size:11.5px}
+.pm .r b{font-weight:800;text-align:right;font-size:12px}
+.pm .t{height:8px;border-radius:4px;background:#edf1ed;overflow:hidden}.pm .t i{display:block;height:100%;background:#00a875;border-radius:4px}
+.pm .r span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pm .d{font-size:9.5px;font-weight:600;margin-left:2px;font-style:normal}.pm .d.u{color:#d45c62}.pm .d.n{color:#3b73c9}
+.pm-f{font-size:10px;color:var(--muted);margin:0 0 3px}
 .pn label.dly{border-color:#f0b35a;background:#fff8ec}
 .pn label.dly::before{content:'';width:6px;height:6px;border-radius:50%;background:#f08a00;margin-right:5px}
 .pn label.dly:has(input:checked){background:#ffe9c4;border-color:#f08a00;color:#8a4b00}
@@ -92,7 +98,7 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
     <button class="gear" id="gear" type="button">⚙ 지표 편집</button>
   </div>
   <nav class="menu" id="menu" aria-label="카테고리">
-    <a href="#fin" data-s="fin" class="on">금융</a><a href="#eco" data-s="eco">경제</a><a href="#mon" data-s="mon">통화·대외</a><a href="#fis" data-s="fis">재정</a><a href="#bud" data-s="bud">예산</a><a href="#us" data-s="us">미국</a>
+    <a href="#fin" data-s="fin" class="on">금융</a><a href="#eco" data-s="eco">경제</a><a href="#mon" data-s="mon">통화·대외</a><a href="#fis" data-s="fis">재정</a><a href="#bud" data-s="bud">예산</a><a href="#pm" data-s="pm">예측</a><a href="#us" data-s="us">미국</a>
   </nav>
 </header>
 <div class="notice" id="notice"></div>
@@ -111,6 +117,9 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 
 <section id="bud"><h2>예산 <small>분야·소관 부처별 세출예산</small></h2>
 <div class="grid" id="g-bud"></div></section>
+
+<section id="pm"><h2>예측시장 <small>Kalshi 베팅 확률(한국)</small></h2>
+<div class="grid" id="g-pm"></div></section>
 
 <section id="us"><h2>미국 <small>금리·시장·물가·고용·재정</small></h2>
 <div class="grid" id="g-us"></div></section>
@@ -379,6 +388,10 @@ K('g-bud','ob35','예산 중앙선거관리위원회','A',[['OF:OFFC:중앙선�
 K('g-bud','ob36','예산 국가데이터처','A',[['OF:OFFC:국가데이터처','국가데이터처']],{d:1,unit:'조원',type:'bar',win:7,labelAll:true,delta:pct});
 K('g-bud','ob37','예산 소방청','A',[['OF:OFFC:소방청','소방청']],{d:1,unit:'조원',type:'bar',win:7,labelAll:true,delta:pct});
 
+/* 예측시장 (Kalshi) */
+CARDS.push({box:'g-pm',id:'pm_bok',title:'금통위 결과 예상',freq:'D',pm:'KXCBDECISIONKOREA',top:5,order:['C25P','C25','HOLD','H25','H25P'],series:[]});
+CARDS.push({box:'g-pm',id:'pm_kospi',title:'올해 말 코스피 수준',freq:'D',pm:'KXKOSPI',top:6,series:[]});
+CARDS.push({box:'g-pm',id:'pm_pres',title:'차기 대통령 예측',freq:'D',pm:'KXKOREAPRES',top:8,series:[]});
 /* ---------- 날짜 ---------- */
 const pad=n=>String(n).padStart(2,'0');
 function norm(raw){
@@ -397,7 +410,7 @@ const whenLabel=(iso,f)=>{const y=iso.slice(2,4),m=Number(iso.slice(5,7)),d=Numb
 
 /* ---------- 데이터 가공 ---------- */
 function getSeries(data,id,spec){
-  const idx=data._idx||(data._idx=new Map([...(data.ecos||[]),...(data.fred||[]),...(data.market||[]),...(data.kosis||[]),...(data.fiscal||[])].map(x=>[x.series,x])));
+  const idx=data._idx||(data._idx=new Map([...(data.ecos||[]),...(data.fred||[]),...(data.market||[]),...(data.kosis||[]),...(data.fiscal||[]),...(data.kalshi||[])].map(x=>[x.series,x])));
   let row=null;for(const k of String(id).split('|')){const r=idx.get(k);if(r&&Array.isArray(r.history)&&r.history.length){row=r;break;}}
   if(!row)return [];
   let pts=row.history.map(p=>({t:norm(p.date),v:Number(p.value)})).filter(p=>Number.isFinite(p.v));
@@ -446,12 +459,12 @@ function valsInner(spec,sets,arrs,idx,exact){
 }
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const f=lazy.get(e.target);if(f){lazy.delete(e.target);io.unobserve(e.target);f();}}});},{rootMargin:'500px 0px'}):null;
 
-const DEF=['kospi','kosdaq','fx','jpy','rates','ktb510','corp',
+const DEF=['pm_bok','kospi','kosdaq','fx','jpy','rates','ktb510','corp',
  'gdp','cpi','unemp','jobs','prod_all','prod_svc','esi','csi1',
  'policy','m2','hh','loanrate','fxres','ca','trade','apt',
  'tax','exp','bal','ktb_bal','t_vat','int','debt','debt_gdp','of_wel',
  'us_y','us_sp','wti','ccpi','nfp','usdjpy','sp500','nasdaq','vix'];
-const NAMES={'g-fin':'금융','g-eco':'경제','g-mon':'통화·대외','g-fis':'재정','g-bud':'예산','g-us':'미국'};
+const NAMES={'g-fin':'금융','g-eco':'경제','g-mon':'통화·대외','g-fis':'재정','g-bud':'예산','g-pm':'예측시장','g-us':'미국'};
 let sel;
 try{const j=JSON.parse(localStorage.getItem('econ-sel')||'null');sel=new Set(Array.isArray(j)?j:DEF);}catch(e){sel=new Set(DEF);}
 const saveSel=()=>{try{localStorage.setItem('econ-sel',JSON.stringify([...sel]));}catch(e){}};
@@ -470,14 +483,14 @@ function buildSheet(){
     const h=document.createElement('h3');h.innerHTML=NAMES[box]+' <a data-all="'+box+'">전체</a><a data-none="'+box+'">해제</a>';body.appendChild(h);
     const wrap=document.createElement('div');wrap.className='chips';
     CARDS.filter(c=>c.box===box).sort((x,y)=>(y.freq==='D')-(x.freq==='D')).forEach(c=>{
-      const has=lastData&&c.series.some(s=>getSeries(lastData,s.id,c).length);
+      const has=lastData&&hasData(c);
       const l=document.createElement('label');l.className=(has?'':'nodata ')+(c.freq==='D'?'dly':'');
       l.innerHTML='<input type="checkbox" data-id="'+c.id+'"'+(sel.has(c.id)?' checked':'')+'>'+c.title;
       wrap.appendChild(l);});
     body.appendChild(wrap);});
   updCount();
 }
-const updCount=()=>{const ready=lastData?CARDS.filter(c=>c.series.some(s=>getSeries(lastData,s.id,c).length)).length:CARDS.length;document.getElementById('selReady').textContent=ready;document.getElementById('selCount').textContent=sel.size;};
+const updCount=()=>{const ready=lastData?CARDS.filter(hasData).length:CARDS.length;document.getElementById('selReady').textContent=ready;document.getElementById('selCount').textContent=sel.size;};
 const sheet=document.getElementById('sheet');
 document.getElementById('gear').onclick=()=>{buildSheet();sheet.classList.add('on');document.body.style.overflow='hidden';};
 const closeSheet=()=>{sheet.classList.remove('on');document.body.style.overflow='';render();};
@@ -492,7 +505,24 @@ document.getElementById('selBody').addEventListener('click',e=>{
   const box=a.dataset.all||a.dataset.none;
   CARDS.filter(c=>c.box===box).forEach(c=>a.dataset.all?sel.add(c.id):sel.delete(c.id));
   saveSel();buildSheet();});
+const pmRows=(data,g)=>((data&&data.kalshi)||[]).filter(r=>r.group===g).sort((a,b)=>b.value-a.value);
+const hasData=c=>c.pm?pmRows(lastData,c.pm).length>0:c.series.some(s=>getSeries(lastData,s.id,c).length);
+function drawPM(spec,data){
+  const host=document.getElementById(spec.box);
+  let el=document.getElementById('c-'+spec.id);
+  const rows=pmRows(data,spec.pm).slice(0,spec.top||6);
+  if(!rows.length){if(el)el.remove();return;}
+  if(!el){el=document.createElement('div');el.className='card';el.id='c-'+spec.id;host.appendChild(el);}
+  const key=r=>r.series.split('-').pop();
+  const ord=spec.order?rows.slice().sort((a,b)=>spec.order.indexOf(key(a))-spec.order.indexOf(key(b))):rows;
+  const mx=Math.max(...rows.map(r=>r.value),1);
+  const ct=(ord[0].close_time||'').slice(0,10);
+  el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+(ct?whenLabel(ct,'D')+' 마감':'')+'</div></div><div class="pm">'+ord.map(r=>{
+    const h=r.history||[],p=h.length>1?h[h.length-2].value:null,dv=p==null?null:Math.round((r.value-p)*10)/10;
+    return '<div class="r"><span>'+r.name+'</span><div class="t"><i style="width:'+Math.max(2,r.value/mx*100)+'%"></i></div><b>'+Math.round(r.value)+'%'+(dv?'<em class="d '+(dv>0?'u':'n')+'">'+(dv>0?'▲':'▼')+Math.abs(dv)+'</em>':'')+'</b></div>';}).join('')+'</div><div class="pm-f">Kalshi · 거래 얇음</div>';
+}
 function drawCard(spec,data){
+  if(spec.pm)return drawPM(spec,data);
   const host=document.getElementById(spec.box);
   let el=document.getElementById('c-'+spec.id);
   if(charts[spec.id]){charts[spec.id].destroy();delete charts[spec.id];}
@@ -533,7 +563,7 @@ document.addEventListener('touchstart',e=>{Object.keys(resets).forEach(id=>{cons
 
 /* ---------- 카테고리 메뉴 ---------- */
 const menuLinks=[...document.querySelectorAll('#menu a')];
-const SECS=['fin','eco','mon','fis','bud','us'];
+const SECS=['fin','eco','mon','fis','bud','pm','us'];
 function spy(){
   const hh=document.querySelector('.top').offsetHeight;
   document.documentElement.style.setProperty('--hh',hh+'px');
