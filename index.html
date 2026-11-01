@@ -58,7 +58,8 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 .sheet .pn{position:absolute;left:0;right:0;bottom:0;max-height:86vh;background:var(--bg);border-radius:16px 16px 0 0;display:flex;flex-direction:column;max-width:760px;margin:0 auto}
 .pn header{display:flex;align-items:center;gap:6px;padding:12px 12px 8px;border-bottom:1px solid var(--line)}
 .pn header b{flex:1;font-size:15px;font-weight:900}
-.pn header small{color:var(--muted);font-size:11px}
+.pn header small{color:var(--muted);font-size:11px;white-space:nowrap}
+.pn header button{padding:5px 9px}
 .pn button{font:700 12px var(--sans);border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;color:#44504a;cursor:pointer}
 .pn button.ok{background:#00a875;border-color:#00a875;color:#fff}
 .pn .body{overflow-y:auto;padding:4px 12px calc(14px + env(safe-area-inset-bottom))}
@@ -102,7 +103,7 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 <div class="grid" id="g-us"></div></section>
 
 <div class="sheet" id="sheet"><div class="bg" id="sheetBg"></div><div class="pn">
-  <header><b>내 지표 선택</b><small id="selCount"></small><button type="button" id="selDef">기본값</button><button type="button" class="ok" id="selOk">완료</button></header>
+  <header><b>내 지표 선택</b><small id="selCount"></small><button type="button" id="selAll">전체</button><button type="button" id="selNone">해제</button><button type="button" id="selDef">기본값</button><button type="button" class="ok" id="selOk">완료</button></header>
   <div class="body" id="selBody"></div></div></div>
 <footer class="foot">
   한국은행 ECOS · KOSIS · 열린재정 · 네이버 · FRED · 정보 제공용
@@ -270,7 +271,7 @@ K('g-us','rgdp','미국 실질 GDP 성장률(연율)','Q',[['A191RL1Q225SBEA','�
 K('g-us','tb','미국 무역수지','M',[['BOPGSTB','무역수지']],{d:1,unit:'십억$',scale:1/1e3,type:'bar',win:12});
 K('g-us','usm2','미국 M2(전년비)','M',[['M2SL','M2']],{d:1,unit:'%',yoy:true,win:12});
 K('g-us','walcl','연준 대차대조표','W',[['WALCL','자산']],{d:2,unit:'조$',scale:1/1e6});
-K('g-us','debt','미국 연방부채','Q',[['GFDEBTN','부채']],{d:1,unit:'조$',scale:1/1e6,type:'bar',win:8,labelAll:true});
+K('g-us','us_debt','미국 연방부채','Q',[['GFDEBTN','부채']],{d:1,unit:'조$',scale:1/1e6,type:'bar',win:8,labelAll:true});
 K('g-us','deficit','미국 연방재정수지(연)','A',[['FYFSD','수지']],{d:1,unit:'조$',scale:1/1e6,type:'bar',win:8,labelAll:true});
 
 /* ---------- 날짜 ---------- */
@@ -371,12 +372,14 @@ function buildSheet(){
     body.appendChild(wrap);});
   updCount();
 }
-const updCount=()=>{document.getElementById('selCount').textContent=sel.size+'개';};
+const updCount=()=>{document.getElementById('selCount').textContent=sel.size+' / '+CARDS.length;};
 const sheet=document.getElementById('sheet');
 document.getElementById('gear').onclick=()=>{buildSheet();sheet.classList.add('on');document.body.style.overflow='hidden';};
 const closeSheet=()=>{sheet.classList.remove('on');document.body.style.overflow='';render();};
 document.getElementById('selOk').onclick=closeSheet;
 document.getElementById('sheetBg').onclick=closeSheet;
+document.getElementById('selAll').onclick=()=>{sel=new Set(CARDS.map(c=>c.id));saveSel();buildSheet();};
+document.getElementById('selNone').onclick=()=>{sel=new Set();saveSel();buildSheet();};
 document.getElementById('selDef').onclick=()=>{sel=new Set(DEF);saveSel();buildSheet();};
 document.getElementById('selBody').addEventListener('change',e=>{const id=e.target.dataset.id;if(!id)return;e.target.checked?sel.add(id):sel.delete(id);saveSel();updCount();});
 document.getElementById('selBody').addEventListener('click',e=>{
