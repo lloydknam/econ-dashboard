@@ -15,6 +15,7 @@ import os
 import urllib.error
 import urllib.parse
 import urllib.request
+import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -24,14 +25,20 @@ OUT = ROOT / "data" / "official-macro.json"
 
 def get_json(url: str):
     req = urllib.request.Request(url, headers={"User-Agent": "ClerkEconTerminal/1.0"})
-    try:
-        with urllib.request.urlopen(req, timeout=20) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as exc:
-        # Preserve the API's diagnostic message (e.g. invalid API key/parameter)
-        # while never logging the request URL, which contains the API key.
-        detail = exc.read().decode("utf-8", errors="replace").strip()
-        raise RuntimeError(f"HTTP {exc.code}: {detail or exc.reason}") from None
+    # ECOS occasionally stalls. Retry transient network failures once, but do
+    # not retry HTTP errors such as an invalid key or an invalid item code.
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace").strip()
+            raise RuntimeError(f"HTTP {exc.code}: {detail or exc.reason}") from None
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            if attempt == 0:
+                time.sleep(2)
+                continue
+            raise RuntimeError(f"연결 재시도 실패: {exc}") from None
 
 
 def collect_fred():
@@ -181,10 +188,19 @@ def main():
         fred_updated_at = previous.get("fred_updated_at_utc", "")
         fred_status = "REFRESH FAILED; retained previous data — " + fred_status
 
+    previous_ecos = previous.get("ecos", [])
     if ecos:
+        # Merge by statistic code so one successful series (e.g. CPI) is not
+        # discarded merely because another ECOS endpoint timed out.
+        fresh_by_series = {str(row.get("series")): row for row in ecos}
+        merged = {str(row.get("series")): row for row in previous_ecos}
+        merged.update(fresh_by_series)
+        ecos = list(merged.values())
         ecos_updated_at = now
+        if ecos_status != "OK":
+            ecos_status = "PARTIAL REFRESH; missing series retained from previous data — " + ecos_status
     else:
-        ecos = previous.get("ecos", [])
+        ecos = previous_ecos
         ecos_updated_at = previous.get("ecos_updated_at_utc", "")
         ecos_status = "REFRESH FAILED; retained previous data — " + ecos_status
 
