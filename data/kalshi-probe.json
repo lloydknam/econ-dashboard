@@ -1,0 +1,3635 @@
+{
+ "events": [
+  {
+   "event_ticker": "KXWCQUAL-30",
+   "series_ticker": "KXWCQUAL",
+   "title": "2030 FIFA World Cup Qualifiers",
+   "category": "Sports",
+   "markets": [
+    {
+     "ticker": "KXWCQUAL-30-MEX",
+     "title": "Will Mexico qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Mexico",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-IRL",
+     "title": "Will Ireland qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Ireland",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-DEN",
+     "title": "Will Denmark qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Denmark",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-KOR",
+     "title": "Will Korea Republic qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Korea Republic",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-RSA",
+     "title": "Will South Africa qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "South Africa",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-CZE",
+     "title": "Will Czechia qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Czechia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-MKD",
+     "title": "Will North Macedonia qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "North Macedonia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-ITA",
+     "title": "Will Italy qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Italy",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-SUI",
+     "title": "Will Switzerland qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Switzerland",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-CAN",
+     "title": "Will Canada qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Canada",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-NIR",
+     "title": "Will Northern Ireland qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Northern Ireland",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWCQUAL-30-QAT",
+     "title": "Will Qatar qualify for the 2030 Men's FIFA World Cup?",
+     "yes_sub_title": "Qatar",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXWC-30",
+   "series_ticker": "KXWC",
+   "title": "2030 FIFA World Cup Champion",
+   "category": "Sports",
+   "markets": [
+    {
+     "ticker": "KXWC-30-MEX",
+     "title": "Will Mexico win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Mexico",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-IRL",
+     "title": "Will Ireland win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Ireland",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-DEN",
+     "title": "Will Denmark win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Denmark",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-KOR",
+     "title": "Will Korea Republic win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Korea Republic",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-RSA",
+     "title": "Will South Africa win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "South Africa",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-CZE",
+     "title": "Will Czechia win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Czechia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-MKD",
+     "title": "Will North Macedonia win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "North Macedonia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-ITA",
+     "title": "Will Italy win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Italy",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-SUI",
+     "title": "Will Switzerland win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Switzerland",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-CAN",
+     "title": "Will Canada win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Canada",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-NIR",
+     "title": "Will Northern Ireland win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Northern Ireland",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    },
+    {
+     "ticker": "KXWC-30-QAT",
+     "title": "Will Qatar win the 2030 FIFA Men's World Cup?",
+     "yes_sub_title": "Qatar",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-01-15T03:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXKOREAPRESPARTY-30MAR27",
+   "series_ticker": "KXKOREAPRESPARTY",
+   "title": "Next South Korea Presidential election winner? (Party)",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXKOREAPRESPARTY-30MAR27-DPK",
+     "title": "Will Democratic Party of Korea win the next South Korean presidential election?",
+     "yes_sub_title": "Democratic Party of Korea",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRESPARTY-30MAR27-PPP",
+     "title": "Will People Power Party win the next South Korean presidential election?",
+     "yes_sub_title": "People Power Party",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXKOREAPRES-30MAR27",
+   "series_ticker": "KXKOREAPRES",
+   "title": "Next South Korea Presidential election winner?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXKOREAPRES-30MAR27-KMIN",
+     "title": "Will Kim Min-seok win the next South Korean presidential election?",
+     "yes_sub_title": "Kim Min-seok",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-HDON",
+     "title": "Will Han Dong-hoon win the next South Korean presidential election?",
+     "yes_sub_title": "Han Dong-hoon",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-OSEH",
+     "title": "Will Oh Se-hoon win the next South Korean presidential election?",
+     "yes_sub_title": "Oh Se-hoon",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-JDON",
+     "title": "Will Jang Dong-hyeok win the next South Korean presidential election?",
+     "yes_sub_title": "Jang Dong-hyeok",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-CKUK",
+     "title": "Will Cho Kuk win the next South Korean presidential election?",
+     "yes_sub_title": "Cho Kuk",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-JCHU",
+     "title": "Will Jung Chung-rae win the next South Korean presidential election?",
+     "yes_sub_title": "Jung Chung-rae",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-CMIA",
+     "title": "Will Choo Mi-ae win the next South Korean presidential election?",
+     "yes_sub_title": "Choo Mi-ae",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-LJIN",
+     "title": "Will Lee Jin-sook win the next South Korean presidential election?",
+     "yes_sub_title": "Lee Jin-sook",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-LJUN",
+     "title": "Will Lee Jun-seok win the next South Korean presidential election?",
+     "yes_sub_title": "Lee Jun-seok",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-ACHE",
+     "title": "Will Ahn Cheol-soo win the next South Korean presidential election?",
+     "yes_sub_title": "Ahn Cheol-soo",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-KHOO",
+     "title": "Will Kang Hoon-sik win the next South Korean presidential election?",
+     "yes_sub_title": "Kang Hoon-sik",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    },
+    {
+     "ticker": "KXKOREAPRES-30MAR27-KBOO",
+     "title": "Will Kim Boo-kyum win the next South Korean presidential election?",
+     "yes_sub_title": "Kim Boo-kyum",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2031-03-27T14:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXBESTLLMCOUNTRY-29DEC31",
+   "series_ticker": "KXBESTLLMCOUNTRY",
+   "title": "Which country will have the best LLM at the end of the decade?",
+   "category": "Science and Technology",
+   "markets": [
+    {
+     "ticker": "KXBESTLLMCOUNTRY-29DEC31-US",
+     "title": "Which country will have the best LLM at the end of the decade?",
+     "yes_sub_title": "United States",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2029-12-31T14:59:00Z"
+    },
+    {
+     "ticker": "KXBESTLLMCOUNTRY-29DEC31-CN",
+     "title": "Which country will have the best LLM at the end of the decade?",
+     "yes_sub_title": "China",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2029-12-31T14:59:00Z"
+    },
+    {
+     "ticker": "KXBESTLLMCOUNTRY-29DEC31-FR",
+     "title": "Which country will have the best LLM at the end of the decade?",
+     "yes_sub_title": "France",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2029-12-31T14:59:00Z"
+    },
+    {
+     "ticker": "KXBESTLLMCOUNTRY-29DEC31-KR",
+     "title": "Which country will have the best LLM at the end of the decade?",
+     "yes_sub_title": "South Korea",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2029-12-31T14:59:00Z"
+    },
+    {
+     "ticker": "KXBESTLLMCOUNTRY-29DEC31-AE",
+     "title": "Which country will have the best LLM at the end of the decade?",
+     "yes_sub_title": "United Arab Emirates",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2029-12-31T14:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXFULLTERMSKPRES-29",
+   "series_ticker": "KXFULLTERMSKPRES",
+   "title": "Will South Korean President Lee Jae-myung serve their full term?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXFULLTERMSKPRES-29",
+     "title": "Will South Korean President Lee Jae-myung serve their full term?",
+     "yes_sub_title": "Yes",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2030-07-01T03:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXSOLAXQUAL-28",
+   "series_ticker": "KXSOLAXQUAL",
+   "title": "Which countries will qualify for LA28 men's lacrosse?",
+   "category": "Sports",
+   "markets": [
+    {
+     "ticker": "KXSOLAXQUAL-28-BRA",
+     "title": "Will Brazil qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Brazil",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-CAN",
+     "title": "Will Canada qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Canada",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-CHI",
+     "title": "Will Chile qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Chile",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-JAM",
+     "title": "Will Jamaica qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Jamaica",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-MEX",
+     "title": "Will Mexico qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Mexico",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-PUR",
+     "title": "Will Puerto Rico qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Puerto Rico",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-AUS",
+     "title": "Will Australia qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Australia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-CHN",
+     "title": "Will China qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "China",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-TPE",
+     "title": "Will Chinese Taipei qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Chinese Taipei",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-HKG",
+     "title": "Will Hong Kong, China qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Hong Kong, China",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-IND",
+     "title": "Will India qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "India",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    },
+    {
+     "ticker": "KXSOLAXQUAL-28-JPN",
+     "title": "Will Japan qualify for LA28 men's lacrosse?",
+     "yes_sub_title": "Japan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-08-01T14:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXDUOLINGO-2026-T5",
+   "series_ticker": "KXDUOLINGO",
+   "title": "Duolingo language rankings · Top 5 in 2026?",
+   "category": "Entertainment",
+   "markets": [
+    {
+     "ticker": "KXDUOLINGO-2026-T5-ENG",
+     "title": "Will English rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "English",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-SPA",
+     "title": "Will Spanish rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "Spanish",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-FRE",
+     "title": "Will French rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "French",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-JPN",
+     "title": "Will Japanese rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "Japanese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-GER",
+     "title": "Will German rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "German",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-KOR",
+     "title": "Will Korean rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "Korean",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-ITA",
+     "title": "Will Italian rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "Italian",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-CHI",
+     "title": "Will Chinese rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "Chinese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-POR",
+     "title": "Will Portuguese rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "Portuguese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T5-HIN",
+     "title": "Will Hindi rank Top 5 on Duolingo in 2026?",
+     "yes_sub_title": "Hindi",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXDUOLINGO-2026-T10",
+   "series_ticker": "KXDUOLINGO",
+   "title": "Duolingo language rankings · Top 10 in 2026?",
+   "category": "Entertainment",
+   "markets": [
+    {
+     "ticker": "KXDUOLINGO-2026-T10-ENG",
+     "title": "Will English rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "English",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-SPA",
+     "title": "Will Spanish rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "Spanish",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-FRE",
+     "title": "Will French rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "French",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-JPN",
+     "title": "Will Japanese rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "Japanese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-GER",
+     "title": "Will German rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "German",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-KOR",
+     "title": "Will Korean rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "Korean",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-ITA",
+     "title": "Will Italian rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "Italian",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-CHI",
+     "title": "Will Chinese rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "Chinese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-POR",
+     "title": "Will Portuguese rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "Portuguese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-T10-HIN",
+     "title": "Will Hindi rank Top 10 on Duolingo in 2026?",
+     "yes_sub_title": "Hindi",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXDUOLINGO-2026-R2",
+   "series_ticker": "KXDUOLINGO",
+   "title": "Duolingo language rankings · #2 in 2026?",
+   "category": "Entertainment",
+   "markets": [
+    {
+     "ticker": "KXDUOLINGO-2026-R2-ENG",
+     "title": "Will English rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "English",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-SPA",
+     "title": "Will Spanish rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "Spanish",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-FRE",
+     "title": "Will French rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "French",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-JPN",
+     "title": "Will Japanese rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "Japanese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-GER",
+     "title": "Will German rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "German",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-KOR",
+     "title": "Will Korean rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "Korean",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-ITA",
+     "title": "Will Italian rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "Italian",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-CHI",
+     "title": "Will Chinese rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "Chinese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-POR",
+     "title": "Will Portuguese rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "Portuguese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R2-HIN",
+     "title": "Will Hindi rank #2 on Duolingo in 2026?",
+     "yes_sub_title": "Hindi",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXDUOLINGO-2026-R1B",
+   "series_ticker": "KXDUOLINGO",
+   "title": "Duolingo language rankings · #1 in 2026?",
+   "category": "Entertainment",
+   "markets": [
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-ENG",
+     "title": "Will English rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "English",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-SPA",
+     "title": "Will Spanish rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "Spanish",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-FRE",
+     "title": "Will French rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "French",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-JPN",
+     "title": "Will Japanese rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "Japanese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-GER",
+     "title": "Will German rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "German",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-KOR",
+     "title": "Will Korean rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "Korean",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-ITA",
+     "title": "Will Italian rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "Italian",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-CHI",
+     "title": "Will Chinese rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "Chinese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-POR",
+     "title": "Will Portuguese rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "Portuguese",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    },
+    {
+     "ticker": "KXDUOLINGO-2026-R1B-HIN",
+     "title": "Will Hindi rank #1 on Duolingo in 2026?",
+     "yes_sub_title": "Hindi",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-12-31T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXGA1ROUND-26NOV03",
+   "series_ticker": "KXGA1ROUND",
+   "title": "Georgia: Which elections will be won outright?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXGA1ROUND-26NOV03-SEN",
+     "title": "Will anyone win the 2026 Georgia United States Senate general election election in the first round?",
+     "yes_sub_title": "Senate",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXGA1ROUND-26NOV03-GOV",
+     "title": "Will anyone win the 2026 Georgia gubernatorial general election election in the first round?",
+     "yes_sub_title": "Governor",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXGA1ROUND-26NOV03-LTGOV",
+     "title": "Will anyone win the 2026 Georgia Lieutenant Governor general election election in the first round?",
+     "yes_sub_title": "Lieutenant Governor",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXGA1ROUND-26NOV03-AG",
+     "title": "Will anyone win the 2026 Georgia Attorney General general election election in the first round?",
+     "yes_sub_title": "Attorney General",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXGA1ROUND-26NOV03-SOS",
+     "title": "Will anyone win the 2026 Georgia Secretary of State general election election in the first round?",
+     "yes_sub_title": "Secretary of State",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXGA1ROUND-26NOV03-COM",
+     "title": "Will anyone win the 2026 Georgia Commissioner of Agriculture general election election in the first round?",
+     "yes_sub_title": "Commissioner of Agriculture",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXGA1ROUND-26NOV03-COI",
+     "title": "Will anyone win the 2026 Georgia Commissioner of Insurance general election election in the first round?",
+     "yes_sub_title": "Commissioner of Insurance",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXGA1ROUND-26NOV03-COL",
+     "title": "Will anyone win the 2026 Georgia Commissioner of Labor general election election in the first round?",
+     "yes_sub_title": "Commissioner of Labor",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXGA1ROUND-26NOV03-SUP",
+     "title": "Will anyone win the 2026 Georgia State School Superintendent general election election in the first round?",
+     "yes_sub_title": "State Superintendent of Schools",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXLAHOUSE1R-26NOV03",
+   "series_ticker": "KXLAHOUSE1R",
+   "title": "Louisiana: Which House races will be won outright?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXLAHOUSE1R-26NOV03-LA01",
+     "title": "Will anyone win the 2026 Louisiana 1st Congressional District open primary outright?",
+     "yes_sub_title": "LA-01",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T14:00:00Z"
+    },
+    {
+     "ticker": "KXLAHOUSE1R-26NOV03-LA02",
+     "title": "Will anyone win the 2026 Louisiana 2nd Congressional District open primary outright?",
+     "yes_sub_title": "LA-02",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T14:00:00Z"
+    },
+    {
+     "ticker": "KXLAHOUSE1R-26NOV03-LA03",
+     "title": "Will anyone win the 2026 Louisiana 3rd Congressional District open primary outright?",
+     "yes_sub_title": "LA-03",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T14:00:00Z"
+    },
+    {
+     "ticker": "KXLAHOUSE1R-26NOV03-LA04",
+     "title": "Will anyone win the 2026 Louisiana 4th Congressional District open primary outright?",
+     "yes_sub_title": "LA-04",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T14:00:00Z"
+    },
+    {
+     "ticker": "KXLAHOUSE1R-26NOV03-LA05",
+     "title": "Will anyone win the 2026 Louisiana 5th Congressional District open primary outright?",
+     "yes_sub_title": "LA-05",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T14:00:00Z"
+    },
+    {
+     "ticker": "KXLAHOUSE1R-26NOV03-LA06",
+     "title": "Will anyone win the 2026 Louisiana 6th Congressional District open primary outright?",
+     "yes_sub_title": "LA-06",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-11-03T14:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXWCW-27",
+   "series_ticker": "KXWCW",
+   "title": "2027 FIFA Women's World Cup Champion",
+   "category": "Sports",
+   "markets": [
+    {
+     "ticker": "KXWCW-27-ARG",
+     "title": "Will Argentina win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Argentina",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-AUS",
+     "title": "Will Australia win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Australia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-BRA",
+     "title": "Will Brazil win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Brazil",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-CAN",
+     "title": "Will Canada win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Canada",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-CHN",
+     "title": "Will China PR win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "China PR",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-DEN",
+     "title": "Will Denmark win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Denmark",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-ENG",
+     "title": "Will England win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "England",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-JPN",
+     "title": "Will Japan win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Japan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-NZL",
+     "title": "Will New Zealand win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "New Zealand",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-NGR",
+     "title": "Will Nigeria win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Nigeria",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-NOR",
+     "title": "Will Norway win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Norway",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    },
+    {
+     "ticker": "KXWCW-27-SWE",
+     "title": "Will Sweden win the 2027 FIFA Women's World Cup?",
+     "yes_sub_title": "Sweden",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-08-09T02:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXNBANEWCHAMPION-27",
+   "series_ticker": "KXNBANEWCHAMPION",
+   "title": "9th Straight Different Pro Basketball Champion",
+   "category": "Sports",
+   "markets": [
+    {
+     "ticker": "KXNBANEWCHAMPION-27-Y",
+     "title": "Will a team who has not won a championship in the previous 8 seasons (2018-19 through 2025-26) win the championship in the 2026-27 Pro Basketball season?",
+     "yes_sub_title": "9th straight different Pro Basketball champion",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-07-08T14:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXGANGNEUNGBY-27APR07",
+   "series_ticker": "KXGANGNEUNGBY",
+   "title": "Gangneung National Assembly by-election winner?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXGANGNEUNGBY-27APR07-PPP",
+     "title": "Will the People Power Party win the 2027 Gangneung National Assembly by-election?",
+     "yes_sub_title": "People Power Party",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-04-07T14:00:00Z"
+    },
+    {
+     "ticker": "KXGANGNEUNGBY-27APR07-DPK",
+     "title": "Will the Democratic Party of Korea win the 2027 Gangneung National Assembly by-election?",
+     "yes_sub_title": "Democratic Party of Korea",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-04-07T14:00:00Z"
+    },
+    {
+     "ticker": "KXGANGNEUNGBY-27APR07-RKP",
+     "title": "Will the Rebuilding Korea Party win the 2027 Gangneung National Assembly by-election?",
+     "yes_sub_title": "Rebuilding Korea Party",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2028-04-07T14:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXHARRISSTATEGOP-26NOV03",
+   "series_ticker": "KXHARRISSTATEGOP",
+   "title": "How many Senate and Governor races will Republicans win in Harris states?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXHARRISSTATEGOP-26NOV03-E0",
+     "title": "Will the number of 2026 U.S. Senate (including special elections) and gubernatorial general elections, held in the 19 states that Kamala Harris carried in the 2024 presidential election, won by a nominee of the Republican Party be exactly 0 at the November 3, 2026 general election?",
+     "yes_sub_title": "0",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISSTATEGOP-26NOV03-E1",
+     "title": "Will the number of 2026 U.S. Senate (including special elections) and gubernatorial general elections, held in the 19 states that Kamala Harris carried in the 2024 presidential election, won by a nominee of the Republican Party be exactly 1 at the November 3, 2026 general election?",
+     "yes_sub_title": "1",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISSTATEGOP-26NOV03-E2",
+     "title": "Will the number of 2026 U.S. Senate (including special elections) and gubernatorial general elections, held in the 19 states that Kamala Harris carried in the 2024 presidential election, won by a nominee of the Republican Party be exactly 2 at the November 3, 2026 general election?",
+     "yes_sub_title": "2",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISSTATEGOP-26NOV03-E3",
+     "title": "Will the number of 2026 U.S. Senate (including special elections) and gubernatorial general elections, held in the 19 states that Kamala Harris carried in the 2024 presidential election, won by a nominee of the Republican Party be exactly 3 at the November 3, 2026 general election?",
+     "yes_sub_title": "3",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISSTATEGOP-26NOV03-E4",
+     "title": "Will the number of 2026 U.S. Senate (including special elections) and gubernatorial general elections, held in the 19 states that Kamala Harris carried in the 2024 presidential election, won by a nominee of the Republican Party be exactly 4 at the November 3, 2026 general election?",
+     "yes_sub_title": "4",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISSTATEGOP-26NOV03-E5",
+     "title": "Will the number of 2026 U.S. Senate (including special elections) and gubernatorial general elections, held in the 19 states that Kamala Harris carried in the 2024 presidential election, won by a nominee of the Republican Party be exactly 5 at the November 3, 2026 general election?",
+     "yes_sub_title": "5",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISSTATEGOP-26NOV03-AL6",
+     "title": "Will the number of 2026 U.S. Senate (including special elections) and gubernatorial general elections, held in the 19 states that Kamala Harris carried in the 2024 presidential election, won by a nominee of the Republican Party be at least 6 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 6",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXTRUMPDEMDISTRICTS-26NOV03",
+   "series_ticker": "KXTRUMPDEMDISTRICTS",
+   "title": "How many Trump-won districts will Democrats win in 2026?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL10",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 10 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 10",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL13",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 13 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 13",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL16",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 16 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 16",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL19",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 19 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 19",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL22",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 22 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 22",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL25",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 25 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 25",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL28",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 28 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 28",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL31",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 31 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 31",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL35",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 35 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 35",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL40",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 40 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 40",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL46",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 46 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 46",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXTRUMPDEMDISTRICTS-26NOV03-AL52",
+     "title": "Will the number of Democratic U.S. House members elected from the 235 districts that Donald Trump carried in 2024 be at least 52 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 52",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXREDDESTDHOUSE-26NOV03",
+   "series_ticker": "KXREDDESTDHOUSE",
+   "title": "Reddest House district to elect a Democrat in 2026?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXREDDESTDHOUSE-26NOV03-AL5",
+     "title": "Will the highest 2024 Trump-minus-Harris presidential margin, in percentage points, among U.S. House districts won by a Democratic candidate be at least 5 at the November 3, 2026 general election?",
+     "yes_sub_title": "Trump +5 or more",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXREDDESTDHOUSE-26NOV03-AL10",
+     "title": "Will the highest 2024 Trump-minus-Harris presidential margin, in percentage points, among U.S. House districts won by a Democratic candidate be at least 10 at the November 3, 2026 general election?",
+     "yes_sub_title": "Trump +10 or more",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXREDDESTDHOUSE-26NOV03-AL15",
+     "title": "Will the highest 2024 Trump-minus-Harris presidential margin, in percentage points, among U.S. House districts won by a Democratic candidate be at least 15 at the November 3, 2026 general election?",
+     "yes_sub_title": "Trump +15 or more",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXREDDESTDHOUSE-26NOV03-AL18",
+     "title": "Will the highest 2024 Trump-minus-Harris presidential margin, in percentage points, among U.S. House districts won by a Democratic candidate be at least 18 at the November 3, 2026 general election?",
+     "yes_sub_title": "Trump +18 or more",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXREDDESTDHOUSE-26NOV03-AL20",
+     "title": "Will the highest 2024 Trump-minus-Harris presidential margin, in percentage points, among U.S. House districts won by a Democratic candidate be at least 20 at the November 3, 2026 general election?",
+     "yes_sub_title": "Trump +20 or more",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXREDDESTDHOUSE-26NOV03-AL22",
+     "title": "Will the highest 2024 Trump-minus-Harris presidential margin, in percentage points, among U.S. House districts won by a Democratic candidate be at least 22 at the November 3, 2026 general election?",
+     "yes_sub_title": "Trump +22 or more",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXREDDESTDHOUSE-26NOV03-AL25",
+     "title": "Will the highest 2024 Trump-minus-Harris presidential margin, in percentage points, among U.S. House districts won by a Democratic candidate be at least 25 at the November 3, 2026 general election?",
+     "yes_sub_title": "Trump +25 or more",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXREDDESTDHOUSE-26NOV03-AL30",
+     "title": "Will the highest 2024 Trump-minus-Harris presidential margin, in percentage points, among U.S. House districts won by a Democratic candidate be at least 30 at the November 3, 2026 general election?",
+     "yes_sub_title": "Trump +30 or more",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXHARRISGOPDISTRICTS-26NOV03",
+   "series_ticker": "KXHARRISGOPDISTRICTS",
+   "title": "How many Harris-won districts will Republicans win in 2026?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXHARRISGOPDISTRICTS-26NOV03-AL1",
+     "title": "Will the number of Republican U.S. House members elected from the 201 districts that Kamala Harris carried in 2024 be at least 1 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 1",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISGOPDISTRICTS-26NOV03-AL2",
+     "title": "Will the number of Republican U.S. House members elected from the 201 districts that Kamala Harris carried in 2024 be at least 2 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 2",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISGOPDISTRICTS-26NOV03-AL3",
+     "title": "Will the number of Republican U.S. House members elected from the 201 districts that Kamala Harris carried in 2024 be at least 3 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 3",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISGOPDISTRICTS-26NOV03-AL4",
+     "title": "Will the number of Republican U.S. House members elected from the 201 districts that Kamala Harris carried in 2024 be at least 4 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 4",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISGOPDISTRICTS-26NOV03-AL6",
+     "title": "Will the number of Republican U.S. House members elected from the 201 districts that Kamala Harris carried in 2024 be at least 6 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 6",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    },
+    {
+     "ticker": "KXHARRISGOPDISTRICTS-26NOV03-AL8",
+     "title": "Will the number of Republican U.S. House members elected from the 201 districts that Kamala Harris carried in 2024 be at least 8 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 8",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2026-12-15T14:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXUSTHOLDERS-31DEC26",
+   "series_ticker": "KXUSTHOLDERS",
+   "title": "Which countries’ U.S. Treasury holdings will increase in 2026?",
+   "category": "Economics",
+   "markets": [
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-JPN",
+     "title": "Will Japan's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "Japan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-UK",
+     "title": "Will the United Kingdom's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "United Kingdom",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-CHN",
+     "title": "Will Mainland China's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "Mainland China",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-CAN",
+     "title": "Will Canada's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "Canada",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-FRA",
+     "title": "Will France's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "France",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-TWN",
+     "title": "Will Taiwan's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "Taiwan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-NOR",
+     "title": "Will Norway's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "Norway",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-IND",
+     "title": "Will India's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "India",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-BRA",
+     "title": "Will Brazil's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "Brazil",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-SAU",
+     "title": "Will Saudi Arabia's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "Saudi Arabia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-KOR",
+     "title": "Will South Korea's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "South Korea",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    },
+    {
+     "ticker": "KXUSTHOLDERS-31DEC26-UAE",
+     "title": "Will the UAE's U.S. Treasury holdings increase in 2026?",
+     "yes_sub_title": "UAE",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-18T20:55:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXEARNINGSMENTIONTSLA-27JAN27",
+   "series_ticker": "KXEARNINGSMENTIONTSLA",
+   "title": "What will Tesla say during their next earnings call?",
+   "category": "Mentions",
+   "markets": [
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-CYBE",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Cybercab",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-SEMI",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Semi",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-SPAC",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "SpaceX / xAI",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-REGU",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Regulator / Regulatory / Regulation",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-TARA",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Terafab",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-ROAD",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Roadster",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-SOLA",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Solar",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-MEGA",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Megapack 3",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-TARI",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Tariff",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-CHIN",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "China",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-COMP",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Competition",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    },
+    {
+     "ticker": "KXEARNINGSMENTIONTSLA-27JAN27-SAMS",
+     "title": "What will Tesla say during their next earnings call?",
+     "yes_sub_title": "Samsung",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-04-27T22:30:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXAFCA-27",
+   "series_ticker": "KXAFCA",
+   "title": "2027 AFC Asian Cup Champion",
+   "category": "Sports",
+   "markets": [
+    {
+     "ticker": "KXAFCA-27-UZB",
+     "title": "Will Uzbekistan win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Uzbekistan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-UAE",
+     "title": "Will United Arab Emirates win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "United Arab Emirates",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-THA",
+     "title": "Will Thailand win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Thailand",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-SYR",
+     "title": "Will Syria win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Syria",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-KOR",
+     "title": "Will Korea Republic win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Korea Republic",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-AUS",
+     "title": "Will Australia win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Australia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-CHN",
+     "title": "Will China PR win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "China PR",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-IRN",
+     "title": "Will IR Iran win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "IR Iran",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-IRQ",
+     "title": "Will Iraq win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Iraq",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-JPN",
+     "title": "Will Japan win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Japan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-JOR",
+     "title": "Will Jordan win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Jordan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    },
+    {
+     "ticker": "KXAFCA-27-LBN",
+     "title": "Will Lebanon win the 2027 AFC Asian Cup?",
+     "yes_sub_title": "Lebanon",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-21T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXTXSTATEWIDEDEMS-26NOV03",
+   "series_ticker": "KXTXSTATEWIDEDEMS",
+   "title": "How many Texas statewide races will Democrats win in 2026?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXTXSTATEWIDEDEMS-26NOV03-AL1",
+     "title": "Will the number of statewide races won by Democratic Party nominees in Texas be at least 1 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 1",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXTXSTATEWIDEDEMS-26NOV03-AL2",
+     "title": "Will the number of statewide races won by Democratic Party nominees in Texas be at least 2 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 2",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXTXSTATEWIDEDEMS-26NOV03-AL3",
+     "title": "Will the number of statewide races won by Democratic Party nominees in Texas be at least 3 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 3",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXTXSTATEWIDEDEMS-26NOV03-AL4",
+     "title": "Will the number of statewide races won by Democratic Party nominees in Texas be at least 4 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 4",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXTXSTATEWIDEDEMS-26NOV03-AL8",
+     "title": "Will the number of statewide races won by Democratic Party nominees in Texas be at least 8 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 8",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXTXSTATEWIDEDEMS-26NOV03-AL12",
+     "title": "Will the number of statewide races won by Democratic Party nominees in Texas be at least 12 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 12",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-03T15:00:00Z"
+    },
+    {
+     "ticker": "KXTXSTATEWIDEDEMS-26NOV03-AL16",
+     "title": "Will the number of statewide races won by Democratic Party nominees in Texas be at least 16 at the November 3, 2026 general election?",
+     "yes_sub_title": "At least 16",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-02-03T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXRSENATEWON-26NOV03",
+   "series_ticker": "KXRSENATEWON",
+   "title": "How many Senate seats will Republicans win in the Midterms?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL14",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 14 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 14",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL15",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 15 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 15",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL16",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 16 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 16",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL17",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 17 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 17",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL18",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 18 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 18",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL19",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 19 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 19",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL20",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 20 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 20",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL21",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 21 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 21",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL22",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 22 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 22",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL23",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 23 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 23",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL24",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 24 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 24",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRSENATEWON-26NOV03-AL25",
+     "title": "Will the number of U.S. Senate seats won by Republican Party candidates be at least 25 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 25",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXRHOUSEWON-26NOV03",
+   "series_ticker": "KXRHOUSEWON",
+   "title": "How many House seats will Republicans win in the Midterms?",
+   "category": "Elections",
+   "markets": [
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL182",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 182 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 182",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL186",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 186 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 186",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL190",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 190 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 190",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL194",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 194 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 194",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL198",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 198 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 198",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL202",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 202 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 202",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL206",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 206 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 206",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL210",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 210 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 210",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL214",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 214 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 214",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL218",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 218 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 218",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL222",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 222 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 222",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXRHOUSEWON-26NOV03-AL226",
+     "title": "Will the number of U.S. House seats won by Republican Party candidates be at least 226 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 226",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXISENATEWON-26NOV03",
+   "series_ticker": "KXISENATEWON",
+   "title": "How many Senate seats will Independents win in the Midterms?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXISENATEWON-26NOV03-AL1",
+     "title": "Will the number of U.S. Senate seats won by candidates unaffiliated with a political party be at least 1 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 1",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXISENATEWON-26NOV03-AL2",
+     "title": "Will the number of U.S. Senate seats won by candidates unaffiliated with a political party be at least 2 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 2",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXISENATEWON-26NOV03-AL3",
+     "title": "Will the number of U.S. Senate seats won by candidates unaffiliated with a political party be at least 3 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 3",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXIHOUSEWON-26NOV03",
+   "series_ticker": "KXIHOUSEWON",
+   "title": "How many House seats will Independents win in the Midterms?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXIHOUSEWON-26NOV03-AL1",
+     "title": "Will the number of U.S. House seats won by candidates unaffiliated with a political party be at least 1 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 1",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXIHOUSEWON-26NOV03-AL2",
+     "title": "Will the number of U.S. House seats won by candidates unaffiliated with a political party be at least 2 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 2",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXIHOUSEWON-26NOV03-AL3",
+     "title": "Will the number of U.S. House seats won by candidates unaffiliated with a political party be at least 3 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 3",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXDSENATEWON-26NOV03",
+   "series_ticker": "KXDSENATEWON",
+   "title": "How many Senate seats will Democrats win in the Midterms?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL10",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 10 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 10",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL11",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 11 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 11",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL12",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 12 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 12",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL13",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 13 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 13",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL14",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 14 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 14",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL15",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 15 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 15",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL16",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 16 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 16",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL17",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 17 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 17",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL18",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 18 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 18",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL19",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 19 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 19",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL20",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 20 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 20",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDSENATEWON-26NOV03-AL21",
+     "title": "Will the number of U.S. Senate seats won by Democratic Party candidates be at least 21 in the 2026 U.S. Senate elections?",
+     "yes_sub_title": "At least 21",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXDHOUSEWON-26NOV03",
+   "series_ticker": "KXDHOUSEWON",
+   "title": "How many House seats will Democrats win in the Midterms?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL210",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 210 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 210",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL214",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 214 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 214",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL218",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 218 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 218",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL222",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 222 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 222",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL226",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 226 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 226",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL230",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 230 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 230",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL234",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 234 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 234",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL238",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 238 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 238",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL242",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 242 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 242",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL246",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 246 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 246",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL250",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 250 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 250",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    },
+    {
+     "ticker": "KXDHOUSEWON-26NOV03-AL254",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 254 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 254",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXDHOUSESUPERMAJ-26NOV03",
+   "series_ticker": "KXDHOUSESUPERMAJ",
+   "title": "Will Democrats win a House supermajority in the Midterms?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXDHOUSESUPERMAJ-26NOV03-AL290",
+     "title": "Will the number of U.S. House seats won by Democratic Party candidates be at least 290 in the 2026 U.S. House elections?",
+     "yes_sub_title": "At least 290",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-03T13:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXTRUMPCOUNTRIES-27JAN01",
+   "series_ticker": "KXTRUMPCOUNTRIES",
+   "title": "What countries will Trump visit in 2026?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-ISR",
+     "title": "Will Donald Trump visit Israel before Jan 1, 2027?",
+     "yes_sub_title": "Israel",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-SA",
+     "title": "Will Donald Trump visit Saudi Arabia before Jan 1, 2027?",
+     "yes_sub_title": "Saudi Arabia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-CAN",
+     "title": "Will Donald Trump visit Canada before Jan 1, 2027?",
+     "yes_sub_title": "Canada",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-ITA",
+     "title": "Will Donald Trump visit Italy before Jan 1, 2027?",
+     "yes_sub_title": "Italy",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-VAT",
+     "title": "Will Donald Trump visit Vatican City before Jan 1, 2027?",
+     "yes_sub_title": "Vatican City",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-UKR",
+     "title": "Will Donald Trump visit Ukraine before Jan 1, 2027?",
+     "yes_sub_title": "Ukraine",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-RUS",
+     "title": "Will Donald Trump visit Russia before Jan 1, 2027?",
+     "yes_sub_title": "Russia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-QAT",
+     "title": "Will Donald Trump visit Qatar before Jan 1, 2027?",
+     "yes_sub_title": "Qatar",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-GER",
+     "title": "Will Donald Trump visit Germany before Jan 1, 2027?",
+     "yes_sub_title": "Germany",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-HUN",
+     "title": "Will Donald Trump visit Hungary before Jan 1, 2027?",
+     "yes_sub_title": "Hungary",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-NK",
+     "title": "Will Donald Trump visit North Korea before Jan 1, 2027?",
+     "yes_sub_title": "North Korea",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    },
+    {
+     "ticker": "KXTRUMPCOUNTRIES-27JAN01-TAI",
+     "title": "Will Donald Trump visit Taiwan before Jan 1, 2027?",
+     "yes_sub_title": "Taiwan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXTRAVELDOWNGRADE-27JAN01",
+   "series_ticker": "KXTRAVELDOWNGRADE",
+   "title": "Which countries will have their US Travel Advisory downgraded in 2026?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-AFG",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Afghanistan?",
+     "yes_sub_title": "Afghanistan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-MYA",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Burma (Myanmar)?",
+     "yes_sub_title": "Burma (Myanmar)",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-GAZ",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Gaza?",
+     "yes_sub_title": "Gaza",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-HAI",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Haiti?",
+     "yes_sub_title": "Haiti",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-IRA",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Iran?",
+     "yes_sub_title": "Iran",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-LEB",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Lebanon?",
+     "yes_sub_title": "Lebanon",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-LIB",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Libya?",
+     "yes_sub_title": "Libya",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-NKOR",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for North Korea?",
+     "yes_sub_title": "North Korea",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-RUS",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Russia?",
+     "yes_sub_title": "Russia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-SOM",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Somalia?",
+     "yes_sub_title": "Somalia",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-SSUD",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for South Sudan?",
+     "yes_sub_title": "South Sudan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXTRAVELDOWNGRADE-27JAN01-SUD",
+     "title": "Will the U.S. State Department issue a level 3 or lower warning for Sudan?",
+     "yes_sub_title": "Sudan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    }
+   ]
+  },
+  {
+   "event_ticker": "KXRECOGPALESTINE-27",
+   "series_ticker": "KXRECOGPALESTINE",
+   "title": "Who will recognize Palestine before 2027?",
+   "category": "Politics",
+   "markets": [
+    {
+     "ticker": "KXRECOGPALESTINE-27-ITA",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "Italy",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-GRE",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "Greece",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-USA",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "USA",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-FIN",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "Finland",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-AUS",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "Austria",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-SIN",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "Singapore",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-JAP",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "Japan",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-SK",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "South Korea",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-NZ",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "New Zealand",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-GER",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "Germany",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-SWI",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "Switzerland",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    },
+    {
+     "ticker": "KXRECOGPALESTINE-27-DUT",
+     "title": "Who will recognize Palestine?",
+     "yes_sub_title": "The Netherlands",
+     "yes_bid": null,
+     "yes_ask": null,
+     "last_price": null,
+     "volume": null,
+     "close_time": "2027-01-01T04:59:00Z"
+    }
+   ]
+  }
+ ],
+ "series_hits": [
+  {
+   "ticker": "KXSEOULMAYOR",
+   "title": "Who will win the Seoul mayoral election?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXSKIMPEACH",
+   "title": "South Korean President impeached",
+   "category": "Politics",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKLEAGUEGAME",
+   "title": "Korea K League Game",
+   "category": "Sports",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKS200W",
+   "title": "KOSPI 200 weekly close",
+   "category": "Financials",
+   "frequency": "weekly"
+  },
+  {
+   "ticker": "KXDHOUSEWON",
+   "title": "Democratic House seats won (media calls)",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXNLPROVINCIAL",
+   "title": "Dutch Provincial Elections: Most Votes Won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXISENATEWON",
+   "title": "Independent Senate seats won (media calls)",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXSALOCAL",
+   "title": "South African Local Elections: Most Seats Won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXCZECHSENATE",
+   "title": "Czech Senate Election: Most Seats Won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXHARRISGOPDISTRICTS",
+   "title": "How many Harris-won districts will Republicans win in 2026?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXLAHOUSE1R",
+   "title": "Louisiana's 2026 U.S. House elections: which will be won outright?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXKS200H",
+   "title": "KOSPI 200 annual high",
+   "category": "Financials",
+   "frequency": "annual"
+  },
+  {
+   "ticker": "KXBRGOVMOSTSEATS",
+   "title": "Brazil Gubernatorial Elections: Most Governorships Won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXVALGCSEOUL",
+   "title": "Game Changers : Championship Seoul",
+   "category": "Sports",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXTRUMPDEMDISTRICTS",
+   "title": "How many Trump-won districts will Democrats win in 2026?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXBRDEP",
+   "title": "Brazil Chamber of Deputies Election: Most Seats Won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXRHOUSEWON",
+   "title": "Republican House seats won (media calls)",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXLAMAYOR1ROUND",
+   "title": "Los Angeles mayoral election won outright?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXPRESLEAVESK",
+   "title": "South Korean President leaving",
+   "category": "Politics",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKBLTOTAL",
+   "title": "Korea KBL Total",
+   "category": "Sports",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXBRPRES2COUNTRIES",
+   "title": "Brazil presidential runoff: countries won abroad",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXSKEXPYOY",
+   "title": "South Korea exports YoY",
+   "category": "Economics",
+   "frequency": "monthly"
+  },
+  {
+   "ticker": "KXBRRUNOFFCOUNTRIES",
+   "title": "Brazil presidential runoff: countries won abroad",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXGOLFMAJORS",
+   "title": "Golf Majors Won",
+   "category": "Sports",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXLOWTRKSI",
+   "title": "Daily low temp Seoul",
+   "category": "Climate and Weather",
+   "frequency": "daily"
+  },
+  {
+   "ticker": "KXHIGHTRKSI",
+   "title": "Daily high temp Seoul",
+   "category": "Climate and Weather",
+   "frequency": "daily"
+  },
+  {
+   "ticker": "KXKBLSPREAD",
+   "title": "Korea KBL Spread",
+   "category": "Sports",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKS200M",
+   "title": "KOSPI 200 monthly close",
+   "category": "Financials",
+   "frequency": "monthly"
+  },
+  {
+   "ticker": "KXKS200D",
+   "title": "KOSPI 200 daily close",
+   "category": "Financials",
+   "frequency": "daily"
+  },
+  {
+   "ticker": "KXGA1ROUND",
+   "title": "Which Georgia elections will be won outright?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXSHERRILLCOUNTIES",
+   "title": "Mikie Sherrill Counties won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXRSENATEWON",
+   "title": "Republican Senate seats won (media calls)",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXDSENATEWON",
+   "title": "Democratic Senate seats won (media calls)",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXIHOUSEWON",
+   "title": "Independent House seats won (media calls)",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXTEXASGOP1ROUND",
+   "title": "Texas GOP primary won in 1 round",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXTARIFFRATEKR",
+   "title": "Korea tariff rate",
+   "category": "Politics",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKOREAPRES",
+   "title": "South Korea presidential election",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXFERTILITYSK",
+   "title": "Fertility in South Korea",
+   "category": "World",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKOREABAN",
+   "title": "South Korea ban",
+   "category": "Politics",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKS200A",
+   "title": "KOSPI 200 annual close",
+   "category": "Financials",
+   "frequency": "annual"
+  },
+  {
+   "ticker": "KXWALESLOCAL",
+   "title": "Welsh Local Elections: Most Councillors Won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXSCOTLANDLOCAL",
+   "title": "Scottish Local Elections: Most Councillors Won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXFLAVIOABROAD",
+   "title": "Flávio Bolsonaro countries won abroad",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXCAPITALMOVESK",
+   "title": "Capital move South Korea",
+   "category": "Politics",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKOREAPRESPARTY",
+   "title": "South Korean presidential election winner party",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXMOLDOVABEP",
+   "title": "Moldova BEP seats won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXUSAMBSK",
+   "title": "U.S. Ambassador to South Korea",
+   "category": "Politics",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXSCRSENSOUTRIGHT",
+   "title": "Will the South Carolina Republican Senate special primary be won outright?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXENGLANDLOCAL",
+   "title": "English Local Elections: Most Councillors Won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXWKBLGAME",
+   "title": "Korea KBL (W) Game",
+   "category": "Sports",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXSKPRES",
+   "title": "Next South Korean president",
+   "category": "Elections",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKBLGAME",
+   "title": "Korea KBL Game",
+   "category": "Sports",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXSKDEMOCRACY",
+   "title": "South Korea democracy ranking",
+   "category": "Politics",
+   "frequency": "annual"
+  },
+  {
+   "ticker": "KXK2LEAGUEGAME",
+   "title": "Korea K-League 2 Game",
+   "category": "Sports",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKOSPIPOS",
+   "title": "KOSPI",
+   "category": "Financials",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXKLEAGUE",
+   "title": "Korea K League Winner",
+   "category": "Sports",
+   "frequency": "annual"
+  },
+  {
+   "ticker": "KXBENINUPR",
+   "title": "Benin Progressive Union seats won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXPRIMARYCOUNTY",
+   "title": "Counties won in primaries",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXLASEN1R",
+   "title": "Louisiana Senate primaries: which will be won outright?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXKOSPI",
+   "title": "KOSPI",
+   "category": "Financials",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXSAMSUNGSTRIKE",
+   "title": "Samsung Electronics labor union strike",
+   "category": "Politics",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXGAPRIMARY1R",
+   "title": "Which Georgia primary elections will be won outright?",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXTRIFOLD",
+   "title": "Samsung trifold phone",
+   "category": "Science and Technology",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXBRRUNOFFSTATES",
+   "title": "Brazil presidential runoff: states won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXCBDECISIONKOREA",
+   "title": "Bank Of KOREA policy interest rate decision",
+   "category": "Economics",
+   "frequency": "custom"
+  },
+  {
+   "ticker": "KXKS200L",
+   "title": "KOSPI 200 annual low",
+   "category": "Financials",
+   "frequency": "annual"
+  },
+  {
+   "ticker": "KXMOLDOVAPAS",
+   "title": "Moldova PAS seats won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXBRPRES2STATES",
+   "title": "Brazil presidential runoff: states won",
+   "category": "Elections",
+   "frequency": "one_off"
+  },
+  {
+   "ticker": "KXKR200",
+   "title": "KOSPI",
+   "category": "Financials",
+   "frequency": "hourly"
+  }
+ ],
+ "errors": [],
+ "pages": 60,
+ "series_total": 15581
+}
