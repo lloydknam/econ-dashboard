@@ -200,13 +200,14 @@ import re
 
 def fetch_yahoo(spec):
     sym = urllib.parse.quote(spec["symbol"], safe="")
-    payload = None
-    for host in ("query1", "query2"):
+    payload, err = None, None
+    for attempt, host in enumerate(("query1", "query2", "query1")):
         try:
             payload = get_json(f"https://{host}.finance.yahoo.com/v8/finance/chart/{sym}?range=1y&interval=1d")
             break
-        except Exception as exc:  # try the sibling host
+        except Exception as exc:  # rate limited: back off, try sibling host
             err = exc
+            time.sleep(2 * (attempt + 1))
     if payload is None:
         raise err
     res = (payload.get("chart", {}).get("result") or [None])[0]
@@ -246,20 +247,59 @@ def finish_market(spec, hist, source):
             "value": last["value"], "unit": "", "source": source, "history": history}
 
 
+def fetch_stooq(spec):
+    end = date.today()
+    start = end - timedelta(days=400)
+    url = "https://stooq.com/q/d/l/?" + urllib.parse.urlencode({
+        "s": spec["stooq"], "i": "d", "d1": start.strftime("%Y%m%d"), "d2": end.strftime("%Y%m%d")})
+    text = get_text(url)
+    if not text.lstrip().lower().startswith("date,"):
+        raise RuntimeError("stooq: " + text.strip()[:80])
+    hist = {}
+    for row in csv.DictReader(io.StringIO(text)):
+        try:
+            hist[row["Date"]] = float(row["Close"])
+        except (KeyError, ValueError, TypeError):
+            continue
+    return finish_market(spec, hist, "Stooq")
+
+
+_yahoo_fail = {"n": 0}
+
+
+def fetch_market(spec):
+    if spec.get("src") == "naver":
+        return fetch_naver(spec)
+    errors = []
+    if _yahoo_fail["n"] < 3:  # after 3 straight failures Yahoo is treated as blocked
+        try:
+            row = fetch_yahoo(spec)
+            _yahoo_fail["n"] = 0
+            time.sleep(0.7)
+            return row
+        except Exception as exc:
+            _yahoo_fail["n"] += 1
+            errors.append(f"yahoo {exc}")
+    if spec.get("stooq"):
+        try:
+            return fetch_stooq(spec)
+        except Exception as exc:
+            errors.append(str(exc))
+    raise RuntimeError(" / ".join(errors) or "no source")
+
+
 def collect_market():
     cfg = ROOT / "config" / "market-series.json"
     specs = json.loads(cfg.read_text(encoding="utf-8")) if cfg.exists() else []
 
     def work(spec):
         try:
-            fn = fetch_naver if spec.get("src") == "naver" else fetch_yahoo
-            return fn(spec), None
+            return fetch_market(spec), None
         except Exception as exc:
             return None, f'{spec.get("id")}: {exc}'
 
-    # modest parallelism: Yahoo rate-limits aggressive clients
-    with ThreadPoolExecutor(3) as pool:
-        results = list(pool.map(work, specs))
+    # sequential on purpose: Yahoo rate-limits aggressive clients
+    results = [work(spec) for spec in specs]
     rows = [r for r, _ in results if r]
     errors = [e for _, e in results if e]
     return rows, ("; ".join(errors) if errors else "OK")
