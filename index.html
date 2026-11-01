@@ -230,12 +230,6 @@ K('g-fis','debt','국가채무','A',[['K:debt','국가채무']],{d:0,unit:'조�
 K('g-fis','debt_gdp','국가채무 GDP 대비','A',[['K:debt_gdp','비율']],{d:1,unit:'%',type:'bar',win:8,labelAll:true,delta:df('%p',1)});
 K('g-fis','debt_central','중앙정부 채무','A',[['K:debt_central','중앙']],{d:0,unit:'조원',type:'bar',win:8,labelAll:true,delta:pct});
 K('g-fis','debt_local','지방정부 순채무','A',[['K:debt_local','지방']],{d:1,unit:'조원',type:'bar',win:8,labelAll:true,delta:pct});
-K('g-fis','of_total','세출예산 총계','A',[['OF:TOTAL','총계']],{d:0,unit:'조원',type:'bar',win:7,labelAll:true,delta:pct});
-[['of_wel','보건·복지·고용'],['of_edu','교육'],['of_cul','문화·체육·관광'],['of_env','환경'],['of_rnd','R&D'],['of_ind','산업·중소기업·에너지'],
- ['of_soc','SOC'],['of_agr','농림·수산·식품'],['of_def','국방'],['of_dip','외교·통일'],['of_pub','공공질서·안전'],['of_adm','일반·지방행정']]
- .forEach(([id,nm])=>K('g-fis',id,'예산 '+nm,'A',[['OF:FLD:'+nm,nm]],{d:1,unit:'조원',type:'bar',win:7,labelAll:true,delta:pct}));
-[['of_moe','교육부'],['of_mol','고용노동부'],['of_mcst','문화체육관광부'],['of_mcee','기후에너지환경부|OF:OFFC:기후에너지부']]
- .forEach(([id,nm])=>K('g-fis',id,'예산 '+nm.split('|')[0],'A',[[nm.includes('OF:')?'OF:OFFC:'+nm:'OF:OFFC:'+nm,nm.split('|')[0]]],{d:1,unit:'조원',type:'bar',win:7,labelAll:true,delta:pct}));
 
 /* 미국 */
 K('g-us','us_y','미 국채 2·10년','D',[['DGS2','2년'],['DGS10','10년']],{d:2,unit:'%'});
@@ -343,7 +337,7 @@ const io='IntersectionObserver' in window?new IntersectionObserver(es=>{es.forEa
 const DEF=['kospi','kosdaq','fx','jpy','rates','ktb510','corp',
  'gdp','cpi','unemp','jobs','prod_all','prod_svc','esi','csi1',
  'policy','m2','hh','loanrate','fxres','ca','trade','apt',
- 'tax','exp','bal','ktb_bal','t_vat','int','debt','debt_gdp','of_wel',
+ 'tax','exp','bal','ktb_bal','t_vat','int','debt','debt_gdp',
  'us_y','us_sp','wti','ccpi','nfp','usdjpy','sp500','nasdaq','vix'];
 const NAMES={'g-fin':'금융','g-eco':'경제','g-mon':'통화·대외','g-fis':'재정','g-us':'미국'};
 let sel;
