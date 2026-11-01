@@ -60,8 +60,11 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 .sheet .pn{position:absolute;left:0;right:0;bottom:0;max-height:86vh;background:var(--bg);border-radius:16px 16px 0 0;display:flex;flex-direction:column;max-width:760px;margin:0 auto}
 .pn header{display:flex;align-items:center;gap:6px;padding:12px 12px 8px;border-bottom:1px solid var(--line)}
 .pn header b{flex:1;font-size:15px;font-weight:900}
-.pn header small{color:var(--muted);font-size:11px;white-space:nowrap}
-.pn header button{padding:8px 11px}
+.pn .sum{display:flex;gap:16px;padding:10px 14px 4px;font-size:14px;color:var(--muted)}
+.pn .sum b{font-size:20px;font-weight:900;color:var(--text);margin:0 1px}
+.pn .sum span:last-child b{color:#008b5e}
+.pn .acts{display:flex;gap:6px;padding:6px 12px 10px;border-bottom:1px solid var(--line)}
+.pn .acts button{flex:1;padding:9px 4px;font-size:13px;white-space:nowrap}
 .pn button{font:700 14px var(--sans);border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;min-height:38px;color:#44504a;cursor:pointer}
 .pn button.ok{background:#00a875;border-color:#00a875;color:#fff}
 .pn .body{overflow-y:auto;padding:4px 12px calc(14px + env(safe-area-inset-bottom))}
@@ -105,7 +108,9 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 <div class="grid" id="g-us"></div></section>
 
 <div class="sheet" id="sheet"><div class="bg" id="sheetBg"></div><div class="pn">
-  <header><b>지표 편집</b><small id="selCount"></small><button type="button" id="selAll">전체</button><button type="button" id="selNone">해제</button><button type="button" id="selDef">기본값</button><button type="button" class="ok" id="selOk">완료</button></header>
+  <header><b>지표 편집</b><button type="button" class="ok" id="selOk">완료</button></header>
+  <div class="sum"><span>준비된 지표 <b id="selReady">-</b>개</span><span>선택 <b id="selCount">-</b>개</span></div>
+  <div class="acts"><button type="button" id="selAll">전체 지표 선택</button><button type="button" id="selDef">기본 지표 선택</button><button type="button" id="selNone">전체 해제</button></div>
   <div class="body" id="selBody"></div></div></div>
 <footer class="foot">
   한국은행 ECOS · KOSIS · 열린재정 · 네이버 · FRED · 정보 제공용
@@ -374,7 +379,7 @@ function buildSheet(){
     body.appendChild(wrap);});
   updCount();
 }
-const updCount=()=>{document.getElementById('selCount').textContent=sel.size+' / '+CARDS.length;};
+const updCount=()=>{const ready=lastData?CARDS.filter(c=>c.series.some(s=>getSeries(lastData,s.id,c).length)).length:CARDS.length;document.getElementById('selReady').textContent=ready;document.getElementById('selCount').textContent=sel.size;};
 const sheet=document.getElementById('sheet');
 document.getElementById('gear').onclick=()=>{buildSheet();sheet.classList.add('on');document.body.style.overflow='hidden';};
 const closeSheet=()=>{sheet.classList.remove('on');document.body.style.overflow='';render();};
