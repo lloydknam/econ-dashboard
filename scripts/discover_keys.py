@@ -49,8 +49,10 @@ if k:
 o = KEYS["OPENFISCAL_API_KEY"]
 if o:
     P["openfiscal_root"] = get("https://openapi.openfiscaldata.go.kr/", 3000)
+    for yy in (2026, 2025):
+        P[f"openfiscal_ExpenditureBudgetInit5_{yy}"] = get(q("https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5", Key=o, Type="json", pIndex=1, pSize=3, FSCL_YY=yy), 2500)
     for svc in ("ExpenditureBudgetInit5", "ExpenditureBudgetAdd5", "NationalDebt", "FiscalBalance", "TotalRevenueExpenditure",
-                "IncomeStatus", "NationalAssets", "GovernmentLiabilities", "CommonFiscalData"):
+                "IncomeStatus", "NationalAssets", "GovernmentLiabilities", "CommonFiscalData", "ExpenditureSettlementInit5", "RevenueBudgetInit5", "IncomeBudgetInit5", "FiscalStatus", "NationalDebtStatus", "DebtStatus"):
         P[f"openfiscal_{svc}"] = get(q(f"https://openapi.openfiscaldata.go.kr/{svc}", Key=o, Type="json", pIndex=1, pSize=3), 800)
 d = KEYS["DATA_GO_KR_KEY"]
 if d:
