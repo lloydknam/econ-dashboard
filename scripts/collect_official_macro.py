@@ -304,6 +304,16 @@ def fetch_naver_world(spec):
     return finish_market(spec, hist, "Naver")
 
 
+def fetch_coingecko(spec):
+    url = (f"https://api.coingecko.com/api/v3/coins/{spec['coingecko']}/market_chart?"
+           "vs_currency=usd&days=365&interval=daily")
+    payload = get_json(url)
+    hist = {}
+    for ms, price in payload.get("prices", []):
+        hist[datetime.fromtimestamp(ms / 1000, tz=timezone.utc).strftime("%Y-%m-%d")] = float(price)
+    return finish_market(spec, hist, "CoinGecko")
+
+
 def fetch_stooq(spec):
     end = date.today()
     start = end - timedelta(days=400)
@@ -328,6 +338,13 @@ def fetch_market(spec):
     if spec.get("src") == "naver":
         return fetch_naver(spec)
     errors = []
+    if spec.get("coingecko"):
+        try:
+            row = fetch_coingecko(spec)
+            time.sleep(2)
+            return row
+        except Exception as exc:
+            errors.append(f"coingecko {exc}")
     if spec.get("naver"):
         try:
             return fetch_naver_world(spec)
