@@ -75,6 +75,10 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 .pn label input{display:none}
 .pn label:has(input:checked){background:#e7f6ef;border-color:#9fd8bf;color:#006b49;font-weight:700}
 .pn label.nodata{opacity:.45}
+.pn label.dly{border-color:#f0b35a;background:#fff8ec}
+.pn label.dly::before{content:'';width:6px;height:6px;border-radius:50%;background:#f08a00;margin-right:5px}
+.pn label.dly:has(input:checked){background:#ffe9c4;border-color:#f08a00;color:#8a4b00}
+.pn .lg{font-size:11px;color:var(--muted);padding:6px 12px 0}.pn .lg i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#f08a00;margin-right:4px}
 @media(min-width:900px){.app{max-width:1100px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.grid>.card:last-child:nth-child(odd){grid-column:auto}.chart{height:120px}}
 </style>
 </head>
@@ -114,7 +118,7 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
   <header><b>지표 편집</b><button type="button" class="ok" id="selOk">완료</button></header>
   <div class="sum"><span>준비된 지표 <b id="selReady">-</b>개</span><span>선택 <b id="selCount">-</b>개</span></div>
   <div class="acts"><button type="button" id="selAll">전체 지표 선택</button><button type="button" id="selDef">기본 지표 선택</button><button type="button" id="selNone">전체 해제</button></div>
-  <div class="body" id="selBody"></div></div></div>
+  <div class="lg"><i></i>주황 점 = 매일 갱신되는 일일 지표 (나머지는 주·월·분기·연 단위)</div><div class="body" id="selBody"></div></div></div>
 <footer class="foot">
   한국은행 ECOS · KOSIS · 열린재정 · 네이버 · FRED · 정보 제공용
   <img src="https://raw.githubusercontent.com/lloydknam/korea-gdpnow/main/web/brand-lockup-light.svg" alt="Lloyd’s Balcony Lab">
@@ -466,7 +470,7 @@ function buildSheet(){
     const wrap=document.createElement('div');wrap.className='chips';
     CARDS.filter(c=>c.box===box).forEach(c=>{
       const has=lastData&&c.series.some(s=>getSeries(lastData,s.id,c).length);
-      const l=document.createElement('label');if(!has)l.className='nodata';
+      const l=document.createElement('label');l.className=(has?'':'nodata ')+(c.freq==='D'?'dly':'');
       l.innerHTML='<input type="checkbox" data-id="'+c.id+'"'+(sel.has(c.id)?' checked':'')+'>'+c.title;
       wrap.appendChild(l);});
     body.appendChild(wrap);});
