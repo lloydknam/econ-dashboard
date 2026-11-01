@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "official-macro.json"
-UA = {"User-Agent": "ClerkEconTerminal/2.0"}
+UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36", "Accept": "*/*"}
 # How many observations to keep per frequency (enough for 1y charts and YoY maths).
 CAP = {"D": 270, "W": 60, "M": 40, "Q": 24, "A": 15}
 WORKERS = 6
@@ -194,6 +194,77 @@ def collect_ecos():
     return rows, ("; ".join(errors) if errors else "OK")
 
 
+# --------------------------------------------------------------- MARKET ----
+import re
+
+
+def fetch_yahoo(spec):
+    sym = urllib.parse.quote(spec["symbol"], safe="")
+    payload = None
+    for host in ("query1", "query2"):
+        try:
+            payload = get_json(f"https://{host}.finance.yahoo.com/v8/finance/chart/{sym}?range=1y&interval=1d")
+            break
+        except Exception as exc:  # try the sibling host
+            err = exc
+    if payload is None:
+        raise err
+    res = (payload.get("chart", {}).get("result") or [None])[0]
+    if not res:
+        raise RuntimeError("no result")
+    off = int(res.get("meta", {}).get("gmtoffset", 0))
+    closes = res["indicators"]["quote"][0]["close"]
+    hist = {}
+    for ts, c in zip(res.get("timestamp", []), closes):
+        if c is None:
+            continue
+        hist[datetime.fromtimestamp(ts + off, tz=timezone.utc).strftime("%Y-%m-%d")] = float(c)
+    return finish_market(spec, hist, "Yahoo")
+
+
+def fetch_naver(spec):
+    end = date.today()
+    start = end - timedelta(days=400)
+    url = ("https://api.finance.naver.com/siseJson.naver?" + urllib.parse.urlencode({
+        "symbol": spec["symbol"], "requestType": "1", "timeframe": "day",
+        "startTime": start.strftime("%Y%m%d"), "endTime": end.strftime("%Y%m%d")}))
+    text = get_text(url)
+    hist = {}
+    for m in re.finditer(r'\[\s*["\'](\d{8})["\']\s*,\s*([-\d.]+)\s*,\s*([-\d.]+)\s*,\s*([-\d.]+)\s*,\s*([-\d.]+)', text):
+        d = m.group(1)
+        hist[f"{d[:4]}-{d[4:6]}-{d[6:]}"] = float(m.group(5))
+    return finish_market(spec, hist, "Naver")
+
+
+def finish_market(spec, hist, source):
+    if not hist:
+        raise RuntimeError("no observations returned")
+    cap = CAP["D"]
+    history = [{"date": k, "value": hist[k]} for k in sorted(hist)][-cap:]
+    last = history[-1]
+    return {"name": spec.get("name", spec["id"]), "series": spec["id"], "date": last["date"],
+            "value": last["value"], "unit": "", "source": source, "history": history}
+
+
+def collect_market():
+    cfg = ROOT / "config" / "market-series.json"
+    specs = json.loads(cfg.read_text(encoding="utf-8")) if cfg.exists() else []
+
+    def work(spec):
+        try:
+            fn = fetch_naver if spec.get("src") == "naver" else fetch_yahoo
+            return fn(spec), None
+        except Exception as exc:
+            return None, f'{spec.get("id")}: {exc}'
+
+    # modest parallelism: Yahoo rate-limits aggressive clients
+    with ThreadPoolExecutor(3) as pool:
+        results = list(pool.map(work, specs))
+    rows = [r for r, _ in results if r]
+    errors = [e for _, e in results if e]
+    return rows, ("; ".join(errors) if errors else "OK")
+
+
 # ----------------------------------------------------------------- main ----
 def merge(previous_rows, fresh_rows):
     merged = {str(r.get("series")): r for r in previous_rows}
@@ -213,6 +284,7 @@ def main():
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     fred, fred_status = collect_fred()
     ecos, ecos_status = collect_ecos()
+    market, market_status = collect_market()
 
     # A temporary provider failure must never erase the last usable observations.
     if fred:
@@ -231,6 +303,14 @@ def main():
         ecos_rows, ecos_at = previous.get("ecos", []), previous.get("ecos_updated_at_utc", "")
         ecos_status = "REFRESH FAILED; retained previous data — " + ecos_status
 
+    if market:
+        market_rows, market_at = merge(previous.get("market", []), market), now
+        if market_status != "OK":
+            market_status = "PARTIAL REFRESH; missing series retained — " + market_status
+    else:
+        market_rows, market_at = previous.get("market", []), previous.get("market_updated_at_utc", "")
+        market_status = "REFRESH FAILED; retained previous data — " + market_status
+
     payload = {
         "updated_at_utc": now,
         "fred_updated_at_utc": fred_at,
@@ -239,10 +319,13 @@ def main():
         "ecos_status": ecos_status,
         "fred": fred_rows,
         "ecos": ecos_rows,
+        "market_updated_at_utc": market_at,
+        "market_status": market_status,
+        "market": market_rows,
     }
     # Compact JSON keeps the file small for mobile downloads.
     OUT.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-    print(f"Wrote {OUT}: FRED={len(fred_rows)} (fresh {len(fred)}), ECOS={len(ecos_rows)} (fresh {len(ecos)})")
+    print(f"Wrote {OUT}: FRED={len(fred_rows)} (fresh {len(fred)}), ECOS={len(ecos_rows)} (fresh {len(ecos)}), MARKET={len(market_rows)} (fresh {len(market)})")
 
 
 if __name__ == "__main__":
