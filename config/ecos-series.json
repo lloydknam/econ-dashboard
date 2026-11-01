@@ -39,14 +39,16 @@
     "stat_code": "901Y027",
     "cycle": "M",
     "item_code1": "I61E",
-    "unit": "%"
+    "unit": "%",
+    "series_id": "901Y027:employment"
   },
   {
     "name": "실업률(한국)",
     "stat_code": "901Y027",
     "cycle": "M",
     "item_code1": "I61BC",
-    "unit": "%"
+    "unit": "%",
+    "series_id": "901Y027:unemployment"
   },
   {
     "name": "경상수지",
