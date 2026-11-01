@@ -521,6 +521,7 @@ document.getElementById('selBody').addEventListener('click',e=>{
   CARDS.filter(c=>c.box===box).forEach(c=>a.dataset.all?sel.add(c.id):sel.delete(c.id));
   saveSel();buildSheet();});
 const PMC=['#00a875','#3b73c9','#e08a00','#8a5bd0','#d45c62','#14a3b8','#7a8a2b','#a0522d'];
+const fmtVol=v=>v>=1e4?(v/1e4).toFixed(v>=1e5?0:1)+'만':Math.round(v).toLocaleString('ko-KR');
 const pmRows=(data,g)=>((data&&data.kalshi)||[]).filter(r=>r.group===g).sort((a,b)=>b.value-a.value);
 const hasData=c=>c.pm?pmRows(lastData,c.pm).length>0:c.series.some(s=>getSeries(lastData,s.id,c).length);
 function drawPM(spec,data){
@@ -532,13 +533,14 @@ function drawPM(spec,data){
   const key=r=>r.series.split('-').pop();
   const ord=spec.order?rows.slice().sort((a,b)=>spec.order.indexOf(key(a))-spec.order.indexOf(key(b))):(rows.every(r=>r.rank!=null)?rows.slice().sort((a,b)=>a.rank-b.rank):rows);
   const mx=Math.max(...rows.map(r=>r.value),1);
+  const vol=ord.reduce((a,r)=>a+(Number(r.volume)||0),0);
   const days=Math.max(...ord.map(r=>(r.history||[]).length));
   if(charts[spec.id]){charts[spec.id].destroy();delete charts[spec.id];}
   const ct=(ord[0].close_time||'').slice(0,10);
   el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+(ct?whenLabel(ct,'D')+' 마감':'')+'</div></div><div class="pm">'+ord.map(r=>{
     const h=r.history||[],p=h.length>1?h[h.length-2].value:null,dv=p==null?null:Math.round((r.value-p)*10)/10;
     const col=PMC[ord.indexOf(r)%PMC.length];
-    return '<div class="r"><span><u style="background:'+col+'"></u>'+r.name+'</span><div class="t"><i style="width:'+Math.max(2,r.value/mx*100)+'%;background:'+col+'"></i></div><b>'+Math.round(r.value)+'%'+(dv?'<em class="d '+(dv>0?'u':'n')+'">'+(dv>0?'▲':'▼')+Math.abs(dv)+'</em>':'')+'</b></div>';}).join('')+'</div>'+(days>1?'<div class="chart pmc"><canvas></canvas></div>':'')+'<div class="pm-f">'+(spec.note||'Kalshi 확률(%)')+' · '+(days>1?'일별 추이 '+days+'일':'오늘부터 매일 기록 · 그래프는 2일째부터')+'</div>';
+    return '<div class="r" title="거래 '+fmtVol(Number(r.volume)||0)+'계약"><span><u style="background:'+col+'"></u>'+r.name+'</span><div class="t"><i style="width:'+Math.max(2,r.value/mx*100)+'%;background:'+col+'"></i></div><b>'+Math.round(r.value)+'%'+(dv?'<em class="d '+(dv>0?'u':'n')+'">'+(dv>0?'▲':'▼')+Math.abs(dv)+'</em>':'')+'</b></div>';}).join('')+'</div>'+(days>1?'<div class="chart pmc"><canvas></canvas></div>':'')+'<div class="pm-f">'+(spec.note||'Kalshi 확률(%)')+' · 거래 '+fmtVol(vol)+'계약 · '+(days>1?'일별 추이 '+days+'일':'오늘부터 매일 기록 · 그래프는 2일째부터')+'</div>';
   if(days>1){
     const make=()=>{
       const labels=[...new Set(ord.flatMap(r=>(r.history||[]).map(h=>norm(h.date))))].sort();
