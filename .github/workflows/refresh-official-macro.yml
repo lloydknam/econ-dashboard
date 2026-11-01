@@ -9,6 +9,7 @@ on:
       - "config/ecos-series.json"
       - "config/fred-series.json"
       - "config/market-series.json"
+      - "config/kosis-series.json"
       - ".github/workflows/refresh-official-macro.yml"
   schedule:
     - cron: "17 */6 * * *"
@@ -35,6 +36,8 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
+          KOSIS_API_KEY: ${{ secrets.KOSIS_API_KEY }}
+          OPENFISCAL_API_KEY: ${{ secrets.OPENFISCAL_API_KEY }}
           ECOS_SERIES_JSON: ${{ vars.ECOS_SERIES_JSON }}
         run: python scripts/collect_official_macro.py
       - name: Commit refreshed data
