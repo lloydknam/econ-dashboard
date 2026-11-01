@@ -46,14 +46,36 @@ if k:
     for term in ("국가채무", "관리재정수지", "국세", "재정수지", "총지출", "일반정부"):
         P[f"kosis_search_{term}"] = get(q("https://kosis.kr/openapi/statisticsSearch.do", method="getList", apiKey=k,
                                           searchNm=term, format="json", jsonVD="Y", startCount=1, resultCount=15, sort="RANK"), 6000)
+def kosis_table(org, tbl, prd, n=3, itm="ALL", l1="ALL", l2="", extra=None):
+    prm = dict(method="getList", apiKey=k, itmId=itm, objL1=l1, objL2=l2, format="json", jsonVD="Y",
+               prdSe=prd, newEstPrdCnt=n, orgId=org, tblId=tbl)
+    r = get(q("https://kosis.kr/openapi/Param/statisticsParameterData.do", **prm), 400000)
+    try:
+        rows = json.loads(r["body"])
+        if isinstance(rows, dict):
+            return {"error": rows}
+        seen, out = set(), []
+        for x in rows:
+            key = (x.get("C1_NM"), x.get("C2_NM"), x.get("ITM_NM"), x.get("UNIT_NM"), x.get("ITM_ID"), x.get("C1"), x.get("C2"))
+            if key not in seen and len(out) < 70:
+                seen.add(key)
+                out.append({"C1_NM": key[0], "C2_NM": key[1], "ITM_NM": key[2], "UNIT": key[3], "ITM_ID": key[4], "C1": key[5], "C2": key[6],
+                            "PRD": x.get("PRD_DE"), "DT": x.get("DT")})
+        return {"rows": len(rows), "distinct": out}
+    except Exception as e:
+        return {"parse_error": str(e), "raw": r["body"][:600], "status": r["status"]}
+
+
+if k:
+    P["kosis_DT_102006_001_Y"] = kosis_table("184", "DT_102006_001", "Y", 3)
+    P["kosis_DT_102N_A001_Y"] = kosis_table("184", "DT_102N_A001", "Y", 2)
+    P["kosis_DT_102N_AD01_M"] = kosis_table("184", "DT_102N_AD01", "M", 2)
+    P["kosis_DT_102N_AD01_Y"] = kosis_table("184", "DT_102N_AD01", "Y", 2)
 o = KEYS["OPENFISCAL_API_KEY"]
 if o:
     P["openfiscal_root"] = get("https://openapi.openfiscaldata.go.kr/", 3000)
     for yy in (2026, 2025):
         P[f"openfiscal_ExpenditureBudgetInit5_{yy}"] = get(q("https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5", Key=o, Type="json", pIndex=1, pSize=3, FSCL_YY=yy), 2500)
-    for svc in ("ExpenditureBudgetInit5", "ExpenditureBudgetAdd5", "NationalDebt", "FiscalBalance", "TotalRevenueExpenditure",
-                "IncomeStatus", "NationalAssets", "GovernmentLiabilities", "CommonFiscalData", "ExpenditureSettlementInit5", "RevenueBudgetInit5", "IncomeBudgetInit5", "FiscalStatus", "NationalDebtStatus", "DebtStatus"):
-        P[f"openfiscal_{svc}"] = get(q(f"https://openapi.openfiscaldata.go.kr/{svc}", Key=o, Type="json", pIndex=1, pSize=3), 800)
 d = KEYS["DATA_GO_KR_KEY"]
 if d:
     P["datago_search"] = get(q("https://api.odcloud.kr/api/15057841/v1/uddi:dummy", serviceKey=d, page=1, perPage=3), 800)
