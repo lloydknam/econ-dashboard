@@ -27,6 +27,7 @@ jobs:
           python -m json.tool data/official-macro.json > /dev/null
           python -m json.tool config/ecos-series.json > /dev/null
           python -m json.tool config/fred-series.json > /dev/null
+          python -m json.tool config/market-series.json > /dev/null
       - name: Validate dashboard HTML and inline JavaScript
         run: |
           python - <<'PY'

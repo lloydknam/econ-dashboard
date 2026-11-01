@@ -8,6 +8,7 @@ on:
       - "scripts/collect_official_macro.py"
       - "config/ecos-series.json"
       - "config/fred-series.json"
+      - "config/market-series.json"
       - ".github/workflows/refresh-official-macro.yml"
   schedule:
     - cron: "17 */6 * * *"

@@ -47,8 +47,6 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 .lg b small{font-size:10.5px;font-weight:700;margin-left:1px}
 .chart{height:96px;margin-top:0;position:relative;width:100%;overflow:hidden}
 .chart canvas{touch-action:pan-y!important;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
-.tv{height:150px}
-.tv .tradingview-widget-container,.tv .tradingview-widget-container__widget{height:100%;width:100%}
 .foot{margin-top:10px;padding-top:8px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:11px;line-height:1.6}
 .foot img{display:block;margin:8px auto 2px;width:min(170px,50vw);height:auto}
 .foot a{color:#008b5e;text-decoration:none;font-weight:500}
@@ -88,11 +86,8 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
 </header>
 <div class="notice" id="notice"></div>
 
-<section id="fin"><h2>금융 <small>주식·환율·금리</small></h2>
-<div class="grid" id="g-fin">
-  <div class="card"><div class="head"><div class="title">S&amp;P 500</div><div class="when">실시간</div></div>
-    <div class="tv"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol":"FOREXCOM:SPXUSD","width":"100%","height":"100%","locale":"kr","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":true,"largeChartUrl":"","chartOnly":false,"noTimeScale":false}</script></div></div></div>
-</div></section>
+<section id="fin"><h2>금융 <small>시세·환율·금리</small></h2>
+<div class="grid" id="g-fin"></div></section>
 
 <section id="eco"><h2>경제 <small>성장·물가·고용·심리</small></h2>
 <div class="grid" id="g-eco"></div></section>
@@ -110,7 +105,7 @@ h2 small{font-weight:400;font-size:11px;margin-left:4px;color:#98a29b}
   <header><b>내 지표 선택</b><small id="selCount"></small><button type="button" id="selDef">기본값</button><button type="button" class="ok" id="selOk">완료</button></header>
   <div class="body" id="selBody"></div></div></div>
 <footer class="foot">
-  한국은행 ECOS · 미국 FRED · TradingView · 정보 제공용
+  한국은행 ECOS · 네이버 · Yahoo Finance · FRED · 정보 제공용
   <img src="https://raw.githubusercontent.com/lloydknam/korea-gdpnow/main/web/brand-lockup-light.svg" alt="Lloyd’s Balcony Lab">
   with claude · <a href="https://github.com/lloydknam">GitHub(@lloydknam)</a>
 </footer>
@@ -129,16 +124,16 @@ const pct={mode:'pct',d:1},df=(u,d)=>({mode:'diff',u,d});
 const E='802Y001:',R='817Y002:',F='901Y013:';
 
 /* 금융 */
-K('g-fin','kospi','코스피','D',[[E+'0001000','코스피']],{d:1,delta:pct});
-K('g-fin','kosdaq','코스닥','D',[[E+'0089000','코스닥']],{d:1,delta:pct});
+K('g-fin','kospi','코스피','D',[['N:KOSPI|'+E+'0001000','코스피']],{d:1,delta:pct});
+K('g-fin','kosdaq','코스닥','D',[['N:KOSDAQ|'+E+'0089000','코스닥']],{d:1,delta:pct});
 K('g-fin','foreign','코스피 외국인 순매수','D',[[E+'0030000','순매수']],{d:0,unit:'억원',type:'bar'});
 K('g-fin','turnover','코스피 거래대금','D',[[E+'0088000','거래대금']],{d:1,unit:'조원',scale:1/1e4});
 K('g-fin','volume','코스피 거래량','D',[[E+'0087000','거래량']],{d:2,unit:'억주',scale:1/1e4});
 K('g-fin','mcap','코스피 시가총액','D',[[E+'0183000','시총']],{d:0,unit:'조원',scale:1/1e4,delta:pct});
-K('g-fin','fx','원/달러 환율','D',[['731Y003','원/달러']],{d:1,unit:'원',delta:df('원',1)});
+K('g-fin','fx','원/달러 환율','D',[['Y:USDKRW=X|731Y003','원/달러']],{d:1,unit:'원',delta:df('원',1)});
 K('g-fin','jpy','원/100엔 환율','D',[['731Y001:0000002','원/100엔']],{d:1,unit:'원',delta:df('원',1)});
-K('g-fin','eur','원/유로 환율','D',[['731Y001:0000003','원/유로']],{d:0,unit:'원',delta:df('원',1)});
-K('g-fin','cny','원/위안 환율','D',[['731Y001:0000053','원/위안']],{d:1,unit:'원',delta:df('원',2)});
+K('g-fin','eur','원/유로 환율','D',[['Y:EURKRW=X|731Y001:0000003','원/유로']],{d:0,unit:'원',delta:df('원',1)});
+K('g-fin','cny','원/위안 환율','D',[['Y:CNYKRW=X|731Y001:0000053','원/위안']],{d:1,unit:'원',delta:df('원',2)});
 K('g-fin','rates','국채 3년(한)·10년(미)','D',[['817Y002','한 3년'],['DGS10','미 10년']],{d:2,unit:'%'});
 K('g-fin','ktb12','국고채 1·2년','D',[[R+'010190000','1년'],[R+'010195000','2년']],{d:2,unit:'%'});
 K('g-fin','ktb510','국고채 5·10년','D',[[R+'010200001','5년'],[R+'010210000','10년']],{d:2,unit:'%'});
@@ -147,6 +142,32 @@ K('g-fin','corp','회사채 AA-·BBB-','D',[[R+'010300000','AA-'],[R+'010320000'
 K('g-fin','cdcp','CD·CP 91일','D',[[R+'010502000','CD'],[R+'010503000','CP']],{d:2,unit:'%'});
 K('g-fin','call','콜금리·KORIBOR 3M','D',[[R+'010101000','콜'],[R+'010150000','KORIBOR']],{d:2,unit:'%'});
 K('g-fin','msb','통안채 2년·산금채 1년','D',[[R+'010400002','통안 2년'],[R+'010260000','산금 1년']],{d:2,unit:'%'});
+
+/* 글로벌 시세 (네이버·야후 우선, 없으면 ECOS/FRED) */
+K('g-fin','sp500','S&P 500','D',[['Y:^GSPC|SP500','S&P']],{d:0,delta:pct});
+K('g-fin','nasdaq','나스닥 종합','D',[['Y:^IXIC|NASDAQCOMP','나스닥']],{d:0,delta:pct});
+K('g-fin','dow','다우존스','D',[['Y:^DJI|DJIA','다우']],{d:0,delta:pct});
+K('g-fin','vix','VIX 변동성지수','D',[['Y:^VIX|VIXCLS','VIX']],{d:1,delta:df('',1)});
+K('g-fin','kpi200','코스피200','D',[['N:KPI200','K200']],{d:1,delta:pct});
+K('g-fin','rut','러셀2000','D',[['Y:^RUT','러셀']],{d:0,delta:pct});
+K('g-fin','n225','닛케이225','D',[['Y:^N225','닛케이']],{d:0,delta:pct});
+K('g-fin','hsi','항셍지수','D',[['Y:^HSI','항셍']],{d:0,delta:pct});
+K('g-fin','sse','상하이종합','D',[['Y:000001.SS','상하이']],{d:0,delta:pct});
+K('g-fin','dax','독일 DAX','D',[['Y:^GDAXI','DAX']],{d:0,delta:pct});
+K('g-fin','ftse','영국 FTSE100','D',[['Y:^FTSE','FTSE']],{d:0,delta:pct});
+K('g-fin','twii','대만 가권','D',[['Y:^TWII','가권']],{d:0,delta:pct});
+K('g-fin','tnx','미 국채 10년(실시간)','D',[['Y:^TNX','10년']],{d:2,unit:'%',delta:df('%p',2)});
+K('g-fin','gold','금 선물','D',[['Y:GC=F','금']],{d:0,unit:'$',delta:pct});
+K('g-fin','silver','은 선물','D',[['Y:SI=F','은']],{d:1,unit:'$',delta:pct});
+K('g-fin','copper','구리 선물','D',[['Y:HG=F','구리']],{d:2,unit:'$',delta:pct});
+K('g-fin','btc','비트코인','D',[['Y:BTC-USD','BTC']],{d:0,unit:'$',delta:pct});
+K('g-fin','eth','이더리움','D',[['Y:ETH-USD','ETH']],{d:0,unit:'$',delta:pct});
+K('g-fin','samsung','삼성전자','D',[['Y:005930.KS','삼성전자']],{d:0,unit:'원',delta:pct});
+K('g-fin','hynix','SK하이닉스','D',[['Y:000660.KS','하이닉스']],{d:0,unit:'원',delta:pct});
+K('g-fin','nvda','엔비디아','D',[['Y:NVDA','NVDA']],{d:2,unit:'$',delta:pct});
+K('g-fin','aapl','애플','D',[['Y:AAPL','AAPL']],{d:2,unit:'$',delta:pct});
+K('g-fin','msft','마이크로소프트','D',[['Y:MSFT','MSFT']],{d:2,unit:'$',delta:pct});
+K('g-fin','tsla','테슬라','D',[['Y:TSLA','TSLA']],{d:2,unit:'$',delta:pct});
 
 /* 경제 */
 K('g-eco','gdp','실질 GDP 성장률(전기비)','Q',[['200Y102','GDP']],{d:1,unit:'%',type:'bar',win:8,labelAll:true});
@@ -210,17 +231,13 @@ K('g-us','us_y2','미 국채 3개월·30년','D',[['DGS3MO','3개월'],['DGS30',
 K('g-us','us_sp','장단기 금리차','D',[['T10Y2Y','10Y-2Y'],['T10Y3M','10Y-3M']],{d:2,unit:'%p'});
 K('g-us','mort','30년 모기지 금리','W',[['MORTGAGE30US','모기지']],{d:2,unit:'%'});
 K('g-us','hy','하이일드 스프레드','D',[['BAMLH0A0HYM2','스프레드']],{d:2,unit:'%p'});
-K('g-us','vix','VIX 변동성지수','D',[['VIXCLS','VIX']],{d:1});
-K('g-us','sp500','S&P 500','D',[['SP500','S&P']],{d:0,delta:pct});
-K('g-us','nasdaq','나스닥 종합','D',[['NASDAQCOMP','나스닥']],{d:0,delta:pct});
-K('g-us','dow','다우존스','D',[['DJIA','다우']],{d:0,delta:pct});
 K('g-us','usdjpy','엔/달러','D',[['DEXJPUS','엔/달러']],{d:1,unit:'엔',delta:df('엔',1)});
 K('g-us','eurusd','달러/유로','D',[['DEXUSEU','달러/유로']],{d:3,delta:df('',3)});
 K('g-us','usdcny','위안/달러','D',[['DEXCHUS','위안/달러']],{d:3,unit:'위안',delta:df('위안',3)});
 K('g-us','dxy','달러지수(광의)','D',[['DTWEXBGS','달러지수']],{d:1,delta:pct});
-K('g-us','wti','WTI 유가','D',[['DCOILWTICO','WTI']],{d:1,unit:'$',delta:df('$',1)});
-K('g-us','brent','브렌트유','D',[['DCOILBRENTEU','브렌트']],{d:1,unit:'$',delta:df('$',1)});
-K('g-us','gas','헨리허브 가스','D',[['DHHNGSP','가스']],{d:2,unit:'$',delta:df('$',2)});
+K('g-us','wti','WTI 유가','D',[['Y:CL=F|DCOILWTICO','WTI']],{d:1,unit:'$',delta:df('$',1)});
+K('g-us','brent','브렌트유','D',[['Y:BZ=F|DCOILBRENTEU','브렌트']],{d:1,unit:'$',delta:df('$',1)});
+K('g-us','gas','헨리허브 가스','D',[['Y:NG=F|DHHNGSP','가스']],{d:2,unit:'$',delta:df('$',2)});
 K('g-us','ccpi','근원 CPI(전년비)','M',[['CPILFESL','근원CPI']],{d:1,unit:'%',yoy:true,win:12});
 K('g-us','pce','PCE 물가(전년비)','M',[['PCEPI','PCE']],{d:1,unit:'%',yoy:true,win:12});
 K('g-us','cpce','근원 PCE(전년비)','M',[['PCEPILFE','근원PCE']],{d:1,unit:'%',yoy:true,win:12});
@@ -262,9 +279,9 @@ const whenLabel=(iso,f)=>{const y=iso.slice(2,4),m=Number(iso.slice(5,7)),d=Numb
 
 /* ---------- 데이터 가공 ---------- */
 function getSeries(data,id,spec){
-  const idx=data._idx||(data._idx=new Map([...(data.ecos||[]),...(data.fred||[])].map(x=>[x.series,x])));
-  const row=idx.get(id);
-  if(!row||!Array.isArray(row.history))return [];
+  const idx=data._idx||(data._idx=new Map([...(data.ecos||[]),...(data.fred||[]),...(data.market||[])].map(x=>[x.series,x])));
+  let row=null;for(const k of String(id).split('|')){const r=idx.get(k);if(r&&Array.isArray(r.history)&&r.history.length){row=r;break;}}
+  if(!row)return [];
   let pts=row.history.map(p=>({t:norm(p.date),v:Number(p.value)})).filter(p=>Number.isFinite(p.v));
   const prevYear=p=>(Number(p.t.slice(0,4))-1)+p.t.slice(4,7);
   if(spec.yoy||spec.dyoy){
@@ -315,7 +332,7 @@ const DEF=['kospi','kosdaq','fx','jpy','rates','ktb510','corp',
  'gdp','cpi','unemp','jobs','prod_all','prod_svc','esi','csi1',
  'policy','m2','hh','loanrate','fxres','ca','trade','apt',
  'tax','exp','bal','ktb_bal','rev','t_inc','t_corp','t_vat','int',
- 'us_y','us_sp','vix','sp500','wti','ccpi','nfp','usdjpy'];
+ 'us_y','us_sp','wti','ccpi','nfp','usdjpy','sp500','nasdaq','vix'];
 const NAMES={'g-fin':'금융','g-eco':'경제','g-mon':'통화·대외','g-fis':'재정','g-us':'미국'};
 let sel;
 try{const j=JSON.parse(localStorage.getItem('econ-sel')||'null');sel=new Set(Array.isArray(j)?j:DEF);}catch(e){sel=new Set(DEF);}
@@ -420,6 +437,7 @@ function showStatus(data){
   const bad=[];
   if(String(data.ecos_status||'').startsWith('REFRESH FAILED'))bad.push('한국은행 수집 지연');
   if(String(data.fred_status||'').startsWith('REFRESH FAILED'))bad.push('FRED 수집 지연');
+  if(String(data.market_status||'').startsWith('REFRESH FAILED'))bad.push('시세(네이버·야후) 수집 지연');
   const n=document.getElementById('notice');
   n.textContent=bad.length?bad.join(' · ')+' — 직전 수집값 표시 중':'';
   n.classList.toggle('on',bad.length>0);
