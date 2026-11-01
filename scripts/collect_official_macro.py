@@ -171,7 +171,7 @@ def collect_ecos():
                             "value": float(str(x["DATA_VALUE"]).replace(",", ""))}
                            for x in valid[-400:]]
                 rows.append({
-                    "name": str(spec.get("name", stat)), "series": stat,
+                    "name": str(spec.get("name", stat)), "series": str(spec.get("series_id", stat)),
                     "date": obs.get("TIME", ""), "value": float(str(obs["DATA_VALUE"]).replace(",", "")),
                     "unit": str(spec.get("unit", "")), "source": "ECOS",
                     "history": history,
@@ -206,8 +206,8 @@ def main():
     if ecos:
         # Merge by statistic code so one successful series (e.g. CPI) is not
         # discarded merely because another ECOS endpoint timed out.
-        fresh_by_series = {str(row.get("series")): row for row in ecos}
-        merged = {str(row.get("series")): row for row in previous_ecos}
+        fresh_by_series = {str(row.get("series", row.get("stat_code"))): row for row in ecos}
+        merged = {str(row.get("series", row.get("stat_code"))): row for row in previous_ecos}
         merged.update(fresh_by_series)
         ecos = list(merged.values())
         ecos_updated_at = now
