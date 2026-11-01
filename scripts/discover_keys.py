@@ -81,4 +81,4 @@ if d:
     P["datago_search"] = get(q("https://api.odcloud.kr/api/15057841/v1/uddi:dummy", serviceKey=d, page=1, perPage=3), 800)
 OUT.parent.mkdir(exist_ok=True)
 OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
-print("probes:", len(P), {k: v["status"] for k, v in P.items()})
+print("probes:", len(P), {n: v.get("status") for n, v in P.items()})
