@@ -367,6 +367,126 @@ def collect_market():
     return rows, ("; ".join(errors) if errors else "OK")
 
 
+# ---------------------------------------------------------------- KOSIS ----
+def fetch_kosis(spec, key):
+    params = {"method": "getList", "apiKey": key, "itmId": spec.get("itmId", "ALL"), "objL1": spec.get("objL1", "ALL"),
+              "objL2": spec.get("objL2", ""), "format": "json", "jsonVD": "Y", "prdSe": spec.get("prdSe", "Y"),
+              "newEstPrdCnt": spec.get("count", 12), "orgId": spec["orgId"], "tblId": spec["tblId"]}
+    payload = get_json("https://kosis.kr/openapi/Param/statisticsParameterData.do?" + urllib.parse.urlencode(params))
+    if isinstance(payload, dict):
+        raise RuntimeError(f"{payload.get('err', '')} {payload.get('errMsg', '')}".strip() or "unexpected response")
+    hist = {}
+    for r in payload:
+        try:
+            hist[str(r["PRD_DE"])] = _num(r["DT"])
+        except (KeyError, ValueError, TypeError):
+            continue
+    if not hist:
+        raise RuntimeError("no observations returned")
+    history = [{"date": k, "value": hist[k]} for k in sorted(hist)]
+    last = history[-1]
+    return {"name": spec.get("name", spec["id"]), "series": spec["id"], "date": last["date"], "value": last["value"],
+            "unit": "", "source": "KOSIS", "history": history}
+
+
+def collect_kosis():
+    key = os.environ.get("KOSIS_API_KEY", "").strip()
+    cfg = ROOT / "config" / "kosis-series.json"
+    specs = json.loads(cfg.read_text(encoding="utf-8")) if cfg.exists() else []
+    if not key:
+        return [], "SKIPPED (KOSIS_API_KEY not set)"
+    out, errors = [], []
+    for spec in specs:
+        try:
+            out.append(fetch_kosis(spec, key))
+        except Exception as exc:
+            errors.append(f'{spec["id"]}: {exc}')
+    return out, ("; ".join(errors) if errors else "OK")
+
+
+# ------------------------------------------------------- OpenFiscal (열린재정) ----
+def fetch_openfiscal_year(key, year):
+    """Sum 세출예산(확정) by 분야 and 소관(부처) for one fiscal year; amounts converted from 천원 to 조원."""
+    by_fld, by_off, total, page, got = {}, {}, 0.0, 1, 0
+    while True:
+        url = "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5?" + urllib.parse.urlencode({
+            "Key": key, "Type": "json", "pIndex": page, "pSize": 1000, "FSCL_YY": year})
+        payload = get_json(url)
+        if isinstance(payload, str):  # the API double-encodes some error payloads
+            payload = json.loads(payload)
+        block = payload.get("ExpenditureBudgetInit5")
+        if not block:
+            raise RuntimeError(str((payload.get("RESULT") or payload))[:120])
+        head = block[0]["head"]
+        count = int(head[0]["list_total_count"])
+        code = (head[1].get("RESULT") or {}).get("CODE", "")
+        if code != "INFO-000":
+            raise RuntimeError(code)
+        rows = block[1].get("row", [])
+        for r in rows:
+            amt = r.get("Y_YY_DFN_MEDI_KCUR_AMT")
+            if amt is None:
+                amt = r.get("Y_YY_MEDI_KCUR_AMT")
+            if amt is None:
+                continue
+            v = float(amt) / 1e9
+            total += v
+            by_fld[r.get("FLD_NM") or "기타"] = by_fld.get(r.get("FLD_NM") or "기타", 0.0) + v
+            by_off[r.get("OFFC_NM") or "기타"] = by_off.get(r.get("OFFC_NM") or "기타", 0.0) + v
+        got += len(rows)
+        if not rows or got >= count:
+            break
+        page += 1
+    return total, by_fld, by_off
+
+
+def collect_fiscal(previous_rows):
+    key = os.environ.get("OPENFISCAL_API_KEY", "").strip()
+    if not key:
+        return [], "SKIPPED (OPENFISCAL_API_KEY not set)"
+    this_year = date.today().year
+    table = {}  # series id -> {year: value}
+    names = {}
+    for r in previous_rows:
+        names[r["series"]] = r.get("name", r["series"])
+        table[r["series"]] = {h["date"]: h["value"] for h in r.get("history", [])}
+    cached = set(table.get("OF:TOTAL", {}))
+    errors = []
+    for year in range(this_year - 6, this_year + 1):
+        if str(year) in cached and year < this_year - 1:
+            continue  # settled years are not refetched
+        try:
+            total, fld, off = fetch_openfiscal_year(key, year)
+        except Exception as exc:
+            errors.append(f"{year}: {exc}")
+            continue
+        table.setdefault("OF:TOTAL", {})[str(year)] = total
+        names["OF:TOTAL"] = "세출예산 총계"
+        for nm, v in fld.items():
+            table.setdefault("OF:FLD:" + nm, {})[str(year)] = v
+            names["OF:FLD:" + nm] = nm
+        for nm, v in off.items():
+            table.setdefault("OF:OFFC:" + nm, {})[str(year)] = v
+            names["OF:OFFC:" + nm] = nm
+    rows = []
+    for sid, hist in table.items():
+        history = [{"date": y, "value": round(hist[y], 3)} for y in sorted(hist)][-10:]
+        if history:
+            rows.append({"name": names.get(sid, sid), "series": sid, "date": history[-1]["date"],
+                         "value": history[-1]["value"], "unit": "조원", "source": "열린재정", "history": history})
+    return rows, ("; ".join(errors) if errors else "OK")
+
+
+def settle(prev_rows, prev_at, fresh, status, now, key):
+    """Return (rows, updated_at, status) applying the retain-on-failure policy."""
+    if status.startswith("SKIPPED"):
+        return prev_rows, prev_at, status
+    if fresh:
+        rows = merge(prev_rows, fresh)
+        return rows, now, status if status == "OK" else "PARTIAL REFRESH; missing series retained — " + status
+    return prev_rows, prev_at, "REFRESH FAILED; retained previous data — " + status
+
+
 # ----------------------------------------------------------------- main ----
 def merge(previous_rows, fresh_rows):
     merged = {str(r.get("series")): r for r in previous_rows}
@@ -387,6 +507,8 @@ def main():
     fred, fred_status = collect_fred()
     ecos, ecos_status = collect_ecos()
     market, market_status = collect_market()
+    kosis, kosis_status = collect_kosis()
+    fiscal, fiscal_status = collect_fiscal(previous.get("fiscal", []))
 
     # A temporary provider failure must never erase the last usable observations.
     if fred:
@@ -413,6 +535,9 @@ def main():
         market_rows, market_at = previous.get("market", []), previous.get("market_updated_at_utc", "")
         market_status = "REFRESH FAILED; retained previous data — " + market_status
 
+    kosis_rows, kosis_at, kosis_status = settle(previous.get("kosis", []), previous.get("kosis_updated_at_utc", ""), kosis, kosis_status, now, "kosis")
+    fiscal_rows, fiscal_at, fiscal_status = settle(previous.get("fiscal", []), previous.get("fiscal_updated_at_utc", ""), fiscal, fiscal_status, now, "fiscal")
+
     payload = {
         "updated_at_utc": now,
         "fred_updated_at_utc": fred_at,
@@ -424,10 +549,16 @@ def main():
         "market_updated_at_utc": market_at,
         "market_status": market_status,
         "market": market_rows,
+        "kosis_updated_at_utc": kosis_at,
+        "kosis_status": kosis_status,
+        "kosis": kosis_rows,
+        "fiscal_updated_at_utc": fiscal_at,
+        "fiscal_status": fiscal_status,
+        "fiscal": fiscal_rows,
     }
     # Compact JSON keeps the file small for mobile downloads.
     OUT.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-    print(f"Wrote {OUT}: FRED={len(fred_rows)} (fresh {len(fred)}), ECOS={len(ecos_rows)} (fresh {len(ecos)}), MARKET={len(market_rows)} (fresh {len(market)})")
+    print(f"Wrote {OUT}: FRED={len(fred_rows)} (fresh {len(fred)}), ECOS={len(ecos_rows)} (fresh {len(ecos)}), MARKET={len(market_rows)} (fresh {len(market)}), KOSIS={len(kosis_rows)}, FISCAL={len(fiscal_rows)}")
 
 
 if __name__ == "__main__":
