@@ -1,266 +1,96 @@
 [
- {
-  "id": "DGS10",
-  "name": "US 10Y Treasury",
-  "freq": "D",
-  "unit": "%"
- },
- {
-  "id": "DGS2",
-  "name": "US 2Y Treasury",
-  "freq": "D",
-  "unit": "%"
- },
- {
-  "id": "DGS3MO",
-  "name": "US 3M Treasury",
-  "freq": "D",
-  "unit": "%"
- },
- {
-  "id": "DGS30",
-  "name": "US 30Y Treasury",
-  "freq": "D",
-  "unit": "%"
- },
- {
-  "id": "T10Y2Y",
-  "name": "10Y-2Y spread",
-  "freq": "D",
-  "unit": "%p"
- },
- {
-  "id": "T10Y3M",
-  "name": "10Y-3M spread",
-  "freq": "D",
-  "unit": "%p"
- },
- {
-  "id": "MORTGAGE30US",
-  "name": "30Y mortgage rate",
-  "freq": "W",
-  "unit": "%"
- },
- {
-  "id": "BAMLH0A0HYM2",
-  "name": "High yield spread",
-  "freq": "D",
-  "unit": "%p"
- },
- {
-  "id": "VIXCLS",
-  "name": "VIX",
-  "freq": "D",
-  "unit": "index"
- },
- {
-  "id": "SP500",
-  "name": "S&P 500",
-  "freq": "D",
-  "unit": "index"
- },
- {
-  "id": "NASDAQCOMP",
-  "name": "NASDAQ Composite",
-  "freq": "D",
-  "unit": "index"
- },
- {
-  "id": "DJIA",
-  "name": "Dow Jones",
-  "freq": "D",
-  "unit": "index"
- },
- {
-  "id": "DEXJPUS",
-  "name": "JPY per USD",
-  "freq": "D",
-  "unit": "JPY"
- },
- {
-  "id": "DEXUSEU",
-  "name": "USD per EUR",
-  "freq": "D",
-  "unit": "USD"
- },
- {
-  "id": "DEXCHUS",
-  "name": "CNY per USD",
-  "freq": "D",
-  "unit": "CNY"
- },
- {
-  "id": "DTWEXBGS",
-  "name": "Broad dollar index",
-  "freq": "D",
-  "unit": "index"
- },
- {
-  "id": "DCOILWTICO",
-  "name": "WTI",
-  "freq": "D",
-  "unit": "USD/bbl"
- },
- {
-  "id": "DCOILBRENTEU",
-  "name": "Brent",
-  "freq": "D",
-  "unit": "USD/bbl"
- },
- {
-  "id": "DHHNGSP",
-  "name": "Henry Hub gas",
-  "freq": "D",
-  "unit": "USD/mmbtu"
- },
- {
-  "id": "FEDFUNDS",
-  "name": "Federal Funds Rate",
-  "freq": "M",
-  "unit": "%"
- },
- {
-  "id": "CPIAUCSL",
-  "name": "US CPI",
-  "freq": "M",
-  "unit": "index"
- },
- {
-  "id": "UNRATE",
-  "name": "US Unemployment",
-  "freq": "M",
-  "unit": "%"
- },
- {
-  "id": "CPILFESL",
-  "name": "US Core CPI",
-  "freq": "M",
-  "unit": "index"
- },
- {
-  "id": "PCEPI",
-  "name": "US PCE price",
-  "freq": "M",
-  "unit": "index"
- },
- {
-  "id": "PCEPILFE",
-  "name": "US Core PCE",
-  "freq": "M",
-  "unit": "index"
- },
- {
-  "id": "PPIACO",
-  "name": "US PPI",
-  "freq": "M",
-  "unit": "index"
- },
- {
-  "id": "PAYEMS",
-  "name": "Nonfarm payrolls",
-  "freq": "M",
-  "unit": "thousand"
- },
- {
-  "id": "ICSA",
-  "name": "Initial claims",
-  "freq": "W",
-  "unit": "persons"
- },
- {
-  "id": "JTSJOL",
-  "name": "Job openings",
-  "freq": "M",
-  "unit": "thousand"
- },
- {
-  "id": "CIVPART",
-  "name": "Participation rate",
-  "freq": "M",
-  "unit": "%"
- },
- {
-  "id": "RSAFS",
-  "name": "Retail sales",
-  "freq": "M",
-  "unit": "USD mn"
- },
- {
-  "id": "INDPRO",
-  "name": "Industrial production",
-  "freq": "M",
-  "unit": "index"
- },
- {
-  "id": "TCU",
-  "name": "Capacity utilization",
-  "freq": "M",
-  "unit": "%"
- },
- {
-  "id": "HOUST",
-  "name": "Housing starts",
-  "freq": "M",
-  "unit": "thousand"
- },
- {
-  "id": "UMCSENT",
-  "name": "Michigan sentiment",
-  "freq": "M",
-  "unit": "index"
- },
- {
-  "id": "PSAVERT",
-  "name": "Saving rate",
-  "freq": "M",
-  "unit": "%"
- },
- {
-  "id": "CSUSHPINSA",
-  "name": "Case-Shiller",
-  "freq": "M",
-  "unit": "index"
- },
- {
-  "id": "M2SL",
-  "name": "US M2",
-  "freq": "M",
-  "unit": "USD bn"
- },
- {
-  "id": "BOPGSTB",
-  "name": "Trade balance",
-  "freq": "M",
-  "unit": "USD mn"
- },
- {
-  "id": "WALCL",
-  "name": "Fed balance sheet",
-  "freq": "W",
-  "unit": "USD mn"
- },
- {
-  "id": "GDP",
-  "name": "US GDP",
-  "freq": "Q",
-  "unit": "USD bn, SAAR"
- },
- {
-  "id": "A191RL1Q225SBEA",
-  "name": "US real GDP growth",
-  "freq": "Q",
-  "unit": "%"
- },
- {
-  "id": "GFDEBTN",
-  "name": "Federal debt",
-  "freq": "Q",
-  "unit": "USD mn"
- },
- {
-  "id": "FYFSD",
-  "name": "Federal surplus/deficit",
-  "freq": "A",
-  "unit": "USD mn"
- }
+ {"id":"DGS10","name":"US 10Y Treasury","freq":"D","unit":"%"},
+ {"id":"DGS2","name":"US 2Y Treasury","freq":"D","unit":"%"},
+ {"id":"DGS3MO","name":"US 3M Treasury","freq":"D","unit":"%"},
+ {"id":"DGS30","name":"US 30Y Treasury","freq":"D","unit":"%"},
+ {"id":"T10Y2Y","name":"10Y-2Y spread","freq":"D","unit":"%p"},
+ {"id":"T10Y3M","name":"10Y-3M spread","freq":"D","unit":"%p"},
+ {"id":"MORTGAGE30US","name":"30Y mortgage rate","freq":"W","unit":"%"},
+ {"id":"BAMLH0A0HYM2","name":"High yield spread","freq":"D","unit":"%p"},
+ {"id":"VIXCLS","name":"VIX","freq":"D","unit":"index"},
+ {"id":"SP500","name":"S&P 500","freq":"D","unit":"index"},
+ {"id":"NASDAQCOMP","name":"NASDAQ Composite","freq":"D","unit":"index"},
+ {"id":"DJIA","name":"Dow Jones","freq":"D","unit":"index"},
+ {"id":"DEXJPUS","name":"JPY per USD","freq":"D","unit":"JPY"},
+ {"id":"DEXUSEU","name":"USD per EUR","freq":"D","unit":"USD"},
+ {"id":"DEXCHUS","name":"CNY per USD","freq":"D","unit":"CNY"},
+ {"id":"DTWEXBGS","name":"Broad dollar index","freq":"D","unit":"index"},
+ {"id":"DCOILWTICO","name":"WTI","freq":"D","unit":"USD/bbl"},
+ {"id":"DCOILBRENTEU","name":"Brent","freq":"D","unit":"USD/bbl"},
+ {"id":"DHHNGSP","name":"Henry Hub gas","freq":"D","unit":"USD/mmbtu"},
+ {"id":"FEDFUNDS","name":"Federal Funds Rate","freq":"M","unit":"%"},
+ {"id":"CPIAUCSL","name":"US CPI","freq":"M","unit":"index"},
+ {"id":"UNRATE","name":"US Unemployment","freq":"M","unit":"%"},
+ {"id":"CPILFESL","name":"US Core CPI","freq":"M","unit":"index"},
+ {"id":"PCEPI","name":"US PCE price","freq":"M","unit":"index"},
+ {"id":"PCEPILFE","name":"US Core PCE","freq":"M","unit":"index"},
+ {"id":"PPIACO","name":"US PPI","freq":"M","unit":"index"},
+ {"id":"PAYEMS","name":"Nonfarm payrolls","freq":"M","unit":"thousand"},
+ {"id":"ICSA","name":"Initial claims","freq":"W","unit":"persons"},
+ {"id":"JTSJOL","name":"Job openings","freq":"M","unit":"thousand"},
+ {"id":"CIVPART","name":"Participation rate","freq":"M","unit":"%"},
+ {"id":"RSAFS","name":"Retail sales","freq":"M","unit":"USD mn"},
+ {"id":"INDPRO","name":"Industrial production","freq":"M","unit":"index"},
+ {"id":"TCU","name":"Capacity utilization","freq":"M","unit":"%"},
+ {"id":"HOUST","name":"Housing starts","freq":"M","unit":"thousand"},
+ {"id":"UMCSENT","name":"Michigan sentiment","freq":"M","unit":"index"},
+ {"id":"PSAVERT","name":"Saving rate","freq":"M","unit":"%"},
+ {"id":"CSUSHPINSA","name":"Case-Shiller","freq":"M","unit":"index"},
+ {"id":"M2SL","name":"US M2","freq":"M","unit":"USD bn"},
+ {"id":"BOPGSTB","name":"Trade balance","freq":"M","unit":"USD mn"},
+ {"id":"WALCL","name":"Fed balance sheet","freq":"W","unit":"USD mn"},
+ {"id":"GDP","name":"US GDP","freq":"Q","unit":"USD bn, SAAR"},
+ {"id":"A191RL1Q225SBEA","name":"US real GDP growth","freq":"Q","unit":"%"},
+ {"id":"GFDEBTN","name":"Federal debt","freq":"Q","unit":"USD mn"},
+ {"id":"FYFSD","name":"Federal surplus/deficit","freq":"A","unit":"USD mn"},
+ {"id":"DGS5","name":"DGS5","freq":"D","unit":"%"},
+ {"id":"DGS1","name":"DGS1","freq":"D","unit":"%"},
+ {"id":"T5YIE","name":"T5YIE","freq":"D","unit":"%"},
+ {"id":"T10YIE","name":"T10YIE","freq":"D","unit":"%"},
+ {"id":"DFII10","name":"DFII10","freq":"D","unit":"%"},
+ {"id":"SOFR","name":"SOFR","freq":"D","unit":"%"},
+ {"id":"DPRIME","name":"DPRIME","freq":"D","unit":"%"},
+ {"id":"BAMLC0A0CM","name":"BAMLC0A0CM","freq":"D","unit":"%p"},
+ {"id":"DEXUSUK","name":"DEXUSUK","freq":"D","unit":""},
+ {"id":"DEXCAUS","name":"DEXCAUS","freq":"D","unit":""},
+ {"id":"DEXSZUS","name":"DEXSZUS","freq":"D","unit":""},
+ {"id":"DEXINUS","name":"DEXINUS","freq":"D","unit":""},
+ {"id":"DEXBZUS","name":"DEXBZUS","freq":"D","unit":""},
+ {"id":"DEXMXUS","name":"DEXMXUS","freq":"D","unit":""},
+ {"id":"DEXKOUS","name":"DEXKOUS","freq":"D","unit":""},
+ {"id":"PCOPPUSDM","name":"PCOPPUSDM","freq":"M","unit":"$"},
+ {"id":"PALUMUSDM","name":"PALUMUSDM","freq":"M","unit":"$"},
+ {"id":"PWHEAMTUSDM","name":"PWHEAMTUSDM","freq":"M","unit":"$"},
+ {"id":"PMAIZMTUSDM","name":"PMAIZMTUSDM","freq":"M","unit":"$"},
+ {"id":"PNGASEUUSDM","name":"PNGASEUUSDM","freq":"M","unit":"$"},
+ {"id":"GASREGW","name":"GASREGW","freq":"W","unit":"$"},
+ {"id":"CES0500000003","name":"CES0500000003","freq":"M","unit":"$"},
+ {"id":"U6RATE","name":"U6RATE","freq":"M","unit":"%"},
+ {"id":"EMRATIO","name":"EMRATIO","freq":"M","unit":"%"},
+ {"id":"CCSA","name":"CCSA","freq":"W","unit":""},
+ {"id":"JTSQUR","name":"JTSQUR","freq":"M","unit":"%"},
+ {"id":"DGORDER","name":"DGORDER","freq":"M","unit":""},
+ {"id":"TOTALSA","name":"TOTALSA","freq":"M","unit":""},
+ {"id":"PERMIT","name":"PERMIT","freq":"M","unit":""},
+ {"id":"MORTGAGE15US","name":"MORTGAGE15US","freq":"W","unit":"%"},
+ {"id":"EXHOSLUSM495S","name":"EXHOSLUSM495S","freq":"M","unit":""},
+ {"id":"MSPUS","name":"MSPUS","freq":"Q","unit":"$"},
+ {"id":"HSN1F","name":"HSN1F","freq":"M","unit":""},
+ {"id":"BUSLOANS","name":"BUSLOANS","freq":"M","unit":""},
+ {"id":"DRCCLACBS","name":"DRCCLACBS","freq":"Q","unit":"%"},
+ {"id":"M1SL","name":"M1SL","freq":"M","unit":""},
+ {"id":"BOGMBASE","name":"BOGMBASE","freq":"M","unit":""},
+ {"id":"RRPONTSYD","name":"RRPONTSYD","freq":"D","unit":""},
+ {"id":"WTREGEN","name":"WTREGEN","freq":"W","unit":""},
+ {"id":"GDPC1","name":"GDPC1","freq":"Q","unit":""},
+ {"id":"PCEC96","name":"PCEC96","freq":"M","unit":""},
+ {"id":"GPDI","name":"GPDI","freq":"Q","unit":""},
+ {"id":"IRLTLT01DEM156N","name":"IRLTLT01DEM156N","freq":"M","unit":"%"},
+ {"id":"IRLTLT01JPM156N","name":"IRLTLT01JPM156N","freq":"M","unit":"%"},
+ {"id":"IRLTLT01GBM156N","name":"IRLTLT01GBM156N","freq":"M","unit":"%"},
+ {"id":"IRLTLT01KRM156N","name":"IRLTLT01KRM156N","freq":"M","unit":"%"},
+ {"id":"LRHUTTTTJPM156S","name":"LRHUTTTTJPM156S","freq":"M","unit":"%"},
+ {"id":"CPALTT01JPM659N","name":"CPALTT01JPM659N","freq":"M","unit":"%"},
+ {"id":"CPALTT01DEM659N","name":"CPALTT01DEM659N","freq":"M","unit":"%"},
+ {"id":"CPALTT01GBM659N","name":"CPALTT01GBM659N","freq":"M","unit":"%"}
 ]
