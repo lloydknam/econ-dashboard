@@ -10,6 +10,7 @@ on:
       - "config/fred-series.json"
       - "config/market-series.json"
       - "config/kosis-series.json"
+      - "config/kalshi-series.json"
       - ".github/workflows/refresh-official-macro.yml"
   schedule:
     - cron: "17 */6 * * *"

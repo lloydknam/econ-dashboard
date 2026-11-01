@@ -500,6 +500,68 @@ def collect_fiscal(previous_rows):
     return rows, ("; ".join(errors) if errors else "OK")
 
 
+# ---------------------------------------------------------------- kalshi ----
+KALSHI_BASE = "https://api.elections.kalshi.com/trade-api/v2"
+
+
+def _kdollar(v):
+    try:
+        return float(v) * 100.0
+    except (TypeError, ValueError):
+        return None
+
+
+def fetch_kalshi_group(spec, previous_rows, today):
+    import re as _re
+    data = get_json(f"{KALSHI_BASE}/markets?series_ticker={spec['series']}&status=open&limit=200")
+    prev = {str(r.get("series")): r for r in previous_rows}
+    rows = []
+    for m in data.get("markets", []):
+        ticker = m.get("ticker", "")
+        last = _kdollar(m.get("last_price_dollars"))
+        bid, ask = _kdollar(m.get("yes_bid_dollars")), _kdollar(m.get("yes_ask_dollars"))
+        mid = (bid + ask) / 2 if bid is not None and ask is not None and ask > 0 else None
+        prob = last if last else mid
+        if prob is None:
+            continue
+        suffix = ticker.rsplit("-", 1)[-1]
+        label = spec.get("labels", {}).get(suffix) or m.get("yes_sub_title") or suffix
+        mm = _re.search(r"At least [^\d]*([\d,\.]+)", label)
+        if mm:
+            label = mm.group(1) + " 이상"
+        sid = "KX:" + ticker
+        hist = [h for h in (prev.get(sid, {}).get("history") or []) if h.get("date") != today]
+        hist.append({"date": today, "value": round(prob, 1)})
+        rows.append({
+            "name": label, "series": sid, "group": spec["series"], "date": today, "value": round(prob, 1),
+            "unit": "%", "bid": bid, "ask": ask, "volume": _num(m.get("volume_fp")),
+            "close_time": m.get("close_time", ""), "source": "Kalshi", "history": hist[-400:],
+        })
+    return rows
+
+
+def collect_kalshi(previous_rows):
+    path = ROOT / "config" / "kalshi-series.json"
+    if not path.exists():
+        return previous_rows, "SKIPPED (no config)"
+    specs = json.loads(path.read_text(encoding="utf-8"))
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    out, errors, ok = [], [], 0
+    for spec in specs:
+        group_prev = [r for r in previous_rows if r.get("group") == spec["series"]]
+        try:
+            rows = fetch_kalshi_group(spec, group_prev, today)
+            ok += 1
+            out.extend(rows)
+        except Exception as exc:  # keep the previous snapshot for that group
+            errors.append(f"{spec['series']}: {exc}")
+            out.extend(group_prev)
+        time.sleep(0.3)
+    if not ok:
+        return previous_rows, "REFRESH FAILED; retained previous data — " + "; ".join(errors)
+    return out, "OK" if not errors else "PARTIAL REFRESH; " + "; ".join(errors)
+
+
 def settle(prev_rows, prev_at, fresh, status, now, key):
     """Return (rows, updated_at, status) applying the retain-on-failure policy."""
     if status.startswith("SKIPPED"):
@@ -533,6 +595,8 @@ def main():
     market, market_status = collect_market()
     kosis, kosis_status = collect_kosis()
     fiscal, fiscal_status = collect_fiscal(previous.get("fiscal", []))
+    kalshi_rows, kalshi_status = collect_kalshi(previous.get("kalshi", []))
+    kalshi_at = now if not kalshi_status.startswith(("SKIPPED", "REFRESH FAILED")) else previous.get("kalshi_updated_at_utc", "")
 
     # A temporary provider failure must never erase the last usable observations.
     if fred:
@@ -579,6 +643,9 @@ def main():
         "fiscal_updated_at_utc": fiscal_at,
         "fiscal_status": fiscal_status,
         "fiscal": fiscal_rows,
+        "kalshi_updated_at_utc": kalshi_at,
+        "kalshi_status": kalshi_status,
+        "kalshi": kalshi_rows,
     }
     # Compact JSON keeps the file small for mobile downloads.
     OUT.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
