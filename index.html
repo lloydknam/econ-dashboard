@@ -1,303 +1,231 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f4f7fb">
-<title>클사무관의 경제 터미널 | 한국 거시경제 통계</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f7f4">
+<title>클사무관의 경제 터미널</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
-:root{color-scheme:light;--bg:#f3f6fa;--surface:#ffffff;--surface2:#f7f9fc;--surface3:#edf2f7;--line:#dce3ec;--text:#172b45;--muted:#66768a;--dim:#8996a6;--orange:#c47b27;--cyan:#287c9d;--green:#16835f;--red:#c84d55;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans','Noto Sans KR',sans-serif}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:13px var(--sans);font-variant-numeric:tabular-nums}a{color:var(--cyan);text-decoration:none}a:hover{color:#174d78}.app{max-width:1800px;margin:auto;padding:0 22px 36px}.topbar{height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:20px}.identity{display:flex;align-items:center;gap:12px}.clerk-photo{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #dce5ef;box-shadow:0 1px 5px #172b4518}.logo{width:34px;height:34px;display:grid;place-items:center;background:#173b63;color:#fff;font-weight:700;font-size:18px;clip-path:polygon(0 0,100% 0,100% 75%,75% 100%,0 100%)}.name{font-size:17px;font-weight:700;letter-spacing:.09em}.subname{font:9px var(--mono);letter-spacing:.16em;color:var(--muted);margin-top:3px}.topmeta{display:flex;align-items:center;gap:18px;color:var(--muted);font:10px var(--mono)}.market-state{display:flex;align-items:center;gap:7px;color:var(--green)}.pulse{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}.nav{display:flex;gap:5px;padding:13px 0;border-bottom:1px solid var(--line);overflow:auto}.nav span{font:10px var(--mono);letter-spacing:.08em;color:var(--muted);padding:7px 11px;border:1px solid transparent;white-space:nowrap}.nav .active{color:#174d78;border-color:#c8d9e8;background:#edf4fa}.ticker{height:38px;display:flex;align-items:center;gap:24px;border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;font:10px var(--mono)}.ticker b{color:var(--muted);font-weight:500;margin-right:6px}.ticker .up{color:var(--green)}.ticker .down{color:var(--red)}.section-head{display:flex;align-items:end;justify-content:space-between;margin:23px 0 10px}.section-title{font:600 11px var(--mono);letter-spacing:.13em;color:#30465f}.section-sub{font-size:10px;color:var(--muted);margin-top:4px}.asof{font:9px var(--mono);color:var(--dim)}.grid{display:grid;gap:9px}.kpis{grid-template-columns:repeat(4,minmax(0,1fr))}.official-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.official-card{padding:12px 14px;min-height:88px}.official-label{font:9px var(--mono);letter-spacing:.06em;color:var(--muted)}.official-value{font:600 19px var(--mono);margin:10px 0 4px;color:var(--text)}.official-foot{font-size:9px;color:var(--dim)}.card{background:var(--surface);border:1px solid var(--line);min-width:0}.kpi{padding:12px 14px;min-height:94px;position:relative}.kpi:before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#d2dce7}.kpi-label{font:9px var(--mono);letter-spacing:.08em;color:var(--muted)}.kpi-value{font:600 22px var(--mono);margin:9px 0 4px;letter-spacing:-.04em}.kpi-foot{font-size:9px;color:var(--dim)}.layout-main{grid-template-columns:minmax(0,1.65fr) minmax(300px,.9fr)}.layout-equal{grid-template-columns:1fr 1fr}.panel{padding:13px 14px}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.panel-title{font:600 10px var(--mono);letter-spacing:.1em;color:#30465f}.panel-meta{font:9px var(--mono);color:var(--dim)}.chart-area{height:260px}.tv-area{height:355px}.tv-area.compact{height:285px}.tv-area>div,.tv-area iframe{height:100%!important;width:100%!important}.country-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.country{padding:12px}.country-name{font-size:10px;color:var(--muted)}.country-year{font:9px var(--mono);color:var(--dim);float:right}.country-gdp{font:600 19px var(--mono);margin:10px 0 4px}.country-detail{font-size:9px;color:var(--muted);line-height:1.7}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font:10px var(--mono)}th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{color:var(--dim);font-weight:500;font-size:9px}th:first-child,td:first-child{text-align:left}td:first-child{font-family:var(--sans);font-weight:500}.badge{font:9px var(--mono);color:#a96519;border:1px solid #ead8bd;background:#fbf7f0;padding:4px 7px}.statusline{font:9px var(--mono);color:var(--dim);margin-top:12px}.studio-brand{display:flex;justify-content:center;align-items:center;margin:4px 0 14px}.studio-brand img{display:block;width:min(230px,65vw);height:auto;max-height:52px;object-fit:contain}.footer{margin-top:25px;padding:13px 0;border-top:1px solid var(--line);font-size:9px;line-height:1.8;color:var(--dim)}.footer strong{color:var(--muted)}.loading{color:var(--muted);font-size:11px;padding:15px}.error{color:var(--red)}.legend-note{color:var(--dim);font-size:9px}
-@media(max-width:1150px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.country-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){.clerk-photo{width:36px;height:36px}.name{letter-spacing:0}.app{padding:0 12px 24px}.topbar{height:58px}.topmeta{gap:8px;font-size:9px}.subname{display:none}.name{font-size:14px}.layout-main,.layout-equal{grid-template-columns:1fr}.official-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.tv-area{height:330px}.tv-area.compact{height:280px}.section-head{margin-top:19px}}
-
-
-/* Kalshi-inspired research terminal skin: warm white, restrained green, rounded market cards */
-:root{
- color-scheme:light;
- --bg:#f5f7f4;--surface:#fff;--surface2:#f5f7f4;--surface3:#edf1ed;
- --line:#e4e9e4;--text:#151c18;--muted:#68736c;--dim:#929b94;
- --orange:#00b67a;--cyan:#176c50;--green:#00a875;--red:#d45c62;
- --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans','Noto Sans KR',sans-serif
-}
-body{background:var(--bg);color:var(--text);font-size:13px;letter-spacing:-.01em}
-.app{max-width:1680px;padding:0 28px 42px}
-.topbar{height:70px;border-bottom:1px solid var(--line);position:relative;background:rgba(255,255,255,.9)}
-.identity{gap:13px}.clerk-photo{width:40px;height:40px;border:1px solid #e5eae5;box-shadow:none}
-.name{font-size:17px;letter-spacing:-.035em;color:#101713}.subname{font:9px var(--mono);letter-spacing:.1em;color:#78847b}
-.market-state{color:#008f62;font-weight:600}.pulse{background:#00b67a;box-shadow:0 0 0 4px #00b67a20}
-.nav{gap:7px;padding:12px 0;border-bottom:1px solid var(--line)}
-.nav a{font:500 11px var(--sans);letter-spacing:0;color:#606c64;padding:8px 13px;border-radius:999px;border:1px solid transparent;white-space:nowrap;text-decoration:none}.nav a:hover{background:#f1f7f3;color:#006b49}
-.nav a.active{background:#e7f6ef;border-color:#d0eddf;color:#006b49;font-weight:700}
-.ticker{height:42px;gap:26px;border-bottom:1px solid var(--line);font-size:10px;color:#3b473f}
-.ticker b{color:#829087}
-.section-head{margin:28px 0 12px;align-items:center}
-.section-title{font:700 11px var(--mono);letter-spacing:.07em;color:#26332b}
-.section-sub{font-size:11px;color:#78847c;margin-top:5px}
-.asof{font-size:9px;color:#8c968e}
-.grid{gap:12px}
-.card{background:var(--surface);border:1px solid #e5eae5;border-radius:13px;box-shadow:0 1px 2px #14251a08}
-.kpi{padding:16px 17px;min-height:112px;border-radius:13px;transition:transform .18s ease,border-color .18s ease}
-.kpi:hover,.official-card:hover,.country:hover{transform:translateY(-2px);border-color:#b8dfcb}
-.kpi:before{display:none}
-.kpi-label{font:600 9px var(--mono);letter-spacing:.06em;color:#738078}
-.kpi-value{font:600 24px var(--mono);letter-spacing:-.05em;margin:13px 0 5px;color:#17231b}
-.kpi-foot{font-size:10px;color:#8a958d}
-.official-card{padding:15px 16px;min-height:104px;border-radius:12px;transition:transform .18s ease,border-color .18s ease}
-.official-label{font:600 9px var(--mono);color:#718078;letter-spacing:.04em}
-.official-value{font:600 21px var(--mono);color:#111b15;margin:13px 0 5px}
-.official-foot{font-size:9px;color:#89948c}
-.panel{padding:17px 18px;border-radius:14px}
-.panel-head{margin-bottom:14px}
-.panel-title{font:700 10px var(--mono);letter-spacing:.06em;color:#26332b}
-.panel-meta{font:9px var(--mono);color:#8b968e}
-.tv-area{border-radius:9px;overflow:hidden}
-.country{padding:15px;border-radius:12px;transition:transform .18s ease,border-color .18s ease}
-.country-name{font-size:10px;font-weight:600;color:#536158}
-.country-year{font-size:9px;color:#98a199}
-.country-gdp{font:600 22px var(--mono);color:#17231b;margin:13px 0 6px}
-.country-detail{font-size:10px;line-height:1.8;color:#78847b}
-.badge{font:600 9px var(--mono);color:#00784f;border:1px solid #cdebdc;background:#eaf7f0;border-radius:999px;padding:5px 9px}
-table{font:10px var(--mono)}
-th,td{padding:12px 10px;border-bottom:1px solid #edf0ed}
-th{color:#87928a}
-td:first-child{font-family:var(--sans);font-weight:600;color:#334139}
-.statusline{font:9px var(--mono);color:#89948c}
-.chart-area{height:275px}
-.footer{border-top:1px solid var(--line);color:#89948c}
-.footer strong{color:#536158}
-a{color:#008b5e}a:hover{color:#005d3d}
-@media(max-width:760px){
- .app{padding:0 13px 28px}.topbar{height:62px}.name{font-size:14px}
- .nav{padding:10px 0;gap:5px}.nav a{padding:7px 10px;font-size:10px}
- .ticker{height:36px;gap:18px}.section-head{margin-top:22px}
- .kpi{padding:13px;min-height:100px}.kpi-value{font-size:21px}
- .panel{padding:13px;border-radius:12px}.country{padding:13px}
-}
-
-
-/* Kalshi-style market interface refinement */
-:root{--bg:#f7f9f7;--surface:#fff;--surface2:#f3f7f4;--line:#e7ece8;--text:#101713;--muted:#69756e;--dim:#98a29b;--green:#00a875}
-html{scroll-behavior:smooth;scroll-padding-top:18px}body{background:#f7f9f7;color:#111915;font-family:var(--sans)}
-.app{max-width:1600px;padding:0 30px 48px}
-.topbar{height:72px;background:#fff;border-bottom:1px solid #e9eeea}
-.identity .logo{background:#00a875}
-.name{font-size:18px;letter-spacing:-.04em}
-.subname{letter-spacing:.07em}
-.nav{padding:12px 0 13px;gap:8px}
-.nav a{font:600 12px var(--sans);letter-spacing:0;border-radius:9px;padding:9px 14px}
-.nav .active{background:#e7f7ef;border-color:#d6f0e2;color:#00764f}
-.market-hero{min-height:245px;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:24px;padding:32px 8px 26px;overflow:hidden}
-.hero-copy{position:relative;z-index:1}
-.hero-eyebrow{font:600 10px var(--mono);letter-spacing:.12em;color:#00885d;display:flex;align-items:center;gap:9px}
-.hero-dot{width:7px;height:7px;border-radius:50%;background:#00b67a;box-shadow:0 0 0 5px #00b67a1b}
-.market-hero h1{font-size:clamp(36px,5vw,64px);line-height:1.03;letter-spacing:-.065em;margin:18px 0 12px;font-weight:700;color:#101713}
-.market-hero h1 em{font-style:normal;color:#00a875}
-.market-hero p{font-size:15px;color:#657169;margin:0}
-.hero-tags{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
-.hero-tags span{font:600 9px var(--mono);letter-spacing:.06em;color:#65736a;border:1px solid #e2eae4;border-radius:999px;padding:7px 10px;background:#fff}
-.hero-visual{height:190px;position:relative;align-self:end;margin-bottom:2px}
-.hero-visual-label{font:600 9px var(--mono);letter-spacing:.1em;color:#839087;display:flex;justify-content:space-between;padding:0 3px 10px}
-.hero-visual-label span{color:#00a875}
-.hero-visual svg{width:100%;height:160px;overflow:visible}
-.ticker{background:#fff;border:1px solid #e7ece8;border-radius:12px;height:48px;padding:0 12px;margin:0 0 8px}
-.section-head{margin:29px 0 13px}
-.section-title{font:700 11px var(--mono);letter-spacing:.08em;color:#27342c}
-.kpis{gap:12px}
-.kpi{border-radius:13px;padding:17px 18px;min-height:116px}
-.kpi-value{font-size:24px;color:#101a14}.quote-widget{height:63px;margin:7px 0 2px;overflow:hidden}.quote-widget .tradingview-widget-container,.quote-widget .tradingview-widget-container__widget{height:100%;width:100%}
-.official-card{border-radius:13px}
-.panel{border-radius:14px;padding:18px}
-.panel-title{font-size:10px;letter-spacing:.08em}
-.card{box-shadow:0 1px 2px #10201808}
-.badge{color:#007b51;background:#eaf8f1;border-color:#ccebd9}
-.footer{margin-top:32px}
-@media(max-width:760px){
- .app{padding:0 13px 28px}.market-hero{grid-template-columns:1fr;min-height:0;padding:27px 2px 18px;gap:4px}
- .market-hero h1{font-size:42px;margin:14px 0 10px}.market-hero p{font-size:13px}
- .hero-visual{height:120px;width:100%;margin-top:7px}.hero-visual svg{height:90px}
- .ticker{padding:0 8px;height:42px}.nav{gap:4px}.nav span{font-size:10px;padding:8px 10px}
-}
-
-
-/* Typography accessibility pass: larger, clearer Korean-first dashboard */
-body{font-size:15px}
-.name{font-size:19px}
-.subname{font-size:10px}
-.topmeta{font-size:11px}
-.nav a{font-size:14px;padding:10px 15px}
-.ticker{font-size:12px;gap:28px}
-.section-title{font-size:14px;letter-spacing:.04em}
-.section-sub{font-size:13px}
-.asof{font-size:11px}
-.kpi{padding:19px 20px;min-height:124px}
-.kpi-label{font-size:12px;letter-spacing:.02em}
-.kpi-value{font-size:29px;margin:14px 0 7px}
-.kpi-foot{font-size:12px}
-.official-card{padding:17px 18px;min-height:114px}
-.official-label{font-size:12px}
-.official-value{font-size:25px;margin:14px 0 7px}
-.official-foot{font-size:11px}
-.panel{padding:20px}
-.panel-title{font-size:13px;letter-spacing:.03em}
-.panel-meta{font-size:11px}
-.country{padding:17px}
-.country-name{font-size:13px}
-.country-year{font-size:11px}
-.country-gdp{font-size:25px}
-.country-detail{font-size:12px;line-height:1.9}
-table{font-size:12px}
-th{font-size:11px}
-th,td{padding:13px 11px}
-.badge{font-size:11px}
-.statusline,.legend-note{font-size:11px}
-.footer{font-size:11px;line-height:1.9}
-.loading{font-size:13px}
-.hero-eyebrow{font-size:11px}
-.market-hero p{font-size:16px}
-.hero-tags span{font-size:10px}
-@media(max-width:760px){
- body{font-size:14px}
- .name{font-size:15px}
- .topmeta{font-size:10px}
- .nav a{font-size:12px;padding:9px 11px}
- .ticker{font-size:11px;gap:18px}
- .section-title{font-size:13px}
- .section-sub{font-size:12px}
- .asof{font-size:10px}
- .kpi{padding:15px;min-height:108px}
- .kpi-label{font-size:11px}
- .kpi-value{font-size:24px;margin:11px 0 6px}
- .kpi-foot{font-size:11px}
- .official-card{padding:14px;min-height:104px}
- .official-label{font-size:11px}
- .official-value{font-size:21px;margin:11px 0 6px}
- .official-foot{font-size:10px}
- .panel{padding:15px}
- .panel-title{font-size:12px}
- .country{padding:14px}
- .country-name{font-size:12px}
- .country-gdp{font-size:22px}
- .country-detail{font-size:11px}
- table{font-size:11px}
- th{font-size:10px}
- th,td{padding:11px 9px}
- .market-hero p{font-size:14px}
- .hero-tags span{font-size:9px}
-}
-
+:root{--bg:#f5f7f4;--card:#fff;--line:#e4e9e4;--text:#111915;--muted:#6b766f;--green:#00a875;--blue:#3b6fd4;--amber:#d9962b;--red:#d45c62;--sans:'Noto Sans KR',system-ui,-apple-system,'Apple SD Gothic Neo',sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.4 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.app{max-width:760px;margin:0 auto;padding:0 14px calc(28px + env(safe-area-inset-bottom))}
+.topbar{display:flex;align-items:center;gap:12px;padding:14px 0 12px;position:sticky;top:0;z-index:5;background:rgba(245,247,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -14px;padding-left:14px;padding-right:14px}
+.topbar img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none}
+.topbar h1{margin:0;font-size:20px;font-weight:900;letter-spacing:-.04em;line-height:1.2;flex:1}
+.stamp{flex:none;text-align:right;font-size:13px;color:var(--muted);line-height:1.3}
+.stamp i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:5px;vertical-align:1px}
+.stamp.old i{background:var(--amber)}
+.notice{display:none;margin:12px 0 0;padding:11px 13px;border-radius:12px;background:#fff4e0;color:#8a5a00;font-size:14px}
+.notice.on{display:block}
+h2{margin:26px 2px 10px;font-size:15px;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.grid{display:grid;gap:12px;grid-template-columns:1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 12px;min-width:0}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.title{font-size:17px;font-weight:700;letter-spacing:-.03em}
+.when{font-size:13px;color:var(--muted);white-space:nowrap}
+.vals{display:flex;flex-wrap:wrap;gap:4px 18px;margin:8px 0 2px;align-items:baseline}
+.big{font-size:34px;font-weight:900;letter-spacing:-.05em;line-height:1.1}
+.big small{font-size:17px;font-weight:700;margin-left:2px;letter-spacing:-.02em}
+.delta{font-size:15px;font-weight:500;color:var(--muted)}
+.lg{font-size:15px;font-weight:500;color:var(--muted);display:inline-flex;align-items:baseline;gap:6px}
+.lg i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none;transform:translateY(0)}
+.lg b{font-size:26px;font-weight:900;color:var(--text);letter-spacing:-.04em}
+.lg b small{font-size:15px;font-weight:700;margin-left:1px}
+.chart{height:190px;margin-top:8px;position:relative}
+.tv{height:230px;margin-top:2px}
+.tv .tradingview-widget-container,.tv .tradingview-widget-container__widget{height:100%;width:100%}
+.empty{padding:36px 0;text-align:center;color:var(--muted);font-size:15px}
+.foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px;line-height:1.7}
+.foot img{display:block;margin:12px auto 4px;width:min(210px,60vw);height:auto}
+.foot a{color:#008b5e;text-decoration:none;font-weight:500}
+@media(min-width:900px){.app{max-width:1100px}.grid{grid-template-columns:1fr 1fr}.chart{height:210px}}
 </style>
 </head>
 <body><div class="app">
-<header class="topbar"><div class="identity"><img class="clerk-photo" src="https://raw.githubusercontent.com/lloydknam/eodigallae/main/icons/clerk.jpg" alt="클사무관 프로필"><div><div class="name">클사무관의 경제 터미널</div><div class="subname">한국 경제 · 거시통계 모니터</div></div></div><div class="topmeta"><span class="market-state"><i class="pulse"></i> 국내 경제지표 모니터</span><span id="clock">--:--:-- KST</span></div></header>
-<nav class="nav" aria-label="대시보드 메뉴"><a class="active" href="#overview">01 / 개요</a><a href="#global-markets">02 / 금융시장</a><a href="#macro-economy">03 / 거시경제</a><a href="#country-comparison">04 / 국가 비교</a><a href="#data-sources">05 / 통계 출처</a></nav>
-<section class="market-hero" id="overview">
-  <div class="hero-copy"><div class="hero-eyebrow"><span class="hero-dot"></span> 대한민국 경제 · 실시간 모니터</div>
-    <h1>경제의 흐름을<br><em>한눈에 읽다.</em></h1>
-    <p>한국의 핵심 경제통계와 금융시장, 정책 변수를 한눈에 살펴봅니다.</p>
-    <div class="hero-tags"><span>국내 금융시장</span><span>거시경제 통계</span><span>정책 지표</span></div>
-  </div>
-  <div class="hero-visual" aria-hidden="true"><div class="hero-visual-label">한국 경제 흐름 <span>● 모니터링</span></div>
-    <svg viewBox="0 0 640 210" preserveAspectRatio="none"><defs><linearGradient id="heroFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#00b67a" stop-opacity=".22"/><stop offset="1" stop-color="#00b67a" stop-opacity="0"/></linearGradient></defs><path d="M0 174 L35 163 63 169 91 143 120 151 151 125 180 137 211 105 239 115 269 92 299 108 329 76 357 89 387 60 416 74 447 48 476 61 506 34 536 49 566 22 598 35 640 8 L640 210 L0 210Z" fill="url(#heroFill)"/><path d="M0 174 L35 163 63 169 91 143 120 151 151 125 180 137 211 105 239 115 269 92 299 108 329 76 357 89 387 60 416 74 447 48 476 61 506 34 536 49 566 22 598 35 640 8" fill="none" stroke="#00ad73" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>
-  </div>
-</section>
-<div class="ticker" aria-label="주요 금융시장 동향"><div class="tradingview-widget-container" style="width:100%;height:100%"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>{"symbols":[{"proName":"KRX:KOSPI","title":"코스피"},{"proName":"FX_IDC:USDKRW","title":"원/달러 환율"},{"proName":"TVC:US10Y","title":"미국 국채 10년물"},{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"kr"}</script></div></div>
-<div class="section-head"><div><div class="section-title">금융시장 주요 지표</div><div class="section-sub">코스피·원/달러 환율을 중심으로 국내 금융시장과 대외 여건을 확인합니다.</div></div><div class="asof">실시간 시세 · 트레이딩뷰</div></div>
-<div class="grid kpis">
-<div class="card kpi"><div class="kpi-label">S&P 500</div><div class="quote-widget"><div class="tradingview-widget-container" style="width:100%;height:100%"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"FOREXCOM:SPXUSD","width":"100%","colorTheme":"light","isTransparent":true,"locale":"kr"}</script></div></div><div class="kpi-foot">미국 대표 주가지수 · 트레이딩뷰</div></div>
 
-<div class="card kpi"><div class="kpi-label">코스피</div><div class="quote-widget"><div class="tradingview-widget-container" style="width:100%;height:100%"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"KRX:KOSPI","width":"100%","colorTheme":"light","isTransparent":true,"locale":"kr"}</script></div></div><div class="kpi-foot">한국 주가지수 · 트레이딩뷰</div></div>
+<header class="topbar">
+  <img src="https://raw.githubusercontent.com/lloydknam/eodigallae/main/icons/clerk.jpg" alt="">
+  <h1>클사무관의<br>경제 터미널</h1>
+  <div class="stamp" id="stamp"><i></i><span id="stampText">불러오는 중</span></div>
+</header>
+<div class="notice" id="notice"></div>
 
-<div class="card kpi"><div class="kpi-label">원/달러 환율</div><div class="quote-widget"><div class="tradingview-widget-container" style="width:100%;height:100%"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"FX_IDC:USDKRW","width":"100%","colorTheme":"light","isTransparent":true,"locale":"kr"}</script></div></div><div class="kpi-foot">외환시장 · 트레이딩뷰</div></div>
+<h2>시장</h2>
+<div class="grid">
+  <div class="card"><div class="head"><div class="title">코스피</div><div class="when">실시간·지연 가능</div></div>
+    <div class="tv"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol":"KRX:KOSPI","width":"100%","height":"100%","locale":"kr","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":true,"largeChartUrl":"","chartOnly":false,"noTimeScale":false}</script></div></div></div>
+  <div class="card"><div class="head"><div class="title">S&amp;P 500</div><div class="when">실시간·지연 가능</div></div>
+    <div class="tv"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol":"FOREXCOM:SPXUSD","width":"100%","height":"100%","locale":"kr","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":true,"largeChartUrl":"","chartOnly":false,"noTimeScale":false}</script></div></div></div>
+</div>
 
-<div class="card kpi"><div class="kpi-label">미국 국채 10년물 금리</div><div class="quote-widget"><div class="tradingview-widget-container" style="width:100%;height:100%"><div class="tradingview-widget-container__widget"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>{"symbol":"TVC:US10Y","width":"100%","colorTheme":"light","isTransparent":true,"locale":"kr"}</script></div></div><div class="kpi-foot">미국 국채 기준금리 · 트레이딩뷰</div></div>
+<h2>환율·금리</h2>
+<div class="grid" id="g-rates"></div>
 
+<h2>성장·물가·고용</h2>
+<div class="grid" id="g-real"></div>
+
+<h2>대외·통화·가계</h2>
+<div class="grid" id="g-money"></div>
+
+<footer class="foot">
+  한국은행 ECOS · 미국 FRED · TradingView · 정보 제공용
+  <img src="https://raw.githubusercontent.com/lloydknam/korea-gdpnow/main/web/brand-lockup-light.svg" alt="Lloyd’s Balcony Lab">
+  with claude · <a href="https://github.com/lloydknam">GitHub(@lloydknam)</a>
+</footer>
 </div>
-<div class="section-head" id="global-markets"><div><div class="section-title">국내외 금융시장</div><div class="section-sub">국내 주가지수와 환율, 주요국 금리 등 거시경제 관련 시장 변수</div></div><div class="badge">TRADINGVIEW</div></div>
-<div class="grid layout-main">
-<section class="card panel"><div class="panel-head"><div class="panel-title">주요 금융시장 동향</div><div class="panel-meta">최근 1년 추이</div></div><div class="tv-area"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>{"colorTheme":"light","dateRange":"12M","showChart":true,"locale":"kr","width":"100%","height":"100%","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":false,"tabs":[{"title":"주가지수","symbols":[{"s":"KRX:KOSPI","d":"코스피"},{"s":"KRX:KOSDAQ","d":"코스닥"},{"s":"FOREXCOM:SPXUSD","d":"S&P 500"}]},{"title":"환율·금리","symbols":[{"s":"FX_IDC:USDKRW","d":"원/달러 환율"},{"s":"TVC:US10Y","d":"미국 국채 10년물"}]},{"title":"원자재","symbols":[{"s":"TVC:GOLD","d":"금"},{"s":"TVC:USOIL","d":"국제유가"}]}]}</script></div></div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">주요 경제 일정</div><div class="panel-meta">국내외 주요 발표</div></div><div class="tv-area compact"><div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>{"colorTheme":"light","isTransparent":true,"width":"100%","height":"100%","locale":"kr","importanceFilter":"0,1","currencyFilter":"KRW,USD"}</script></div></div><div class="statusline">경제 일정 제공: 트레이딩뷰</div></section>
-</div>
-<div class="section-head" id="macro-economy"><div><div class="section-title">한국 거시경제 핵심 통계</div><div class="section-sub">한국의 성장률·물가·고용 등 핵심 통계 / 국제 비교 통계는 보조 제공</div></div><div class="asof" id="macroAsOf">최신 통계 불러오는 중</div></div>
-<div class="grid country-grid" id="countryCards"><div class="card country loading">세계은행 통계 불러오는 중…</div></div>
-<div class="section-head"><div><div class="section-title">한국 및 주요국 공식 경제지표</div><div class="section-sub">기본 조회기간: 최근 1년 · 일별·월별·분기별 통계를 각각 원주기에 맞춰 표시</div></div><div class="asof" id="officialAsOf">공식 통계 수신 대기</div></div>
-<div class="grid official-grid" id="officialCards"><div class="card official-card"><div class="official-label">공식 통계 수집</div><div class="official-value">연결 준비 중</div><div class="official-foot">한국은행 ECOS / 미국 FRED</div></div></div>
-<div class="statusline" id="officialStatus">한국은행 ECOS와 미국 FRED의 공식 통계를 자동 수집합니다.</div>
-<div class="grid layout-equal" style="margin-top:12px">
-<section class="card panel"><div class="panel-head"><div class="panel-title">국내외 국채금리 추이</div><div class="panel-meta">한국은행 ECOS / 미국 FRED · 일별·월별</div></div><div class="chart-area"><canvas id="officialRatesChart"></canvas></div><div class="statusline">한국 국고채 3년물과 미국 국채금리 비교 · 각 통계의 기준일 별도 표시</div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">원/달러 환율 추이</div><div class="panel-meta">한국은행 · 일별</div></div><div class="chart-area"><canvas id="officialFxChart"></canvas></div><div class="statusline">매매기준율 · 달러당 원화</div></section>
-</div>
-<div class="grid layout-equal" style="margin-top:9px">
-<section class="card panel"><div class="panel-head"><div class="panel-title">한국은행 기준금리 추이</div><div class="panel-meta">한국은행 ECOS · 월별</div></div><div class="chart-area"><canvas id="officialBaseRateChart"></canvas></div><div class="statusline">한국은행 기준금리 · 연 %</div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">미국 정책금리 추이</div><div class="panel-meta">미국 FRED · 월별</div></div><div class="chart-area"><canvas id="officialFedRateChart"></canvas></div><div class="statusline">Federal Funds Rate · %</div></section>
-</div>
-<div class="grid layout-equal" style="margin-top:9px">
-<section class="card panel"><div class="panel-head"><div class="panel-title">미국 소비자물가지수 추이</div><div class="panel-meta">미국 FRED · 월별</div></div><div class="chart-area"><canvas id="officialUsCpiChart"></canvas></div><div class="statusline">미국 CPI 지수 · 계절조정 · 지수 수준</div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">미국 실업률 추이</div><div class="panel-meta">미국 FRED · 월별</div></div><div class="chart-area"><canvas id="officialUsUnemploymentChart"></canvas></div><div class="statusline">미국 실업률 · 계절조정 · %</div></section>
-</div>
-<div class="grid layout-equal" style="margin-top:9px">
-<section class="card panel"><div class="panel-head"><div class="panel-title">미국 GDP 추이</div><div class="panel-meta">미국 FRED · 분기 · 계절조정 연율</div></div><div class="chart-area"><canvas id="officialUsGdpChart"></canvas></div><div class="statusline">미국 GDP · 십억 달러 · 연율환산 명목 규모</div></section>
-</div>
-<div class="grid layout-equal" style="margin-top:9px">
-<section class="card panel"><div class="panel-head"><div class="panel-title">한국 고용률·실업률 추이</div><div class="panel-meta">한국은행 ECOS · 월별</div></div><div class="chart-area"><canvas id="officialKoreaLaborChart"></canvas></div><div class="statusline">고용률·실업률 · 계절조정 여부와 기준 정의는 원통계 기준</div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">수출·수입 금액지수</div><div class="panel-meta">한국은행 ECOS · 월별 · 2020=100</div></div><div class="chart-area"><canvas id="officialTradeChart"></canvas></div><div class="statusline">통관액 자체가 아닌 수출·수입 금액지수 · 지수 기준 2020=100</div></section>
-</div>
-<div class="grid layout-equal" style="margin-top:9px">
-<section class="card panel"><div class="panel-head"><div class="panel-title">경상수지 추이</div><div class="panel-meta">한국은행 ECOS · 월별</div></div><div class="chart-area"><canvas id="officialCurrentAccountChart"></canvas></div><div class="statusline">경상수지 · 백만 달러 · 흑자/적자 흐름</div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">가계신용 추이</div><div class="panel-meta">한국은행 ECOS · 분기</div></div><div class="chart-area"><canvas id="officialHouseholdCreditChart"></canvas></div><div class="statusline">가계신용 잔액 · 십억원 · 가계대출 및 판매신용</div></section>
-</div>
-<div class="grid layout-equal" style="margin-top:9px">
-<section class="card panel"><div class="panel-head"><div class="panel-title">광의통화(M2) 추이</div><div class="panel-meta">한국은행 ECOS · 월별</div></div><div class="chart-area"><canvas id="officialM2Chart"></canvas></div><div class="statusline">M2 광의통화 · 평잔 · 십억원</div></section>
-</div>
-<div class="grid layout-equal" style="margin-top:9px">
-<section class="card panel"><div class="panel-head"><div class="panel-title">한국 실질 GDP 성장률 추이</div><div class="panel-meta">한국은행 ECOS · 분기 · 전기대비 계절조정</div></div><div class="chart-area"><canvas id="officialGdpChart"></canvas></div><div class="statusline">실질 국내총생산 성장률 · 전기대비 · 단위 % · 분기 통계</div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">한국 소비자물가지수 추이</div><div class="panel-meta">한국은행 ECOS · 월별 · 2020=100</div></div><div class="chart-area"><canvas id="officialCpiChart"></canvas></div><div class="statusline">소비자물가지수 총지수 · 기준연도 2020년 · 지수 수준이며 전년동월비 상승률과 구분</div></section>
-<section class="card panel"><div class="panel-head"><div class="panel-title">경제성장률과 물가상승률</div><div class="panel-meta">최근 발표 기준 / %</div></div><div class="chart-area"><canvas id="macroChart"></canvas></div><div class="statusline">출처: 세계은행 세계개발지표 · 연간 통계</div></section>
-</div>
-<div class="grid layout-equal" style="margin-top:9px">
-<section class="card panel" id="country-comparison"><div class="panel-head"><div class="panel-title">주요국 경제지표 비교</div><div class="panel-meta">최근 이용 가능한 통계</div></div><div class="table-wrap"><table><thead><tr><th>국가·지역</th><th>경제성장률</th><th>물가상승률</th><th>실업률</th><th>기준연도</th></tr></thead><tbody id="macroTable"><tr><td colspan="5" class="loading">데이터 수집 중…</td></tr></tbody></table></div><div class="statusline">지표별 최신 기준연도는 서로 다를 수 있습니다.</div></section>
-</div>
-<div class="section-head" id="data-sources"><div><div class="section-title">05 — 통계 기준 및 출처</div><div class="section-sub">시장 시세와 공식 통계의 기준시점·발표주기 및 수집 상태를 구분합니다.</div></div></div>
-<section class="card panel"><div class="grid layout-equal"><div><div class="panel-title">금융시장 데이터</div><div class="section-sub">트레이딩뷰 시세 위젯 · 거래소 운영시간 및 제공업체 정책에 따라 지연될 수 있습니다.</div></div><div><div class="panel-title">거시경제 통계</div><div class="section-sub">한국은행 ECOS · 미국 FRED · 세계은행 세계개발지표 공식 통계</div></div></div><div class="statusline" id="dataStatus">통계 수집 상태 확인 중…</div></section>
-<footer class="footer"><div class="studio-brand"><img src="https://raw.githubusercontent.com/lloydknam/korea-gdpnow/main/web/brand-lockup-light.svg" alt="Lloyd’s Balcony Lab"></div><strong>클사무관의 경제 터미널</strong> · 독립적인 거시경제 통계 시각화 서비스입니다.<br>시장 위젯의 시세는 거래소·제공업체 정책에 따라 지연될 수 있습니다. 거시경제 통계는 발표 시차가 있으며, 국가별 최신 관측연도가 다를 수 있습니다.<br>본 화면은 정보 제공 및 시각화 목적이며 투자·정책 판단에 단독으로 사용하기 위한 공식 통계 공표 시스템이 아닙니다. <a href="https://github.com/lloydknam/econ-dashboard">소스 코드</a></footer>
-</div>
+
 <script>
-const economies=[{id:'KOR',name:'대한민국'},{id:'USA',name:'미국'},{id:'CHN',name:'중국'},{id:'JPN',name:'일본'},{id:'DEU',name:'독일'},{id:'GBR',name:'영국'},{id:'IND',name:'인도'},{id:'WLD',name:'세계'}];
-const indicators={gdp:'NY.GDP.MKTP.KD.ZG',inflation:'FP.CPI.TOTL.ZG',unemployment:'SL.UEM.TOTL.ZS'};
-const pct=v=>v===null||v===undefined?'—':Number(v).toFixed(1)+'%';
-async function latest(code,indicator){const url='https://api.worldbank.org/v2/country/'+code+'/indicator/'+indicator+'?format=json&per_page=20';const res=await fetch(url);if(!res.ok)throw Error('HTTP '+res.status);const json=await res.json();return (json[1]||[]).find(d=>d.value!==null)||null}
-async function loadMacro(){const status=document.getElementById('dataStatus');try{const rows=await Promise.all(economies.map(async e=>{const [g,i,u]=await Promise.all([latest(e.id,indicators.gdp),latest(e.id,indicators.inflation),latest(e.id,indicators.unemployment)]);return {...e,gdp:g?.value??null,gdpYear:g?.date??'—',inflation:i?.value??null,inflationYear:i?.date??'—',unemployment:u?.value??null,unemploymentYear:u?.date??'—'};}));render(rows);const now=new Date();document.getElementById('macroAsOf').textContent='세계은행 통계 기준 · '+now.toLocaleString('ko-KR');status.textContent='세계은행 통계 API 정상 · '+now.toLocaleString('ko-KR')+' · 8개 국가·지역 / 3개 지표';}catch(err){status.innerHTML='<span class="error">세계은행 통계 API 오류: '+err.message+'</span>';document.getElementById('countryCards').innerHTML='<div class="card country error">데이터를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.</div>';document.getElementById('macroTable').innerHTML='<tr><td colspan="5" class="error">API 연결 실패</td></tr>';}}
-function render(rows){document.getElementById('countryCards').innerHTML=rows.filter(x=>['KOR','USA','CHN','WLD'].includes(x.id)).map(x=>'<div class="card country"><div class="country-name">'+x.name+' <span class="country-year">GDP '+x.gdpYear+'</span></div><div class="country-gdp">'+pct(x.gdp)+'</div><div class="country-detail">경제성장률 · 물가상승률 '+pct(x.inflation)+' · '+x.inflationYear+'<br>실업률 '+pct(x.unemployment)+' · '+x.unemploymentYear+'</div></div>').join('');document.getElementById('macroTable').innerHTML=rows.map(x=>'<tr><td>'+x.name+'</td><td>'+pct(x.gdp)+'</td><td>'+pct(x.inflation)+'</td><td>'+pct(x.unemployment)+'</td><td>'+x.gdpYear+'</td></tr>').join('');const selected=rows.filter(x=>x.id!=='WLD');if(window.macroChart)window.macroChart.destroy();window.macroChart=new Chart(document.getElementById('macroChart'),{type:'bar',data:{labels:selected.map(x=>x.name),datasets:[{label:'경제성장률',data:selected.map(x=>x.gdp),backgroundColor:'#00a875'},{label:'물가상승률',data:selected.map(x=>x.inflation),backgroundColor:'#a8b5ac'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#68736c',boxWidth:9,boxHeight:9,font:{family:'IBM Plex Mono',size:9}}}},scales:{x:{ticks:{color:'#78847c',font:{size:9}},grid:{display:false}},y:{ticks:{color:'#8b9aab',font:{family:'IBM Plex Mono',size:9}},grid:{color:'#e7ece7'}}}}});}
-function drawOfficialCharts(data){
- const all=[...(data.fred||[]),...(data.ecos||[])];
- const draw=(canvasId,seriesIds)=>{
-  const canvas=document.getElementById(canvasId);if(!canvas)return;
-  const cutoff=new Date();cutoff.setFullYear(cutoff.getFullYear()-1);
-  const inLastYear=raw=>{const value=String(raw||'');let date=null;if(/^\d{8}$/.test(value))date=new Date(Number(value.slice(0,4)),Number(value.slice(4,6))-1,Number(value.slice(6,8)));else if(/^\d{6}$/.test(value))date=new Date(Number(value.slice(0,4)),Number(value.slice(4,6))-1,1);else if(/^\d{4}Q[1-4]$/.test(value))date=new Date(Number(value.slice(0,4)),(Number(value.slice(5))-1)*3,1);else date=new Date(value);return !Number.isNaN(date.getTime())&&date>=cutoff;};
-  const chosen=seriesIds.map(id=>all.find(x=>x.series===id)).filter(x=>x&&Array.isArray(x.history)&&x.history.length).map(x=>({...x,history:x.history.filter(p=>inLastYear(p.date))})).filter(x=>x.history.length);
-  if(window[canvasId+'Instance'])window[canvasId+'Instance'].destroy();
-  if(!chosen.length){canvas.parentElement.innerHTML='<div class="loading">시계열 데이터 수집 후 차트가 표시됩니다.</div>';return;}
-  const labels=[...new Set(chosen.flatMap(x=>x.history.map(p=>p.date)))].sort();
-  const palette=['#00a875','#648b78','#d19a45'];
-  window[canvasId+'Instance']=new Chart(canvas,{type:'line',data:{labels,datasets:chosen.map((x,i)=>{const values=new Map(x.history.map(p=>[p.date,p.value]));return {label:x.name,data:labels.map(d=>values.has(d)?values.get(d):null),borderColor:palette[i%palette.length],backgroundColor:palette[i%palette.length],borderWidth:2,pointRadius:0,pointHitRadius:8,tension:.22,spanGaps:true};})},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:'#68736c',boxWidth:9,boxHeight:9,font:{family:'IBM Plex Mono',size:9}}},tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+Number(ctx.parsed.y).toLocaleString('en-US',{maximumFractionDigits:3})}}},scales:{x:{ticks:{color:'#78847c',maxTicksLimit:7,maxRotation:0,font:{size:9}},grid:{display:false}},y:{ticks:{color:'#8b9aab',font:{family:'IBM Plex Mono',size:9}},grid:{color:'#e7ece7'}}}}});
- };
- draw('officialRatesChart',['817Y002','DGS10','DGS2']);
- draw('officialFxChart',['731Y003']);
- draw('officialCpiChart',['901Y009']);
- draw('officialGdpChart',['200Y102']);
- draw('officialBaseRateChart',['722Y001']);
- draw('officialFedRateChart',['FEDFUNDS']);
- draw('officialUsCpiChart',['CPIAUCSL']);
- draw('officialUsUnemploymentChart',['UNRATE']);
- draw('officialUsGdpChart',['GDP']);
- draw('officialKoreaLaborChart',['901Y027:employment','901Y027:unemployment']);
- draw('officialTradeChart',['403Y001','403Y003']);
- draw('officialCurrentAccountChart',['301Y013']);
- draw('officialHouseholdCreditChart',['151Y001']);
- draw('officialM2Chart',['161Y006']);
+/* ---------- 카드 정의 ---------- */
+const C={g:'#00a875',b:'#3b6fd4',a:'#d9962b',r:'#d45c62'};
+const fmt=(d,u)=>v=>Number(v).toLocaleString('ko-KR',{maximumFractionDigits:d,minimumFractionDigits:d})+(u||'');
+const CARDS=[
+ {box:'g-rates',id:'fx',title:'원/달러 환율',freq:'D',win:'1y',type:'line',
+  series:[{id:'731Y003',label:'원/달러',color:C.g}],val:fmt(1),unit:'원',delta:{mode:'diff',d:1,u:'원'}},
+ {box:'g-rates',id:'rates',title:'국채금리 한국 vs 미국',freq:'D',win:'1y',type:'line',
+  series:[{id:'817Y002',label:'국고채 3년',color:C.g},{id:'DGS10',label:'미국 10년',color:C.b}],val:fmt(2),unit:'%'},
+ {box:'g-rates',id:'policy',title:'기준금리 한국 vs 미국',freq:'M',win:'1y',type:'line',step:true,
+  series:[{id:'722Y001',label:'한국',color:C.g},{id:'FEDFUNDS',label:'미국',color:C.b}],val:fmt(2),unit:'%'},
+
+ {box:'g-real',id:'gdp',title:'실질 GDP 성장률 (전기비)',freq:'Q',win:'8q',type:'bar',
+  series:[{id:'200Y102',label:'성장률',color:C.g}],val:fmt(1),unit:'%',labels:fmt(1)},
+ {box:'g-real',id:'cpi',title:'소비자물가 상승률 (전년동월비)',freq:'M',win:'12m',type:'line',yoy:true,
+  series:[{id:'901Y009',label:'한국',color:C.g},{id:'CPIAUCSL',label:'미국',color:C.b}],val:fmt(1),unit:'%'},
+ {box:'g-real',id:'unemp',title:'실업률 한국 vs 미국',freq:'M',win:'1y',type:'line',
+  series:[{id:'901Y027:unemployment',label:'한국',color:C.g},{id:'UNRATE',label:'미국',color:C.b}],val:fmt(1),unit:'%'},
+ {box:'g-real',id:'emp',title:'한국 고용률',freq:'M',win:'1y',type:'line',
+  series:[{id:'901Y027:employment',label:'고용률',color:C.g}],val:fmt(1),unit:'%',delta:{mode:'diff',d:1,u:'%p'}},
+
+ {box:'g-money',id:'ca',title:'경상수지',freq:'M',win:'12m',type:'bar',
+  series:[{id:'301Y013',label:'경상수지',color:C.g}],scale:1/100,val:fmt(0),unit:'억$',labels:fmt(0),delta:{mode:'diff',d:0,u:'억$'}},
+ {box:'g-money',id:'trade',title:'수출·수입 금액지수 (2020=100)',freq:'M',win:'1y',type:'line',
+  series:[{id:'403Y001',label:'수출',color:C.g},{id:'403Y003',label:'수입',color:C.a}],val:fmt(0),unit:''},
+ {box:'g-money',id:'hh',title:'가계신용 잔액',freq:'Q',win:'8q',type:'bar',
+  series:[{id:'151Y001',label:'가계신용',color:C.a}],scale:1/1000,val:fmt(0),unit:'조원',labels:fmt(0),delta:{mode:'pct',d:1}},
+ {box:'g-money',id:'m2',title:'광의통화(M2)',freq:'M',win:'1y',type:'line',
+  series:[{id:'161Y006',label:'M2',color:C.b}],scale:1/1000,val:fmt(0),unit:'조원',delta:{mode:'pct',d:1}}
+];
+
+/* ---------- 날짜 처리 ---------- */
+const pad=n=>String(n).padStart(2,'0');
+function norm(raw){
+  const s=String(raw||'');
+  if(/^\d{8}$/.test(s))return s.slice(0,4)+'-'+s.slice(4,6)+'-'+s.slice(6,8);
+  if(/^\d{6}$/.test(s))return s.slice(0,4)+'-'+s.slice(4,6)+'-01';
+  const q=s.match(/^(\d{4})Q([1-4])$/);
+  if(q)return q[1]+'-'+pad((Number(q[2])-1)*3+1)+'-01';
+  return s.slice(0,10);
 }
-async function loadOfficial(){const status=document.getElementById('officialStatus');try{const res=await fetch('./data/official-macro.json?ts='+Date.now());if(!res.ok)throw Error('HTTP '+res.status);const data=await res.json();const rows=[...(data.ecos||[]),...(data.fred||[])];const host=document.getElementById('officialCards');if(rows.length){host.innerHTML=rows.map(x=>{const val=Number(x.value);const names={'한국은행 기준금리':'한국은행 기준금리','원/달러 환율 매매기준율':'원/달러 환율','국고채 3년물 수익률':'국고채 3년물 금리','소비자물가지수(총지수)':'소비자물가지수(총지수)','실질 국내총생산 성장률(전기대비)':'실질 GDP 성장률(전기대비)','고용률':'고용률','실업률(한국)':'실업률(한국)','경상수지':'경상수지','가계신용':'가계신용','광의통화(M2)':'광의통화(M2)','수출금액지수':'수출금액지수','수입금액지수':'수입금액지수','US 10Y Treasury':'미국 국채 10년물','미국 2년물 Treasury':'미국 국채 2년물','Federal Funds Rate':'미국 정책금리','US CPI':'미국 소비자물가','US Unemployment':'미국 실업률','US GDP':'미국 국내총생산'};const formatted=Number.isFinite(val)?val.toLocaleString('ko-KR',{maximumFractionDigits:2}):'—';const rawDate=String(x.date||'');const displayDate=/^\\d{6}$/.test(rawDate)?rawDate.slice(0,4)+'년 '+Number(rawDate.slice(4,6))+'월':/^\\d{8}$/.test(rawDate)?rawDate.slice(0,4)+'.'+rawDate.slice(4,6)+'.'+rawDate.slice(6,8):/^\\d{4}Q[1-4]$/.test(rawDate)?rawDate.slice(0,4)+'년 '+rawDate.slice(4)+'분기':rawDate;return '<div class="card official-card"><div class="official-label">'+(names[x.name]||x.name)+'</div><div class="official-value">'+formatted+'</div><div class="official-foot">'+((x.unit||'').replace('KRW per USD','원/달러').replace('USD bn, SAAR','십억 달러(연율)'))+' · 기준일 '+displayDate+' · '+(x.source==='ECOS'?'한국은행':'미국 FRED')+'</div></div>';}).join('');}else{host.innerHTML='<div class="card official-card"><div class="official-label">공식 통계</div><div class="official-value">API 키 설정 대기</div><div class="official-foot">한국은행 ECOS / 미국 FRED</div></div>';}const sourceAge=stamp=>{const t=stamp?new Date(stamp):null;if(!t||Number.isNaN(t.getTime()))return '자료 이력 없음';const hours=Math.max(0,(Date.now()-t.getTime())/3600000);return (hours<=30?'최신':hours<=48?'주의':'지연')+' · '+hours.toFixed(1)+'시간';};const fredStamp=data.fred_updated_at_utc||data.updated_at_utc;const ecosStamp=data.ecos_updated_at_utc||data.updated_at_utc;document.getElementById('officialAsOf').textContent='한국은행 '+sourceAge(ecosStamp)+' · 미국 FRED '+sourceAge(fredStamp);const collectedAt=data.updated_at_utc?new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.updated_at_utc))+' KST':'—';status.textContent='한국은행 ECOS: '+(data.ecos_status||'—')+' · 미국 FRED: '+(data.fred_status||'—')+' · 최종 수집 시각: '+collectedAt;drawOfficialCharts(data);}catch(err){status.textContent='공식 통계 파일 대기 중 · '+err.message;}}
-function clock(){document.getElementById('clock').textContent=new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date())+' KST';}clock();setInterval(clock,1000);loadMacro();loadOfficial();setInterval(loadMacro,6*60*60*1000);setInterval(loadOfficial,6*60*60*1000);
-</script></body></html>
+const shortLabel=(iso,f)=>{const y=iso.slice(2,4),m=Number(iso.slice(5,7)),d=Number(iso.slice(8,10));
+  if(f==='D')return m+'.'+d; if(f==='M')return m===1?"'"+y+'.1':String(m)+'월'; return "'"+y+' '+Math.ceil(m/3)+'Q';};
+const whenLabel=(iso,f)=>{const y=iso.slice(2,4),m=Number(iso.slice(5,7)),d=Number(iso.slice(8,10));
+  if(f==='D')return m+'월 '+d+'일'; if(f==='M')return y+'년 '+m+'월'; return y+'년 '+Math.ceil(m/3)+'분기';};
+
+/* ---------- 데이터 가공 ---------- */
+function getSeries(data,id,spec){
+  const all=[...(data.ecos||[]),...(data.fred||[])];
+  const row=all.find(x=>x.series===id);
+  if(!row||!Array.isArray(row.history))return [];
+  let pts=row.history.map(p=>({t:norm(p.date),v:Number(p.value)})).filter(p=>Number.isFinite(p.v));
+  if(spec.yoy){
+    const byMonth=new Map(pts.map(p=>[p.t.slice(0,7),p.v]));
+    pts=pts.map(p=>{const prev=byMonth.get((Number(p.t.slice(0,4))-1)+p.t.slice(4,7));return prev?{t:p.t,v:(p.v/prev-1)*100}:null}).filter(Boolean);
+  }
+  if(spec.scale)pts=pts.map(p=>({t:p.t,v:p.v*spec.scale}));
+  const w=spec.win;
+  if(w==='1y'){const c=new Date();c.setFullYear(c.getFullYear()-1);const cut=c.toISOString().slice(0,10);pts=pts.filter(p=>p.t>=cut);}
+  else if(w==='12m'&&pts.length){const l=pts[pts.length-1].t;const c=new Date(l.slice(0,4),Number(l.slice(5,7))-12,1);const cut=c.getFullYear()+'-'+pad(c.getMonth()+1)+'-01';pts=pts.filter(p=>p.t>cut);}
+  else if(w==='8q')pts=pts.slice(-8);
+  return pts;
+}
+
+/* ---------- 렌더 ---------- */
+const charts={};
+const barLabels={id:'barLabels',afterDatasetsDraw(chart,_a,opts){
+  if(!opts||!opts.fmt)return;const {ctx}=chart;ctx.save();ctx.font='700 12px '+getComputedStyle(document.body).fontFamily;ctx.fillStyle='#3d4a42';ctx.textAlign='center';
+  chart.getDatasetMeta(0).data.forEach((bar,i)=>{const v=chart.data.datasets[0].data[i];if(v==null)return;const up=v>=0;ctx.textBaseline=up?'bottom':'top';ctx.fillText(opts.fmt(v),bar.x,up?bar.y-3:bar.y+3);});ctx.restore();}};
+
+function cardHtml(spec,sets){
+  const first=sets[0];const last=first.pts[first.pts.length-1];
+  let vals='';
+  if(sets.length===1){
+    const s=sets[0];const cur=s.pts[s.pts.length-1],prev=s.pts[s.pts.length-2];
+    let delta='';
+    if(spec.delta&&prev){
+      const dv=spec.delta.mode==='pct'?(cur.v/prev.v-1)*100:cur.v-prev.v;
+      const arrow=dv>0?'▲':dv<0?'▼':'–';
+      const d=Math.abs(dv).toLocaleString('ko-KR',{maximumFractionDigits:spec.delta.d??1,minimumFractionDigits:spec.delta.d??1});
+      delta='<span class="delta">'+arrow+' '+d+(spec.delta.mode==='pct'?'%':spec.delta.u||'')+'</span>';
+    }
+    vals='<div class="vals"><span class="big">'+spec.val(cur.v)+(spec.unit?'<small>'+spec.unit+'</small>':'')+'</span>'+delta+'</div>';
+  }else{
+    vals='<div class="vals">'+sets.map(s=>{const cur=s.pts[s.pts.length-1];return '<span class="lg"><i style="background:'+s.color+'"></i>'+s.label+' <b>'+spec.val(cur.v)+(spec.unit?'<small>'+spec.unit+'</small>':'')+'</b></span>';}).join('')+'</div>';
+  }
+  return '<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+whenLabel(last.t,spec.freq)+'</div></div>'+vals+'<div class="chart"><canvas></canvas></div>';
+}
+
+function drawCard(spec,data){
+  const host=document.getElementById(spec.box);
+  let el=document.getElementById('c-'+spec.id);
+  if(!el){el=document.createElement('div');el.className='card';el.id='c-'+spec.id;host.appendChild(el);}
+  if(charts[spec.id]){charts[spec.id].destroy();delete charts[spec.id];}
+  const sets=spec.series.map(s=>({...s,pts:getSeries(data,s.id,spec)})).filter(s=>s.pts.length);
+  if(!sets.length){el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div></div><div class="empty">데이터 수집 대기</div>';return;}
+  el.innerHTML=cardHtml(spec,sets);
+  const labels=[...new Set(sets.flatMap(s=>s.pts.map(p=>p.t)))].sort();
+  const single=sets.length===1,isBar=spec.type==='bar';
+  const datasets=sets.map(s=>{const m=new Map(s.pts.map(p=>[p.t,p.v]));const arr=labels.map(t=>m.has(t)?m.get(t):null);
+    if(isBar)return {data:arr,backgroundColor:arr.map(v=>v!=null&&v<0?C.r:s.color),borderRadius:6,maxBarThickness:34};
+    return {label:s.label,data:arr,borderColor:s.color,backgroundColor:s.color+'22',borderWidth:3,pointRadius:0,pointHitRadius:14,tension:spec.step?0:.25,stepped:spec.step?'before':false,spanGaps:true,fill:single};});
+  const canvas=el.querySelector('canvas');
+  const tick={color:'#5f6b64',font:{size:13,family:getComputedStyle(document.body).fontFamily}};
+  charts[spec.id]=new Chart(canvas,{type:isBar?'bar':'line',data:{labels,datasets},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:isBar?18:4}},interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},barLabels:{fmt:isBar?spec.labels:null},
+        tooltip:{titleFont:{size:14},bodyFont:{size:15,weight:'700'},padding:10,displayColors:!single,
+          callbacks:{title:items=>whenLabel(items[0].label,spec.freq),label:c=>(single?'':c.dataset.label+' ')+spec.val(c.parsed.y)+(spec.unit?' '+spec.unit:'')}}},
+      scales:{x:{ticks:{...tick,maxTicksLimit:isBar?8:5,maxRotation:0,autoSkip:true,callback(v){return shortLabel(this.getLabelForValue(v),spec.freq);}},grid:{display:false},border:{display:false}},
+              y:{ticks:{...tick,maxTicksLimit:5,callback:v=>Number(v).toLocaleString('ko-KR',{maximumFractionDigits:1})},grid:{color:'#edf1ed'},border:{display:false},position:'right'}}},
+    plugins:[barLabels]});
+}
+
+/* ---------- 상태 표시 ---------- */
+function showStatus(data){
+  const t=data.updated_at_utc?new Date(data.updated_at_utc):null;
+  const stamp=document.getElementById('stamp');
+  if(t&&!Number.isNaN(t.getTime())){
+    const hours=(Date.now()-t.getTime())/3600000;
+    const k=new Date(t.getTime()+9*3600000);
+    document.getElementById('stampText').textContent=(k.getUTCMonth()+1)+'/'+k.getUTCDate()+' '+pad(k.getUTCHours())+':'+pad(k.getUTCMinutes())+' 갱신';
+    stamp.classList.toggle('old',hours>30);
+  }
+  const bad=[];
+  if(data.ecos_status&&data.ecos_status!=='OK')bad.push('한국은행 일부 지연');
+  if(data.fred_status&&data.fred_status!=='OK')bad.push('FRED 일부 지연');
+  const n=document.getElementById('notice');
+  n.textContent=bad.length?bad.join(' · ')+' — 직전 수집값 표시 중':'';
+  n.classList.toggle('on',bad.length>0);
+}
+
+let lastLoad=0;
+async function load(){
+  try{
+    const res=await fetch('./data/official-macro.json?ts='+Date.now(),{cache:'no-store'});
+    if(!res.ok)throw Error('HTTP '+res.status);
+    const data=await res.json();
+    showStatus(data);
+    CARDS.forEach(c=>drawCard(c,data));
+    lastLoad=Date.now();
+  }catch(err){
+    const n=document.getElementById('notice');n.textContent='데이터를 불러오지 못했습니다 ('+err.message+'). 새로고침해 주세요.';n.classList.add('on');
+  }
+}
+load();
+setInterval(load,30*60*1000);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&Date.now()-lastLoad>10*60*1000)load();});
+</script>
+</body></html>
