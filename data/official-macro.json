@@ -1,9 +1,9 @@
 {
-  "updated_at_utc": "2026-10-31T21:31:42+00:00",
-  "fred_updated_at_utc": "2026-10-31T21:31:42+00:00",
-  "ecos_updated_at_utc": "2026-10-31T16:58:15+00:00",
+  "updated_at_utc": "2026-11-01T01:36:30+00:00",
+  "fred_updated_at_utc": "2026-11-01T01:36:30+00:00",
+  "ecos_updated_at_utc": "2026-11-01T01:36:30+00:00",
   "fred_status": "OK",
-  "ecos_status": "REFRESH FAILED; retained previous data — 한국은행 기준금리: <urlopen error timed out>; 원/달러 환율 매매기준율: <urlopen error timed out>; 국고채 3년물 수익률: <urlopen error timed out>",
+  "ecos_status": "OK",
   "fred": [
     {
       "name": "US 10Y Treasury",
@@ -1806,6 +1806,156 @@
         {
           "date": "20261030",
           "value": 3.715
+        }
+      ]
+    },
+    {
+      "name": "소비자물가지수(총지수)",
+      "series": "901Y009",
+      "date": "202609",
+      "value": 120.43,
+      "unit": "2020=100",
+      "source": "ECOS",
+      "history": [
+        {
+          "date": "202311",
+          "value": 112.68
+        },
+        {
+          "date": "202312",
+          "value": 112.73
+        },
+        {
+          "date": "202401",
+          "value": 113.17
+        },
+        {
+          "date": "202402",
+          "value": 113.78
+        },
+        {
+          "date": "202403",
+          "value": 113.95
+        },
+        {
+          "date": "202404",
+          "value": 114.01
+        },
+        {
+          "date": "202405",
+          "value": 114.1
+        },
+        {
+          "date": "202406",
+          "value": 113.84
+        },
+        {
+          "date": "202407",
+          "value": 114.13
+        },
+        {
+          "date": "202408",
+          "value": 114.54
+        },
+        {
+          "date": "202409",
+          "value": 114.65
+        },
+        {
+          "date": "202410",
+          "value": 114.69
+        },
+        {
+          "date": "202411",
+          "value": 114.4
+        },
+        {
+          "date": "202412",
+          "value": 114.91
+        },
+        {
+          "date": "202501",
+          "value": 115.71
+        },
+        {
+          "date": "202502",
+          "value": 116.08
+        },
+        {
+          "date": "202503",
+          "value": 116.29
+        },
+        {
+          "date": "202504",
+          "value": 116.38
+        },
+        {
+          "date": "202505",
+          "value": 116.27
+        },
+        {
+          "date": "202506",
+          "value": 116.31
+        },
+        {
+          "date": "202507",
+          "value": 116.52
+        },
+        {
+          "date": "202508",
+          "value": 116.45
+        },
+        {
+          "date": "202509",
+          "value": 117.06
+        },
+        {
+          "date": "202510",
+          "value": 117.42
+        },
+        {
+          "date": "202511",
+          "value": 117.2
+        },
+        {
+          "date": "202512",
+          "value": 117.57
+        },
+        {
+          "date": "202601",
+          "value": 118.03
+        },
+        {
+          "date": "202602",
+          "value": 118.4
+        },
+        {
+          "date": "202603",
+          "value": 118.8
+        },
+        {
+          "date": "202604",
+          "value": 119.37
+        },
+        {
+          "date": "202605",
+          "value": 119.92
+        },
+        {
+          "date": "202606",
+          "value": 119.99
+        },
+        {
+          "date": "202607",
+          "value": 119.77
+        },
+        {
+          "date": "202608",
+          "value": 120.05
+        },
+        {
+          "date": "202609",
+          "value": 120.43
         }
       ]
     }
