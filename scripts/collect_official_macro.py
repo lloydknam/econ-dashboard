@@ -407,7 +407,7 @@ def collect_kosis():
 # ------------------------------------------------------- OpenFiscal (열린재정) ----
 def fetch_openfiscal_year(key, year):
     """Sum 세출예산(확정) by 분야 and 소관(부처) for one fiscal year; amounts converted from 천원 to 조원."""
-    by_fld, by_off, total, page, got = {}, {}, 0.0, 1, 0
+    by_fld, by_off, by_ep, total, page, got = {}, {}, {}, 0.0, 1, 0
     while True:
         url = "https://openapi.openfiscaldata.go.kr/ExpenditureBudgetInit5?" + urllib.parse.urlencode({
             "Key": key, "Type": "json", "pIndex": page, "pSize": 1000, "FSCL_YY": year})
@@ -431,13 +431,15 @@ def fetch_openfiscal_year(key, year):
                 continue
             v = float(amt) / 1e9
             total += v
+            ep_key = f'{r.get("FIN_DE_EP_NM") or "-"}:{r.get("FSCL_NM") or "-"}'
+            by_ep[ep_key] = by_ep.get(ep_key, 0.0) + v
             by_fld[r.get("FLD_NM") or "기타"] = by_fld.get(r.get("FLD_NM") or "기타", 0.0) + v
             by_off[r.get("OFFC_NM") or "기타"] = by_off.get(r.get("OFFC_NM") or "기타", 0.0) + v
         got += len(rows)
         if not rows or got >= count:
             break
         page += 1
-    return total, by_fld, by_off
+    return total, by_fld, by_off, by_ep
 
 
 def collect_fiscal(previous_rows):
@@ -450,13 +452,13 @@ def collect_fiscal(previous_rows):
     for r in previous_rows:
         names[r["series"]] = r.get("name", r["series"])
         table[r["series"]] = {h["date"]: h["value"] for h in r.get("history", [])}
-    cached = set(table.get("OF:TOTAL", {}))
+    cached = set.intersection(*[set(h) for sid, h in table.items() if sid.startswith("OF:EP:")]) if any(sid.startswith("OF:EP:") for sid in table) else set()
     errors = []
     for year in range(this_year - 6, this_year + 1):
         if str(year) in cached and year < this_year - 1:
             continue  # settled years are not refetched
         try:
-            total, fld, off = fetch_openfiscal_year(key, year)
+            total, fld, off, ep = fetch_openfiscal_year(key, year)
         except Exception as exc:
             errors.append(f"{year}: {exc}")
             continue
@@ -465,6 +467,9 @@ def collect_fiscal(previous_rows):
         for nm, v in fld.items():
             table.setdefault("OF:FLD:" + nm, {})[str(year)] = v
             names["OF:FLD:" + nm] = nm
+        for nm, v in ep.items():
+            table.setdefault("OF:EP:" + nm, {})[str(year)] = v
+            names["OF:EP:" + nm] = nm
         for nm, v in off.items():
             table.setdefault("OF:OFFC:" + nm, {})[str(year)] = v
             names["OF:OFFC:" + nm] = nm
