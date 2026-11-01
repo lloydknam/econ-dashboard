@@ -1,0 +1,391 @@
+{
+ "KXSKEXPYOY": {
+  "n": 0,
+  "markets": []
+ },
+ "KXCBDECISIONKOREA": {
+  "n": 5,
+  "markets": [
+   {
+    "ticker": "KXCBDECISIONKOREA-26NOV25-HOLD",
+    "event_ticker": "KXCBDECISIONKOREA-26NOV25",
+    "title": "Will the Bank of Korea maintain the current rate at the November Monetary Policy Board meeting?",
+    "subtitle": null,
+    "yes_sub_title": "Maintain current rate",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2026-11-26T01:59:00Z",
+    "expiration_time": "2026-12-03T02:00:00Z"
+   },
+   {
+    "ticker": "KXCBDECISIONKOREA-26NOV25-H25P",
+    "event_ticker": "KXCBDECISIONKOREA-26NOV25",
+    "title": "Will the Bank of Korea hike more than 25bps at the November Monetary Policy Board meeting?",
+    "subtitle": null,
+    "yes_sub_title": "Hike more than 25bps",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2026-11-26T01:59:00Z",
+    "expiration_time": "2026-12-03T02:00:00Z"
+   },
+   {
+    "ticker": "KXCBDECISIONKOREA-26NOV25-H25",
+    "event_ticker": "KXCBDECISIONKOREA-26NOV25",
+    "title": "Will the Bank of Korea hike 1-25bps at the November Monetary Policy Board meeting?",
+    "subtitle": null,
+    "yes_sub_title": "Hike 1-25bps",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2026-11-26T01:59:00Z",
+    "expiration_time": "2026-12-03T02:00:00Z"
+   },
+   {
+    "ticker": "KXCBDECISIONKOREA-26NOV25-C25P",
+    "event_ticker": "KXCBDECISIONKOREA-26NOV25",
+    "title": "Will the Bank of Korea cut more than 25bps at the November Monetary Policy Board meeting?",
+    "subtitle": null,
+    "yes_sub_title": "Cut more than 25bps",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2026-11-26T01:59:00Z",
+    "expiration_time": "2026-12-03T02:00:00Z"
+   },
+   {
+    "ticker": "KXCBDECISIONKOREA-26NOV25-C25",
+    "event_ticker": "KXCBDECISIONKOREA-26NOV25",
+    "title": "Will the Bank of Korea cut 1-25bps at the November Monetary Policy Board meeting?",
+    "subtitle": null,
+    "yes_sub_title": "Cut 1-25bps",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2026-11-26T01:59:00Z",
+    "expiration_time": "2026-12-03T02:00:00Z"
+   }
+  ]
+ },
+ "KXKS200D": {
+  "n": 0,
+  "markets": []
+ },
+ "KXKS200W": {
+  "n": 0,
+  "markets": []
+ },
+ "KXKS200M": {
+  "n": 0,
+  "markets": []
+ },
+ "KXKS200A": {
+  "n": 0,
+  "markets": []
+ },
+ "KXKS200H": {
+  "n": 0,
+  "markets": []
+ },
+ "KXKS200L": {
+  "n": 0,
+  "markets": []
+ },
+ "KXKR200": {
+  "n": 0,
+  "markets": []
+ },
+ "KXKOSPI": {
+  "n": 2,
+  "markets": [
+   {
+    "ticker": "KXKOSPI-26DEC31-9500",
+    "event_ticker": "KXKOSPI-26DEC31",
+    "title": "Will the KOSPI Composite Index be at least ₩9,500 in 2026?",
+    "subtitle": null,
+    "yes_sub_title": "At least ₩9,500",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2027-01-01T15:00:00Z",
+    "expiration_time": "2027-01-08T15:00:00Z"
+   },
+   {
+    "ticker": "KXKOSPI-26DEC31-9400",
+    "event_ticker": "KXKOSPI-26DEC31",
+    "title": "Will the KOSPI Composite Index be at least ₩9,400 in 2026?",
+    "subtitle": null,
+    "yes_sub_title": "At least ₩9,400",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2027-01-01T15:00:00Z",
+    "expiration_time": "2027-01-08T15:00:00Z"
+   }
+  ]
+ },
+ "KXKOSPIPOS": {
+  "n": 0,
+  "markets": []
+ },
+ "KXTARIFFRATEKR": {
+  "n": 0,
+  "markets": []
+ },
+ "KXFERTILITYSK": {
+  "n": 0,
+  "markets": []
+ },
+ "KXCAPITALMOVESK": {
+  "n": 0,
+  "markets": []
+ },
+ "KXSKPRES": {
+  "n": 0,
+  "markets": []
+ },
+ "KXKOREAPRES": {
+  "n": 12,
+  "markets": [
+   {
+    "ticker": "KXKOREAPRES-30MAR27-OSEH",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Oh Se-hoon win the next South Korean presidential election?",
+    "subtitle": ":: People Power Party",
+    "yes_sub_title": "Oh Se-hoon",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-LJUN",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Lee Jun-seok win the next South Korean presidential election?",
+    "subtitle": ":: Reform Party",
+    "yes_sub_title": "Lee Jun-seok",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-LJIN",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Lee Jin-sook win the next South Korean presidential election?",
+    "subtitle": ":: People Power Party",
+    "yes_sub_title": "Lee Jin-sook",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-KMIN",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Kim Min-seok win the next South Korean presidential election?",
+    "subtitle": ":: Democratic Party of Korea",
+    "yes_sub_title": "Kim Min-seok",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-KHOO",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Kang Hoon-sik win the next South Korean presidential election?",
+    "subtitle": ":: Democratic Party of Korea",
+    "yes_sub_title": "Kang Hoon-sik",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-KBOO",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Kim Boo-kyum win the next South Korean presidential election?",
+    "subtitle": ":: Democratic Party of Korea",
+    "yes_sub_title": "Kim Boo-kyum",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-JDON",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Jang Dong-hyeok win the next South Korean presidential election?",
+    "subtitle": ":: People Power Party",
+    "yes_sub_title": "Jang Dong-hyeok",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-JCHU",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Jung Chung-rae win the next South Korean presidential election?",
+    "subtitle": ":: Democratic Party of Korea",
+    "yes_sub_title": "Jung Chung-rae",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-HDON",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Han Dong-hoon win the next South Korean presidential election?",
+    "subtitle": ":: Independent",
+    "yes_sub_title": "Han Dong-hoon",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-CMIA",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Choo Mi-ae win the next South Korean presidential election?",
+    "subtitle": ":: Democratic Party of Korea",
+    "yes_sub_title": "Choo Mi-ae",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-CKUK",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Cho Kuk win the next South Korean presidential election?",
+    "subtitle": ":: Rebuilding Korea Party",
+    "yes_sub_title": "Cho Kuk",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   },
+   {
+    "ticker": "KXKOREAPRES-30MAR27-ACHE",
+    "event_ticker": "KXKOREAPRES-30MAR27",
+    "title": "Will Ahn Cheol-soo win the next South Korean presidential election?",
+    "subtitle": ":: People Power Party",
+    "yes_sub_title": "Ahn Cheol-soo",
+    "yes_bid": null,
+    "yes_ask": null,
+    "last_price": null,
+    "volume": null,
+    "volume_24h": null,
+    "open_interest": null,
+    "close_time": "2031-03-27T14:00:00Z",
+    "expiration_time": "2031-03-27T14:00:00Z"
+   }
+  ]
+ },
+ "_candles_test": {
+  "series": {
+   "additional_prohibitions": [
+    "Persons who are employed by any of the Source Agencies are not permitted to trade on the Contract.",
+    "Persons who hold any material, non-public information on the Underlying are not permitted to trade on the Contract."
+   ],
+   "categories": [
+    "Economics"
+   ],
+   "category": "Economics",
+   "contract_terms_url": "https://assets.kalshi.com/contract_terms/ECONSTAT.pdf",
+   "contract_url": "https://assets.kalshi.com/regulatory/product-certifications/ECONSTAT.pdf",
+   "exchange_index": 0,
+   "fee_multiplier": 1,
+   "fee_type": "quadratic",
+   "frequency": "monthly",
+   "last_updated_ts": "2026-10-23T18:27:49.173187Z",
+   "product_metadata": {
+    "scope": "Calendar"
+   },
+   "settlement_sources": [
+    {
+     "name": "Bureau of Labor Statistics- Employment Situation",
+     "url": "https://www.bls.gov/news.release/empsit.nr0.htm"
+    },
+    {
+     "name": "Bureau of Labor Statistics- Consumer Price Index",
+     "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
+    }
+   ],
+   "tags": [
+    "Growth"
+   ],
+   "ticker": "KXSKEXPYOY",
+   "title": "South Korea exports YoY"
+  }
+ }
+}
