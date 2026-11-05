@@ -693,6 +693,8 @@ const fmtVol=v=>v>=1e4?(v/1e4).toFixed(v>=1e5?0:1)+'만':Math.round(v).toLocaleS
 const fmtUsd=v=>'$'+(v>=1e4?(v/1e4).toFixed(v>=1e5?0:1)+'만':Math.round(v).toLocaleString('en-US'));
 const pmRows=(data,g)=>((data&&data.kalshi)||[]).filter(r=>r.group===g).sort((a,b)=>b.value-a.value);
 const hasData=c=>c.pm?pmRows(lastData,c.pm).length>0:c.series.some(s=>getSeries(lastData,s.id,c).length);
+const repAt=ord=>{const dates=[...new Set(ord.flatMap(r=>(r.history||[]).map(h=>norm(h.date))))].sort();
+  return dates.map(t=>{let best=null;ord.forEach(r=>{const h=(r.history||[]).find(x=>norm(x.date)===t);if(h&&(best===null||Number(h.value)>best.v))best={t,v:Number(h.value),name:r.name};});return best;}).filter(Boolean);};
 function drawPM(spec,data){
   const host=document.getElementById(spec.box);
   let el=document.getElementById('c-'+spec.id);
@@ -706,21 +708,21 @@ function drawPM(spec,data){
   const days=Math.max(...ord.map(r=>(r.history||[]).length));
   if(charts[spec.id]){charts[spec.id].destroy();delete charts[spec.id];}
   const ct=(ord[0].close_time||'').slice(0,10);
-  el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+(ct?whenLabel(ct,'D')+' 마감':'')+'</div></div><div class="pm">'+ord.map(r=>{
+  el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+(ct?whenLabel(ct,'D')+' 마감':'')+'</div></div><div style="font-size:12px;color:#5f6b64;margin:2px 2px 4px">대표 · <b>'+(rep.length?rep[rep.length-1].name:'-')+'</b> <strong style="color:#006b49;font-size:15px">'+(rep.length?Math.round(rep[rep.length-1].v):'-')+'%</strong></div><div class="pm">'+ord.map(r=>{
     const h=r.history||[],p=h.length>1?h[h.length-2].value:null,dv=p==null?null:Math.round((r.value-p)*10)/10;
     const col=PMC[ord.indexOf(r)%PMC.length];
     return '<a class="r" href="'+KLINK(r)+'" target="_blank" rel="noopener" title="거래 '+fmtUsd(Number(r.volume_usd)||0)+' · Kalshi 원본 차트 열기"><span><u style="background:'+col+'"></u>'+r.name+'</span><div class="t"><i style="width:'+Math.max(2,r.value/mx*100)+'%;background:'+col+'"></i></div><b>'+Math.round(r.value)+'%'+(dv?'<em class="d '+(dv>0?'u':'n')+'">'+(dv>0?'▲':'▼')+Math.abs(dv)+'</em>':'')+'</b></a>';}).join('')+'</div>'+(days>1?'<div class="chart pmc"><canvas></canvas></div>':'')+'<div class="pm-f"><a href="'+KLINK(ord[0])+'" target="_blank" rel="noopener">Kalshi 원본 ↗</a> · '+(spec.note||'확률(%)')+' · 거래 '+fmtUsd(vol)+' · '+(days>1?'일별 추이 '+days+'일':'오늘부터 매일 기록 · 그래프는 2일째부터')+'</div>';
+  const rep=repAt(ord);
   if(days>1){
     const make=()=>{
-      const labels=[...new Set(ord.flatMap(r=>(r.history||[]).map(h=>norm(h.date))))].sort();
-      const ds=ord.map((r,i)=>{const m=new Map((r.history||[]).map(h=>[norm(h.date),Number(h.value)]));
-        return {label:r.name,data:labels.map(t=>m.has(t)?m.get(t):null),borderColor:PMC[i%PMC.length],backgroundColor:PMC[i%PMC.length],borderWidth:2,pointRadius:labels.length<8?3:0,pointHitRadius:12,pointHoverRadius:4,tension:.25,spanGaps:true};});
+      const labels=rep.map(x=>x.t);
+      const ds=[{label:'대표',data:rep.map(x=>x.v),borderColor:PMC[0],backgroundColor:PMC[0],borderWidth:2,pointRadius:labels.length<8?3:0,pointHitRadius:12,pointHoverRadius:4,tension:.25,spanGaps:true}];
       const tick={color:'#5f6b64',font:{size:FS,family:FONT}};
       charts[spec.id]=new Chart(el.querySelector('canvas'),{type:'line',data:{labels,datasets:ds},options:{responsive:true,maintainAspectRatio:false,animation:false,
         interaction:{mode:'index',intersect:false},
-        plugins:{legend:{display:false},tooltip:{enabled:true,bodyFont:{size:FS},titleFont:{size:FS},padding:6,callbacks:{title:i=>whenLabel(i[0].label,'D'),label:c=>' '+c.dataset.label+' '+c.parsed.y+'%'}}},
+        plugins:{legend:{display:false},tooltip:{enabled:true,bodyFont:{size:FS},titleFont:{size:FS},padding:6,callbacks:{title:i=>whenLabel(i[0].label,'D'),label:c=>' '+rep[c.dataIndex].name+' '+c.parsed.y+'%'}}},
         scales:{x:{ticks:{...tick,maxTicksLimit:4,maxRotation:0,callback(v){return shortLabel(this.getLabelForValue(v),'D');}},grid:{display:false},border:{display:false}},
-                y:{min:0,ticks:{...tick,maxTicksLimit:3,callback:v=>v+'%'},grid:{color:'#edf1ed'},border:{display:false},position:'right'}}}});
+                y:{min:0,max:100,ticks:{...tick,maxTicksLimit:3,callback:v=>v+'%'},grid:{color:'#edf1ed'},border:{display:false},position:'right'}}}});
     };
     if(io){lazy.set(el,make);io.observe(el);}else make();
   }
