@@ -2,5 +2,13 @@
  {"id":"K:debt","name":"국가채무","orgId":"184","tblId":"DT_102006_001","itmId":"T001","objL1":"A01","prdSe":"Y","count":15},
  {"id":"K:debt_gdp","name":"국가채무 GDP 대비","orgId":"184","tblId":"DT_102006_001","itmId":"T001","objL1":"A02","prdSe":"Y","count":15},
  {"id":"K:debt_central","name":"중앙정부 채무","orgId":"184","tblId":"DT_102006_001","itmId":"T001","objL1":"A03","prdSe":"Y","count":15},
- {"id":"K:debt_local","name":"지방정부 순채무","orgId":"184","tblId":"DT_102006_001","itmId":"T001","objL1":"A10","prdSe":"Y","count":15}
+ {"id":"K:debt_local","name":"지방정부 순채무","orgId":"184","tblId":"DT_102006_001","itmId":"T001","objL1":"A10","prdSe":"Y","count":15},
+ {"id":"K:emp_rate","name":"고용률","itmId":"T90","orgId":"101","tblId":"DT_1DA7002S","objL1":"00","prdSe":"M","count":36},
+ {"id":"K:unemp_rate","name":"실업률","itmId":"T80","orgId":"101","tblId":"DT_1DA7002S","objL1":"00","prdSe":"M","count":36},
+ {"id":"K:part_rate","name":"경제활동참가율","itmId":"T60","orgId":"101","tblId":"DT_1DA7002S","objL1":"00","prdSe":"M","count":36},
+ {"id":"K:emp","name":"취업자","itmId":"T30","orgId":"101","tblId":"DT_1DA7002S","objL1":"00","prdSe":"M","count":36},
+ {"id":"K:unemp","name":"실업자","itmId":"T40","orgId":"101","tblId":"DT_1DA7002S","objL1":"00","prdSe":"M","count":36},
+ {"id":"K:econ_act","name":"경제활동인구","itmId":"T20","orgId":"101","tblId":"DT_1DA7002S","objL1":"00","prdSe":"M","count":36},
+ {"id":"K:inactive","name":"비경제활동인구","itmId":"T50","orgId":"101","tblId":"DT_1DA7002S","objL1":"00","prdSe":"M","count":36},
+ {"id":"K:pop","name":"15세 이상 인구","itmId":"T10","orgId":"101","tblId":"DT_1DA7002S","objL1":"00","prdSe":"M","count":36}
 ]
