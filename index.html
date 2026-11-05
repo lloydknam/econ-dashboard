@@ -459,7 +459,7 @@ K('g-emp','et52','일용근로자','M',[['K:st_52','일용근로자']],{d:0,unit
 /* 예측시장 (Kalshi) */
 CARDS.push({box:'g-pm',id:'pm_bok',title:'금통위 결과 예상',freq:'D',pm:'KXCBDECISIONKOREA',top:5,order:['C25P','C25','HOLD','H25','H25P'],series:[]});
 CARDS.push({box:'g-pm',id:'pm_kospi',title:'올해 말 코스피 수준',freq:'D',pm:'KXKOSPI',top:6,series:[]});
-CARDS.push({box:'g-pm',id:'pm_pres',title:'차기 대통령 예측',freq:'D',pm:'KXKOREAPRES',top:8,series:[]});
+CARDS.push({box:'g-pm',id:'pm_pres',title:'차기 대통령 예측',freq:'D',pm:'KXKOREAPRES',top:8,series:[],lines:4});
 CARDS.push({box:'g-pm',id:'pm_fed',title:'미국 FOMC 결정',freq:'D',pm:'KXFEDDECISION',top:6,series:[]});
 CARDS.push({box:'g-pm',id:'pm_rec',title:'미국 경기침체',freq:'D',pm:'KXRECSSNBER',top:3,series:[]});
 const LAD='Kalshi · 50% 부근 구간';
@@ -708,12 +708,26 @@ function drawPM(spec,data){
   const days=Math.max(...ord.map(r=>(r.history||[]).length));
   if(charts[spec.id]){charts[spec.id].destroy();delete charts[spec.id];}
   const ct=(ord[0].close_time||'').slice(0,10);
-  el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+(ct?whenLabel(ct,'D')+' 마감':'')+'</div></div><div style="font-size:12px;color:#5f6b64;margin:2px 2px 4px">대표 · <b>'+(rep.length?rep[rep.length-1].name:'-')+'</b> <strong style="color:#006b49;font-size:15px">'+(rep.length?Math.round(rep[rep.length-1].v):'-')+'%</strong></div><div class="pm">'+ord.map(r=>{
+  el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+(ct?whenLabel(ct,'D')+' 마감':'')+'</div></div>'+(spec.lines?'':'<div style="font-size:12px;color:#5f6b64;margin:2px 2px 4px">대표 · <b>'+(rep.length?rep[rep.length-1].name:'-')+'</b> <strong style="color:#006b49;font-size:15px">'+(rep.length?Math.round(rep[rep.length-1].v):'-')+'%</strong></div>')+'<div class="pm">'+ord.map(r=>{
     const h=r.history||[],p=h.length>1?h[h.length-2].value:null,dv=p==null?null:Math.round((r.value-p)*10)/10;
     const col=PMC[ord.indexOf(r)%PMC.length];
     return '<a class="r" href="'+KLINK(r)+'" target="_blank" rel="noopener" title="거래 '+fmtUsd(Number(r.volume_usd)||0)+' · Kalshi 원본 차트 열기"><span><u style="background:'+col+'"></u>'+r.name+'</span><div class="t"><i style="width:'+Math.max(2,r.value/mx*100)+'%;background:'+col+'"></i></div><b>'+Math.round(r.value)+'%'+(dv?'<em class="d '+(dv>0?'u':'n')+'">'+(dv>0?'▲':'▼')+Math.abs(dv)+'</em>':'')+'</b></a>';}).join('')+'</div>'+(days>1?'<div class="chart pmc"><canvas></canvas></div>':'')+'<div class="pm-f"><a href="'+KLINK(ord[0])+'" target="_blank" rel="noopener">Kalshi 원본 ↗</a> · '+(spec.note||'확률(%)')+' · 거래 '+fmtUsd(vol)+' · '+(days>1?'일별 추이 '+days+'일':'오늘부터 매일 기록 · 그래프는 2일째부터')+'</div>';
-  const rep=repAt(ord);
-  if(days>1){
+  const rep=spec.lines?[]:repAt(ord);
+  const lineRows=spec.lines?ord.slice().sort((x,y)=>y.value-x.value).slice(0,spec.lines):ord;
+  if(days>1&&spec.lines){
+    const make=()=>{
+      const labels=[...new Set(lineRows.flatMap(r=>(r.history||[]).map(h=>norm(h.date))))].sort();
+      const ds=lineRows.map((r,i)=>{const m=new Map((r.history||[]).map(h=>[norm(h.date),Number(h.value)]));
+        return {label:r.name,data:labels.map(t=>m.has(t)?m.get(t):null),borderColor:PMC[i%PMC.length],backgroundColor:PMC[i%PMC.length],borderWidth:2,pointRadius:labels.length<8?3:0,pointHitRadius:12,pointHoverRadius:4,tension:.25,spanGaps:true};});
+      const tick={color:'#5f6b64',font:{size:FS,family:FONT}};
+      charts[spec.id]=new Chart(el.querySelector('canvas'),{type:'line',data:{labels,datasets:ds},options:{responsive:true,maintainAspectRatio:false,animation:false,
+        interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false},tooltip:{enabled:true,bodyFont:{size:FS},titleFont:{size:FS},padding:6,callbacks:{title:i=>whenLabel(i[0].label,'D'),label:c=>' '+c.dataset.label+' '+c.parsed.y+'%'}}},
+        scales:{x:{ticks:{...tick,maxTicksLimit:4,maxRotation:0,callback(v){return shortLabel(this.getLabelForValue(v),'D');}},grid:{display:false},border:{display:false}},
+                y:{min:0,max:100,ticks:{...tick,maxTicksLimit:3,callback:v=>v+'%'},grid:{color:'#edf1ed'},border:{display:false},position:'right'}}}});
+    };
+    if(io){lazy.set(el,make);io.observe(el);}else make();
+  }else if(days>1){
     const make=()=>{
       const labels=rep.map(x=>x.t);
       const ds=[{label:'대표',data:rep.map(x=>x.v),borderColor:PMC[0],backgroundColor:PMC[0],borderWidth:2,pointRadius:labels.length<8?3:0,pointHitRadius:12,pointHoverRadius:4,tension:.25,spanGaps:true}];
