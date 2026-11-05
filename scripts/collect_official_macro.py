@@ -101,12 +101,19 @@ def collect_fred():
     key = os.environ.get("FRED_API_KEY", "").strip()
 
     def work(spec):
-        try:
-            return fetch_fred(spec, key), None
-        except Exception as exc:
-            return None, f'{spec.get("id")}: {exc}'
+        # FRED rate-limits bursts from one IP (HTTP 403/429): back off and retry.
+        last = None
+        for attempt in range(4):
+            try:
+                return fetch_fred(spec, key), None
+            except Exception as exc:
+                last = exc
+                if not any(code in str(exc) for code in ("HTTP 403", "HTTP 429", "HTTP 5")):
+                    break
+                time.sleep(3 * (attempt + 1))
+        return None, f'{spec.get("id")}: {last}'
 
-    with ThreadPoolExecutor(WORKERS) as pool:
+    with ThreadPoolExecutor(3) as pool:
         results = list(pool.map(work, specs))
     rows = [r for r, _ in results if r]
     errors = [e for _, e in results if e]
