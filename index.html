@@ -708,12 +708,12 @@ function drawPM(spec,data){
   const days=Math.max(...ord.map(r=>(r.history||[]).length));
   if(charts[spec.id]){charts[spec.id].destroy();delete charts[spec.id];}
   const ct=(ord[0].close_time||'').slice(0,10);
+  const rep=spec.lines?[]:repAt(ord);
+  const lineRows=spec.lines?ord.slice().sort((x,y)=>y.value-x.value).slice(0,spec.lines):ord;
   el.innerHTML='<div class="head"><div class="title">'+spec.title+'</div><div class="when">'+(ct?whenLabel(ct,'D')+' 마감':'')+'</div></div>'+(spec.lines?'':'<div style="font-size:12px;color:#5f6b64;margin:2px 2px 4px">대표 · <b>'+(rep.length?rep[rep.length-1].name:'-')+'</b> <strong style="color:#006b49;font-size:15px">'+(rep.length?Math.round(rep[rep.length-1].v):'-')+'%</strong></div>')+'<div class="pm">'+ord.map(r=>{
     const h=r.history||[],p=h.length>1?h[h.length-2].value:null,dv=p==null?null:Math.round((r.value-p)*10)/10;
     const col=PMC[ord.indexOf(r)%PMC.length];
     return '<a class="r" href="'+KLINK(r)+'" target="_blank" rel="noopener" title="거래 '+fmtUsd(Number(r.volume_usd)||0)+' · Kalshi 원본 차트 열기"><span><u style="background:'+col+'"></u>'+r.name+'</span><div class="t"><i style="width:'+Math.max(2,r.value/mx*100)+'%;background:'+col+'"></i></div><b>'+Math.round(r.value)+'%'+(dv?'<em class="d '+(dv>0?'u':'n')+'">'+(dv>0?'▲':'▼')+Math.abs(dv)+'</em>':'')+'</b></a>';}).join('')+'</div>'+(days>1?'<div class="chart pmc"><canvas></canvas></div>':'')+'<div class="pm-f"><a href="'+KLINK(ord[0])+'" target="_blank" rel="noopener">Kalshi 원본 ↗</a> · '+(spec.note||'확률(%)')+' · 거래 '+fmtUsd(vol)+' · '+(days>1?'일별 추이 '+days+'일':'오늘부터 매일 기록 · 그래프는 2일째부터')+'</div>';
-  const rep=spec.lines?[]:repAt(ord);
-  const lineRows=spec.lines?ord.slice().sort((x,y)=>y.value-x.value).slice(0,spec.lines):ord;
   if(days>1&&spec.lines){
     const make=()=>{
       const labels=[...new Set(lineRows.flatMap(r=>(r.history||[]).map(h=>norm(h.date))))].sort();
