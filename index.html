@@ -31,7 +31,7 @@ body{margin:0;background:var(--bg);color:var(--text);font:400 14px/1.35 var(--sa
 section{scroll-margin-top:calc(var(--hh,90px) + 2px)}
 h2{margin:14px 2px 6px;font-size:19px;font-weight:900;color:#1d2a23;letter-spacing:-.03em;display:flex;align-items:baseline;gap:6px;padding:0 0 4px 9px;border-left:4px solid #00a875;border-bottom:1px solid var(--line)}
 h2 small{font-weight:600;font-size:12px;color:#6b7a72;letter-spacing:-.02em}
-.grid{display:grid;gap:8px;grid-template-columns:minmax(0,1fr)}
+.grid{display:grid;gap:4px;grid-template-columns:repeat(2,minmax(0,1fr))}
 .grid>.card:last-child:nth-child(odd){grid-column:1/-1}
 .card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:5px 6px 1px;min-width:0}
 .card.scrub{border-color:#b8dfcb}
@@ -47,7 +47,7 @@ h2 small{font-weight:600;font-size:12px;color:#6b7a72;letter-spacing:-.02em}
 .lg i{width:7px;height:7px;border-radius:2px;display:inline-block;flex:none}
 .lg b{font-size:14.5px;font-weight:900;color:var(--text);letter-spacing:-.04em;margin-left:auto}
 .lg b small{font-size:10.5px;font-weight:700;margin-left:1px}
-.chart{height:190px;margin-top:2px;position:relative;width:100%;overflow:hidden}
+.chart{height:96px;margin-top:0;position:relative;width:100%;overflow:hidden}
 .chart canvas{touch-action:pan-y!important;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .foot{margin-top:10px;padding-top:8px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:11px;line-height:1.6}
 .foot img{display:block;margin:12px auto 4px;width:min(300px,86vw);height:auto}
@@ -56,6 +56,17 @@ h2 small{font-weight:600;font-size:12px;color:#6b7a72;letter-spacing:-.02em}
 .gear{flex:none;border:0;background:#00a875;border-radius:999px;padding:4px 13px;min-height:0;line-height:1.25;font:900 13px var(--sans);letter-spacing:-.02em;color:#fff;cursor:pointer;box-shadow:0 1px 3px rgba(0,60,40,.25)}
 .gear:active{background:#008b5e}
 .sheet{position:fixed;inset:0;z-index:20;display:none}
+.zm{position:fixed;inset:0;z-index:25;display:none}
+.zm.on{display:block}
+.zm .zbg{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.zm .zpn{position:absolute;left:0;right:0;bottom:0;max-height:92vh;background:var(--bg);border-radius:16px 16px 0 0;display:flex;flex-direction:column;max-width:760px;margin:0 auto}
+.zm header{display:flex;justify-content:flex-end;padding:8px 10px 4px}
+.zm button{font:700 14px var(--sans);border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;color:#44504a;cursor:pointer}
+.zm .zbox{overflow-y:auto;padding:0 8px calc(14px + env(safe-area-inset-bottom))}
+.zm .zbox .card{border:0;box-shadow:none;padding:4px 4px 6px}
+.zm .zbox .chart{height:min(56vh,440px)}
+.zm .zbox .title{font-size:17px}
+.card[id^="c-"]{cursor:zoom-in}
 .sheet.on{display:block}
 .sheet .bg{position:absolute;inset:0;background:rgba(0,0,0,.35)}
 .sheet .pn{position:absolute;left:0;right:0;bottom:0;max-height:86vh;background:var(--bg);border-radius:16px 16px 0 0;display:flex;flex-direction:column;max-width:760px;margin:0 auto}
@@ -127,6 +138,7 @@ h2 small{font-weight:600;font-size:12px;color:#6b7a72;letter-spacing:-.02em}
 <section id="us"><h2>미국 <small>금리·시장·물가·고용·재정</small></h2>
 <div class="grid" id="g-us"></div></section>
 
+<div class="zm" id="zm"><div class="zbg" id="zmBg"></div><div class="zpn"><header><button type="button" id="zmX">닫기 ✕</button></header><div class="zbox" id="zbox"></div></div></div>
 <div class="sheet" id="sheet"><div class="bg" id="sheetBg"></div><div class="pn">
   <header><b>지표 편집</b><button type="button" class="ok" id="selOk">완료</button></header>
   <div class="sum"><span>준비된 지표 <b id="selReady">-</b>개</span><span>선택 <b id="selCount">-</b>개</span></div>
@@ -540,7 +552,7 @@ function getSeries(data,id,spec){
 
 /* ---------- 렌더 ---------- */
 const charts={},resets={},lazy=new Map();
-const FS=window.innerWidth<600?11:12;
+const FS=window.innerWidth<600?10:12;
 const FONT=getComputedStyle(document.body).fontFamily;
 const dk=h=>'#'+[1,3,5].map(i=>Math.round(parseInt(h.substr(i,2),16)*.78).toString(16).padStart(2,'0')).join('');
 const barLabels={id:'barLabels',afterDatasetsDraw(chart,_a,opts){
@@ -698,6 +710,28 @@ function drawCard(spec,data){
   };
   if(io){lazy.set(el,make);io.observe(el);}else make();
 }
+/* 카드 확대 보기 */
+const zm=document.getElementById('zm'),zbox=document.getElementById('zbox');
+function openZoom(id){
+  const spec=CARDS.find(c=>c.id===id);if(!spec||!lastData)return;
+  zbox.innerHTML='';
+  drawCard({...spec,id:'z-'+spec.id,box:'zbox'},lastData);
+  zm.classList.add('on');document.body.style.overflow='hidden';
+}
+function closeZoom(){
+  Object.keys(charts).filter(k=>k.startsWith('z-')).forEach(k=>{charts[k].destroy();delete charts[k];});
+  Object.keys(resets).filter(k=>k.startsWith('z-')).forEach(k=>delete resets[k]);
+  zbox.querySelectorAll('.card').forEach(e=>{if(io)io.unobserve(e);lazy.delete(e);});
+  zbox.innerHTML='';zm.classList.remove('on');document.body.style.overflow='';
+}
+document.getElementById('zmX').onclick=closeZoom;
+document.getElementById('zmBg').onclick=closeZoom;
+document.addEventListener('click',e=>{
+  const card=e.target.closest('.card[id^="c-"]');
+  if(!card||card.closest('#zbox'))return;
+  if(e.target.closest('a,label,button,.chart'))return;   /* 차트 터치는 스크럽용 */
+  openZoom(card.id.slice(2));
+});
 document.addEventListener('touchstart',e=>{Object.keys(resets).forEach(id=>{const c=document.getElementById('c-'+id);if(c&&!c.contains(e.target))resets[id]();});},{passive:true,capture:true});
 
 /* ---------- 카테고리 메뉴 ---------- */
