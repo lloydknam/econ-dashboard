@@ -511,6 +511,14 @@ def _kdollar(v):
         return None
 
 
+def _usd(m):
+    # Approximate dollar volume: contracts traded x last trade price (0..1 dollars).
+    try:
+        return float(m.get("volume_fp") or 0) * float(m.get("last_price_dollars") or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
 def fetch_kalshi_group(spec, previous_rows, today):
     import re as _re
     data = get_json(f"{KALSHI_BASE}/markets?series_ticker={spec['series']}&status=open&limit=200")
@@ -518,6 +526,8 @@ def fetch_kalshi_group(spec, previous_rows, today):
     if spec.get("earliest_event") and mk:
         first = min(mk, key=lambda m: m.get("close_time") or "9")
         mk = [m for m in mk if m.get("event_ticker") == first.get("event_ticker")]
+    # Kalshi-style total: every open market in the group, not just the rows shown.
+    group_total = round(sum(_usd(m) for m in mk), 2)
     prev = {str(r.get("series")): r for r in previous_rows}
     cand = []
     for m in mk:
@@ -552,7 +562,7 @@ def fetch_kalshi_group(spec, previous_rows, today):
         hist.append({"date": today, "value": round(prob, 1)})
         rows.append({
             "name": label, "series": sid, "group": spec["series"], "date": today, "value": round(prob, 1),
-            "unit": "%", "bid": bid, "ask": ask, "volume": _num(m.get("volume_fp")), "rank": rank,
+            "unit": "%", "bid": bid, "ask": ask, "volume": _num(m.get("volume_fp")), "volume_usd": round(_usd(m), 2), "group_total_usd": group_total, "rank": rank,
             "close_time": m.get("close_time", ""), "source": "Kalshi", "history": hist[-400:],
         })
     return rows
