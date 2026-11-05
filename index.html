@@ -112,7 +112,7 @@ h2 small{font-weight:600;font-size:12px;color:#6b7a72;letter-spacing:-.02em}
     <button class="gear" id="gear" type="button">⚙ 지표 편집</button>
   </div>
   <nav class="menu" id="menu" aria-label="카테고리">
-    <a href="#fin" data-s="fin" class="on">금융</a><a href="#eco" data-s="eco">경제</a><a href="#mon" data-s="mon">통화·대외</a><a href="#fis" data-s="fis">재정</a><a href="#bud" data-s="bud">예산</a><a href="#pm" data-s="pm">예측</a><a href="#us" data-s="us">미국</a>
+    <a href="#fin" data-s="fin" class="on">금융</a><a href="#eco" data-s="eco">경제</a><a href="#mon" data-s="mon">통화·대외</a><a href="#fis" data-s="fis">재정</a><a href="#emp" data-s="emp">고용</a><a href="#bud" data-s="bud">예산</a><a href="#pm" data-s="pm">예측</a><a href="#us" data-s="us">미국</a>
   </nav>
 </header>
 <div class="notice" id="notice"></div>
@@ -128,6 +128,9 @@ h2 small{font-weight:600;font-size:12px;color:#6b7a72;letter-spacing:-.02em}
 
 <section id="fis"><h2>재정 <small>수입·지출·국채·세목</small></h2>
 <div class="grid" id="g-fis"></div></section>
+
+<section id="emp"><h2>고용 <small>경제활동인구조사 · 월간</small></h2>
+<div class="grid" id="g-emp"></div></section>
 
 <section id="bud"><h2>예산 <small>분야·소관 부처별 세출예산</small></h2>
 <div class="grid" id="g-bud"></div></section>
@@ -403,6 +406,16 @@ K('g-bud','ob35','예산 중앙선거관리위원회','A',[['OF:OFFC:중앙선�
 K('g-bud','ob36','예산 국가데이터처','A',[['OF:OFFC:국가데이터처','국가데이터처']],{d:1,unit:'조원',type:'bar',win:7,labelAll:true,delta:pct});
 K('g-bud','ob37','예산 소방청','A',[['OF:OFFC:소방청','소방청']],{d:1,unit:'조원',type:'bar',win:7,labelAll:true,delta:pct});
 
+/* 고용 (KOSIS 경제활동인구조사, 15세 이상 전체) */
+K('g-emp','e_rate','고용률','M',[['K:emp_rate','고용률']],{d:1,unit:'%',win:24});
+K('g-emp','e_unemp','실업률','M',[['K:unemp_rate','실업률']],{d:1,unit:'%',win:24});
+K('g-emp','e_part','경제활동참가율','M',[['K:part_rate','참가율']],{d:1,unit:'%',win:24});
+K('g-emp','e_emp','취업자 수','M',[['K:emp','취업자']],{d:0,unit:'만명',scale:0.1,win:24,type:'bar',labelAll:true});
+K('g-emp','e_empd','취업자 전년동월 대비 증감','M',[['K:emp','증감']],{d:0,unit:'만명',scale:0.1,dyoy:true,win:24,type:'bar',labelAll:true});
+K('g-emp','e_unemp_n','실업자 수','M',[['K:unemp','실업자']],{d:1,unit:'만명',scale:0.1,win:24});
+K('g-emp','e_act','경제활동인구','M',[['K:econ_act','경활']],{d:0,unit:'만명',scale:0.1,win:24});
+K('g-emp','e_inact','비경제활동인구','M',[['K:inactive','비경활']],{d:0,unit:'만명',scale:0.1,win:24});
+K('g-emp','e_pop','15세 이상 인구','M',[['K:pop','인구']],{d:0,unit:'만명',scale:0.1,win:24});
 /* 예측시장 (Kalshi) */
 CARDS.push({box:'g-pm',id:'pm_bok',title:'금통위 결과 예상',freq:'D',pm:'KXCBDECISIONKOREA',top:5,order:['C25P','C25','HOLD','H25','H25P'],series:[]});
 CARDS.push({box:'g-pm',id:'pm_kospi',title:'올해 말 코스피 수준',freq:'D',pm:'KXKOSPI',top:6,series:[]});
@@ -588,7 +601,7 @@ const DEF=['pm_bok','pm_kospi','pm_pres','pm_fed','pm_rec','pm_cpic','pm_pay','p
  'policy','m2','hh','loanrate','fxres','ca','trade','apt',
  'tax','exp','bal','ktb_bal','t_vat','int','debt','debt_gdp','of_wel',
  'us_y','us_sp','wti','ccpi','nfp','usdjpy','sp500','nasdaq','vix'];
-const NAMES={'g-fin':'금융','g-eco':'경제','g-mon':'통화·대외','g-fis':'재정','g-bud':'예산','g-pm':'예측시장','g-us':'미국'};
+const NAMES={'g-fin':'금융','g-eco':'경제','g-mon':'통화·대외','g-fis':'재정','g-emp':'고용','g-bud':'예산','g-pm':'예측시장','g-us':'미국'};
 let sel;
 try{const j=JSON.parse(localStorage.getItem('econ-sel')||'null');sel=new Set(Array.isArray(j)?j:DEF);
   /* 새로 추가된 기본 지표는 기존 사용자 선택에도 한 번 자동 반영 */
@@ -736,7 +749,7 @@ document.addEventListener('touchstart',e=>{Object.keys(resets).forEach(id=>{cons
 
 /* ---------- 카테고리 메뉴 ---------- */
 const menuLinks=[...document.querySelectorAll('#menu a')];
-const SECS=['fin','eco','mon','fis','bud','pm','us'];
+const SECS=['fin','eco','mon','fis','emp','bud','pm','us'];
 function spy(){
   const hh=document.querySelector('.top').offsetHeight;
   document.documentElement.style.setProperty('--hh',hh+'px');
