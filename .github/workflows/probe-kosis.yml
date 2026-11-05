@@ -1,0 +1,12 @@
+name: probe-kosis
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/probe_kosis.py
+        env:
+          KOSIS_API_KEY: ${{ secrets.KOSIS_API_KEY }}
