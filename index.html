@@ -188,6 +188,7 @@ K('g-fin','msb','통안채 2년·산금채 1년','D',[[R+'010400002','통안 2�
 
 /* 글로벌 시세 (네이버·야후 우선, 없으면 ECOS/FRED) */
 K('g-fin','sp500','S&P 500','D',[['Y:^GSPC|SP500','S&P']],{d:0,delta:pct});
+K('g-fin','sox','필라델피아 반도체지수','D',[['Y:^SOX','SOX']],{d:0,delta:pct});
 K('g-fin','nasdaq','나스닥 종합','D',[['Y:^IXIC|NASDAQCOMP','나스닥']],{d:0,delta:pct});
 K('g-fin','dow','다우존스','D',[['Y:^DJI|DJIA','다우']],{d:0,delta:pct});
 K('g-fin','vix','VIX 변동성지수','D',[['Y:^VIX|VIXCLS','VIX']],{d:1,delta:df('',1)});
@@ -213,6 +214,7 @@ K('g-fin','msft','마이크로소프트','D',[['Y:MSFT','MSFT']],{d:2,unit:'$',d
 K('g-fin','tsla','테슬라','D',[['Y:TSLA','TSLA']],{d:2,unit:'$',delta:pct});
 
 /* 경제 */
+K('g-eco','gdpnow','GDP 나우캐스트(애틀랜타 연준)','D',[['GDPNOW','GDPNow']],{d:1,unit:'%',win:24});
 K('g-eco','gdp','실질 GDP 성장률(전기비)','Q',[['200Y102','GDP']],{d:1,unit:'%',type:'bar',win:8,labelAll:true});
 K('g-eco','gdp_mfg','제조업 성장률(전기비)','Q',[['200Y102:10114','제조업']],{d:1,unit:'%',type:'bar',win:8,labelAll:true});
 K('g-eco','gdp_con','건설업 성장률(전기비)','Q',[['200Y102:10115','건설업']],{d:1,unit:'%',type:'bar',win:8,labelAll:true});
