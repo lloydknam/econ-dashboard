@@ -31,5 +31,6 @@
  {"id":"Y:NVDA","src":"yahoo","symbol":"NVDA","name":"엔비디아","freq":"D","stooq":"nvda.us","naver":["stock","NVDA.O"]},
  {"id":"Y:AAPL","src":"yahoo","symbol":"AAPL","name":"애플","freq":"D","stooq":"aapl.us","naver":["stock","AAPL.O"]},
  {"id":"Y:MSFT","src":"yahoo","symbol":"MSFT","name":"마이크로소프트","freq":"D","stooq":"msft.us","naver":["stock","MSFT.O"]},
- {"id":"Y:TSLA","src":"yahoo","symbol":"TSLA","name":"테슬라","freq":"D","stooq":"tsla.us","naver":["stock","TSLA.O"]}
+ {"id":"Y:TSLA","src":"yahoo","symbol":"TSLA","name":"테슬라","freq":"D","stooq":"tsla.us","naver":["stock","TSLA.O"]},
+ {"id":"Y:^SOX","src":"yahoo","symbol":"^SOX","name":"필라델피아 반도체지수","freq":"D"}
 ]

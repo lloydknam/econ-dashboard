@@ -191,5 +191,6 @@
  {"id":"DTB6","name":"미국 단기 국채 6개월 · 6개월","freq":"D","unit":"%"},
  {"id":"DTB1YR","name":"미국 단기 국채 1년 · 1년","freq":"D","unit":"%"},
  {"id":"DGS7","name":"미 국채 7년 · 7년","freq":"D","unit":"%"},
- {"id":"MORTGAGE5US","name":"5년 변동 모기지 금리 · 5/1 ARM","freq":"W","unit":"%"}
+ {"id":"MORTGAGE5US","name":"5년 변동 모기지 금리 · 5/1 ARM","freq":"W","unit":"%"},
+ {"id":"GDPNOW","name":"애틀랜타 연준 GDP 나우캐스트","freq":"D","unit":"%"}
 ]
